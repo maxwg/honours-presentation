@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Machine Learning Applications in Parkinson's Diagnosis</title>
+    <title>Applications of Machine Learning in Parkinson's Diagnosis</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
     <meta name="author" content="Hakim El Hattab">
@@ -40,17 +40,14 @@
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
-        <section class="full" data-background-color="#211" data-background-image="img/pd2.png">
-            <h1 style="margin-top:90px;">Machine Learning Applications in Parkinson's Diagnosis</h1>
+        <section class="full" data-background-image="img/pd2.png">
+            <h1 style="margin-top:100px;">Applications of Machine Learning   in Parkinson's Diagnosis</h1>
             <!--<h2 style="text-align:right">HONOURS 2017</h2>-->
             <img data-src="img/anu_logo.png" class="top-left" style="width:240px;">
             <p class="bottom-left">
                 Max Wang <br style="display:block; margin-top:100px"/><span style="position:relative; top:-0.2em"><small style="margin-top:0.3em"><a
                     href="mailto:u5584091@anu.edu.au">&lt;u5584091@anu.edu.au&gt;</a></small></span>
             </p>
-            <blockquote>
-                Parkinson's Disease afflicts
-            </blockquote>
             <p style="text-align:right; position:absolute; bottom:0.4em; right:0;">
                 <span style=" font-size:0.8em; line-height:0.8em">
                 Supervised by: <br/>
@@ -59,19 +56,41 @@
                 </span>
             </p>
         </section>
+        <section data-background-image="img/pd2.png">
+            <blockquote style="background-color:rgba(0,0,0,0.2)">
+                Parkinson’s Disease is a degenerative neurological disorder that affects an estimated 53 million people worldwide<sup> 1, 2</sup>
+            </blockquote>
+        </section>
         <section>
-            <div style="width:900px; text-align:left">
-                <div style="float:left; width:70%; font-family:'Fira Sans'; font-weight:500">
+            <blockquote>
+                Parkinson’s Disease is a degenerative neurological disorder that affects an estimated 53 million people worldwide<sup> 1, 2</sup>
+            </blockquote>
+        </section>
+<section>
+    <div style="width:900px; text-align:left">
+        <div style="float:left; width:70%; font-family:'Fira Sans'; font-weight:500">
                 <span style="float:left; display:block; color:#1b91ff; font-style:italic">&ldquo;FOR PATIENTS, PARKINSON'S DISEASE <br/>&nbsp;IS NOT A TIME-NEUTRAL SITUATION, <br/>&nbsp;IT'S A TICKING CLOCK&rdquo;
                 </span> <br/>
-                    <span style="float:right; position:relative; top:-0.4em; color:#FF4433">- MICHAEL J. FOX</span>
-                </div>
-                <img data-src="img/mjfox.png" style="float:right; width:30%">
-            </div>
-        </section>
-
+            <span style="float:right; position:relative; top:-0.4em; color:#FF4433">- MICHAEL J. FOX</span>
+        </div>
+        <img data-src="img/mjfox.png" style="float:right; width:30%">
+    </div>
+</section>
         <section>
-            <h2>Parkinson's Disease</h2>
+            <p><large>Parkinson's is currently diagnosed with a subjective test by a trained neurologist.</large> </p>
+            <ul>
+                <li class="fragment">Misdiagnosis rates are high. Studies range from 9-34&#37;<sup>3,4,5,6</sup></li>
+                <li class="fragment">Diagnosis is difficult in early stages of the disease as symptoms have not fully manifested<sup> 3</sup></li>
+                <li class="fragment">There are a number of diseases with similar symptoms: <sup> 7</sup>
+                    <ul>
+                        <li>Essential Tremor</li>
+                        <li>Dystonia</li>
+                        <li>Multiple Systems Atrophy</li>
+                        <li>Supranuclear Palsy</li>
+                        <li>Huntingtons Disease and more</li>
+                    </ul>
+                </li>
+            </ul>
         </section>
 
         <section data-transition="concave" data-background-transition="concave"
@@ -82,107 +101,94 @@
                 show you examples of what it can do.
             </p>
         </section>
-
-        <!-- Example of nested vertical slides -->
-        <section data-background-color="#eee">
-            <section>
-                <h2>Vertical Slides</h2>
-                <p>Slides can be nested inside of each other.</p>
-                <p>Use the <em>Space</em> key to navigate through all slides.</p>
-                <br>
-                <a href="#" class="navigate-down">
-                    <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png"
-                         alt="Down arrow">
-                </a>
-            </section>
-            <section>
-                <h2>Basement Level 1</h2>
-                <p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-            </section>
-            <section>
-                <h2>Basement Level 2</h2>
-                <p>That's it, time to go back up.</p>
-                <br>
-                <a href="#/2">
-                    <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png"
-                         alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-                </a>
-            </section>
-        </section>
-
-        <section>
-            <section>
-                <h2>Fragment Styles</h2>
-                <p>There's different types of fragments, like:</p>
-                <p class="fragment grow">grow</p>
-                <p class="fragment shrink">shrink</p>
-                <p class="fragment fade-out">fade-out</p>
-                <p class="fragment fade-up">fade-up (also down, left and right!)</p>
-                <p class="fragment current-visible">current-visible</p>
-                <p>Highlight <span class="fragment highlight-red">red</span> <span
-                        class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span>
-                </p>
-            </section>
-        </section>
-
-        <section>
-            <section data-background="#dddddd">
-                <h2>Slide Backgrounds</h2>
-                <p>
-                    Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color
-                    formats are supported.
-                </p>
-                <a href="#" class="navigate-down">
-                    <img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png"
-                         alt="Down arrow">
-                </a>
-            </section>
-            <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-                <h2>Image Backgrounds</h2>
-                <pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-            </section>
-            <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png"
-                     data-background-repeat="repeat" data-background-size="100px">
-                <h2>Tiled Backgrounds</h2>
-                <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-            </section>
-            <section
-                    data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"
-                    data-background-color="#000000">
-                <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-                    <h2>Video Backgrounds</h2>
-                    <pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-                </div>
-            </section>
-            <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-                <h2>... and GIFs!</h2>
-            </section>
-        </section>
-
-        <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-            <h2>Background Transitions</h2>
-            <p>
-                Different background transitions are available via the backgroundTransition option. This one's called
-                "zoom".
-            </p>
-            <pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-        </section>
-
-        <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-            <h2>Background Transitions</h2>
-            <p>
-                You can override background transitions per-slide.
-            </p>
-            <pre><code class="hljs"
-                       style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-        </section>
-        <section>
+        <section class="scrollable">
+            <small>
             <h3>References</h3>
+                <ol>
+                    <li>Tolosa, Eduardo, Gregor Wenning, and Werner Poewe. "The diagnosis of Parkinson's disease." The Lancet Neurology 5.1 (2006): 75-86</li>
+                    <li>J. M. Savitt, V. L. Dawson, T. M. Dawson, Diagnosis and treatment of parkinson disease: molecules to medicine, The Journal of clinical investigation 116 (2006) 1744–1754</li>
+                    <li>J. Jankovic, A. H. Rajput, M. P. McDermott, D. P. Perl, The evolution of diagnosis in early parkinson disease, Archives of neurology 57 (2000) 369–372.</li>
+                    <li> D. J. Brooks, Parkinson’s disease: diagnosis, Parkinsonism & related disorders 18 (2012) S31–S33.</li>
+                    <li>E. Tolosa, G. Wenning, W. Poewe, The diagnosis of parkinson’s disease, The Lancet Neurology 5 (2006) 75–86.</li>
+                    <li>A. J. Hughes, S. E. Daniel, L. Kilford, A. J. Lees, Accuracy of clinical diagnosis of idiopathic parkinson’s disease: a clinico-pathological study</li>
+                    <li>S. Jain, S. E. Lo, E. D. Louis, Common misdiagnosis of a common neurological disorder: how are we misdiagnosing essential tremor?, Archives of neurology 63 (2006) 1100–1104.</li>
+                </ol>
             <h3>Slide Material Sources</h3>
-            http://www.healthline.com/hlcmsresource/images/topic_centers/neupro-parkinsons/642x361_Parkinsons_Disease_Caregiving.jpg
+            <ul>
+                <li>http://www.healthline.com/hlcmsresource/images/topic_centers/neupro-parkinsons/ 642x361_Parkinsons_Disease_Caregiving.jpg</li>
+                <li>https://www.michaeljfox.org/files/foundation/1_2.2.jpg</li>
+            </ul>
+            </small>
 
         </section>
         <section>
+        <!--<section>-->
+            <!--<section>-->
+                <!--<h2>Fragment Styles</h2>-->
+                <!--<p>There's different types of fragments, like:</p>-->
+                <!--<p class="fragment grow">grow</p>-->
+                <!--<p class="fragment shrink">shrink</p>-->
+                <!--<p class="fragment fade-out">fade-out</p>-->
+                <!--<p class="fragment fade-up">fade-up (also down, left and right!)</p>-->
+                <!--<p class="fragment current-visible">current-visible</p>-->
+                <!--<p>Highlight <span class="fragment highlight-red">red</span> <span-->
+                        <!--class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span>-->
+                <!--</p>-->
+            <!--</section>-->
+        <!--</section>-->
+
+        <!--<section>-->
+            <!--<section data-background="#dddddd">-->
+                <!--<h2>Slide Backgrounds</h2>-->
+                <!--<p>-->
+                    <!--Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color-->
+                    <!--formats are supported.-->
+                <!--</p>-->
+                <!--<a href="#" class="navigate-down">-->
+                    <!--<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png"-->
+                         <!--alt="Down arrow">-->
+                <!--</a>-->
+            <!--</section>-->
+            <!--<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">-->
+                <!--<h2>Image Backgrounds</h2>-->
+                <!--<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>-->
+            <!--</section>-->
+            <!--<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png"-->
+                     <!--data-background-repeat="repeat" data-background-size="100px">-->
+                <!--<h2>Tiled Backgrounds</h2>-->
+                <!--<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>-->
+            <!--</section>-->
+            <!--<section-->
+                    <!--data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"-->
+                    <!--data-background-color="#000000">-->
+                <!--<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">-->
+                    <!--<h2>Video Backgrounds</h2>-->
+                    <!--<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>-->
+                <!--</div>-->
+            <!--</section>-->
+            <!--<section data-background="http://i.giphy.com/90F8aUepslB84.gif">-->
+                <!--<h2>... and GIFs!</h2>-->
+            <!--</section>-->
+        <!--</section>-->
+
+        <!--<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">-->
+            <!--<h2>Background Transitions</h2>-->
+            <!--<p>-->
+                <!--Different background transitions are available via the backgroundTransition option. This one's called-->
+                <!--"zoom".-->
+            <!--</p>-->
+            <!--<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>-->
+        <!--</section>-->
+
+        <!--<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">-->
+            <!--<h2>Background Transitions</h2>-->
+            <!--<p>-->
+                <!--You can override background transitions per-slide.-->
+            <!--</p>-->
+            <!--<pre><code class="hljs"-->
+                       <!--style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>-->
+        <!--</section>-->
+
             <h2>Pretty Code</h2>
             <pre><code class="hljs" data-trim contenteditable>
 function linkify( selector ) {
@@ -201,72 +207,6 @@ function linkify( selector ) {
 }
 					</code></pre>
             <p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.
-            </p>
-        </section>
-
-        <section>
-            <h2>Marvelous List</h2>
-            <ul>
-                <li>No order here</li>
-                <li>Or here</li>
-                <li>Or here</li>
-                <li>Or here</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Fantastic Ordered List</h2>
-            <ol>
-                <li>One is smaller than...</li>
-                <li>Two is smaller than...</li>
-                <li>Three!</li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>Tabular Tables</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Value</th>
-                    <th>Quantity</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Apples</td>
-                    <td>$1</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>Lemonade</td>
-                    <td>$2</td>
-                    <td>18</td>
-                </tr>
-                <tr>
-                    <td>Bread</td>
-                    <td>$3</td>
-                    <td>2</td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section>
-            <h2>Clever Quotes</h2>
-            <p>
-                These guys come in two forms, inline: <q
-                    cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                &ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-            </p>
-        </section>
-
-        <section>
-            <h2>Intergalactic Interconnections</h2>
-            <p>
-                You can link between slides internally,
-                <a href="#/2/3">like this</a>.
             </p>
         </section>
 
@@ -291,54 +231,7 @@ function linkify( selector ) {
                     style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen></iframe>
         </section>
 
-        <section>
-            <h2>Global State</h2>
-            <p>
-                Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-                will be added as a class to the document element when the slide is open. This lets you
-                apply broader style changes, like switching the page background.
-            </p>
-        </section>
 
-        <section data-state="customevent">
-            <h2>State Events</h2>
-            <p>
-                Additionally custom events can be triggered on a per slide basis by binding to the
-                <code>data-state</code> name.
-            </p>
-            <pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-        </section>
-
-        <section>
-            <h2>Take a Moment</h2>
-            <p>
-                Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want
-                to take distracting slides off the screen.
-            </p>
-        </section>
-
-        <section>
-            <h2>Much more</h2>
-            <ul>
-                <li>Right-to-left support</li>
-                <li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-                <li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-                <li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-                <li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-            </ul>
-        </section>
-
-        <section style="text-align: left;">
-            <h1>THE END</h1>
-            <p>
-                - <a href="http://slides.com">Try the online editor</a> <br>
-                - <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-            </p>
-        </section>
 
     </div>
 
@@ -363,7 +256,7 @@ Reveal.addEventListener( 'customevent', function() {
         transitionSpeed: 'fast', // default/fast/slow
         backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
         viewDistance: 3,
-        transition: 'concave', // none/fade/slide/convex/concave/zoom
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
         autoPlayMedia: true,
 
         // More info https://github.com/hakimel/reveal.js#dependencies

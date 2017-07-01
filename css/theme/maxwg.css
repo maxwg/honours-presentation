@@ -60,7 +60,7 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 1.8em; }
+  font-size: 1.65em; }
 
 .reveal h2 {
   font-size: 1.5em; }
@@ -197,10 +197,19 @@ body {
   border-bottom: none; }
 
 .reveal sup {
-  vertical-align: super; }
+  vertical-align: super;
+  font-size:0.5em;
+}
 
 .reveal sub {
   vertical-align: sub; }
+.reveal li{
+  line-height:1.5;
+}
+.reveal large{
+  font-size: 1.2em;
+  font-family: "Fira Sans"
+}
 
 .reveal small {
   display: inline-block;
@@ -388,4 +397,9 @@ body {
   text-align: left;
   padding:20px;
   padding-top: 40px;
+}
+.scrollable {
+  height:100%;
+  overflow-y: auto  !important;
+  overflow-x: hidden !important;
 }
