@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script>
-bib =
-    `<span>@article{begg2006neural,
+<script>
+    bib =
+        `<span>@article{begg2006neural,
   title={Neural networks for detection and classification of walking pattern changes due to ageing},
   author={Begg, Rezaul and Kamruzzaman, J},
   journal={Australasian Physical \& Engineering Science in Medicine},
@@ -1100,37 +1097,50 @@ url={http://www.uptodate.com/contents/functional-movement-disorders}
   journal={arXiv preprint arXiv:1610.08250},
   year={2016}
 }
-
 </span>`;
 
-String.prototype.replaceAll = function(search, replacement) {
-    var target = this;
-    return target.replace(new RegExp(search, 'g'), replacement);
-};
+    String.prototype.replaceAll = function(search, replacement) {
+        var target = this;
+        return target.replace(new RegExp(search, 'g'), replacement);
+    };
 
 
-document.addEventListener("DOMContentLoaded", function(event) {
+    document.addEventListener("DOMContentLoaded", function(event) {
 
-    bib = bib.replace(/\n/g, "<br />");
-    bib = bib.replaceAll("<br /><br />", "<br />");
-    bib = bib.replaceAll("<br /><br />", "<br />");
-    bib = bib.replaceAll("<br /><br />", "<br />");
+        bib = bib.replace(/\n/g, "<br />");
+        bib = bib.replaceAll("<br /><br />", "<br />");
+        bib = bib.replaceAll("<br /><br />", "<br />");
 
-    document.getElementById("bibsmall").innerHTML = bib;
-    bib += bib;
-    document.getElementById("bibdiv").innerHTML=bib;
-    scrollspeed = 100;
-    var timerID = setInterval(function() {
-        window.scrollBy(0, scrollspeed);
-        document.getElementById("scrollindicator").style.top = window.pageYOffset*2 / document.getElementById("bibdiv").clientHeight * document.getElementById("bibsmall").clientHeight * 0.5+ "px";
-        document.getElementById("bibsmall").style.top = - window.pageYOffset*2 / document.getElementById("bibdiv").clientHeight * document.getElementById("bibsmall").clientHeight * 0.5 + "px";
-        if( window.pageYOffset >=
-            document.getElementById("bibdiv").clientHeight/2) {
-            window.scrollBy(0, -document.getElementById("bibdiv").clientHeight/2)
-        }
-            }, 20);
-});
+        document.getElementById("bibsmall").innerHTML = bib;
+        bib += `
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>`;
+        document.getElementById("bibdiv").innerHTML=bib;
+        scrollspeed = 100;
+        var timerID = setInterval(function() {
+            window.scrollBy(0, scrollspeed);
+            document.getElementById("scrollindicator").style.top = window.pageYOffset*2 / document.getElementById("bibdiv").clientHeight * document.getElementById("bibsmall").clientHeight * 0.5+ "px";
+            document.getElementById("bibsmall").style.top = - window.pageYOffset*2 / document.getElementById("bibdiv").clientHeight * document.getElementById("bibsmall").clientHeight * 0.5 + "px";
+            if( window.pageYOffset >=
+                document.getElementById("bibdiv").clientHeight/2) {
+                window.scrollBy(0, -document.getElementById("bibdiv").clientHeight/2)
+            }
+        }, 20);
+    });
 </script>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body style="background-color:#222; color:#DDD; overflow:hidden">
 <div style="position:fixed; top:0; right:10px; background-color:rgba(16, 100, 180, 0.6); height:50px; width:100px" id="scrollindicator">    </div>
