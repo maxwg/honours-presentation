@@ -1112,29 +1112,17 @@ url={http://www.uptodate.com/contents/functional-movement-disorders}
         bib = bib.replaceAll("<br /><br />", "<br />");
 
         document.getElementById("bibsmall").innerHTML = bib;
-        bib += `
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>`;
+        bib = bib + `<p style='height:2048px'></p>`;
         document.getElementById("bibdiv").innerHTML=bib;
         scrollspeed = 100;
         var timerID = setInterval(function() {
             window.scrollBy(0, scrollspeed);
-            document.getElementById("scrollindicator").style.top = window.pageYOffset*2 / document.getElementById("bibdiv").clientHeight * document.getElementById("bibsmall").clientHeight * 0.5+ "px";
-            document.getElementById("bibsmall").style.top = - window.pageYOffset*2 / document.getElementById("bibdiv").clientHeight * document.getElementById("bibsmall").clientHeight * 0.5 + "px";
+            document.getElementById("scrollindicator").style.top = window.pageYOffset / (document.getElementById("bibdiv").clientHeight-2048) * document.getElementById("bibsmall").clientHeight * 0.5+ "px";
+            document.getElementById("bibsmall").style.top = - window.pageYOffset / (document.getElementById("bibdiv").clientHeight - 2048) * document.getElementById("bibsmall").clientHeight * 0.5 +20+ "px";
             if( window.pageYOffset >=
-                document.getElementById("bibdiv").clientHeight/2) {
-                window.scrollBy(0, -document.getElementById("bibdiv").clientHeight/2)
-            }
+                (document.getElementById("bibdiv").clientHeight - 2048))
+                window.scrollBy(0, -(document.getElementById("bibdiv").clientHeight - 2048))
+
         }, 20);
     });
 </script>
