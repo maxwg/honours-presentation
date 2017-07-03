@@ -212,6 +212,10 @@ vertical-align:top;}
   font-family: "Fira Sans"
 }
 
+smaller{
+  font-size:0.45em;
+}
+
 .reveal small {
   display: inline-block;
   font-size: 0.6em;
