@@ -419,18 +419,18 @@ body {
 
 /* Global transition speed settings */
 .reveal[data-transition-speed="fast"] .slides section {
-	transition-duration: 400ms;
+	transition-duration: 200ms;
 }
 .reveal[data-transition-speed="slow"] .slides section {
-	transition-duration: 1200ms;
+	transition-duration: 500ms;
 }
 
 /* Slide-specific transition speed overrides */
 .reveal .slides section[data-transition-speed="fast"] {
-	transition-duration: 400ms;
+	transition-duration: 200ms;
 }
 .reveal .slides section[data-transition-speed="slow"] {
-	transition-duration: 1200ms;
+	transition-duration: 500ms;
 }
 
 .reveal .slides>section.stack {
@@ -1036,10 +1036,10 @@ body {
 
 /* Global transition speed settings */
 .reveal[data-transition-speed="fast"]>.backgrounds .slide-background {
-	transition-duration: 400ms;
+	transition-duration: 200ms;
 }
 .reveal[data-transition-speed="slow"]>.backgrounds .slide-background {
-	transition-duration: 1200ms;
+	transition-duration: 500ms;
 }
 
 
@@ -1161,10 +1161,10 @@ body {
 
 /* Global transition speed settings */
 .reveal.has-parallax-background[data-transition-speed="fast"] .backgrounds {
-	transition-duration: 400ms;
+	transition-duration: 200ms;
 }
 .reveal.has-parallax-background[data-transition-speed="slow"] .backgrounds {
-	transition-duration: 1200ms;
+	transition-duration: 500ms;
 }
 
 
@@ -1341,7 +1341,7 @@ body {
 	bottom: 20px;
 	z-index: 30;
 	cursor: pointer;
-	transition: all 400ms ease;
+	transition: all 200ms ease;
 }
 
 .reveal.overview .playback {
@@ -1373,7 +1373,7 @@ body {
 	padding: 0 2px;
 
 	pointer-events: none;
-	transition: all 400ms ease;
+	transition: all 200ms ease;
 	transform-origin: 50% 0%;
 	transform-style: preserve-3d;
 	backface-visibility: hidden;

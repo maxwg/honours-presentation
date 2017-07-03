@@ -350,21 +350,21 @@ body {
 
 /* Global transition speed settings */
 .reveal[data-transition-speed="fast"] .slides section {
-  -webkit-transition-duration: 400ms;
-          transition-duration: 400ms; }
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms; }
 
 .reveal[data-transition-speed="slow"] .slides section {
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms; }
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms; }
 
 /* Slide-specific transition speed overrides */
 .reveal .slides section[data-transition-speed="fast"] {
-  -webkit-transition-duration: 400ms;
-          transition-duration: 400ms; }
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms; }
 
 .reveal .slides section[data-transition-speed="slow"] {
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms; }
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms; }
 
 .reveal .slides > section.stack {
   padding-top: 0;
@@ -1010,12 +1010,12 @@ body {
 
 /* Global transition speed settings */
 .reveal[data-transition-speed="fast"] > .backgrounds .slide-background {
-  -webkit-transition-duration: 400ms;
-          transition-duration: 400ms; }
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms; }
 
 .reveal[data-transition-speed="slow"] > .backgrounds .slide-background {
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms; }
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms; }
 
 /*********************************************
  * OVERVIEW
@@ -1102,17 +1102,17 @@ body {
  * PARALLAX BACKGROUND
  *********************************************/
 .reveal.has-parallax-background .backgrounds {
-  -webkit-transition: all 0.8s ease;
-          transition: all 0.8s ease; }
+  -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease; }
 
 /* Global transition speed settings */
 .reveal.has-parallax-background[data-transition-speed="fast"] .backgrounds {
-  -webkit-transition-duration: 400ms;
-          transition-duration: 400ms; }
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms; }
 
 .reveal.has-parallax-background[data-transition-speed="slow"] .backgrounds {
-  -webkit-transition-duration: 1200ms;
-          transition-duration: 1200ms; }
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms; }
 
 /*********************************************
  * LINK PREVIEW OVERLAY
@@ -1273,8 +1273,8 @@ body {
   bottom: 20px;
   z-index: 30;
   cursor: pointer;
-  -webkit-transition: all 400ms ease;
-          transition: all 400ms ease; }
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease; }
 
 .reveal.overview .playback {
   opacity: 0;
@@ -1302,8 +1302,8 @@ body {
   position: relative;
   padding: 0 2px;
   pointer-events: none;
-  -webkit-transition: all 400ms ease;
-          transition: all 400ms ease;
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease;
   -webkit-transform-origin: 50% 0%;
           transform-origin: 50% 0%;
   -webkit-transform-style: preserve-3d;
