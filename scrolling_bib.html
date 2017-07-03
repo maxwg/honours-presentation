@@ -1114,7 +1114,7 @@ url={http://www.uptodate.com/contents/functional-movement-disorders}
         document.getElementById("bibsmall").innerHTML = bib;
         bib = bib + `<p style='height:2048px'></p>`;
         document.getElementById("bibdiv").innerHTML=bib;
-        scrollspeed = 100;
+        scrollspeed = 240;
         var timerID = setInterval(function() {
             window.scrollBy(0, scrollspeed);
             document.getElementById("scrollindicator").style.top = window.pageYOffset / (document.getElementById("bibdiv").clientHeight-2048) * document.getElementById("bibsmall").clientHeight * 0.5+ "px";
@@ -1123,7 +1123,7 @@ url={http://www.uptodate.com/contents/functional-movement-disorders}
                 (document.getElementById("bibdiv").clientHeight - 2048))
                 window.scrollBy(0, -(document.getElementById("bibdiv").clientHeight - 2048))
 
-        }, 20);
+        }, 50);
     });
 </script>
 <html>
