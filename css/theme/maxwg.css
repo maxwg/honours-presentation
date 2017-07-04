@@ -109,7 +109,8 @@ body {
   list-style-type: disc; }
 
 .reveal ul ul {
-  list-style-type: square; }
+  list-style-type: square;
+  font-size:0.9em;}
 
 .reveal ul ul ul {
   list-style-type: circle; }
@@ -132,6 +133,7 @@ body {
   quotes: none; }
 
 .reveal blockquote {
+  font-family: "Fira Sans";
   display: block;
   position: relative;
   width: 70%;
@@ -174,10 +176,12 @@ body {
   margin: auto;
   border-collapse: collapse;
   border-spacing: 0; }
-
 .reveal table th {
-  font-weight: bold; }
-
+  font-family: "Fira Sans";
+  font-size: 1.1em;}
+hr{
+  margin-top:0;
+}
 .reveal table th,
 .reveal table td {
   text-align: left;
@@ -199,7 +203,9 @@ vertical-align:top;}
 
 .reveal sup {
   vertical-align: super;
-  font-size:0.5em;
+  font-size:0.6em;
+  color:#1b91ff;
+  cursor:pointer;
 }
 
 .reveal sub {
