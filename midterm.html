@@ -308,6 +308,7 @@
                     </td>
                     <td style="width:33%">
                         <ul>
+                            <li class="fragment highlight-red" data-fragment-index="1">Demographic Data</li>
                             <li>UPDRS Patient Questionnaire<sup>&nbsp;30,34</sup></li>
                             <li>Physical Changes
                             <ul>
@@ -364,6 +365,7 @@
                     </td>
                     <td style="width:33%;  color:#333">
                         <ul>
+                            <li style="color:#422">Demographic Data</li>
                             <li>UPDRS Patient Questionnaire<sup style="color:#0d3349">&nbsp;30,34</sup></li>
                             <li>Physical Changes
                                 <ul>
@@ -402,10 +404,24 @@
             </ol>
         </section>
         <section>
-            <large> <p style="font-size:0.85em">&ldquo;A machine learning model is only as good as its features.&rdquo;</p></large>
-            <ul>
-                <li>There is rich research in dysphonia quantification</li>
-            </ul>
+            <p style="font-size:0.95em">
+                <large>Current state of the art speech classification involves:</large>
+            </p>
+            <ol style="width:90%">
+                <li><i>Signal Processing</i> : Extracting relevant features from voice recordings </li>
+                <li><i>Feature Selection/Dimensionality Reduction</i> : Eliminating redundant features and combining features</li>
+                <li style="color:#ff2c2d"><i>Model Fitting</i> : Training and evaluating a machine learning algorithm</li>
+            </ol>
+        </section>
+        <section>
+            <p style="font-size:0.95em">
+                <large>Current state of the art speech classification involves:</large>
+            </p>
+            <ol style="width:90%">
+                <li style="color:#ff2c2d"><i>Signal Processing</i> : Extracting relevant features from voice recordings </li>
+                <li style="color:#ff2c2d"><i>Feature Selection/Dimensionality Reduction</i> : Eliminating redundant features and combining features</li>
+                <li><i>Model Fitting</i> : Training and evaluating a machine learning algorithm</li>
+            </ol>
         </section>
         <section>
             <h3>Current Datasets</h3>
@@ -414,11 +430,45 @@
                     <ul>
                         <li>Little&nbsp;et&nbsp;al.&nbsp;(2009)<sup>&nbsp;26</sup> 23 PD and 8 control; pre-processed features</li>
                         <li>Sankar&nbsp;et&nbsp;al.&nbsp;(2013)<sup>&nbsp;27</sup> 20 PD and 20 control; raw recordings </li></ul></li>
+                <li class="fragment">The small size of both datasets limits the usefulness of feature evaluation</li>
                 <li class="fragment">All patients in both datasets exhibit speech difficulties</li>
             </ul>
         </section>
         <section>
-            <h3>The mPower Dataset</h3>
+            <h1>The mPower Dataset<sup>&nbsp;36</sup></h1>
+        </section>
+        <section data-background-color="#fff">
+            <img data-src="img/mpower.png" style="width:100%"/>
+        </section>
+        <section data-background-color="#191919" data-transition="fast">
+            <img data-src="img/mpower2.png" style="width:100%"/>
+            <blockquote style="position:fixed; top:300px; left:150px;">
+                65,000 speech recordings from 6,000 patients, 2,000 with available UPDRS data.
+            </blockquote>
+        </section>
+        <section data-background-color="#191919" data-transition="fast">
+            <img data-src="img/mpower2.png" style="width:100%"/>
+            <blockquote style="position:fixed; top:300px; left:150px;">
+                Of the 2,000 PD patients with UPDRS data, 500 have noted no speech deficit.
+            </blockquote>
+        </section>
+        <section>
+            <large><p>The mPower dataset lacks quality control.</p></large>
+            <ul>
+                <li class="fragment">Preprocessing is a neccessary step to filter undesirable recordings</li>
+                <li class="fragment">We </li>
+            </ul>
+        </section>
+        <section>
+            <large> <p style="font-size:0.85em">&ldquo;A machine learning model is only as good as its features.&rdquo;</p></large>
+            <ul>
+                <li>There is rich research in the field of dysphonia quantification</li>
+                <li>In recent years speech signal processing has vastly improved, introducing a new array of features </li>
+                <li>We combine the dysphonia specific features specified in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;37</sup> with spectral features used in the eGeneva acoustic feature set<sup>&nbsp;38</sup></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Results......</h2>
         </section>
         <section>
             <h2>Limitations and Shortcomings</h2>
@@ -430,6 +480,7 @@
             <h2>Future Work</h2>
             <ul>
                 <li>Can ML distinguish ML </li>
+                <li>RNNs and stuff</li>
             </ul>
         </section>
         <section class="scrollable" id="ref">
@@ -535,6 +586,21 @@
                     in parkinsons disease: prevalence and occurrence before motor
                         symptoms, Journal of neurology 260 (2013) 1332–1338.</li>
 
+                    <br/>
+                    <large>mPower</large>
+                    <hr/>
+                    <li>B. M. Bot, C. Suver, E. C. Neto, M. Kellen, A. Klein, C. Bare, M. Doerr,
+                        A. Pratap, J. Wilbanks, E. R. Dorsey, et al., The mpower study,
+                        parkinson disease mobile data collected using researchkit, Scientific data
+                        3 (2016).
+                    </li>
+                    <br/>
+                    <large>Speech Feature Extraction</large>
+                    <hr/>
+                    <li>A. Tsanas, M. A. Little, P. E. McSharry, L. O. Ramig, Accurate telemonitoring of parkinson’s disease progression by noninvasive speech tests, IEEE transactions on Biomedical Engineering</li>
+                    <li>F. Eyben, K. R. Scherer, B. W. Schuller, J. Sundberg, E. Andr´e, C. Busso, L. Y. Devillers, J. Epps, P. Laukka, S. S. Narayanan, et al., The geneva minimalistic acoustic parameter set (gemaps) for voice research and affective computing, IEEE Transactions on Affective Computing 7 (2016) 190–202.</li>
+                    <li>F. Eyben, M. W¨ollmer, B. Schuller, Opensmile: the munich versatile and fast open-source audio feature extractor, in: Proceedings of the 18th ACM international conference on Multimedia, ACM, pp. 1459–1462.</li>
+                    <li>F. Eyben, Real-time speech and music classification by large audio feature space extraction, Springer, 2015.</li>
                 </ol>
                 <br/><br/>
                 <h3>Slide Material Sources</h3>
@@ -545,6 +611,7 @@
                     <li>https://www.michaeljfox.org/files/foundation/1_2.2.jpg</li>
                     <li>https://www.sap.com/trends/machine-learning.html</li>
                     <li>https://www.crowdanalytix.com/api/assets/download?path=blogs/15/file.jpg</li>
+                    <li>https://www.synapse.org/Portal/filehandle?ownerId=syn4993293&ownerType=ENTITY&xsrfToken=null&fileName=Screen Shot 2015-11-25 at 2.50.03 PM.png&preview=false&wikiId=247861</li>
                 </ul>
             </smaller>
 
