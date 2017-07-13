@@ -35,6 +35,39 @@
         link.type = 'text/css';
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
+        $(document).ready(function(){
+            $('section').each(function(sidx){
+                var allrefs = new Set();
+                $(this).find('sup').each(function(idx) {
+                    var refs = this.innerText.split(",");
+                    refs = refs.map(function (i) {
+                        return parseInt(i)
+                    })
+                    for (var r in refs) {
+                        allrefs.add(refs[r])
+                    }
+                });
+                var lis = $("#references li")
+                var text = "";
+                allrefs.forEach(function(ref){
+                    if (ref <= lis.length) {
+                        var refli = lis[ref];
+                        text += ref + ": " + refli.innerText + "<br/>"
+                    } else{
+                        console.log("REF ERROR: " + ref)
+                    }
+                });
+                if(text != "") {
+                    text = text.slice(0,-4);
+                    $(this).append(
+                        "<div class='citations'> <hr/>"
+                        + text +
+                        "</div>"
+                    )
+                }
+                })
+
+        });
             </script>
 
     <!--[if lt IE 9]>
@@ -71,14 +104,22 @@
                 worldwide<sup>&nbsp;1, 2</sup>
             </blockquote>
         </section>
-        <section  data-background-image="img/pd2.png">
-            <blockquote style="background-color:rgba(0,0,0,0.2)">
+        <section>
+            <blockquote style="padding: 20px 0 14px 0">
+                Parkinson’s Disease (PD) is a degenerative neurological disorder that affects an estimated 53 million people
+                worldwide<sup>&nbsp;1, 2</sup>
+            </blockquote>
+        </section>
+        <section class="full">
+            <blockquote style="top:200px">
                 <div style="text-align:left; display:inline-block; width:92%; padding:20px 25px 10px 20px; font-family:'Fira Sans'; font-weight:500">
                 <span style="display:block; color: #17C; font-style:italic">&ldquo;FOR PATIENTS, PARKINSON'S DISEASE <br/>&nbsp;IS NOT A TIME-NEUTRAL SITUATION, <br/>&nbsp;IT'S A TICKING CLOCK&rdquo;
                 </span>
                     <span style="float:right; position:relative; top:-0.4em; color:#C32">- MICHAEL J. FOX</span>
                 </div>
             </blockquote>
+            <img src="img/mjfox.png" style="height:263px" class="bottom-right">
+
                 <!--<img data-src="img/mjfox.png" style="float:right; width:30%">-->
         </section>
         <section>
@@ -208,14 +249,14 @@
             <h3>Monitoring</h3>
             <ul>
                 <li>PD progression is generally tracked with a scale, the most common being MDS-UPDRS<sup>&nbsp;8</sup></li>
-                <ul><li>Evaluation of progression is currently requires visits to a specialist</li>
+                <ul><li>Evaluation of progression currently requires visits to a specialist</li>
                     <li class="fragment">Machine Learning provides opportunities for low cost at-home diagnosis</li></ul>
             </ul>
         </section>
         <section>
             <h3>Applications of Machine Learning in Parkinson's Diagnosis</h3>
             <ul>
-                <li>Without a standardised longitudinal dataset, results from ML models are meaningless</li>
+                <li class="fragment">Without a standardised longitudinal dataset, results from ML models are meaningless</li>
                 <li class="fragment">The fundamental question: <blockquote style="padding:7px 30px 7px 30px;"><i>Can Machine Learning diagnose PD better than a trained neurologist?</i></blockquote>
                 </li>
             </ul>
@@ -456,15 +497,17 @@
             <large><p>The mPower dataset lacks quality control.</p></large>
             <ul>
                 <li class="fragment">Preprocessing is a neccessary step to filter undesirable recordings</li>
-                <li class="fragment">We </li>
+                <li class="fragment">Audio files are filtered and ranked based on hand-weighted factors, with the best selected for feature extraction</li>
+                <li class="fragment">Optimally, a Machine Learning backed model can be used to automatically filter audio and all recordings considered as part of an ensemble model.</li>
             </ul>
         </section>
         <section>
-            <large> <p style="font-size:0.85em">&ldquo;A machine learning model is only as good as its features.&rdquo;</p></large>
+            <large> <p>&ldquo;A ML model is only as good as its features.&rdquo;</p></large>
             <ul>
-                <li>There is rich research in the field of dysphonia quantification</li>
-                <li>In recent years speech signal processing has vastly improved, introducing a new array of features </li>
-                <li>We combine the dysphonia specific features specified in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;37</sup> with spectral features used in the eGeneva acoustic feature set<sup>&nbsp;38</sup></li>
+                <li>Traditional features are based on the simplified linear source-filter speech model. </li>
+                <li class="fragment">Speakers with dysphonia often deviate from this model<sup>&nbsp;38</sup></li>
+                <li>Dysphonia quantification features are often based on a non-linear model of speech<sup>&nbsp;38,39</sup></li>
+                <li>We combine the dysphonia specific features specified in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with additional spectral features used in the eGeneva acoustic feature set<sup>&nbsp;40</sup></li>
             </ul>
         </section>
         <section>
@@ -473,20 +516,24 @@
         <section>
             <h2>Limitations and Shortcomings</h2>
             <ul>
-                <li>mPower is bad</li>
+                <li>The UPDRS questionnarie is filled out by users - responses may not reflect clinical diagnosis</li>
             </ul>
         </section>
         <section>
-            <h2>Future Work</h2>
-            <ul>
-                <li>Can ML distinguish ML </li>
-                <li>RNNs and stuff</li>
-            </ul>
+            <h2>Future Work <smaller style="vertical-align: middle"><sub>(in order of importance)</sub></smaller></h2>
+            <ol>
+                <li>Investigating the use of a time-series model such as a HMM or RNN to train and predict on short time features (e.g, raw glottal cycles)</li>
+                <li>Investigate the impacts of medication such as Levodopa on results</li>
+                <li>Active Learning: Determine which patients to monitor for more data</li>
+                <li>Developing/modifying signal processing algorithms to suit non-linear dysphonia quantification</li>
+                <li>Experiment on motor features and determine the </li>
+            </ol>
         </section>
         <section class="scrollable" id="ref">
             <smaller>
+                National Center for Voice and Speech (NCVS) database
                 <h3>References</h3>
-                <ol style="width:95%">
+                <ol style="width:95%" id="references">
                     <large>Diagnosis</large>
                     <hr/>
                     <li>Tolosa, Eduardo, Gregor Wenning, and Werner Poewe. "The diagnosis of Parkinson's disease." The
@@ -597,6 +644,8 @@
                     <br/>
                     <large>Speech Feature Extraction</large>
                     <hr/>
+                    <li>M. Little, P. McSharry, I. Moroz, S. Roberts, Nonlinear, biophysicallyinformed speech pathology detection, in: Acoustics, Speech and Signal Processing, 2006. ICASSP 2006 Proceedings. 2006 IEEE International Conference on, volume 2, IEEE, pp. II–II</li>
+                    <li>I. R. Titze, Nonlinear source–filter coupling in phonation: Theory a, The Journal of the Acoustical Society of America 123 (2008) 1902–1915.</li>
                     <li>A. Tsanas, M. A. Little, P. E. McSharry, L. O. Ramig, Accurate telemonitoring of parkinson’s disease progression by noninvasive speech tests, IEEE transactions on Biomedical Engineering</li>
                     <li>F. Eyben, K. R. Scherer, B. W. Schuller, J. Sundberg, E. Andr´e, C. Busso, L. Y. Devillers, J. Epps, P. Laukka, S. S. Narayanan, et al., The geneva minimalistic acoustic parameter set (gemaps) for voice research and affective computing, IEEE Transactions on Affective Computing 7 (2016) 190–202.</li>
                     <li>F. Eyben, M. W¨ollmer, B. Schuller, Opensmile: the munich versatile and fast open-source audio feature extractor, in: Proceedings of the 18th ACM international conference on Multimedia, ACM, pp. 1459–1462.</li>
