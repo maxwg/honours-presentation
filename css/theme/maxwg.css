@@ -280,7 +280,8 @@ smaller{
   font-size:8pt;
   text-align:left;
   max-height:32px;
-  overflow-y:scroll;
+    /*height:32px;*/
+  overflow-y:auto;
 }
 
 ::-webkit-scrollbar {

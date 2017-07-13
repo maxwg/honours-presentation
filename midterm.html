@@ -51,7 +51,7 @@
                 var text = "";
                 allrefs.forEach(function(ref){
                     if (ref <= lis.length) {
-                        var refli = lis[ref];
+                        var refli = lis[ref-1];
                         text += ref + ": " + refli.innerText + "<br/>"
                     } else{
                         console.log("REF ERROR: " + ref)
@@ -467,10 +467,10 @@
         <section>
             <h3>Current Datasets</h3>
             <ul>
-                <li class="fragment">Current research is primarily based on two public datasets:
+                <li>Current research is primarily based on two public datasets:
                     <ul>
-                        <li>Little&nbsp;et&nbsp;al.&nbsp;(2009)<sup>&nbsp;26</sup> 23 PD and 8 control; pre-processed features</li>
-                        <li>Sankar&nbsp;et&nbsp;al.&nbsp;(2013)<sup>&nbsp;27</sup> 20 PD and 20 control; raw recordings </li></ul></li>
+                        <li>Little&nbsp;et&nbsp;al.&nbsp;(2009)<sup>26</sup> 23 PD and 8 control; pre-processed features</li>
+                        <li>Sankar&nbsp;et&nbsp;al.&nbsp;(2013)<sup>27</sup> 20 PD and 20 control; raw recordings </li></ul></li>
                 <li class="fragment">The small size of both datasets limits the usefulness of feature evaluation</li>
                 <li class="fragment">All patients in both datasets exhibit speech difficulties</li>
             </ul>
@@ -484,14 +484,142 @@
         <section data-background-color="#191919" data-transition="fast">
             <img data-src="img/mpower2.png" style="width:100%"/>
             <blockquote style="position:fixed; top:300px; left:150px;">
-                65,000 speech recordings from 6,000 patients, 2,000 with available UPDRS data.
+                65,000 speech recordings from 6,000 patients, 1,400 with Parkinson's Disease
             </blockquote>
         </section>
         <section data-background-color="#191919" data-transition="fast">
             <img data-src="img/mpower2.png" style="width:100%"/>
             <blockquote style="position:fixed; top:300px; left:150px;">
-                Of the 2,000 PD patients with UPDRS data, 500 have noted no speech deficit.
+                Of the 1,300 PD patients with UPDRS data, 250 have noted no speech deficit.
             </blockquote>
+        </section>
+        <section>
+            <large> <p>&ldquo;A ML model is only as good as its features.&rdquo;</p></large>
+            <ul>
+                <!--<li>Speakers with dysphonia often deviate from the simplified linear source-filter speech model<sup>&nbsp;38</sup></li>-->
+                <li>Dysphonia quantification features are often based on a non-linear model of speech<sup>&nbsp;37,38</sup></li>
+                <li class="fragment">A huge variety of features exist in the field of speech language/emotion classification<sup>&nbsp;40</sup></li>
+                <li class="fragment">We combine SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with additional spectral features used in the eGeneva acoustic feature set<sup>&nbsp;41, 42</sup></li>
+            </ul>
+        </section>
+        <section data-background-color="#FFFFFF" data-transition="fast" style="color:#333 !important">
+            <large style="float:left; margin-top:200px;width:360px; text-align: right">Results of Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup></large>
+            <img data-src="img/Tsanas.png" style="height:640px; margin-right:40px; float:right;"/>
+        </section>
+        <section class="full">
+            <br/>
+            <table style="font-size:0.9em">
+                <h3>Supervised Feature Selection Methods</h3>
+                <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
+                <tr style="font-size:0.9em">
+                    <td style="width:34%">
+                        Evaluate subsets of features by maximising various criteria such as entropy, similarity or statistical measures.
+                        <ul>
+                            <li>Fast evaluation of subsets</li>
+                            <li>Model independent results</li>
+                        </ul>
+                    </td>
+                    <td style="width:33%">
+                        &ldquo;Wrap&rdquo; around existing ML models, evaluating feature subsets with the model's cross validation score
+                        <ul>
+                            <li>More expensive to evaluate subsets</li>
+                            <li>Results are better tailored to wrapped models</li>
+                        </ul>
+                    </td>
+                    <td style="width:33%">
+                        Machine Learning Models which perform feature selection as part of the training process
+                        <ul>
+                            <li>Highly model specific.</li>
+                            <li>Greatly reduces model 'complexity'</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section class="full" style="color:#333 !important">
+            <br/>
+            <table style="font-size:0.9em">
+                <h3 style="color:#333">Supervised Feature Selection Methods</h3>
+                <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
+                <tr style="font-size:0.9em">
+                    <td style="width:34%">
+                        Evaluate subsets of features by maximising various criteria such as entropy, similarity or statistical measures.
+                        <ul>
+                            <li>Fast evaluation of subsets</li>
+                            <li>Model independent results</li>
+                        </ul>
+                    </td>
+                    <td style="width:33%">
+                        &ldquo;Wrap&rdquo; around existing ML models, evaluating feature subsets with the model's cross validation score
+                        <ul>
+                            <li>More expensive to evaluate subsets</li>
+                            <li>Results are better tailored to wrapped models</li>
+                        </ul>
+                    </td>
+                    <td style="width:33%">
+                        Machine Learning Models which perform feature selection as part of the training process
+                        <ul>
+                            <li>Highly model specific.</li>
+                            <li>Greatly reduces model 'complexity'</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <blockquote style="position:fixed; top:280px; left:150px; background-color:#333; color:#EEE">
+                Feature Selection is highly dependent on dataset size and type.
+            </blockquote>
+        </section>
+        <section class="full">
+            <br/>
+            <table style="font-size:0.9em">
+                <h3>Supervised Feature Selection Methods</h3>
+                <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
+                <tr style="font-size:0.9em">
+                    <td style="width:34%">
+                        <ul>
+                            <li>reliefF</li>
+                            <li>Fisher Score</li>
+                            <li>MIFS</li>
+                            <li>CIFE</li>
+                            <li>JMI</li>
+                            <li>MRMR</li>
+                            <li>ICAP</li>
+                        </ul>
+                    </td>
+                    <td style="width:33%">
+                    <ul>
+                        <li>Forwards Feature Search
+                        </li>
+                        <li>Backwards Feature Elimination</li>
+                    </ul>
+                    </td>
+                    <td style="width:33%">
+                    <ul>
+                        <li>RFS</li>
+                        <li>ls_l21</li>
+                    </ul>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section class="full">
+            <br/>
+                <h3>Evaluating Feature Selection</h3>
+            <ul>
+                <li>Results of ML algorithms are </li>
+            </ul>
+        </section>
+        <section>
+            The techniques used for ML in datasets vary hugely
+        </section>
+        <section>
+            <h1>Dimensionality reduction, l1 regularisation</h1>
+        </section>
+        <section>
+            <h1>Results</h1>
+        </section>
+        <section>
+            <h1>Limitations and Future Work</h1>
         </section>
         <section>
             <large><p>The mPower dataset lacks quality control.</p></large>
@@ -500,18 +628,6 @@
                 <li class="fragment">Audio files are filtered and ranked based on hand-weighted factors, with the best selected for feature extraction</li>
                 <li class="fragment">Optimally, a Machine Learning backed model can be used to automatically filter audio and all recordings considered as part of an ensemble model.</li>
             </ul>
-        </section>
-        <section>
-            <large> <p>&ldquo;A ML model is only as good as its features.&rdquo;</p></large>
-            <ul>
-                <li>Traditional features are based on the simplified linear source-filter speech model. </li>
-                <li class="fragment">Speakers with dysphonia often deviate from this model<sup>&nbsp;38</sup></li>
-                <li>Dysphonia quantification features are often based on a non-linear model of speech<sup>&nbsp;38,39</sup></li>
-                <li>We combine the dysphonia specific features specified in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with additional spectral features used in the eGeneva acoustic feature set<sup>&nbsp;40</sup></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Results......</h2>
         </section>
         <section>
             <h2>Limitations and Shortcomings</h2>
@@ -523,10 +639,11 @@
             <h2>Future Work <smaller style="vertical-align: middle"><sub>(in order of importance)</sub></smaller></h2>
             <ol>
                 <li>Investigating the use of a time-series model such as a HMM or RNN to train and predict on short time features (e.g, raw glottal cycles)</li>
+                <li>Experiment on motor features</li>
+                <li>Perform </li>
                 <li>Investigate the impacts of medication such as Levodopa on results</li>
                 <li>Active Learning: Determine which patients to monitor for more data</li>
                 <li>Developing/modifying signal processing algorithms to suit non-linear dysphonia quantification</li>
-                <li>Experiment on motor features and determine the </li>
             </ol>
         </section>
         <section class="scrollable" id="ref">
@@ -647,9 +764,9 @@
                     <li>M. Little, P. McSharry, I. Moroz, S. Roberts, Nonlinear, biophysicallyinformed speech pathology detection, in: Acoustics, Speech and Signal Processing, 2006. ICASSP 2006 Proceedings. 2006 IEEE International Conference on, volume 2, IEEE, pp. II–II</li>
                     <li>I. R. Titze, Nonlinear source–filter coupling in phonation: Theory a, The Journal of the Acoustical Society of America 123 (2008) 1902–1915.</li>
                     <li>A. Tsanas, M. A. Little, P. E. McSharry, L. O. Ramig, Accurate telemonitoring of parkinson’s disease progression by noninvasive speech tests, IEEE transactions on Biomedical Engineering</li>
+                    <li>F. Eyben, Real-time speech and music classification by large audio feature space extraction, Springer, 2015.</li>
                     <li>F. Eyben, K. R. Scherer, B. W. Schuller, J. Sundberg, E. Andr´e, C. Busso, L. Y. Devillers, J. Epps, P. Laukka, S. S. Narayanan, et al., The geneva minimalistic acoustic parameter set (gemaps) for voice research and affective computing, IEEE Transactions on Affective Computing 7 (2016) 190–202.</li>
                     <li>F. Eyben, M. W¨ollmer, B. Schuller, Opensmile: the munich versatile and fast open-source audio feature extractor, in: Proceedings of the 18th ACM international conference on Multimedia, ACM, pp. 1459–1462.</li>
-                    <li>F. Eyben, Real-time speech and music classification by large audio feature space extraction, Springer, 2015.</li>
                 </ol>
                 <br/><br/>
                 <h3>Slide Material Sources</h3>
