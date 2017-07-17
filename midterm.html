@@ -58,7 +58,7 @@
                     }
                 });
                 if(text != "") {
-                    text = text.slice(0,-4);
+                    text = text.slice(0,-5);
                     $(this).append(
                         "<div class='citations'> <hr/>"
                         + text +
@@ -434,6 +434,10 @@
             <h1>Speech</h1>
             <p>(The Fourier Domain)</p>
         </section>
+        <section data-background-color="#fff" data-transition-speed="fast">
+            <h2 style="color:#555">Machine learning classification</h2>
+            <img src="img/classification.png" style="width:600px"/>
+        </section>
         <section>
             <p style="font-size:0.95em">
                 <large>Current state of the art speech classification involves:</large>
@@ -472,6 +476,7 @@
                         <li>Little&nbsp;et&nbsp;al.&nbsp;(2009)<sup>26</sup> 23 PD and 8 control; pre-processed features</li>
                         <li>Sankar&nbsp;et&nbsp;al.&nbsp;(2013)<sup>27</sup> 20 PD and 20 control; raw recordings </li></ul></li>
                 <li class="fragment">The small size of both datasets limits the usefulness of feature evaluation</li>
+                <li class="fragment">There is a disproportionate amount of PD vs control</li>
                 <li class="fragment">All patients in both datasets exhibit speech difficulties</li>
             </ul>
         </section>
@@ -499,17 +504,156 @@
                 <!--<li>Speakers with dysphonia often deviate from the simplified linear source-filter speech model<sup>&nbsp;38</sup></li>-->
                 <li>Dysphonia quantification features are often based on a non-linear model of speech<sup>&nbsp;37,38</sup></li>
                 <li class="fragment">A huge variety of features exist in the field of speech language/emotion classification<sup>&nbsp;40</sup></li>
-                <li class="fragment">We combine SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with additional spectral features used in the eGeneva acoustic feature set<sup>&nbsp;41, 42</sup></li>
+                <li class="fragment">We combine the 338 SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with 67 additional features in the eGeneva acoustic feature set.<sup>&nbsp;41, 42</sup></li>
             </ul>
         </section>
-        <section data-background-color="#FFFFFF" data-transition="fast" style="color:#333 !important">
-            <large style="float:left; margin-top:200px;width:360px; text-align: right">Results of Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup></large>
+
+
+        <section>
+            <p style="font-size:0.95em">
+                <large>Current state of the art speech classification involves:</large>
+            </p>
+            <ol style="width:90%">
+                <li><i>Signal Processing</i> : Extracting relevant features from voice recordings </li>
+                <li style="color:#ff2c2d"><i>Feature Selection/Dimensionality Reduction</i> : Eliminating redundant features and combining features</li>
+                <li style="color:#ff2c2d"><i>Model Fitting</i> : Training and evaluating a machine learning algorithm</li>
+            </ol>
+        </section>
+        <section>
+            <h3>Evaluating Machine Learning</h3>
+            <ul>
+                <li>The feature selection method, learning model and data are all interconnected</li>
+                <li class="fragment">An exhaustive search of all combinations of model parameters and feature selection methods is too expensive</li>
+                <li class="fragment">A subset of viable ML and FS algorithms were chosen, and the Tree of Parzen Estimators (TPE) hyperparameter optimization method was used to
+                    find the 'local maxima' in an Expectation-Maximisation like fashion. </li>
+            </ul>
+        </section>
+
+        <section data-background-color="#FFFFFF" style="color:#333 !important">
+            <large style="float:left; margin-top:200px;width:360px; text-align: right">Results of Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> <small><br/>(33 PD, 10 Control)</small></large>
             <img data-src="img/Tsanas.png" style="height:640px; margin-right:40px; float:right;"/>
         </section>
+        <section data-background-color="#fff">
+            <h2 style="color:#555">The SVM</h2>
+            <img src="img/svm.gif" >
+        </section>
+        <section class="full" style="color:#333 !important" data-background-color="#fff" >
+            <br/>
+            <h3 style="color:#555">Tsanas relieff results on mPower</h3>
+            <p>Best accuracy from SVM gridsearch (10 fold 10 repetiton CV)</p>
+            <table style="font-size: 0.8em">
+                <tr>
+                    <td style="text-align: center"><large>33PD/10C <br/>(Tsanas NCVS) split</large>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Pred PD</td>
+                            <td>Pred C</td>
+                        </tr>
+                        <tr>
+                            <td>Real PD</td>
+                            <td>204</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>Real C</td>
+                            <td>62</td>
+                            <td>0</td>
+                        </tr>
+                    </table>
+                    <table style="float:left; font-size:0.8em">
+                        <tr>
+                            <td>Accuracy:</td>
+                            <td>76.7%</td>
+                        </tr>
+                        <tr>
+                            <td>Sensitivity (TP):</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>Specificity (TN):</td>
+                            <td>0%</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td style="text-align: center"><large>50PD/50C equal split</large>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Pred PD</td>
+                            <td>Pred C</td>
+                        </tr>
+                        <tr>
+                            <td>Real PD</td>
+                            <td>113.4</td>
+                            <td>91.0</td>
+                        </tr>
+                        <tr>
+                            <td>Real C</td>
+                            <td>64.0</td>
+                            <td>140.6</td>
+                        </tr>
+                    </table>
+                    <table style="float:left; font-size:0.8em">
+                        <tr>
+                            <td>Accuracy:</td>
+                            <td>62.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Sensitivity (TP):</td>
+                            <td>55.48%</td>
+                        </tr>
+                        <tr>
+                            <td>Specificity (TN):</td>
+                            <td>68.7%</td>
+                        </tr>
+                    </table>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle !important;"><large>10PD/39C (mPower) split</large>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td>Pred PD</td>
+                            <td>Pred C</td>
+                        </tr>
+                        <tr>
+                            <td>Real PD</td>
+                            <td>2.4</td>
+                            <td>202.0</td>
+                        </tr>
+                        <tr>
+                            <td>Real <br/>C</td>
+                            <td>0.8</td>
+                            <td>774.7</td>
+                        </tr>
+                    </table>
+                    <table style="float:left; font-size:0.8em">
+                        <tr>
+                            <td>Accuracy:</td>
+                            <td>79.3%</td>
+                        </tr>
+                        <tr>
+                            <td>Sensitivity (TP):</td>
+                            <td>0.012%</td>
+                        </tr>
+                        <tr>
+                            <td>Specificity (TN):</td>
+                            <td>99.9%</td>
+                        </tr>
+                    </table>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section data-background-color="#FFFFFF" style="color:#333 !important">
+            <large style="float:left; margin-top:200px;width:360px; text-align: right">Results of Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> <small><br/>(33 PD, 10 Control)</small></large>
+            <img data-src="img/Tsanas.png" style="height:640px; margin-right:40px; float:right;"/>
+        </section>
+
         <section class="full">
             <br/>
             <table style="font-size:0.9em">
-                <h3>Supervised Feature Selection Methods</h3>
+                <h3>Supervised Feature Selection Methods<sup>&nbsp;43</sup></h3>
                 <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
                 <tr style="font-size:0.9em">
                     <td style="width:34%">
@@ -539,7 +683,7 @@
         <section class="full" style="color:#333 !important">
             <br/>
             <table style="font-size:0.9em">
-                <h3 style="color:#333">Supervised Feature Selection Methods</h3>
+                <h3 style="color:#333">Supervised Feature Selection Methods<sup style="color:#0d3349">&nbsp;43</sup></h3>
                 <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
                 <tr style="font-size:0.9em">
                     <td style="width:34%">
@@ -561,6 +705,7 @@
                         <ul>
                             <li>Highly model specific.</li>
                             <li>Greatly reduces model 'complexity'</li>
+                            <li>Generally more parameters to optimize over</li>
                         </ul>
                     </td>
                 </tr>
@@ -572,7 +717,7 @@
         <section class="full">
             <br/>
             <table style="font-size:0.9em">
-                <h3>Supervised Feature Selection Methods</h3>
+                <h3>Supervised Feature Selection Methods<sup>&nbsp;43</sup></h3>
                 <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
                 <tr style="font-size:0.9em">
                     <td style="width:34%">
@@ -602,18 +747,22 @@
                 </tr>
             </table>
         </section>
-        <section class="full">
-            <br/>
-                <h3>Evaluating Feature Selection</h3>
+        <section data-background-color="#FFFFFF" style="color:#333 !important">
+            <img data-src="img/svmfs1.png" />
+        </section>
+
+        <section data-background-color="#FFFFFF" style="color:#333 !important">
+            <img data-src="img/svmfs2.png"/>
+        </section>
+
+        <section>
+            <h3>Avoiding Overfitting</h3>
             <ul>
-                <li>Results of ML algorithms are </li>
+                <li>A test set was used along wit hcross validation, to evaluate overfitting from model selection.</li>
             </ul>
         </section>
         <section>
             The techniques used for ML in datasets vary hugely
-        </section>
-        <section>
-            <h1>Dimensionality reduction, l1 regularisation</h1>
         </section>
         <section>
             <h1>Results</h1>
@@ -624,9 +773,10 @@
         <section>
             <large><p>The mPower dataset lacks quality control.</p></large>
             <ul>
-                <li class="fragment">Preprocessing is a neccessary step to filter undesirable recordings</li>
+                <li class="fragment">Data is very 'noisy'. Preprocessing is a neccessary step to filter undesirable recordings</li>
                 <li class="fragment">Audio files are filtered and ranked based on hand-weighted factors, with the best selected for feature extraction</li>
-                <li class="fragment">Optimally, a Machine Learning backed model can be used to automatically filter audio and all recordings considered as part of an ensemble model.</li>
+                <li class="fragment">Optimally, a Machine Learning backed model can be used to automatically filter usable and unusable data for future endeavours like mPower </li>
+                <li class="fragment">Processing limitation: All recordings should considered as part of an ensemble model rather than relying on hard coded selection techniques</li>
             </ul>
         </section>
         <section>
@@ -636,11 +786,18 @@
             </ul>
         </section>
         <section>
+            <h2>Near Future Work</h2>
+            <ol>
+                <li>Ensemble methods, </li>
+                <li>Explore larger feature sets for speech classification such as those used in Interspeech emotion recognition challenges (15,000+ features)</li>
+
+            </ol>
+        </section>
+        <section>
             <h2>Future Work <smaller style="vertical-align: middle"><sub>(in order of importance)</sub></smaller></h2>
             <ol>
                 <li>Investigating the use of a time-series model such as a HMM or RNN to train and predict on short time features (e.g, raw glottal cycles)</li>
                 <li>Experiment on motor features</li>
-                <li>Perform </li>
                 <li>Investigate the impacts of medication such as Levodopa on results</li>
                 <li>Active Learning: Determine which patients to monitor for more data</li>
                 <li>Developing/modifying signal processing algorithms to suit non-linear dysphonia quantification</li>
@@ -767,6 +924,10 @@
                     <li>F. Eyben, Real-time speech and music classification by large audio feature space extraction, Springer, 2015.</li>
                     <li>F. Eyben, K. R. Scherer, B. W. Schuller, J. Sundberg, E. Andr´e, C. Busso, L. Y. Devillers, J. Epps, P. Laukka, S. S. Narayanan, et al., The geneva minimalistic acoustic parameter set (gemaps) for voice research and affective computing, IEEE Transactions on Affective Computing 7 (2016) 190–202.</li>
                     <li>F. Eyben, M. W¨ollmer, B. Schuller, Opensmile: the munich versatile and fast open-source audio feature extractor, in: Proceedings of the 18th ACM international conference on Multimedia, ACM, pp. 1459–1462.</li>
+                    <br/>
+                    <large>Feature Selection</large>
+                    <hr/>
+                    <li>J. Li, K. Cheng, S. Wang, F. Morstatter, R. P. Trevino, J. Tang, H. Liu, Feature selection: A data perspective, arXiv preprint arXiv:1601.07996 (2016) </li>
                 </ol>
                 <br/><br/>
                 <h3>Slide Material Sources</h3>
@@ -778,6 +939,8 @@
                     <li>https://www.sap.com/trends/machine-learning.html</li>
                     <li>https://www.crowdanalytix.com/api/assets/download?path=blogs/15/file.jpg</li>
                     <li>https://www.synapse.org/Portal/filehandle?ownerId=syn4993293&ownerType=ENTITY&xsrfToken=null&fileName=Screen Shot 2015-11-25 at 2.50.03 PM.png&preview=false&wikiId=247861</li>
+                    <li>https://3.bp.blogspot.com/_UqlrkHvPijw/TJupAi2ztMI/AAAAAAAAAFI/6EVz1pmA1vs/s1600/svm.gif</li>
+                    <li>http://farm5.static.flickr.com/4006/4608694916_1c6f17b2c6_o.png</li>
                 </ul>
             </smaller>
 
