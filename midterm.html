@@ -504,7 +504,7 @@
                 <!--<li>Speakers with dysphonia often deviate from the simplified linear source-filter speech model<sup>&nbsp;38</sup></li>-->
                 <li>Dysphonia quantification features are often based on a non-linear model of speech<sup>&nbsp;37,38</sup></li>
                 <li class="fragment">A huge variety of features exist in the field of speech language/emotion classification<sup>&nbsp;40</sup></li>
-                <li class="fragment">We combine the 338 SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with 67 additional features in the eGeneva acoustic feature set.<sup>&nbsp;41, 42</sup></li>
+                <li class="fragment">We combine the 338 SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with 67 additional features in the eGeneva acoustic feature set.<sup>&nbsp;41, 42</sup>, age, gender, race(one-hot) and ihone model.</li>
             </ul>
         </section>
 
@@ -524,8 +524,8 @@
             <ul>
                 <li>The feature selection method, learning model and data are all interconnected</li>
                 <li class="fragment">An exhaustive search of all combinations of model parameters and feature selection methods is too expensive</li>
-                <li class="fragment">A subset of viable ML and FS algorithms were chosen, and the Tree of Parzen Estimators (TPE) hyperparameter optimization method was used to
-                    find the 'local maxima' in an Expectation-Maximisation like fashion. </li>
+                <li class="fragment">A subset of viable ML and FS algorithms were chosen, and the Tree of Parzen Estimators (TPE)
+                    hyperparameter optimization approach used to select good combinations of ML model and feature selection in an Expectation-Maximisation like manner</li>
             </ul>
         </section>
 
@@ -758,7 +758,7 @@
         <section>
             <h3>Avoiding Overfitting</h3>
             <ul>
-                <li>A test set was used along wit hcross validation, to evaluate overfitting from model selection.</li>
+                <li>A test set was used along with cross validation to prevent overfitting from model selection.</li>
             </ul>
         </section>
         <section>
