@@ -440,7 +440,7 @@
         </section>
         <section>
             <p style="font-size:0.95em">
-                <large>Current state of the art speech classification involves:</large>
+                <large style="font-size:1.15em">Current state of the art dysphonia classification involves:</large>
             </p>
             <ol style="width:90%">
                 <li><i>Signal Processing</i> : Extracting relevant features from voice recordings </li>
@@ -450,7 +450,7 @@
         </section>
         <section>
             <p style="font-size:0.95em">
-                <large>Current state of the art speech classification involves:</large>
+                <large style="font-size:1.15em">Current state of the art dysphonia classification involves:</large>
             </p>
             <ol style="width:90%">
                 <li><i>Signal Processing</i> : Extracting relevant features from voice recordings </li>
@@ -460,7 +460,7 @@
         </section>
         <section>
             <p style="font-size:0.95em">
-                <large>Current state of the art speech classification involves:</large>
+                <large style="font-size:1.15em">Current state of the art dysphonia classification involves:</large>
             </p>
             <ol style="width:90%">
                 <li style="color:#ff2c2d"><i>Signal Processing</i> : Extracting relevant features from voice recordings </li>
@@ -489,49 +489,42 @@
         <section data-background-color="#191919" data-transition="fast">
             <img data-src="img/mpower2.png" style="width:100%"/>
             <blockquote style="position:fixed; top:300px; left:150px;">
-                65,000 speech recordings from 6,000 patients, 1,400 with Parkinson's Disease
+                65,000 speech recordings from 6,000 patients, ~1,300 with Parkinson's Disease
             </blockquote>
         </section>
         <section data-background-color="#191919" data-transition="fast">
             <img data-src="img/mpower2.png" style="width:100%"/>
             <blockquote style="position:fixed; top:300px; left:150px;">
-                After filtering and selecting the best audio files with simple heuristics1
+                After filtering and selecting the best audio files with simple heuristics, 4,500 patients remained, 950 with PD.
             </blockquote>
-        </section>
-        <section data-background-color="#fff">
-            <img data-src="img/mpowerage.png" style="width:100%"/>
-            <p class="fragment" style="color:#333">Age is an immensely powerful predictor with mPower -- predicting PD ⇔ age &ge; 52 has a 86.5% accuracy </p>
         </section>
         <section>
             <large> <p>&ldquo;A ML model is only as good as its features.&rdquo;</p></large>
             <ul>
                 <!--<li>Speakers with dysphonia often deviate from the simplified linear source-filter speech model<sup>&nbsp;38</sup></li>-->
-                <li>Dysphonia quantification features are often based on a non-linear model of speech<sup>&nbsp;37,38</sup></li>
-                <li class="fragment">A huge variety of features exist in the field of speech language/emotion classification<sup>&nbsp;40</sup></li>
-                <li class="fragment">We combine the 338 SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with 67 additional features in the eGeneva acoustic feature set<sup>&nbsp;41, 42</sup>, age, gender, race(one-hot) and iPhone model.</li>
+                <li>Dysphonia quantification features are based on finding the fundamental frequency (glottal cycles per second)<sup>&nbsp;37,&nbsp;38</sup>
+                <ul>
+                    <li>
+                        Finding the fundamental frequency is a research field in itself
+                    </li>
+                </ul>
+                </li>
+                <li class="fragment">A variety of other features exist in the field of speech language/emotion classification<sup>&nbsp;40</sup></li>
+                <li class="fragment">We combine the 338 SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with 67 additional features in the eGeneva acoustic feature set<sup>&nbsp;41, 42</sup>, age, gender, race(one-hot) and phone.</li>
             </ul>
         </section>
-
 
         <section>
             <p style="font-size:0.95em">
-                <large>Current state of the art speech classification involves:</large>
+                <large style="font-size:1.15em">Current state of the art dysphonia classification involves:</large>
             </p>
             <ol style="width:90%">
                 <li><i>Signal Processing</i> : Extracting relevant features from voice recordings </li>
-                <li style="color:#ff2c2d"><i>Feature Selection/Dimensionality Reduction</i> : Eliminating redundant features and combining features</li>
+                <li style="color:#ff2c2d"><i>Feature Selection/Dimensionality Reduction</i> : Eliminating redundant features and combining features (optional)</li>
                 <li style="color:#ff2c2d"><i>Model Fitting</i> : Training and evaluating a machine learning algorithm</li>
             </ol>
         </section>
-        <section>
-            <h3>Evaluating Machine Learning</h3>
-            <ul>
-                <li>The feature selection method, learning model and data are all interconnected</li>
-                <li class="fragment">An exhaustive search of all combinations of model parameters and feature selection methods is too expensive</li>
-                <li class="fragment">A subset of viable ML and FS algorithms were chosen, and the Tree of Parzen Estimators (TPE)
-                    hyperparameter optimization approach used to select good combinations of ML model and feature selection in an Expectation-Maximisation like manner</li>
-            </ul>
-        </section>
+
 
         <section data-background-color="#FFFFFF" style="color:#333 !important">
             <large style="float:left; margin-top:130px;width:360px; text-align: right">Results of Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> <small>
@@ -540,18 +533,12 @@
                 Diagnosed &mu;=5.8 &sigma;=6.3 years ago</small></large>
             <img data-src="img/Tsanas.png" style="height:640px; margin-right:40px; float:right;"/>
         </section>
+
         <section data-background-color="#fff">
             <h2 style="color:#555">The (linear) SVM</h2>
             <img src="img/svm.gif" >
         </section>
-        <section data-background-color="#fff">
-            <h2 style="color:#555">(Deep) Neural Networks</h2>
-            <img src="img/nnet.jpeg" >
-        </section>
-        <section data-background-color="#fff" class="full">
-            <h3 style="color:#555">Classifying Nonlinear Functions (xor ⊕)</h3>
-            <img src="img/nnetcomparison.png" style="height:600px;" >
-        </section>
+
         <section class="full" style="color:#333 !important" data-background-color="#fff" >
             <br/>
             <h3 style="color:#555">Tsanas relieff results on mPower</h3>
@@ -770,6 +757,64 @@
             <img data-src="img/svmfs2.png"/>
         </section>
 
+        <section data-background-color="#FFFFFF" style="color:#333 !important">
+            <img data-src="img/svmfsdemo.png"/>
+        </section>
+        <section data-background-color="#fff">
+            <img data-src="img/mpowerage.png" style="width:100%"/>
+            <p style="color:#333">Age is an immensely powerful predictor with mPower -- predicting PD ⇔ age &ge; 52 has a 86.1% accuracy </p>
+        </section>
+
+        <section>
+            <large><p>We clearly need to change approaches...</p></large>
+            <p>Although traditional linear ML techniques may work for the small, clean datasets used in previous works,  mPower is noisy and large.</p>
+        </section>
+
+        <section>
+            <large>Most features are barely separable</large>
+            <img data-src="img/tkeo.png"/>
+        </section>
+        <section>
+            <large>F<sub style="font-size:0.7em">0</sub> Estimation algorithms perform questionably</large>
+            <img data-src="img/PPE.png"/>
+        </section>
+        <section class="full">
+            <br/>
+            <br/>
+            <h2>Non-linearities in speech features</h2>
+            <ul>
+                <li>How do age and race affect speech?</li>
+                <li class="fragment">What information do discreptencies between F<sub style="font-size:0.7em">0</sub> based and
+                fourier/cepstral based provide? </li>
+            </ul>
+        </section>
+        <section data-background-color="#fff" class="full">
+            <br/>
+            <h2 style="color:#555">The (linear) SVM</h2>
+            <img src="img/svm.gif" >
+        </section>
+
+        <section data-background-color="#fff" class="full">
+            <br/>
+            <h2 style="color:#555">The (linear) SVM</h2>
+            <large style="color:#555"><p>Kernels can transform nonlinear data</p></large>
+            <img src="img/basisfn.png" >
+        </section>
+
+        <section data-background-color="#fff">
+            <h2 style="color:#555">(Deep) Neural Networks</h2>
+            <img src="img/nnet.jpeg" >
+        </section>
+
+        <section data-background-color="#fff" class="full">
+            <h3 style="color:#555">Classifying Nonlinear Functions (xor ⊕)</h3>
+            <img src="img/nnetcomparison.png" style="height:600px;" >
+        </section>
+
+        <section>
+            <h3>Deep Neural Networks for </h3>
+        </section>
+
         <section>
             <h3>Avoiding Overfitting</h3>
             <ul>
@@ -777,13 +822,7 @@
             </ul>
         </section>
         <section>
-            The techniques used for ML in datasets vary hugely
-        </section>
-        <section>
-            <h1>Results</h1>
-        </section>
-        <section>
-            <h1>Limitations and Future Work</h1>
+            <h1>Conclusion</h1>
         </section>
         <section>
             <large><p>The mPower dataset lacks quality control.</p></large>
@@ -958,6 +997,7 @@
                     <li>http://farm5.static.flickr.com/4006/4608694916_1c6f17b2c6_o.png</li>
                     <li>http://cdn-ak.f.st-hatena.com/images/fotolife/T/TJO/20140106/20140106225602.png</li>
                     <li>https://www.filepicker.io/api/file/sZlixFY9RHKZRfjafMY5?policy=eyJoYW5kbGUiOiJzWmxpeEZZOVJIS1pSZmphZk1ZNSIsImV4cGlyeSI6MTUwMDYxNDA2NywiY2FsbCI6WyJyZWFkIl19&signature=279612e27a584b2472c2454c753d719a4202435930c7385a21fdfc73c134c4f0</li>
+                    <li>https://www.researchgate.net/profile/Dirk_Van_den_Poel/publication/222834796/figure/fig2/AS:305107871780885@1449754793653/Figure-2-The-non-linear-boundary-in-the-input-space-is-mapped-via-a-kernel-function-into.png</li>
                 </ul>
             </smaller>
 
