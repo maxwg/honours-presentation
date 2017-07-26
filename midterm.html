@@ -90,7 +90,12 @@
                     style="margin-top:0.3em"><a
                     href="mailto:u5584091@anu.edu.au">&lt;u5584091@anu.edu.au&gt;</a></small></span>
             </p>
-            <p style="text-align:right; position:absolute; bottom:0.4em; right:0;">
+            <br/>
+            <blockquote style="width:100%; background-color:rgba(0,0,0,0.25); height:95px; padding:0;">
+            <p style="float:right;margin-top:4px; margin-right:8px;">View Online:      <a href="maxwg.github.io/presentation">maxwg.github.io/presentation</a></p>
+            <p style="float:right; margin-top:-24px; margin-right:8px;">Check For Parkinson's: &nbsp;<a href="maxwg.github.io/checkforPD" target="_blank">maxwg.github.io/diagnosePD</a></p>
+            </blockquote>
+                <p style="text-align:right; position:absolute; bottom:0.4em; right:0;">
                 <span style=" font-size:0.8em; line-height:0.8em">
                 Supervised by: <br/>
                 Dr Deborah Apthorp (ANU CMBE) <br/>
@@ -229,10 +234,10 @@
         <section data-transition-speed="slow" data-transition="concave" data-background-transition="concave" data-background-image="img/nicebg2.png">
             <h1>Prior Work</h1>
         </section>
-        <section class="full">
-            <iframe class="full" data-src="https://maxwg.github.io/projects/honours/presentation/scrolling_bib.html">
-            </iframe>
-        </section>
+        <!--<section class="full">-->
+            <!--<iframe class="full" data-src="https://maxwg.github.io/projects/honours/presentation/scrolling_bib.html">-->
+            <!--</iframe>-->
+        <!--</section>-->
         <section>
             <large>Current literature proposes two main applications: <i>Diagnosis</i> and <i>Monitoring</i></large>
         </section>
@@ -241,7 +246,7 @@
             <ul>
                 <li>Results are promising, with many papers reporting greater than 90% classification accuracy.
                 <ul class="fragment">
-                    <li>The basis of these results are flawed. All current datasets consist of (often late stage) patients already diagnosed with PD.</li>
+                    <li>The basis of these results are flawed. All current datasets consist of (often late stage) patients already diagnosed with PD vs control</li>
                 </ul></li>
             </ul>
         </section>
@@ -489,14 +494,22 @@
         <section data-background-color="#191919" data-transition="fast">
             <img data-src="img/mpower2.png" style="width:100%"/>
             <blockquote style="position:fixed; top:300px; left:150px;">
-                65,000 speech recordings from 6,000 patients, ~1,300 with Parkinson's Disease
+                65,000 speech recordings from 6,000 patients, ~1,200 with Parkinson's Disease
             </blockquote>
         </section>
         <section data-background-color="#191919" data-transition="fast">
             <img data-src="img/mpower2.png" style="width:100%"/>
             <blockquote style="position:fixed; top:300px; left:150px;">
-                After filtering and selecting the best audio files with simple heuristics, 4,500 patients remained, 950 with PD.
+                After filtering and selecting the best audio files with simple heuristics, 4,300 patients remained, 860 with PD, 300 without visible symptoms.
             </blockquote>
+        </section>
+        <section>
+            <h3>Issues with mPower</h3>
+            <ul>
+                <li class="fragment">Data is very 'noisy'. Preprocessing is a neccessary step to filter undesirable data</li>
+                <li class="fragment">300 files were hand labelled, and hand tweaked criteria used to loosely filter and rank audio files </li>
+                <li class="fragment">Resource limitation: We only considered the best recordings for each patient</li>
+            </ul>
         </section>
         <section>
             <large> <p>&ldquo;A ML model is only as good as its features.&rdquo;</p></large>
@@ -778,14 +791,13 @@
             <large>F<sub style="font-size:0.7em">0</sub> Estimation algorithms perform questionably</large>
             <img data-src="img/PPE.png"/>
         </section>
-        <section class="full">
-            <br/>
-            <br/>
+        <section>
             <h2>Non-linearities in speech features</h2>
             <ul>
                 <li>How do age and race affect speech?</li>
                 <li class="fragment">What information do discreptencies between F<sub style="font-size:0.7em">0</sub> based and
                 fourier/cepstral based provide? </li>
+                <li class="fragment">How do the different microphones in each iPhone model affect recordings?</li>
             </ul>
         </section>
         <section data-background-color="#fff" class="full">
@@ -810,28 +822,246 @@
             <h3 style="color:#555">Classifying Nonlinear Functions (xor ⊕)</h3>
             <img src="img/nnetcomparison.png" style="height:600px;" >
         </section>
-
         <section>
-            <h3>Deep Neural Networks for </h3>
+            <h3>Neural Network Parameters</h3>
+            <small><ul>
+                <li>Number/type of Layers?</li>
+                <li>Number of nodes in each layer?</li>
+                <li>Activation Functions? {ReLU, sigmoid, tanh, identity, ...}</li>
+                <li>Loss Function?</li>
+                <li>Regularization? {L1, L2, dropout, ...} </li>
+                <li>Weight Initialization? {Glorot/Xavier, He, Lecun, random, autoencoder...} </li>
+                <li>Optimizer? {SGD, RMS, Ada, Adam, NAdam, ....}</li>
+                <li>Optimizer Parameters? {Learning Rate, momentum, training epochs, batch size, ...}</li>
+            </ul></small>
         </section>
-
         <section>
-            <h3>Avoiding Overfitting</h3>
+            <h3>The Dangers of neural networks: Overfitting</h3>
             <ul>
-                <li>A test set was used along with cross validation to prevent overfitting from model selection.</li>
+                <li>Even with cross validation, overfitting occurs from model selection due to the number of free parameters </li>
+                <li>A separate test set was used along with cross validation. </li>
+                <li>All feature selection and normalization was done with respect to the training data</li>
+                <li>Trained neural networks were highly regularized, checking for stable and converged training and CV results</li>
             </ul>
         </section>
+
+        <section>
+            <h3>Model Selection</h3>
+            <ul>
+                <li>Intuition combined with local neigbour search was used to find good parameters for the model
+                    <br/><small style="margin-left:150px;">(Search was implemented with hyperopt, which relies on a Tree of Parzen Estimators<sup>&nbsp;44</sup>)</small></li>
+                <li class="fragment">The final network has 9 hidden layers with ReLU activations.
+                    <ul>
+                        <li>L1 regularization on the first three layers to prevent overfitting</li>
+                        <li>Nodes were initialised with the He<sup>&nbsp;45</sup> normal method and NAdam<sup>&nbsp;47</sup> used as the optimizer. The network was implemented with Keras<sup>&nbsp;46</sup></li>
+                    </ul>
+                    <img src="img/model.png">
+                </li>
+            </ul>
+        </section>
+
+        <section data-background-image="img/nicebg1.jpg" data-background-transition="concave" data-transition="concave" data-transition-speed="slow">
+            <h1>Results</h1>
+        </section>
+        <section>
+            <large><p>Naive predictions on all features</p></large>
+            <table style="font-size: 0.8em">
+                <tr>
+                    <td style="text-align: center"><large>Train</large>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>Pred PD</td>
+                                <td>Pred C</td>
+                            </tr>
+                            <tr>
+                                <td>Real PD</td>
+                                <td>585</td>
+                                <td>196</td>
+                            </tr>
+                            <tr>
+                                <td>Real C</td>
+                                <td>183</td>
+                                <td>2949</td>
+                            </tr>
+                        </table>
+                        <table style="float:left; font-size:0.8em">
+                            <tr>
+                                <td>Accuracy:</td>
+                                <td>90.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitivity (TP):</td>
+                                <td>74.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Specificity (TN):</td>
+                                <td>94.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Area Under ROC:</td>
+                                <td>.930</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center"><large>Test</large>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>Pred PD</td>
+                                <td>Pred C</td>
+                            </tr>
+                            <tr>
+                                <td>Real PD</td>
+                                <td>61</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>Real C</td>
+                                <td>21</td>
+                                <td>298</td>
+                            </tr>
+                        </table>
+                        <table style="float:left; font-size:0.8em">
+                            <tr>
+                                <td>Accuracy:</td>
+                                <td>89.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitivity (TP):</td>
+                                <td>75.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Specificity (TN):</td>
+                                <td>93.4%</td>
+                            </tr>
+                            <tr>
+                                <td>Area Under ROC:</td>
+                                <td>.922</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
+
+        </section>
+        <section>
+            <large><p>Naive predictions on all features without age </p></large>
+            <table style="font-size: 0.8em">
+                <tr>
+                    <td style="text-align: center"><large>Train</large>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>Pred PD</td>
+                                <td>Pred C</td>
+                            </tr>
+                            <tr>
+                                <td>Real PD</td>
+                                <td>585</td>
+                                <td>196</td>
+                            </tr>
+                            <tr>
+                                <td>Real C</td>
+                                <td>183</td>
+                                <td>2949</td>
+                            </tr>
+                        </table>
+                        <table style="float:left; font-size:0.8em">
+                            <tr>
+                                <td>Accuracy:</td>
+                                <td>90.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitivity (TP):</td>
+                                <td>74.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Specificity (TN):</td>
+                                <td>94.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Area Under ROC:</td>
+                                <td>.930</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center"><large>Test</large>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>Pred PD</td>
+                                <td>Pred C</td>
+                            </tr>
+                            <tr>
+                                <td>Real PD</td>
+                                <td>61</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>Real C</td>
+                                <td>21</td>
+                                <td>298</td>
+                            </tr>
+                        </table>
+                        <table style="float:left; font-size:0.8em">
+                            <tr>
+                                <td>Accuracy:</td>
+                                <td>89.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitivity (TP):</td>
+                                <td>75.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Specificity (TN):</td>
+                                <td>93.4%</td>
+                            </tr>
+                            <tr>
+                                <td>Area Under ROC:</td>
+                                <td>.922</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
+
+        </section>
+        <section>
+            <h3>Applying 'domain knowledge'</h3>
+            <ul>
+                <li>We know males and females have very different speech characteristics</li>
+                <li class="fragment">But we do not have enough data to comfortably train two separate networks</li>
+                <li class="fragment">Solution:
+                <blockquote style="text-align: center">Transfer Learning<br/>
+                </blockquote>
+                <div style="text-align:center;">
+                    <small>(This also applies to race however we have insufficient data.)</small>
+                </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+                    <blockquote style="text-align: center">Transfer Learning<br/>
+                    </blockquote>
+            <p>We can initialize the weights of the network using the male participants, then train on the female participants and vice versa</p>
+        </section>
+        <section>
+            <h1>Now that we have good results.... time to get back to the question</h1>
+        </section>
+
         <section>
             <h1>Conclusion</h1>
-        </section>
-        <section>
-            <large><p>The mPower dataset lacks quality control.</p></large>
-            <ul>
-                <li class="fragment">Data is very 'noisy'. Preprocessing is a neccessary step to filter undesirable recordings</li>
-                <li class="fragment">Audio files are filtered and ranked based on hand-weighted factors, with the best selected for feature extraction</li>
-                <li class="fragment">Optimally, a Machine Learning backed model can be used to automatically filter usable and unusable data for future endeavours like mPower </li>
-                <li class="fragment">Processing limitation: All recordings should considered as part of an ensemble model rather than relying on hard coded selection techniques</li>
-            </ul>
         </section>
         <section>
             <h2>Limitations and Shortcomings</h2>
@@ -843,6 +1073,7 @@
             <h2>Near Future Work</h2>
             <ol>
                 <li>Ensemble methods, </li>
+                <li class="fragment">Optimally, a Machine Learning backed model can be used to automatically filter usable and unusable data for future endeavours like mPower </li>
                 <li>Explore larger feature sets for speech classification such as those used in Interspeech emotion recognition challenges (15,000+ features)</li>
 
             </ol>
@@ -859,7 +1090,6 @@
         </section>
         <section class="scrollable" id="ref">
             <smaller>
-                National Center for Voice and Speech (NCVS) database
                 <h3>References</h3>
                 <ol style="width:95%" id="references">
                     <large>Diagnosis</large>
@@ -979,9 +1209,18 @@
                     <li>F. Eyben, K. R. Scherer, B. W. Schuller, J. Sundberg, E. Andr´e, C. Busso, L. Y. Devillers, J. Epps, P. Laukka, S. S. Narayanan, et al., The geneva minimalistic acoustic parameter set (gemaps) for voice research and affective computing, IEEE Transactions on Affective Computing 7 (2016) 190–202.</li>
                     <li>F. Eyben, M. W¨ollmer, B. Schuller, Opensmile: the munich versatile and fast open-source audio feature extractor, in: Proceedings of the 18th ACM international conference on Multimedia, ACM, pp. 1459–1462.</li>
                     <br/>
-                    <large>Feature Selection</large>
+                    <large>General Machine Learning</large>
                     <hr/>
                     <li>J. Li, K. Cheng, S. Wang, F. Morstatter, R. P. Trevino, J. Tang, H. Liu, Feature selection: A data perspective, arXiv preprint arXiv:1601.07996 (2016) </li>
+                    <li>J. S. Bergstra, R. Bardenet, Y. Bengio, B. K´egl, Algorithms for hyperparameter
+                    optimization, in: Advances in Neural Information Processing
+                        Systems, pp. 2546–2554</li>
+
+                    <li>K. He, X. Zhang, S. Ren, J. Sun, Delving deep into rectifiers: Surpassing
+                    human-level performance on imagenet classification, in: Proceedings of
+                        the IEEE international conference on computer vision, pp. 1026–1034.</li>
+                    <li>F. Chollet, et al., Keras, 2015</li>
+                    <li>T. Dozat, Incorporating nesterov momentum into adam (2016).</li>
                 </ol>
                 <br/><br/>
                 <h3>Slide Material Sources</h3>
