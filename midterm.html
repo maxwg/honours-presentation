@@ -499,15 +499,24 @@
         </section>
         <section data-background-color="#191919" data-transition="fast">
             <img data-src="img/mpower2.png" style="width:100%"/>
-            <blockquote style="position:fixed; top:300px; left:150px;">
-                After filtering and selecting the best audio files with simple heuristics, 4,300 patients remained, 860 with PD, 300 without visible symptoms.
+            <blockquote style="position:fixed; top:280px; left:150px;">
+                Patients come for a variety of backgrounds and races and may suffer from other conditions. Some have early-onset PD.
             </blockquote>
         </section>
+        <section data-background-color="#191919" data-transition="fast">
+            <img data-src="img/mpower2.png" style="width:100%"/>
+            <blockquote style="position:fixed; top:230px; left:60px; width:800px;">
+                After filtering and selecting the best audio files, 4,100 patients remained, 900 with PD.
+                <br/>
+                <br/> 81 (of 160) patients without speech symptoms selected based on UPDRS survey and self-listening.
+                <br/>
+            </blockquote>
+
+        </section>
         <section>
-            <h3>Issues with mPower</h3>
+            <large><p>Data is 'noisy' and may not be accurate.</p></large>
             <ul>
-                <li class="fragment">Data is very 'noisy'. Preprocessing is a neccessary step to filter undesirable data</li>
-                <li class="fragment">300 files were hand labelled, and hand tweaked criteria used to loosely filter and rank audio files </li>
+                <li class="fragment">~600 files were hand labelled from 1s excerpts, and hand tweaked criteria used to loosely filter and rank audio files </li>
                 <li class="fragment">Resource limitation: We only considered the best recordings for each patient</li>
             </ul>
         </section>
@@ -661,7 +670,11 @@
             </table>
         </section>
         <section data-background-color="#FFFFFF" style="color:#333 !important">
-            <large style="float:left; margin-top:200px;width:360px; text-align: right">Results of Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> <small><br/>(33 PD, 10 Control)</small></large>
+            <ul style="float:left; margin-top:230px;width:300px; text-align: right">
+                <large>Possible Causes</large><br/>
+                <li>Cross-val Overfitting</li>
+                <li>Higher Quality Data</li>
+            </ul>
             <img data-src="img/Tsanas.png" style="height:640px; margin-right:40px; float:right;"/>
         </section>
 
@@ -824,16 +837,16 @@
         </section>
         <section>
             <h3>Neural Network Parameters</h3>
-            <small><ul>
+            <span style="font-size:0.75em"><ul>
                 <li>Number/type of Layers?</li>
                 <li>Number of nodes in each layer?</li>
                 <li>Activation Functions? {ReLU, sigmoid, tanh, identity, ...}</li>
-                <li>Loss Function?</li>
+                <li>Loss Function? {MSE, MAE, Tweedie based, KL divergence, cross-entropy, ...}</li>
                 <li>Regularization? {L1, L2, dropout, ...} </li>
                 <li>Weight Initialization? {Glorot/Xavier, He, Lecun, random, autoencoder...} </li>
                 <li>Optimizer? {SGD, RMS, Ada, Adam, NAdam, ....}</li>
                 <li>Optimizer Parameters? {Learning Rate, momentum, training epochs, batch size, ...}</li>
-            </ul></small>
+            </ul></span>
         </section>
         <section>
             <h3>The Dangers of neural networks: Overfitting</h3>
@@ -848,7 +861,7 @@
         <section>
             <h3>Model Selection</h3>
             <ul>
-                <li>Intuition combined with local neigbour search was used to find good parameters for the model
+                <li>Intuition combined with large neigbourhood search was used to find good parameters for the model
                     <br/><small style="margin-left:150px;">(Search was implemented with hyperopt, which relies on a Tree of Parzen Estimators<sup>&nbsp;44</sup>)</small></li>
                 <li class="fragment">The final network has 9 hidden layers with ReLU activations.
                     <ul>
@@ -863,11 +876,12 @@
         <section data-background-image="img/nicebg1.jpg" data-background-transition="concave" data-transition="concave" data-transition-speed="slow">
             <h1>Results</h1>
         </section>
-        <section>
+        <section class="full">
+            <br/>
             <large><p>Naive predictions on all features</p></large>
             <table style="font-size: 0.8em">
                 <tr>
-                    <td style="text-align: center"><large>Train</large>
+                    <td style="text-align: center"><large>Cross-Val</large>
                         <table>
                             <tr>
                                 <td></td>
@@ -948,13 +962,17 @@
 
                 </tr>
             </table>
+            <p class="fragment">Comparable to Little (2009)<sup>26</sup> [91.3% cross-val with 23PD/8C]<br/>
+                Sakar (2012)<sup>27</sup> [75% with 20PD/20C]
+                <br/>Hazan (2012)<sup>24</sup> [80% on 68PD/30C german speakers]  </p>
 
         </section>
-        <section>
-            <large><p>Naive predictions on all features without age </p></large>
+        <section class="full">
+            <br/>
+            <large><p>Naive predictions on all features with only gender demographics </p></large>
             <table style="font-size: 0.8em">
                 <tr>
-                    <td style="text-align: center"><large>Train</large>
+                    <td style="text-align: center"><large>Cross-Val</large>
                         <table>
                             <tr>
                                 <td></td>
@@ -963,31 +981,31 @@
                             </tr>
                             <tr>
                                 <td>Real PD</td>
-                                <td>585</td>
-                                <td>196</td>
+                                <td>276</td>
+                                <td>505</td>
                             </tr>
                             <tr>
                                 <td>Real C</td>
-                                <td>183</td>
-                                <td>2949</td>
+                                <td>95</td>
+                                <td>3037</td>
                             </tr>
                         </table>
                         <table style="float:left; font-size:0.8em">
                             <tr>
                                 <td>Accuracy:</td>
-                                <td>90.3%</td>
+                                <td>84.7%</td>
                             </tr>
                             <tr>
                                 <td>Sensitivity (TP):</td>
-                                <td>74.9%</td>
+                                <td>35.3%</td>
                             </tr>
                             <tr>
                                 <td>Specificity (TN):</td>
-                                <td>94.2%</td>
+                                <td>97.0%</td>
                             </tr>
                             <tr>
                                 <td>Area Under ROC:</td>
-                                <td>.930</td>
+                                <td>.846</td>
                             </tr>
                         </table>
                     </td>
@@ -1004,38 +1022,38 @@
                             </tr>
                             <tr>
                                 <td>Real PD</td>
-                                <td>61</td>
-                                <td>20</td>
+                                <td>26</td>
+                                <td>55</td>
                             </tr>
                             <tr>
                                 <td>Real C</td>
-                                <td>21</td>
-                                <td>298</td>
+                                <td>10</td>
+                                <td>309</td>
                             </tr>
                         </table>
                         <table style="float:left; font-size:0.8em">
                             <tr>
                                 <td>Accuracy:</td>
-                                <td>89.8%</td>
+                                <td>83.8%</td>
                             </tr>
                             <tr>
                                 <td>Sensitivity (TP):</td>
-                                <td>75.3%</td>
+                                <td>32.0%</td>
                             </tr>
                             <tr>
                                 <td>Specificity (TN):</td>
-                                <td>93.4%</td>
+                                <td>96.9%</td>
                             </tr>
                             <tr>
                                 <td>Area Under ROC:</td>
-                                <td>.922</td>
+                                <td>.798</td>
                             </tr>
                         </table>
                     </td>
 
                 </tr>
             </table>
-
+            <p class="fragment">Almost 10% better than simpler models, but there's still a long way to go - especially with sensitivity!</p>
         </section>
         <section>
             <h3>Applying 'domain knowledge'</h3>
@@ -1052,9 +1070,181 @@
             </ul>
         </section>
         <section>
-                    <blockquote style="text-align: center">Transfer Learning<br/>
-                    </blockquote>
+                <blockquote style="text-align: center">Transfer Learning<br/>
+                </blockquote>
             <p>We can initialize the weights of the network using the male participants, then train on the female participants and vice versa</p>
+        </section>
+        <section>
+            <large><p>Female only, all features </p></large>
+            <table style="font-size: 0.8em">
+                <tr>
+                    <td style="text-align: center"><large>Cross-Val</large>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>Pred PD</td>
+                                <td>Pred C</td>
+                            </tr>
+                            <tr>
+                                <td>Real PD</td>
+                                <td>231</td>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <td>Real C</td>
+                                <td>49</td>
+                                <td>538</td>
+                            </tr>
+                        </table>
+                        <table style="float:left; font-size:0.8em">
+                            <tr>
+                                <td>Accuracy:</td>
+                                <td>89.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitivity (TP):</td>
+                                <td>83.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Specificity (TN):</td>
+                                <td>91.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Area Under ROC:</td>
+                                <td>.945</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center"><large>Test</large>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>Pred PD</td>
+                                <td>Pred C</td>
+                            </tr>
+                            <tr>
+                                <td>Real PD</td>
+                                <td>23</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Real C</td>
+                                <td>7</td>
+                                <td>60</td>
+                            </tr>
+                        </table>
+                        <table style="float:left; font-size:0.8em">
+                            <tr>
+                                <td>Accuracy:</td>
+                                <td>88.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitivity (TP):</td>
+                                <td>85.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Specificity (TN):</td>
+                                <td>89.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Area Under ROC:</td>
+                                <td>.918</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
+        </section>
+        <section>
+            <large><p>Male only, all features </p></large>
+            <table style="font-size: 0.8em">
+                <tr>
+                    <td style="text-align: center"><large>Cross-Val</large>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>Pred PD</td>
+                                <td>Pred C</td>
+                            </tr>
+                            <tr>
+                                <td>Real PD</td>
+                                <td>360</td>
+                                <td>145</td>
+                            </tr>
+                            <tr>
+                                <td>Real C</td>
+                                <td>2408</td>
+                                <td>137</td>
+                            </tr>
+                        </table>
+                        <table style="float:left; font-size:0.8em">
+                            <tr>
+                                <td>Accuracy:</td>
+                                <td>90.7</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitivity (TP):</td>
+                                <td>71.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Specificity (TN):</td>
+                                <td>94.6%</td>
+                            </tr>
+                            <tr>
+                                <td>Area Under ROC:</td>
+                                <td>.918</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center"><large>Test</large>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>Pred PD</td>
+                                <td>Pred C</td>
+                            </tr>
+                            <tr>
+                                <td>Real PD</td>
+                                <td>41</td>
+                                <td>13</td>
+                            </tr>
+                            <tr>
+                                <td>Real C</td>
+                                <td>233</td>
+                                <td>19</td>
+                            </tr>
+                        </table>
+                        <table style="float:left; font-size:0.8em">
+                            <tr>
+                                <td>Accuracy:</td>
+                                <td>89.6%</td>
+                            </tr>
+                            <tr>
+                                <td>Sensitivity (TP):</td>
+                                <td>75.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Specificity (TN):</td>
+                                <td>92.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Area Under ROC:</td>
+                                <td>.928</td>
+                            </tr>
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
         </section>
         <section>
             <h1>Now that we have good results.... time to get back to the question</h1>
