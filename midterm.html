@@ -91,9 +91,9 @@
                     href="mailto:u5584091@anu.edu.au">&lt;u5584091@anu.edu.au&gt;</a></small></span>
             </p>
             <br/>
-            <blockquote style="width:100%; background-color:rgba(0,0,0,0.25); height:95px; padding:0;">
-            <p style="float:right;margin-top:4px; margin-right:8px;">View Online:      <a href="maxwg.github.io/presentation">maxwg.github.io/presentation</a></p>
-            <p style="float:right; margin-top:-24px; margin-right:8px;">Check For Parkinson's: &nbsp;<a href="maxwg.github.io/checkforPD" target="_blank">maxwg.github.io/diagnosePD</a></p>
+            <blockquote style="width:100%; background-color:rgba(0,0,0,0.25); height:93px; padding:0;">
+            <p style="float:right;margin-top:4px; margin-right:24px;">View Online:      <a href="maxwg.github.io/presentation">maxwg.github.io/presentation</a></p>
+            <p style="float:right; margin-top:-24px; margin-right:24px;">Check For Parkinson's: &nbsp;<a href="maxwg.github.io/checkforPD" target="_blank">maxwg.github.io/diagnosePD</a></p>
             </blockquote>
                 <p style="text-align:right; position:absolute; bottom:0.4em; right:0;">
                 <span style=" font-size:0.8em; line-height:0.8em">
@@ -962,9 +962,9 @@
 
                 </tr>
             </table>
-            <p class="fragment">Comparable to Little (2009)<sup>26</sup> [91.3% cross-val with 23PD/8C]<br/>
-                Sakar (2012)<sup>27</sup> [75% with 20PD/20C]
-                <br/>Hazan (2012)<sup>24</sup> [80% on 68PD/30C german speakers]  </p>
+            <p class="fragment" style="text-align:right;">Comparable to Little (2009)<sup>26</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[91.3% cross-val with 23PD/8C]<br/>
+                Sakar (2012)<sup>27</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[75% cross-val with 20PD/20C]<br/>
+                Hazan (2012)<sup>24</sup> [80% on 68PD/30C german speakers]  </p>
 
         </section>
         <section class="full">
@@ -1073,183 +1073,141 @@
                 <blockquote style="text-align: center">Transfer Learning<br/>
                 </blockquote>
             <p>We can initialize the weights of the network using the male participants, then train on the female participants and vice versa</p>
+            <br/>
+            <div class="fragment" style="text-align:left; margin-left:12px;">
+                <large>Results</large><br/>
+                <ul>
+                    <li><i>All features:</i> Negligible difference</li>
+                    <li><i>Voice features:</i><table style="font-size:0.7em; margin-left:220px;">
+                        <tr>
+                            <td>Test Accuracy</td>
+                            <td>83.8%</td>
+                            <td>→</td>
+                            <td>85.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Test Specificity (TP)</td>
+                            <td>32.0%</td>
+                            <td>→</td>
+                            <td>44.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Test Sensitivity (TN)</td>
+                            <td>96.9%</td>
+                            <td>→</td>
+                            <td>95.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Area Under ROC</td>
+                            <td>.798</td>
+                            <td>→</td>
+                            <td>.812</td>
+                        </tr>
+                    </table></li>
+                </ul>
+            </div>
+
+        </section>
+        <section style="color:#333 !important">
+            <blockquote style="text-align: center; background-color:#252525;">Transfer Learning<br/>
+            </blockquote>
+            <p>We can initialize the weights of the network using the male participants, then train on the female participants and vice versa</p>
+            <br/>
+            <div style="text-align:left; margin-left:12px;">
+                <large>Results</large><br/>
+                <ul>
+                    <li><i>All features:</i> Negligible difference</li>
+                    <li><i>Voice features:</i><table style="font-size:0.7em; margin-left:220px;">
+                        <tr>
+                            <td>Test Accuracy</td>
+                            <td>83.8%</td>
+                            <td>→</td>
+                            <td>85.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Test Specificity (TP)</td>
+                            <td>32.0%</td>
+                            <td>→</td>
+                            <td>44.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Test Sensitivity (TN)</td>
+                            <td>96.9%</td>
+                            <td>→</td>
+                            <td>95.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Area Under ROC</td>
+                            <td>.798</td>
+                            <td>→</td>
+                            <td>.812</td>
+                        </tr>
+                    </table></li>
+                </ul>
+            </div>
+            <blockquote style="position:fixed; top:217px; left:139px; background-color:#333; color:#EEE">
+                What if we want better specificity?
+            </blockquote>
+
         </section>
         <section>
-            <large><p>Female only, all features </p></large>
-            <table style="font-size: 0.8em">
+            <blockquote>
+                What if we want better specificity?
+            </blockquote>
+            <p>Change loss function/metrics</p>
+            <p style="text-align:left">
+            Reweighted binary-crossentropy to increase false-negative penalty;
+                Used f-measure as metric</p>
+        </section>
+        <section>
+            <blockquote style="position:fixed; top:217px; left:139px; background-color:#2d2d2d; color:#EEE">
+                What if we want better specificity?
+            </blockquote>
+            <br/><br/><br/>
+            <table>
                 <tr>
-                    <td style="text-align: center"><large>Cross-Val</large>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td>Pred PD</td>
-                                <td>Pred C</td>
-                            </tr>
-                            <tr>
-                                <td>Real PD</td>
-                                <td>231</td>
-                                <td>45</td>
-                            </tr>
-                            <tr>
-                                <td>Real C</td>
-                                <td>49</td>
-                                <td>538</td>
-                            </tr>
-                        </table>
-                        <table style="float:left; font-size:0.8em">
-                            <tr>
-                                <td>Accuracy:</td>
-                                <td>89.1%</td>
-                            </tr>
-                            <tr>
-                                <td>Sensitivity (TP):</td>
-                                <td>83.7%</td>
-                            </tr>
-                            <tr>
-                                <td>Specificity (TN):</td>
-                                <td>91.7%</td>
-                            </tr>
-                            <tr>
-                                <td>Area Under ROC:</td>
-                                <td>.945</td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td style="text-align: center"><large>Test</large>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td>Pred PD</td>
-                                <td>Pred C</td>
-                            </tr>
-                            <tr>
-                                <td>Real PD</td>
-                                <td>23</td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td>Real C</td>
-                                <td>7</td>
-                                <td>60</td>
-                            </tr>
-                        </table>
-                        <table style="float:left; font-size:0.8em">
-                            <tr>
-                                <td>Accuracy:</td>
-                                <td>88.2%</td>
-                            </tr>
-                            <tr>
-                                <td>Sensitivity (TP):</td>
-                                <td>85.2%</td>
-                            </tr>
-                            <tr>
-                                <td>Specificity (TN):</td>
-                                <td>89.5%</td>
-                            </tr>
-                            <tr>
-                                <td>Area Under ROC:</td>
-                                <td>.918</td>
-                            </tr>
-                        </table>
-                    </td>
-
+                    <td>Test Accuracy</td>
+                    <td>85.0%</td>
+                    <td>→</td>
+                    <td>82.0%</td>
+                </tr>
+                <tr>
+                    <td>Test Specificity (TP)</td>
+                    <td>44.0%</td>
+                    <td>→</td>
+                    <td>72.2%</td>
+                </tr>
+                <tr>
+                    <td>Test Sensitivity (TN)</td>
+                    <td>95.9%</td>
+                    <td>→</td>
+                    <td>84.8%</td>
+                </tr>
+                <tr>
+                    <td>Area Under ROC</td>
+                    <td>.814</td>
+                    <td>→</td>
+                    <td>.827</td>
                 </tr>
             </table>
         </section>
         <section>
-            <large><p>Male only, all features </p></large>
-            <table style="font-size: 0.8em">
-                <tr>
-                    <td style="text-align: center"><large>Cross-Val</large>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td>Pred PD</td>
-                                <td>Pred C</td>
-                            </tr>
-                            <tr>
-                                <td>Real PD</td>
-                                <td>360</td>
-                                <td>145</td>
-                            </tr>
-                            <tr>
-                                <td>Real C</td>
-                                <td>2408</td>
-                                <td>137</td>
-                            </tr>
-                        </table>
-                        <table style="float:left; font-size:0.8em">
-                            <tr>
-                                <td>Accuracy:</td>
-                                <td>90.7</td>
-                            </tr>
-                            <tr>
-                                <td>Sensitivity (TP):</td>
-                                <td>71.3%</td>
-                            </tr>
-                            <tr>
-                                <td>Specificity (TN):</td>
-                                <td>94.6%</td>
-                            </tr>
-                            <tr>
-                                <td>Area Under ROC:</td>
-                                <td>.918</td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td style="text-align: center"><large>Test</large>
-                        <table>
-                            <tr>
-                                <td></td>
-                                <td>Pred PD</td>
-                                <td>Pred C</td>
-                            </tr>
-                            <tr>
-                                <td>Real PD</td>
-                                <td>41</td>
-                                <td>13</td>
-                            </tr>
-                            <tr>
-                                <td>Real C</td>
-                                <td>233</td>
-                                <td>19</td>
-                            </tr>
-                        </table>
-                        <table style="float:left; font-size:0.8em">
-                            <tr>
-                                <td>Accuracy:</td>
-                                <td>89.6%</td>
-                            </tr>
-                            <tr>
-                                <td>Sensitivity (TP):</td>
-                                <td>75.9%</td>
-                            </tr>
-                            <tr>
-                                <td>Specificity (TN):</td>
-                                <td>92.5%</td>
-                            </tr>
-                            <tr>
-                                <td>Area Under ROC:</td>
-                                <td>.928</td>
-                            </tr>
-                        </table>
-                    </td>
-
-                </tr>
-            </table>
+            <h2>Verifying Results</h2>
+            <p>Sakar et al. (2012)<sup>27</sup> makes publicly available a dataset of vowel pronunciations from 28 PD patients without demographics data. </p>
+            <ul class="fragment">
+                <li>The voice feature trained model classifies <span style="color:#ff2c2d; font-weight:600;">23/28</span> correctly (82.1% specificity).</li>
+            </ul>
         </section>
         <section>
-            <h1>Now that we have good results.... time to get back to the question</h1>
+            <p>Let's get back to the question at hand!</p>
+            <blockquote style="padding:7px 30px 7px 30px;"><i>Can Machine Learning diagnose PD better than a trained neurologist?</i></blockquote>
+            <ul class="fragment">
+            <li>Trained on voice features of all patients, 31 without speech conditions
+                <ul><li>Predicted <span style="color:#ff2c2d; font-weight:600;">39/50</span> of the remaining without speech conditions correctly
+                <span style="font-size:0.6em">(Note that higher quality data may also be a factor influencing the results)</span></li></ul></li>
+                <li class="fragment"><i>The model appears to be looking for features very different from the typical human</i></li>
+            </ul>
         </section>
-
         <section>
             <h1>Conclusion</h1>
         </section>
@@ -1257,31 +1215,30 @@
             <h2>Limitations and Shortcomings</h2>
             <ul>
                 <li>The UPDRS questionnarie is filled out by users - responses may not reflect clinical diagnosis</li>
+                <li>Computational limtations - optimally, data 'boosting' would be applied - using varying length excerpts of speech from each patient
+                    <span style="font-size:0.6em">(I only had an i5 box with integrated graphics and barely enough RAM to kick up a DNN.)</span></li>
             </ul>
         </section>
         <section>
             <h2>Near Future Work</h2>
             <ol>
-                <li>Ensemble methods, </li>
-                <li class="fragment">Optimally, a Machine Learning backed model can be used to automatically filter usable and unusable data for future endeavours like mPower </li>
-                <li>Explore larger feature sets for speech classification such as those used in Interspeech emotion recognition challenges (15,000+ features)</li>
+                <li>Developing a Machine Learning based filter for speech data with too much noise</li>
+                <li>Explore classification with larger feature sets such as ComParE(15,000+ features)</li>
 
             </ol>
         </section>
         <section>
             <h2>Future Work <smaller style="vertical-align: middle"><sub>(in order of importance)</sub></smaller></h2>
             <ol>
-                <li>Investigating the use of a time-series model such as a HMM or RNN to train and predict on short time features (e.g, raw glottal cycles)</li>
-                <li>Experiment on motor features</li>
-                <li>Investigate the impacts of medication such as Levodopa on results</li>
-                <li>Active Learning: Determine which patients to monitor for more data</li>
+                <li>Investigating the use of a time-series model such as a HMM or RNN to train and predict on short time features (e.g, glottal cycle length)</li>
+                <li>Investigate the impacts of medication such as Levodopa </li>
+                <li>Active Learning: Determine which patients to monitor</li>
                 <li>Developing/modifying signal processing algorithms to suit non-linear dysphonia quantification</li>
             </ol>
         </section>
         <section class="scrollable" id="ref">
             <smaller>
-                National Center for Voice and Speech (NCVS) database
-                <h3>References</h3>
+                <h2>References</h2>
                 <ol style="width:95%" id="references">
                     <large>Diagnosis</large>
                     <hr/>
@@ -1414,7 +1371,7 @@
                     <li>T. Dozat, Incorporating nesterov momentum into adam (2016).</li>
                 </ol>
                 <br/><br/>
-                <h3>Slide Material Sources</h3>
+                <h2>Slide Material Sources</h2>
                 <ul>
                     <li>http://www.healthline.com/hlcmsresource/images/topic_centers/neupro-parkinsons/
                         642x361_Parkinsons_Disease_Caregiving.jpg
