@@ -91,9 +91,9 @@
                     href="mailto:u5584091@anu.edu.au">&lt;u5584091@anu.edu.au&gt;</a></small></span>
             </p>
             <br/>
-            <blockquote style="width:100%; background-color:rgba(0,0,0,0.25); height:95px; padding:0;">
-            <p style="float:right;margin-top:4px; margin-right:8px;">View Online:      <a href="maxwg.github.io/presentation">maxwg.github.io/presentation</a></p>
-            <p style="float:right; margin-top:-24px; margin-right:8px;">Check For Parkinson's: &nbsp;<a href="maxwg.github.io/checkforPD" target="_blank">maxwg.github.io/diagnosePD</a></p>
+            <blockquote style="width:100%; background-color:rgba(0,0,0,0.25); height:93px; padding:0;">
+            <p style="float:right;margin-top:4px; margin-right:24px;">View Online:      <a href="maxwg.github.io/presentation">maxwg.github.io/presentation</a></p>
+            <p style="float:right; margin-top:-24px; margin-right:24px;">Check For Parkinson's: &nbsp;<a href="maxwg.github.io/checkforPD" target="_blank">maxwg.github.io/diagnosePD</a></p>
             </blockquote>
                 <p style="text-align:right; position:absolute; bottom:0.4em; right:0;">
                 <span style=" font-size:0.8em; line-height:0.8em">
@@ -102,12 +102,6 @@
                 Dr Hanna Suominen (ANU CECS/DATA61)
                 </span>
             </p>
-        </section>
-        <section data-background-image="img/pd2.png">
-            <blockquote style="background-color:rgba(0,0,0,0.2); padding: 20px 0 14px 0">
-                Parkinson’s Disease (PD) is a degenerative neurological disorder that affects an estimated 53 million people
-                worldwide<sup>&nbsp;1, 2</sup>
-            </blockquote>
         </section>
         <section>
             <blockquote style="padding: 20px 0 14px 0">
@@ -503,15 +497,24 @@
         </section>
         <section data-background-color="#191919" data-transition="fast">
             <img data-src="img/mpower2.png" style="width:100%"/>
-            <blockquote style="position:fixed; top:300px; left:150px;">
-                After filtering and selecting the best audio files with simple heuristics, 4,300 patients remained, 860 with PD, 300 without visible symptoms.
+            <blockquote style="position:fixed; top:280px; left:150px;">
+                Patients come for a variety of backgrounds and races and may suffer from other conditions. Some have early-onset PD.
             </blockquote>
         </section>
+        <section data-background-color="#191919" data-transition="fast">
+            <img data-src="img/mpower2.png" style="width:100%"/>
+            <blockquote style="position:fixed; top:230px; left:60px; width:800px;">
+                After filtering and selecting the best audio files, 4,100 patients remained, 900 with PD.
+                <br/>
+                <br/> 81 (of 160) patients without speech symptoms selected based on UPDRS survey and self-listening.
+                <br/>
+            </blockquote>
+
+        </section>
         <section>
-            <h3>Issues with mPower</h3>
+            <large><p>Data is 'noisy' and may not be accurate.</p></large>
             <ul>
-                <li class="fragment">Data is very 'noisy'. Preprocessing is a neccessary step to filter undesirable data</li>
-                <li class="fragment">300 files were hand labelled, and hand tweaked criteria used to loosely filter and rank audio files </li>
+                <li class="fragment">~600 files were hand labelled from 1s excerpts, and hand tweaked criteria used to loosely filter and rank audio files </li>
                 <li class="fragment">Resource limitation: We only considered the best recordings for each patient</li>
             </ul>
         </section>
@@ -665,7 +668,11 @@
             </table>
         </section>
         <section data-background-color="#FFFFFF" style="color:#333 !important">
-            <large style="float:left; margin-top:200px;width:360px; text-align: right">Results of Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> <small><br/>(33 PD, 10 Control)</small></large>
+            <ul style="float:left; margin-top:230px;width:300px; text-align: right">
+                <large>Possible Causes</large><br/>
+                <li>Cross-val Overfitting</li>
+                <li>Higher Quality Data</li>
+            </ul>
             <img data-src="img/Tsanas.png" style="height:640px; margin-right:40px; float:right;"/>
         </section>
 
@@ -828,16 +835,16 @@
         </section>
         <section>
             <h3>Neural Network Parameters</h3>
-            <small><ul>
+            <span style="font-size:0.75em"><ul>
                 <li>Number/type of Layers?</li>
                 <li>Number of nodes in each layer?</li>
                 <li>Activation Functions? {ReLU, sigmoid, tanh, identity, ...}</li>
-                <li>Loss Function?</li>
+                <li>Loss Function? {MSE, MAE, Tweedie based, KL divergence, cross-entropy, ...}</li>
                 <li>Regularization? {L1, L2, dropout, ...} </li>
                 <li>Weight Initialization? {Glorot/Xavier, He, Lecun, random, autoencoder...} </li>
                 <li>Optimizer? {SGD, RMS, Ada, Adam, NAdam, ....}</li>
                 <li>Optimizer Parameters? {Learning Rate, momentum, training epochs, batch size, ...}</li>
-            </ul></small>
+            </ul></span>
         </section>
         <section>
             <h3>The Dangers of neural networks: Overfitting</h3>
@@ -852,7 +859,7 @@
         <section>
             <h3>Model Selection</h3>
             <ul>
-                <li>Intuition combined with local neigbour search was used to find good parameters for the model
+                <li>Intuition combined with large neigbourhood search was used to find good parameters for the model
                     <br/><small style="margin-left:150px;">(Search was implemented with hyperopt, which relies on a Tree of Parzen Estimators<sup>&nbsp;44</sup>)</small></li>
                 <li class="fragment">The final network has 9 hidden layers with ReLU activations.
                     <ul>
@@ -867,11 +874,12 @@
         <section data-background-image="img/nicebg1.jpg" data-background-transition="concave" data-transition="concave" data-transition-speed="slow">
             <h1>Results</h1>
         </section>
-        <section>
+        <section class="full">
+            <br/>
             <large><p>Naive predictions on all features</p></large>
             <table style="font-size: 0.8em">
                 <tr>
-                    <td style="text-align: center"><large>Train</large>
+                    <td style="text-align: center"><large>Cross-Val</large>
                         <table>
                             <tr>
                                 <td></td>
@@ -952,13 +960,17 @@
 
                 </tr>
             </table>
+            <p class="fragment" style="text-align:right;">Comparable to Little (2009)<sup>26</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[91.3% cross-val with 23PD/8C]<br/>
+                Sakar (2012)<sup>27</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[75% cross-val with 20PD/20C]<br/>
+                Hazan (2012)<sup>24</sup> [80% on 68PD/30C german speakers]  </p>
 
         </section>
-        <section>
-            <large><p>Naive predictions on all features without age </p></large>
+        <section class="full">
+            <br/>
+            <large><p>Naive predictions on all features with only gender demographics </p></large>
             <table style="font-size: 0.8em">
                 <tr>
-                    <td style="text-align: center"><large>Train</large>
+                    <td style="text-align: center"><large>Cross-Val</large>
                         <table>
                             <tr>
                                 <td></td>
@@ -967,31 +979,31 @@
                             </tr>
                             <tr>
                                 <td>Real PD</td>
-                                <td>585</td>
-                                <td>196</td>
+                                <td>276</td>
+                                <td>505</td>
                             </tr>
                             <tr>
                                 <td>Real C</td>
-                                <td>183</td>
-                                <td>2949</td>
+                                <td>95</td>
+                                <td>3037</td>
                             </tr>
                         </table>
                         <table style="float:left; font-size:0.8em">
                             <tr>
                                 <td>Accuracy:</td>
-                                <td>90.3%</td>
+                                <td>84.7%</td>
                             </tr>
                             <tr>
                                 <td>Sensitivity (TP):</td>
-                                <td>74.9%</td>
+                                <td>35.3%</td>
                             </tr>
                             <tr>
                                 <td>Specificity (TN):</td>
-                                <td>94.2%</td>
+                                <td>97.0%</td>
                             </tr>
                             <tr>
                                 <td>Area Under ROC:</td>
-                                <td>.930</td>
+                                <td>.846</td>
                             </tr>
                         </table>
                     </td>
@@ -1008,38 +1020,38 @@
                             </tr>
                             <tr>
                                 <td>Real PD</td>
-                                <td>61</td>
-                                <td>20</td>
+                                <td>26</td>
+                                <td>55</td>
                             </tr>
                             <tr>
                                 <td>Real C</td>
-                                <td>21</td>
-                                <td>298</td>
+                                <td>10</td>
+                                <td>309</td>
                             </tr>
                         </table>
                         <table style="float:left; font-size:0.8em">
                             <tr>
                                 <td>Accuracy:</td>
-                                <td>89.8%</td>
+                                <td>83.8%</td>
                             </tr>
                             <tr>
                                 <td>Sensitivity (TP):</td>
-                                <td>75.3%</td>
+                                <td>32.0%</td>
                             </tr>
                             <tr>
                                 <td>Specificity (TN):</td>
-                                <td>93.4%</td>
+                                <td>96.9%</td>
                             </tr>
                             <tr>
                                 <td>Area Under ROC:</td>
-                                <td>.922</td>
+                                <td>.798</td>
                             </tr>
                         </table>
                     </td>
 
                 </tr>
             </table>
-
+            <p class="fragment">Almost 10% better than simpler models, but there's still a long way to go - especially with sensitivity!</p>
         </section>
         <section>
             <h3>Applying 'domain knowledge'</h3>
@@ -1056,14 +1068,144 @@
             </ul>
         </section>
         <section>
-                    <blockquote style="text-align: center">Transfer Learning<br/>
-                    </blockquote>
+                <blockquote style="text-align: center">Transfer Learning<br/>
+                </blockquote>
             <p>We can initialize the weights of the network using the male participants, then train on the female participants and vice versa</p>
+            <br/>
+            <div class="fragment" style="text-align:left; margin-left:12px;">
+                <large>Results</large><br/>
+                <ul>
+                    <li><i>All features:</i> Negligible difference</li>
+                    <li><i>Voice features:</i><table style="font-size:0.7em; margin-left:220px;">
+                        <tr>
+                            <td>Test Accuracy</td>
+                            <td>83.8%</td>
+                            <td>→</td>
+                            <td>85.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Test Specificity (TP)</td>
+                            <td>32.0%</td>
+                            <td>→</td>
+                            <td>44.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Test Sensitivity (TN)</td>
+                            <td>96.9%</td>
+                            <td>→</td>
+                            <td>95.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Area Under ROC</td>
+                            <td>.798</td>
+                            <td>→</td>
+                            <td>.812</td>
+                        </tr>
+                    </table></li>
+                </ul>
+            </div>
+
+        </section>
+        <section style="color:#333 !important">
+            <blockquote style="text-align: center; background-color:#252525;">Transfer Learning<br/>
+            </blockquote>
+            <p>We can initialize the weights of the network using the male participants, then train on the female participants and vice versa</p>
+            <br/>
+            <div style="text-align:left; margin-left:12px;">
+                <large>Results</large><br/>
+                <ul>
+                    <li><i>All features:</i> Negligible difference</li>
+                    <li><i>Voice features:</i><table style="font-size:0.7em; margin-left:220px;">
+                        <tr>
+                            <td>Test Accuracy</td>
+                            <td>83.8%</td>
+                            <td>→</td>
+                            <td>85.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Test Specificity (TP)</td>
+                            <td>32.0%</td>
+                            <td>→</td>
+                            <td>44.0%</td>
+                        </tr>
+                        <tr>
+                            <td>Test Sensitivity (TN)</td>
+                            <td>96.9%</td>
+                            <td>→</td>
+                            <td>95.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Area Under ROC</td>
+                            <td>.798</td>
+                            <td>→</td>
+                            <td>.812</td>
+                        </tr>
+                    </table></li>
+                </ul>
+            </div>
+            <blockquote style="position:fixed; top:217px; left:139px; background-color:#333; color:#EEE">
+                What if we want better specificity?
+            </blockquote>
+
         </section>
         <section>
-            <h1>Now that we have good results.... time to get back to the question</h1>
+            <blockquote>
+                What if we want better specificity?
+            </blockquote>
+            <p>Change loss function/metrics</p>
+            <p style="text-align:left">
+            Reweighted binary-crossentropy to increase false-negative penalty;
+                Used f-measure as metric</p>
         </section>
-
+        <section>
+            <blockquote style="position:fixed; top:217px; left:139px; background-color:#2d2d2d; color:#EEE">
+                What if we want better specificity?
+            </blockquote>
+            <br/><br/><br/>
+            <table>
+                <tr>
+                    <td>Test Accuracy</td>
+                    <td>85.0%</td>
+                    <td>→</td>
+                    <td>82.0%</td>
+                </tr>
+                <tr>
+                    <td>Test Specificity (TP)</td>
+                    <td>44.0%</td>
+                    <td>→</td>
+                    <td>72.2%</td>
+                </tr>
+                <tr>
+                    <td>Test Sensitivity (TN)</td>
+                    <td>95.9%</td>
+                    <td>→</td>
+                    <td>84.8%</td>
+                </tr>
+                <tr>
+                    <td>Area Under ROC</td>
+                    <td>.814</td>
+                    <td>→</td>
+                    <td>.827</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>Verifying Results</h2>
+            <p>Sakar et al. (2012)<sup>27</sup> makes publicly available a dataset of vowel pronunciations from 28 PD patients without demographics data. </p>
+            <ul class="fragment">
+                <li>The voice feature trained model classifies <span style="color:#ff2c2d; font-weight:600;">23/28</span> correctly (82.1% specificity).</li>
+            </ul>
+        </section>
+        <section>
+            <p>Let's get back to the question at hand!</p>
+            <blockquote style="padding:7px 30px 7px 30px;"><i>Can Machine Learning diagnose PD better than a trained neurologist?</i></blockquote>
+            <ul class="fragment">
+            <li>Trained on only voice features for all patients, 31 without speech conditions
+                <ul><li>Predicted <span style="color:#ff2c2d; font-weight:600;">39/50</span> of the remaining without speech conditions correctly
+                <span style="font-size:0.6em">(Note that higher quality data may also be a factor influencing the results)</span></li></ul></li>
+                <li class="fragment"><i>The model appears to be looking for features very different from the typical human</i></li>
+            </ul>
+        </section>
         <section>
             <h1>Conclusion</h1>
         </section>
@@ -1071,31 +1213,31 @@
             <h2>Limitations and Shortcomings</h2>
             <ul>
                 <li>The UPDRS questionnarie is filled out by users - responses may not reflect clinical diagnosis</li>
+                <li>Computational limtations - optimally, data 'boosting' would be applied - using varying length excerpts of speech from each patient
+                    <span style="font-size:0.6em">(I only had an i5 box with integrated graphics and barely enough RAM to kick up a DNN.)</span></li>
             </ul>
         </section>
         <section>
             <h2>Near Future Work</h2>
             <ol>
-                <li>Ensemble methods, </li>
-                <li class="fragment">Optimally, a Machine Learning backed model can be used to automatically filter usable and unusable data for future endeavours like mPower </li>
-                <li>Explore larger feature sets for speech classification such as those used in Interspeech emotion recognition challenges (15,000+ features)</li>
+                <li>Developing a Machine Learning based filter for speech data with too much noise</li>
+                <li>Work with the mPower accelerometer data to create a more accurate ensemble clasifier</li>
+                <li>Explore classification with larger feature sets such as ComParE (15,000+ features)</li>
 
             </ol>
         </section>
         <section>
             <h2>Future Work <smaller style="vertical-align: middle"><sub>(in order of importance)</sub></smaller></h2>
             <ol>
-                <li>Investigating the use of a time-series model such as a HMM or RNN to train and predict on short time features (e.g, raw glottal cycles)</li>
-                <li>Experiment on motor features</li>
-                <li>Investigate the impacts of medication such as Levodopa on results</li>
-                <li>Active Learning: Determine which patients to monitor for more data</li>
+                <li>Investigating the use of a time-series model such as a HMM or RNN to train and predict on short time features (e.g, glottal cycle length)</li>
+                <li>Investigate the impacts of medication such as Levodopa </li>
+                <li>Active Learning: Determine which patients to monitor</li>
                 <li>Developing/modifying signal processing algorithms to suit non-linear dysphonia quantification</li>
             </ol>
         </section>
         <section class="scrollable" id="ref">
             <smaller>
-                National Center for Voice and Speech (NCVS) database
-                <h3>References</h3>
+                <h2>References</h2>
                 <ol style="width:95%" id="references">
                     <large>Diagnosis</large>
                     <hr/>
@@ -1228,7 +1370,7 @@
                     <li>T. Dozat, Incorporating nesterov momentum into adam (2016).</li>
                 </ol>
                 <br/><br/>
-                <h3>Slide Material Sources</h3>
+                <h2>Slide Material Sources</h2>
                 <ul>
                     <li>http://www.healthline.com/hlcmsresource/images/topic_centers/neupro-parkinsons/
                         642x361_Parkinsons_Disease_Caregiving.jpg
