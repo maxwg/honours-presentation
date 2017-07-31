@@ -89,7 +89,7 @@
     }
 </style>
 <script>
-    var baseurl = "http://174.138.31.136";
+    var baseurl = "https://174.138.31.136/";
     $(document).ready(function(){
     $.ajax({
       url: baseurl + "/online",
@@ -193,6 +193,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
         <p>Make sure you are already saying "aaah" before pressing the button</p>
         <p>For best results, make sure you are in a quiet area, and speak loudly 10cm away from the microphone.</p>
         <p>Works best in the latest version of Chrome.</p>
+        <p>You may need to visit (<a href="https://174.138.31.136/online">here</a>) and add a security exception since I can't afford a SSH certificate</p>
     </div>
     <br/>
     <button id="begin">OK</button>
@@ -209,7 +210,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 </div>
 <div id="darken">
 </div>
-<button id="record">Connecting to <br/> server.... <br/>(server may be offline or dead)</button>
+<button id="record">Connecting to <br/> server.... <br/>(server may be offline or dead)
+<br/>
+    You may need to visit (<a href="https://174.138.31.136/online">here</a>) <br/>
+since I can't afford a SSH certificate</button>
 </body>
 </head>
 </html>
