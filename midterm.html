@@ -522,7 +522,6 @@
 
         </section>
 
-
         <section>
             <h2>Using current research</h2>
         </section>
@@ -660,116 +659,7 @@
         </section>
 
         <section>
-            <large> <p>&ldquo;A ML model is only as good as its features.&rdquo;</p></large>
-            <ul>
-                <!--<li>Speakers with dysphonia often deviate from the simplified linear source-filter speech model<sup>&nbsp;38</sup></li>-->
-                <li>Dysphonia quantification features are based on finding the fundamental frequency (glottal cycles per second)<sup>&nbsp;37,&nbsp;38</sup>
-                    <ul>
-                        <li>
-                            Finding the fundamental frequency is a research field in itself
-                        </li>
-                    </ul>
-                </li>
-                <li class="fragment">A variety of other features exist in the field of speech language/emotion classification<sup>&nbsp;40</sup></li>
-                <li class="fragment">We combine the 338 SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with 67 additional features in the eGeneva acoustic feature set<sup>&nbsp;41, 42</sup>, age, gender, race(one-hot) and phone.</li>
-            </ul>
-        </section>
-        <section class="full">
-            <br/>
-            <table style="font-size:0.9em">
-                <h3>Supervised Feature Selection Methods<sup>&nbsp;43</sup></h3>
-                <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
-                <tr style="font-size:0.9em">
-                    <td style="width:34%">
-                        Evaluate subsets of features by maximising various criteria such as entropy, similarity or statistical measures.
-                        <ul>
-                            <li>Fast evaluation of subsets</li>
-                            <li>Model independent results</li>
-                        </ul>
-                    </td>
-                    <td style="width:33%">
-                        &ldquo;Wrap&rdquo; around existing ML models, evaluating feature subsets with the model's cross validation score
-                        <ul>
-                            <li>More expensive to evaluate subsets</li>
-                            <li>Results are better tailored to wrapped models</li>
-                        </ul>
-                    </td>
-                    <td style="width:33%">
-                        Machine Learning Models which perform feature selection as part of the training process
-                        <ul>
-                            <li>Highly model specific.</li>
-                            <li>Greatly reduces model 'complexity'</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-        </section>
-        <section class="full" style="color:#333 !important">
-            <br/>
-            <table style="font-size:0.9em">
-                <h3 style="color:#333">Supervised Feature Selection Methods<sup style="color:#0d3349">&nbsp;43</sup></h3>
-                <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
-                <tr style="font-size:0.9em">
-                    <td style="width:34%">
-                        Evaluate subsets of features by maximising various criteria such as entropy, similarity or statistical measures.
-                        <ul>
-                            <li>Fast evaluation of subsets</li>
-                            <li>Model independent results</li>
-                        </ul>
-                    </td>
-                    <td style="width:33%">
-                        &ldquo;Wrap&rdquo; around existing ML models, evaluating feature subsets with the model's cross validation score
-                        <ul>
-                            <li>More expensive to evaluate subsets</li>
-                            <li>Results are better tailored to wrapped models</li>
-                        </ul>
-                    </td>
-                    <td style="width:33%">
-                        Machine Learning Models which perform feature selection as part of the training process
-                        <ul>
-                            <li>Highly model specific.</li>
-                            <li>Greatly reduces model 'complexity'</li>
-                            <li>Generally more parameters to optimize over</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-            <blockquote style="position:fixed; top:280px; left:150px; background-color:#333; color:#EEE">
-                Feature Selection is highly dependent on dataset size and type.
-            </blockquote>
-        </section>
-        <section class="full">
-            <br/>
-            <table style="font-size:0.9em">
-                <h3>Supervised Feature Selection Methods<sup>&nbsp;43</sup></h3>
-                <tr><th>Filters</th><th>Wrappers</th><th>Embedded Methods</th></tr>
-                <tr style="font-size:0.9em">
-                    <td style="width:34%">
-                        <ul>
-                            <li>reliefF</li>
-                            <li>Fisher Score</li>
-                            <li>MIFS</li>
-                            <li>CIFE</li>
-                            <li>JMI</li>
-                            <li>MRMR</li>
-                            <li>ICAP</li>
-                        </ul>
-                    </td>
-                    <td style="width:33%">
-                    <ul>
-                        <li>Forwards Feature Search
-                        </li>
-                        <li>Backwards Feature Elimination</li>
-                    </ul>
-                    </td>
-                    <td style="width:33%">
-                    <ul>
-                        <li>RFS</li>
-                        <li>ls_l21</li>
-                    </ul>
-                    </td>
-                </tr>
-            </table>
+                <p>We combined 338 SOTA dysphonia measurements in Tsanas&nbsp;et&nbsp;al.<sup>&nbsp;39</sup> with the eGeneva acoustic feature set<sup>&nbsp;41, 42</sup> and demographics info (age, gender, race)</p>
         </section>
         <section data-background-color="#FFFFFF" style="color:#333 !important">
             <img data-src="img/svmfs1.png" />
@@ -789,7 +679,6 @@
 
         <section>
             <large><p>We clearly need to change approaches...</p></large>
-            <p>Although traditional linear ML techniques may work for the small, clean datasets used in previous works,  mPower is noisy and large.</p>
         </section>
 
         <section>
@@ -965,7 +854,7 @@
         </section>
         <section class="full">
             <br/>
-            <large><p>Naive predictions on all features with only gender demographics </p></large>
+            <large><p>Naive predictions without demographics </p></large>
             <table style="font-size: 0.8em">
                 <tr>
                     <td style="text-align: center"><large>Cross-Val</large>
