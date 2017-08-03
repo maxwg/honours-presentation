@@ -228,7 +228,8 @@
         </section>
         <section data-background-iframe="micvis.html">
             <large><p style="font-weight:100 !important;">What can I help you with?</p></large>
-            <p class="fragment" style="font-weight:100">Say "aaaaah" into the microphone</p>
+            <p class="fragment" style="font-weight:100">
+                <audio data-autoplay src="img/siri.mp3"></audio>Say "aaaaah" into the microphone</p>
             <img class="fragment" data-src="img/loading.gif" style="width:50px;"/>
         </section>
         <section>
@@ -1553,8 +1554,9 @@
             }
             },
             {src: 'plugin/zoom-js/zoom.js', async: true},
-            {src: 'plugin/notes/notes.js', async: true}
+            {src: 'plugin/notes/notes.js', async: true},
         ]
+
     });
 
 </script>
