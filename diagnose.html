@@ -89,7 +89,7 @@
     }
 </style>
 <script>
-    var baseurl = "https://174.138.31.136/";
+    var baseurl = "https://174.138.31.136/backend/";
     $(document).ready(function(){
     $.ajax({
       url: baseurl + "/online",
@@ -193,7 +193,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
         <p>Make sure you are already saying "aaah" before pressing the button</p>
         <p>For best results, make sure you are in a quiet area, and speak loudly 10cm away from the microphone.</p>
         <p>Works best in the latest version of Chrome.</p>
-        <p>You may need to visit (<a href="https://174.138.31.136/online">here</a>) and add a security exception since I can't afford a SSH certificate</p>
     </div>
     <br/>
     <button id="begin">OK</button>
@@ -205,15 +204,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
     <h1>All Done!</h1>
     <div class="disclaimer">
         <p>Your audio has been placed in a queue to be processed on a crappy Intel Celeron server with 512MB ram. Please be patient as it loads Matlab and Tensorflow while struggling to page everything on its USB2.0 HDD.</p>
-        <p>Once your results are ready you can view them <a href="#" id="link">here!</a> (keep refreshing)</p>
+        <p>Once your results are ready you can view them <a href="#" id="link">here!</a></p>
+        <p>Keep in mind that the server takes about 30 minutes to process each file as it has no RAM. You may want to check back the next morning if you are far long the queue.</p>
     </div>
 </div>
 <div id="darken">
 </div>
-<button id="record">Connecting to <br/> server.... <br/>(server may be offline or dead)
-<br/>
-    You may need to visit (<a href="https://174.138.31.136/online">here</a>) <br/>
-since I can't afford a SSH certificate</button>
+<button id="record">Connecting to <br/> server.... <br/>(server may be offline or dead)</button>
 </body>
 </head>
 </html>
