@@ -790,6 +790,12 @@ F.~Weninger, F.~Eyben, B.~W. Schuller, M.~Mortillaro, and K.~R. Scherer, ``On
   the acoustics of emotion in audio: what speech, music, and sound have in
   common,'' {\em Frontiers in psychology}, vol.~4, 2013.
 
+\bibitem{jerkfeature}
+W.~Ham{\"a}l{\"a}inen, M.~J{\"a}rvinen, P.~Martiskainen, and J.~Mononen,
+  ``Jerk-based feature extraction for robust activity recognition from
+  acceleration data,'' in {\em Intelligent Systems Design and Applications
+  (ISDA), 2011 11th International Conference on}, pp.~831--836, IEEE, 2011.
+
 \bibitem{hjorth}
 B.~Hjorth, ``{EEG} analysis based on time domain properties,'' {\em
   Electroencephalography and clinical neurophysiology}, vol.~29, no.~3,
@@ -1195,16 +1201,14 @@ S.~Ravindran, D.~V. Anderson, and M.~Slaney, ``Improving the noise-robustness
   Reconstruction}, vol.~12, p.~14, 2006.
 
 \bibitem{dreamchallengeinfo}
-``{Parkinson's} disease digital biomarker {DREAM} challenge,'' 2017.
+``{Parkinson's} disease digital biomarker {DREAM} challenge.''
+  \url{http://dreamchallenges.org/project/parkinsons-disease-digital-
+  biomarker-dream-challenge/}, 2017.
 
 \bibitem{mpowertools}
-``Feature extraction toolkit for {mPower} modules,'' 2017.
-
-\bibitem{jerkfeature}
-W.~Ham{\"a}l{\"a}inen, M.~J{\"a}rvinen, P.~Martiskainen, and J.~Mononen,
-  ``Jerk-based feature extraction for robust activity recognition from
-  acceleration data,'' in {\em Intelligent Systems Design and Applications
-  (ISDA), 2011 11th International Conference on}, pp.~831--836, IEEE, 2011.
+``Feature extraction toolkit for {mPower} modules.''
+  \url{https://github.com/Sage-Bionetworks/mpowertools/blob/master/FeatureDefinitions.md},
+  2017.
 
 \bibitem{lombscargle}
 T.~Ruf, ``The lomb-scargle periodogram in biological rhythm research: analysis
@@ -1226,9 +1230,42 @@ A.~Camacho, {\em SWIPE: A sawtooth waveform inspired pitch estimator for speech
   and music}.
 \newblock University of Florida Gainesville, 2007.
 
+\bibitem{pyrem}
+Q.~Geissmann, ``{PyREM}.'' \url {https://github.com/gilestrolab/pyrem}, 2017.
+
 \bibitem{pyeeg}
 F.~S. Bao, X.~Liu, and C.~Zhang, ``{PyEEG}: an open source python module for
   {EEG/MEG} feature extraction,'' {\em Computational intelligence and
   neuroscience}, vol.~2011, 2011.
+
+\bibitem{pypsr}
+H.~Harrison, ``{Phase space reconstruction: pypsr}.'' \url
+  {https://github.com/hsharrison/pypsr}, 2017.
+
+\bibitem{scikitlearn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, {\em et~al.},
+  ``Scikit-learn: Machine learning in python,'' {\em Journal of Machine
+  Learning Research}, vol.~12, no.~Oct, pp.~2825--2830, 2011.
+
+\bibitem{gpy2014}
+{GPy}, ``{GPy}: A gaussian process framework in python.''
+  \url{http://github.com/SheffieldML/GPy}, since 2012.
+
+\bibitem{lasagne}
+S.~Dieleman, J.~Schlüter, C.~Raffel, E.~Olson, S.~K. Sønderby, D.~Nouri,
+  D.~Maturana, M.~Thoma, E.~Battenberg, J.~Kelly, J.~D. Fauw, M.~Heilman, D.~M.
+  de~Almeida, B.~McFee, H.~Weideman, G.~Takács, P.~de~Rivaz, J.~Crall,
+  G.~Sanders, K.~Rasul, C.~Liu, G.~French, and J.~Degrave, ``Lasagne: First
+  release.,'' Aug. 2015.
+
+\bibitem{keras}
+F.~Chollet {\em et~al.}, ``Keras.'' \url {https://github. com/fchollet/keras},
+  2015.
+
+\bibitem{hyperopt}
+J.~Bergstra, D.~Yamins, and D.~D. Cox, ``Hyperopt: A python library for
+  optimizing the hyperparameters of machine learning algorithms,'' in {\em
+  Proceedings of the 12th Python in Science Conference}, pp.~13--20, 2013.
 
 \end{thebibliography}

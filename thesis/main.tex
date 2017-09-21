@@ -31,7 +31,7 @@
 %\newfontfamily\headingfont[ItalicFont=MinionPro-BoldIt.otf]{MinionPro-Bold.otf}
 %%%
 
-\title{Applications of Machine Learning in Parkinson's Disease Diagnosis}
+\title{Machine Learning in Parkinson's Disease Diagnosis}
 \author{Max Wang}
 \date{\today}
 
@@ -62,7 +62,7 @@
   \bgroup
   \huge \bfseries
   \begin{center}
-  {\@title}
+  {Machine Learning in \\Parkinson's Disease Diagnosis}
   \end{center}
   \egroup
   \vspace*{.5cm}
@@ -289,7 +289,7 @@ SmallCapsFeatures = {Letters     = SmallCaps,%
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 \markright{Abstract}
-Parkinson's disease (PD) is a degenerative neurological disorder, affecting around 1\% of the population by the age of 70. There is currently no objective test for PD and studies suggest expert misdiagnosis rates of 9-34\%. Hence, there is interest in investigating if machine learning can provide a more reliable and objective diagnosis.
+Parkinson's disease (PD) is a degenerative neurological disorder, affecting around 1\% of the population by the age of 70. There is currently no objective test for PD and studies suggest expert misdiagnosis rates of up to 34\%. Hence, there is interest in investigating if machine learning can provide a more reliable and objective diagnosis.
 
 Current machine learning literature test a model's ability to differentiate between already diagnosed PD and control subjects. This setup does not mirror real-life diagnosis as the primary difficulty neurologists face is excluding disorders with similar symptoms and individuals exhibiting minimal symptoms. Most studies are also based on small (<50) datasets which suffer from a tendency to bias and overfitting due to  Freedman's paradox. A large dataset of individuals pre-diagnosis to confirmed diagnosis would be optimally be used to assess machine learning in PD.  
 
@@ -303,8 +303,8 @@ This thesis investigates the applicability of machine learning in PD diagnosis b
 Results suggest that machine learning can offer a valuable source of information for experts as these models quantify symptoms differently from experts. --more discussion here--
 
 \chapter*{Introduction}
-\addcontentsline{toc}{chapter}{Abbreviations and Notation}
-\markright{Abbreviations and Notation}
+\addcontentsline{toc}{chapter}{Introduction}
+\markright{Introduction}
 This thesis has been written for all audiences, however a background in machine learning may be useful to understand and follow some assumptions in the methodology. The work spans multiple disciplines and I have opted to summarise these fields concisely and provide references to seminal or well-written papers in the area for the reader interested in a more in-depth understanding. These papers will also provide the mathematical formulation of the signal processing and machine learning models which have been abstracted in favour for the intuition behind them.
 
 Throughout the thesis I have used highlights and footnotes to improve flow and reading. Highlights convey or re-iterate important information for those skim-reading and footnotes\footnote{\emph{Footnotes} provide contextual background information} provides contextual background information.
@@ -314,7 +314,9 @@ Throughout the thesis I have used highlights and footnotes to improve flow and r
 \cabeceraespecial\marcador\itshape Highlight.\hspace{12pt} 
 \normalfont \color{black} Highlights re-iterate crucial information.
 \end{figure}
-\vspace{-8pt}
+\vspace{-2pt}
+
+The thesis is organised as follows:
 
 Chapter \ref{bgchapter} summarises Parkinson's Disease and relevant prior work in the field of feature extraction and machine learning. The remainder of the thesis is written with the assumption that the reader understands this background, enabling it to be very concise. 
 
@@ -594,7 +596,7 @@ The \emph{Hurst} exponent characterises the autocorrelation or long-range depend
 
 
 \subsection{Summary of Features}
-This section is a summary of most state of the art features used in the various subfields of Parkinson's Disease classification sorted by field of introduction. These features are used in the construction of models presented in this thesis and the libraries and parameters used to implement are covered in detail in section \ref{implementationfeature}.
+This section is a summary of most state of the art features used in the various subfields of Parkinson's Disease classification sorted by field of introduction. These features are used in the construction of models presented in this thesis and the libraries and parameters used to implement are covered in detail in section \ref{implementation}.
 \label{featuresummary}
 % \centering
 \bgroup
@@ -646,6 +648,7 @@ PPE~\cite{splittledysphonia2009} & Measures the variation in successive glottal 
 \multicolumn{2}{c}{\specialcellbold{Movement}} \\
 \midrule
 \specialcellright{\hspace{2.5em}Fourier\\\hspace{2.7em}Bands} & The power in bands such as 3.5hz-7hz compared to 7hz-12hz are the primary features used to detect Parkinsonism tremor.\\
+Jerk~\cite{jerkfeature} & The change in acceleration. The jerk signal may be more effective when combined with certain signal processing methods.\\
 \specialcellright{Sway\\Area} & Simple measures such as bounding ellipse can quantify the amount of sway. A 95\% CI is often taken to remove outliers.\\
 \specialcellright{Cadence\\Measures} & The steps per minute, variation in time taken for each step, difference between left and right stride times.\\
 \specialcellright{\hspace{1em}Stride\\Measures} & The length of each step and variation in step lengths. This was not measured as leg length is not available in the dataset used~\cite{diaz2014step}.
@@ -665,7 +668,7 @@ PPE~\cite{splittledysphonia2009} & Measures the variation in successive glottal 
 \specialcellright{\hspace{3.2em}Hurst\\Exponent~\cite{hurst1965long}} & Characterises self-similarity. DFA is a generalisation of the Hurst Exponent and is robust to non-stationary signals. The difference in measurements may be informative.\\
 \specialcellright{Fisher Info~\cite{fisherentropy}} & Quantifies the non-linear dynamics in the system generating a signal.\\
 \specialcellright{\hspace{1.1em}Ap/Samp\\Entropy~\cite{apentropy}} & Approximate and sample entropy quantify the unpredictability of a signal. Multiscale entropy increases information content~\cite{multiscaleentropy}.\\
-\specialcellright{\hspace{2.9em}SVD\\Entropy~\cite{svdentropy}} & A measure of signal complexity. The entropy of the orthogonal vectors needed to describe the signal.
+\specialcellright{\hspace{2.9em}SVD\\Entropy~\cite{svdentropy}} & A measure of complexity. The entropy of the orthogonal vectors from singular value decomposition needed to describe the signal.
 \\
 \bottomrule
 \end{longtable}
@@ -1002,7 +1005,7 @@ A 16 second extract of rest data between 4s and 20s and the first 10 seconds of 
 \end{figure}
 
 
-\section{Replicating Past Work: Traditional Models}
+\section{Replicating Past Work}
 The two key results we will be replicating on the mPower dataset are the 98.6\% accuracy from vowel phonation reported in Tsanas et~al.~(2011)~\cite{tsanas2012novel} and the 98.0\% accuracy with smartphone accelerometer data reported by Arora et~al.~(2014)~\cite{arora2014high}. 
 
 \subsection{Vowel Phonation}
@@ -1083,25 +1086,31 @@ In our testing, using all measures presented in Tsanas~et~al. results in improve
 	\end{tabular}
 \end{table}
 
-% PERFORM EXPERIMENS!!!
 
 \subsection{Movement}
 Arora et al.~\cite{arora2014high} conducted a study with 10 control and 10 PD participants, obtaining 98.0\% accuracy on 10 fold cross validation with 100 repeats on accelerometer data alone. Participants were provided with a LG Optimus S smartphone and instructed to walk 20 steps, turn around, walk 20 steps then 
 stand upright for 30 seconds. The position of the device was not specified however it can be assumed to be in the participant's pocket. No preprocessing was done to the data, and features extracted included simple statistical and entropy measures, DFA, mean TKEO and the dominant frequency. It should be noted that Zhan et al~\cite{zhan2016high} extended the dataset and performed a similar experiment on 121 PD and 105 control using additional voice and tapping features, however only achieved 71.0\% accuracy.
 
-This thesis coincides with the Parkinson's Disease Digital Biomarker DREAM Challenge which involves using accelerometer data to classify PD or predict the UPDRS motor score~\cite{dreamchallengeinfo}. Sage Bionetworks, the sponsor of the mPower dataset and a organiser for the challenge released a baseline feature set~\cite{mpowertools} which included all features in Arora et al~\cite{arora2014high} and additional measures such as jerk moments (change in acceleration~\cite{jerkfeature}) and the peak of the Lomb-Scargle periodogram~\cite{lombscargle}. The work completed as part of this thesis was submitted to the challenge, earning Xth place. 
+This thesis coincides with the Parkinson's Disease Digital Biomarker DREAM Challenge which involves using accelerometer data to classify PD or predict the UPDRS motor score~\cite{dreamchallengeinfo}. Sage Bionetworks, sponsor of the mPower dataset and a organiser for the challenge released a baseline feature set~\cite{mpowertools} which included all features in Arora et al~\cite{arora2014high} and additional jerk based measures and the peak of the Lomb-Scargle periodogram~\cite{lombscargle}. The work completed as part of this thesis was submitted to the challenge, earning Xth place. 
 
-After extracting walk features and filtering out samples which are too short (<10 seconds), have too much variability in recording rate or are missing measurements or diagnosis, XXXX people remain with a valid walk recording. To prevent bias, a random recording was sampled from 
+After filtering out samples which are too short (<10 seconds), have too much variability in recording rate or are missing measurements, XXXX people remain with a valid walk recording. The most recent valid walk was selected for each patient and all relevant features specified in section~\ref{featuresummary} extracted. 
+
+Before 
 
 
+\subsection{Visualising The Features}
+The models replicated in the previous section clearly perform below the reported level of their respective papers. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in 
 
 
-\subsection{Visualising Features}
+\section{Dynamical Systems Features}
 
-\subsection{Limits of Traditional Machine Learning}
 We decided to investigate the potential of traditional 	
-\section{Improving Results: Deep Neural Networks}
+\section{Automatic Feature Extraction: Neural Networks}
+
+\section{The Power of Machine Learning}
+
 There are a non-linearities
+
 
 medication on off - difference diagnosis. Would be useful in real world diagnosis.
 
@@ -1113,28 +1122,26 @@ to the quality of the machine learning model.
 In this thesis we setup experiments to provide evidence of machine learning's ability to classify PD and control patients. Experiments involve:
 
 \section{Implementation}
-We would like to extend our thanks to all open-source machine learning and signal processing libraries. Without these libraries, development would have been a significantly slower process. 
+\label{implementation}
+We would like to extend our thanks to all open-source libraries and academics making their code publicly available. Without these, development would have been a significantly slower process. 
 
-\subsubsection{Machine Learning}
-Machine learning code was scripted in Python. Wherever possible, standard library code was used 
+The project was primarily implemented in Python, acting as an interface between a number of libraries written in C, R (rpy2) and Matlab (Matlab Engine). The code for this project is made available .... under the CRAPL license???
 
-\subsubsection{Feature Extraction}
-\label{implementationfeature}
-A summary of the list of features extracted can be found in section \ref{featuresummary}.
+Wherever possible, reliable standard libraries or implementations used in previous research were preferred to maximise reproducibility and reliability. Standard speech features used in Interspeech were extracted using the official openSMILE~\cite{opensmile} program, which uses the sub-harmonic summation method of $f_0$ estimation~\cite{shs}. Most dysphonia-specific features were extracted using Tsanas' toolbox~\cite{spoverview} with the SWIPE~\cite{camacho2007swipe,f0estimation} $f_0$ estimation algorithm. Following Tsanas~(2012)~\cite{spoverview}, 120hz and 190hz were used as the mean healthy $f_0$ for males and females respectively. The Toolbox features code for DFA and RPDE which were proposed and implemented by Little~(2007)~\cite{splittlenonlinear2007} which were also used in processing the walking code.
 
-Wherever possible, reliable standard libraries or implementations used in previous research were preferred to maximise reproducibility and reliability. Standard speech features used in Interspeech were extracted using the official openSMILE~\cite{opensmile} program, which uses the sub-harmonic summation method of $f_0$ estimation~\cite{shs}. Most dysphonia-specific features were extracted using Tsanas' toolbox~\cite{spoverview} with the SWIPE~\cite{camacho2007swipe,f0estimation} $f_0$ estimation algorithm. Following Tsanas~(2012)~\cite{spoverview}, 120hz and 190hz were used as the mean healthy $f_0$ for males and females respectively. 
+EEG and non-linear signal analysis was performed using the PyREM library~\cite{pyrem}, which builds upon PyEEG~\cite{pyeeg}, correcting a number of implementation flaws. The false nearest neighbour implementation in the pypsr~\cite{pypsr} library was used to calculate the embedding dimension for the relevant non-linear signal processing algorithms. 
 
-The PyREM library builds upon PyEEG~\cite{pyeeg}, correcting a number of implementation flaws. The 
+Most traditional machine learning algorithms were based on the standard scikit-learn~\cite{scikitlearn} implementation and Gaussian processes implemented with GPy~\cite{gpy2014}. Neural networks were implemented in Lasagne~\cite{lasagne} and Keras~\cite{keras}. Hyperopt~\cite{hyperopt} was used to aid in finding the optimal hyperparameters for some models. Scikit-feature~\cite{skfeature} was used to implement the filter and embedded feature selection methods. 
 
-PYREM
-PYEEG
-\chapter{Summary}
+
+
+%A summary of the list of features extracted can be found in section \ref{featuresummary}.
+
+\chapter{Conclusion}
 
 WE SHOULD DO ACTIVE LEARNING!
 
 TODO: INVESTIGATE AND FIX NON-TIME INVARIANT FEATURES!
-
-\subsection{Machine Learning}
 
 
 \backmatter

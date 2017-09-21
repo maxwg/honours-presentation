@@ -1,5 +1,5 @@
 \BOOKMARK [0][-]{chapter*.2}{Abstract}{}% 1
-\BOOKMARK [0][-]{chapter*.3}{Abbreviations\040and\040Notation}{}% 2
+\BOOKMARK [0][-]{chapter*.3}{Introduction}{}% 2
 \BOOKMARK [0][-]{chapter.1}{Background}{}% 3
 \BOOKMARK [1][-]{section.1.1}{Machine\040Learning\040in\040Parkinson's\040Disease}{chapter.1}% 4
 \BOOKMARK [1][-]{section.1.2}{Feature\040Extraction\040and\040Signal\040Processing}{chapter.1}% 5
@@ -16,12 +16,11 @@
 \BOOKMARK [0][-]{chapter.2}{Our\040Work}{}% 16
 \BOOKMARK [1][-]{section.2.1}{The\040mPower\040Dataset}{chapter.2}% 17
 \BOOKMARK [2][-]{subsection.2.1.1}{Preprocessing\040and\040Feature\040Selection.}{section.2.1}% 18
-\BOOKMARK [1][-]{section.2.2}{Replicating\040Past\040Work:\040Traditional\040Models}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.2}{Replicating\040Past\040Work}{chapter.2}% 19
 \BOOKMARK [2][-]{subsection.2.2.1}{Vowel\040Phonation}{section.2.2}% 20
 \BOOKMARK [2][-]{subsection.2.2.2}{Movement}{section.2.2}% 21
-\BOOKMARK [2][-]{subsection.2.2.3}{Visualising\040Features}{section.2.2}% 22
-\BOOKMARK [2][-]{subsection.2.2.4}{Limits\040of\040Traditional\040Machine\040Learning}{section.2.2}% 23
-\BOOKMARK [1][-]{section.2.3}{Improving\040Results:\040Deep\040Neural\040Networks}{chapter.2}% 24
-\BOOKMARK [1][-]{section.2.4}{Implementation}{chapter.2}% 25
-\BOOKMARK [0][-]{chapter.3}{Summary}{}% 26
-\BOOKMARK [1][-]{subsection.3.0.1}{Machine\040Learning}{chapter.3}% 27
+\BOOKMARK [2][-]{subsection.2.2.3}{Visualising\040The\040Features}{section.2.2}% 22
+\BOOKMARK [1][-]{section.2.3}{Dynamical\040Systems\040Features}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.4}{Improving\040Results:\040Deep\040Neural\040Networks}{chapter.2}% 24
+\BOOKMARK [1][-]{section.2.5}{Implementation}{chapter.2}% 25
+\BOOKMARK [0][-]{chapter.3}{Conclusion}{}% 26
