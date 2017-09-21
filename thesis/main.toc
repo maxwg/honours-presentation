@@ -25,8 +25,12 @@
 \contentsline {section}{\numberline {2.2}Replicating Past Work}{43}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Vowel Phonation}{43}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Movement}{46}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Visualising The Features}{47}{subsection.2.2.3}
-\contentsline {section}{\numberline {2.3}Dynamical Systems Features}{47}{section.2.3}
-\contentsline {section}{\numberline {2.4}Improving Results: Deep Neural Networks}{47}{section.2.4}
-\contentsline {section}{\numberline {2.5}Implementation}{47}{section.2.5}
-\contentsline {chapter}{\numberline {3}Conclusion}{49}{chapter.3}
+\contentsline {section}{\numberline {2.3}Visualising The Features}{47}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Speech}{47}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Movement}{48}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Conclusions}{48}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}Dynamical Systems Features}{48}{section.2.4}
+\contentsline {section}{\numberline {2.5}Automatic Feature Extraction: Neural Networks}{48}{section.2.5}
+\contentsline {section}{\numberline {2.6}The Power of Machine Learning}{48}{section.2.6}
+\contentsline {section}{\numberline {2.7}Implementation}{48}{section.2.7}
+\contentsline {chapter}{\numberline {3}Conclusion}{51}{chapter.3}

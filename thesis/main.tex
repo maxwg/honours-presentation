@@ -966,7 +966,7 @@ To minimize the likelihood of bias or overfitting, a larger dataset was required
 
 The mPower study began in March 2015, open to people living in the United States who owned an Apple iPhone or iPod released in 2011 or later. Upon downloading the app, the user was presented with the tasks presented in figure \ref{mpower} along with general demographics questions and UPDRS questions. Each task/questionnaire was optional and could be completed multiple times. As of writing, there are around 6,500 participants in the study, 1,100 with PD. Users come from a variety of backgrounds and may have other illnesses (however this was not recorded as part of the dataset).
 
-The mPower dataset also contains a number of cases of young-onset Parkinson's disease\footnote{Assuming the honesty of the participants}~\cite{youngpd1, youngpd2} which has rarely been studied in a diagnosis context. Age is a bias in the dataset as a majority of the non-PD participants in the study were young adults. Using age alone, the prediction PD $\Leftrightarrow$ age $> 52$ would result in 86.1\% accuracy.
+The mPower dataset also contains a number of cases of young-onset Parkinson's disease\footnote{Assuming the participants are honest of their circumstances.}~\cite{youngpd1, youngpd2} which has rarely been studied in a diagnosis context. Age is a bias in the dataset as a majority of the non-PD participants in the study were young adults. Using age alone, the prediction PD $\Leftrightarrow$ age $> 52$ would result in 86.1\% accuracy.
 
 \addtocounter{footnote}{-1}
 \begin{figure}[h]
@@ -1098,9 +1098,27 @@ After filtering out samples which are too short (<10 seconds), have too much var
 Before 
 
 
-\subsection{Visualising The Features}
-The models replicated in the previous section clearly perform below the reported level of their respective papers. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in 
+\section{Visualising The Features}
+The models replicated in the previous section clearly perform below the reported level of their respective papers. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in speech and gait. 
 
+\subsection{Speech}
+A large number of dysphonia related measures rely on precise measurements of the length of each glottal cycle. The SWIPE~\cite{camacho2007swipe} fundamental frequency estimation algorithm was primarily used to obtain these measurements. Most $f_0$ algorithms are sensitive to changes and noise in the signal and are not yet suitable to handle the noisy mPower data gathered in real-world conditions. Issues with $f_0$ extraction would invalidate the measurements from $f_0$ based signal processing. A simple investigation shows that the standard deviation of $f_0$ exceeds 10Hz for 347 subjects, a value that is almost certainly indicates a failure of the algorithm or a poorly executed recording.
+
+\begin{figure}[h]
+	\caption{Standard Deviation of the fundamental frequency during vowel phonation. Females exhibit notably higher variations in $f_0$ compared to males whereas the line between PD and control is less clear.}
+	\centering\includegraphics[width=0.75\linewidth]{f0stdev.png}
+\end{figure}
+
+The 
+
+
+benba2014mfcc distinguishes PD with a 82\% success rate using MFCC
+
+
+\subsection{Movement}
+
+\subsection{Conclusions}
+Features very non-linear... not suitable for simple models.
 
 \section{Dynamical Systems Features}
 
@@ -1129,7 +1147,7 @@ The project was primarily implemented in Python, acting as an interface between 
 
 Wherever possible, reliable standard libraries or implementations used in previous research were preferred to maximise reproducibility and reliability. Standard speech features used in Interspeech were extracted using the official openSMILE~\cite{opensmile} program, which uses the sub-harmonic summation method of $f_0$ estimation~\cite{shs}. Most dysphonia-specific features were extracted using Tsanas' toolbox~\cite{spoverview} with the SWIPE~\cite{camacho2007swipe,f0estimation} $f_0$ estimation algorithm. Following Tsanas~(2012)~\cite{spoverview}, 120hz and 190hz were used as the mean healthy $f_0$ for males and females respectively. The Toolbox features code for DFA and RPDE which were proposed and implemented by Little~(2007)~\cite{splittlenonlinear2007} which were also used in processing the walking code.
 
-EEG and non-linear signal analysis was performed using the PyREM library~\cite{pyrem}, which builds upon PyEEG~\cite{pyeeg}, correcting a number of implementation flaws. The false nearest neighbour implementation in the pypsr~\cite{pypsr} library was used to calculate the embedding dimension for the relevant non-linear signal processing algorithms. 
+EEG and non-linear signal analysis was performed using the PyREM library~\cite{pyrem}, which builds upon PyEEG~\cite{pyeeg}, correcting so,e implementation flaws. The false nearest neighbour implementation in the pypsr~\cite{pypsr} library was used to calculate the embedding dimension for the relevant non-linear signal processing algorithms. 
 
 Most traditional machine learning algorithms were based on the standard scikit-learn~\cite{scikitlearn} implementation and Gaussian processes implemented with GPy~\cite{gpy2014}. Neural networks were implemented in Lasagne~\cite{lasagne} and Keras~\cite{keras}. Hyperopt~\cite{hyperopt} was used to aid in finding the optimal hyperparameters for some models. Scikit-feature~\cite{skfeature} was used to implement the filter and embedded feature selection methods. 
 
