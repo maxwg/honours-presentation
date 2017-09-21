@@ -98,6 +98,10 @@ L.~S. Freedman and D.~Pee, ``Return to a note on screening regression
   equations,'' {\em The American Statistician}, vol.~43, no.~4, pp.~279--282,
   1989.
 
+\bibitem{overfittingcv}
+A.~Y. Ng, ``Preventing" overfitting" of cross-validation data,'' in {\em ICML},
+  vol.~97, pp.~245--253, 1997.
+
 \bibitem{esser2011assessment}
 P.~Esser, H.~Dawes, J.~Collett, M.~G. Feltham, and K.~Howells, ``Assessment of
   spatio-temporal gait parameters using inertial measurement units in
@@ -125,7 +129,7 @@ A.~Tsanas, M.~A. Little, P.~E. McSharry, and L.~O. Ramig, ``Accurate
 C.~G. Goetz, B.~C. Tilley, S.~R. Shaftman, G.~T. Stebbins, S.~Fahn,
   P.~Martinez-Martin, W.~Poewe, C.~Sampaio, M.~B. Stern, R.~Dodel, {\em
   et~al.}, ``Movement disorder society-sponsored revision of the unified
-  {Parkinson's} disease rating scale (mds-updrs): Scale presentation and
+  {Parkinson's} disease rating scale {(MDS-UPDRS)}: Scale presentation and
   clinimetric testing results,'' {\em Movement disorders}, vol.~23, no.~15,
   pp.~2129--2170, 2008.
 
@@ -165,6 +169,12 @@ S.~Bind, A.~K. Tiwari, and A.~K. Sahani, ``A survey of machine learning based
   approaches for {Parkinson} disease prediction,'' {\em International Journal
   of Computer Science and Information Technologies}, vol.~6, no.~2,
   pp.~1648--1655, 2015.
+
+\bibitem{parkinsonismdifferential2}
+J.~M. Hausdorff, M.~E. Cudkowicz, R.~Firtion, J.~Y. Wei, and A.~L. Goldberger,
+  ``Gait variability and basal ganglia disorders: Stride-to-stride variations
+  of gait cycle timing in {Parkinson's} disease and {Huntington's} disease,''
+  {\em Movement disorders}, vol.~13, no.~3, pp.~428--437, 1998.
 
 \bibitem{ostextbook}
 F.~Eyben, {\em Real-time speech and music classification by large audio feature
@@ -347,6 +357,18 @@ A.~W. Przybyszewski, ``Applying data mining and machine learning algorithms to
   predict symptom development in {Parkinson's} disease,'' in {\em Annales
   Academiae Medicae Silesiensis}, vol.~68, pp.~332--349, 2014.
 
+\bibitem{eegnonlinearpd}
+K.~J. Stam, D.~L. Tavy, B.~Jelles, H.~A. Achtereekte, J.~P. Slaets, and R.~W.
+  Keunen, ``Non-linear dynamical analysis of multichannel {EEG}: clinical
+  applications in dementia and {Parkinson's} disease,'' {\em Brain topography},
+  vol.~7, no.~2, pp.~141--150, 1994.
+
+\bibitem{eegslowingpd}
+R.~Soikkeli, J.~Partanen, H.~Soininen, A.~P{\"a}{\"a}kk{\"o}nen, and
+  P.~Riekkinen, ``Slowing of {EEG} in {Parkinson's} disease,'' {\em
+  Electroencephalography and clinical neurophysiology}, vol.~79, no.~3,
+  pp.~159--165, 1991.
+
 \bibitem{gastrointestinal}
 M.~G. Cersosimo, G.~B. Raina, C.~Pecci, A.~Pellene, C.~R. Calandra,
   C.~Guti{\'e}rrez, F.~E. Micheli, and E.~E. Benarroch, ``Gastrointestinal
@@ -421,6 +443,11 @@ K.~M. Rosen, R.~D. Kent, A.~L. Delaney, and J.~R. Duffy, ``Parametric
   dysarthria and healthy speakers,'' {\em Journal of Speech, Language, and
   Hearing Research}, vol.~49, no.~2, pp.~395--411, 2006.
 
+\bibitem{mfscale}
+S.~Imai, ``Cepstral analysis synthesis on the mel frequency scale,'' in {\em
+  Acoustics, Speech, and Signal Processing, IEEE International Conference on
+  ICASSP'83.}, vol.~8, pp.~93--96, IEEE, 1983.
+
 \bibitem{hahm2015parkinson}
 S.~U. Hahm and J.~U. Wang, ``{Parkinson's} condition estimation using speech
   acoustic and inversely mapped articulatory data,'' in {\em INTERSPEECH},
@@ -429,7 +456,8 @@ S.~U. Hahm and J.~U. Wang, ``{Parkinson's} condition estimation using speech
 \bibitem{grosz2015assessingis15}
 T.~Gr{\'o}sz, R.~Busa-Fekete, G.~Gosztolya, and L.~T{\'o}th, ``Assessing the
   degree of nativeness and {Parkinson's} condition using gaussian processes and
-  deep rectifier neural networks,'' {\em INTERSPEECH}, 2015.
+  deep rectifier neural networks,'' in {\em Sixteenth Annual Conference of the
+  International Speech Communication Association}, 2015.
 
 \bibitem{williamson2015segment}
 J.~R. Williamson, T.~F. Quatieri, B.~S. Helfer, J.~Perricone, S.~S. Ghosh,
@@ -521,7 +549,8 @@ V.~Tyagi and C.~Wellekens, ``On desensitizing the mel-cepstrum to spurious
 B.~Schuller, S.~Steidl, A.~Batliner, A.~Vinciarelli, K.~Scherer, F.~Ringeval,
   M.~Chetouani, F.~Weninger, F.~Eyben, E.~Marchi, {\em et~al.}, ``The
   interspeech 2013 computational paralinguistics challenge: social signals,
-  conflict, emotion, autism,'' 2013.
+  conflict, emotion, autism,'' in {\em Fourteenth Annual Conference of the
+  International Speech Communication Association}, 2013.
 
 \bibitem{ageracial}
 S.~K. Van Den~Eeden, C.~M. Tanner, A.~L. Bernstein, R.~D. Fross, A.~Leimpeter,
@@ -533,18 +562,6 @@ S.~K. Van Den~Eeden, C.~M. Tanner, A.~L. Bernstein, R.~D. Fross, A.~Leimpeter,
 N.~Dahodwala, A.~Siderowf, M.~Xie, E.~Noll, M.~Stern, and D.~S. Mandell,
   ``Racial differences in the diagnosis of {Parkinson's} disease,'' {\em
   Movement Disorders}, vol.~24, no.~8, pp.~1200--1205, 2009.
-
-\bibitem{motionmoderecognition}
-M.~Elhoushi, J.~Georgy, A.~Noureldin, and M.~J. Korenberg, ``A survey on
-  approaches of motion mode recognition using sensors,'' {\em IEEE Transactions
-  on Intelligent Transportation Systems}, vol.~18, no.~7, pp.~1662--1686, 2017.
-
-\bibitem{li2010multimodal}
-M.~Li, V.~Rozgica, G.~Thatte, S.~Lee, A.~Emken, M.~Annavaram, U.~Mitra,
-  D.~Spruijt-Metz, and S.~Narayanan, ``Multimodal physical activity recognition
-  by fusing temporal and cepstral information,'' {\em IEEE Transactions on
-  Neural Systems and Rehabilitation Engineering}, vol.~18, no.~4, pp.~369--380,
-  2010.
 
 \bibitem{posturalswaylongitudinal}
 M.~Mancini, P.~Carlson-Kuhta, C.~Zampieri, J.~G. Nutt, L.~Chiari, and F.~B.
@@ -558,24 +575,63 @@ E.~M. Diaz and A.~L.~M. Gonzalez, ``Step detector and step length estimator for
   Navigation (IPIN), 2014 International Conference on}, pp.~105--110, IEEE,
   2014.
 
-\bibitem{overfittingcv}
-A.~Y. Ng, ``Preventing" overfitting" of cross-validation data,'' in {\em ICML},
-  vol.~97, pp.~245--253, 1997.
+\bibitem{mpower}
+B.~M. Bot, C.~Suver, E.~C. Neto, M.~Kellen, A.~Klein, C.~Bare, M.~Doerr,
+  A.~Pratap, J.~Wilbanks, E.~R. Dorsey, {\em et~al.}, ``The mpower study,
+  {Parkinson} disease mobile data collected using researchkit,'' {\em
+  Scientific data}, vol.~3, 2016.
 
-\bibitem{tkeo}
-J.~F. Kaiser, ``On a simple algorithm to calculate the `energy' of a signal,''
-  in {\em Acoustics, Speech, and Signal Processing, 1990. ICASSP-90., 1990
-  International Conference on}, pp.~381--384, IEEE, 1990.
+\bibitem{motionmoderecognition}
+M.~Elhoushi, J.~Georgy, A.~Noureldin, and M.~J. Korenberg, ``A survey on
+  approaches of motion mode recognition using sensors,'' {\em IEEE Transactions
+  on Intelligent Transportation Systems}, vol.~18, no.~7, pp.~1662--1686, 2017.
 
-\bibitem{HNRperiodic}
-P.~Boersma, ``Accurate short-term analysis of the fundamental frequency and the
-  harmonics-to-noise ratio of a sampled sound,'' in {\em Proceedings of the
-  institute of phonetic sciences}, vol.~17, pp.~97--110, Amsterdam, 1993.
+\bibitem{li2010multimodal}
+M.~Li, V.~Rozgica, G.~Thatte, S.~Lee, A.~Emken, M.~Annavaram, U.~Mitra,
+  D.~Spruijt-Metz, and S.~Narayanan, ``Multimodal physical activity recognition
+  by fusing temporal and cepstral information,'' {\em IEEE Transactions on
+  Neural Systems and Rehabilitation Engineering}, vol.~18, no.~4, pp.~369--380,
+  2010.
+
+\bibitem{eegalzheimers}
+J.~Jeong, ``Eeg dynamics in patients with alzheimer's disease,'' {\em Clinical
+  neurophysiology}, vol.~115, no.~7, pp.~1490--1505, 2004.
+
+\bibitem{jelles1999decrease}
+B.~Jelles, J.~Van~Birgelen, J.~Slaets, R.~Hekster, E.~Jonkman, and C.~Stam,
+  ``Decrease of non-linear structure in the eeg of alzheimer patients compared
+  to healthy controls,'' {\em Clinical Neurophysiology}, vol.~110, no.~7,
+  pp.~1159--1167, 1999.
 
 \bibitem{rosenstein1993practicallyapunov}
 M.~T. Rosenstein, J.~J. Collins, and C.~J. De~Luca, ``A practical method for
   calculating largest lyapunov exponents from small data sets,'' {\em Physica
   D: Nonlinear Phenomena}, vol.~65, no.~1-2, pp.~117--134, 1993.
+
+\bibitem{lyapunovall}
+I.~Shimada and T.~Nagashima, ``A numerical approach to ergodic problem of
+  dissipative dynamical systems,'' {\em Progress of Theoretical Physics},
+  vol.~61, no.~6, pp.~1605--1616, 1979.
+
+\bibitem{eeglyapunov1}
+A.~Babloyantz, J.~Salazar, and C.~Nicolis, ``Evidence of chaotic dynamics of
+  brain activity during the sleep cycle,'' {\em Physics Letters A}, vol.~111,
+  no.~3, pp.~152--156, 1985.
+
+\bibitem{eeglyapunov2}
+N.~F. G{\"u}ler, E.~D. {\"U}beyli, and I.~G{\"u}ler, ``Recurrent neural
+  networks employing lyapunov exponents for eeg signals classification,'' {\em
+  Expert systems with applications}, vol.~29, no.~3, pp.~506--514, 2005.
+
+\bibitem{banbrook1999speechlyapunov}
+M.~Banbrook, S.~McLaughlin, and I.~Mann, ``Speech characterization and
+  synthesis by nonlinear methods,'' {\em IEEE Transactions on Speech and Audio
+  Processing}, vol.~7, no.~1, pp.~1--17, 1999.
+
+\bibitem{kokkinos2005nonlinearlyapunov}
+I.~Kokkinos and P.~Maragos, ``Nonlinear speech analysis using models for
+  chaotic systems,'' {\em IEEE Transactions on Speech and Audio Processing},
+  vol.~13, no.~6, pp.~1098--1109, 2005.
 
 \bibitem{dingwell2000nonlinearlyapunov}
 J.~B. Dingwell and J.~P. Cusumano, ``Nonlinear time series analysis of normal
@@ -594,20 +650,116 @@ K.~Liu, H.~Wang, J.~Xiao, and Z.~Taha, ``Analysis of human standing balance by
   largest lyapunov exponent,'' {\em Computational intelligence and
   neuroscience}, vol.~2015, p.~20, 2015.
 
-\bibitem{banbrook1999speechlyapunov}
-M.~Banbrook, S.~McLaughlin, and I.~Mann, ``Speech characterization and
-  synthesis by nonlinear methods,'' {\em IEEE Transactions on Speech and Audio
-  Processing}, vol.~7, no.~1, pp.~1--17, 1999.
+\bibitem{mandelbrot1967long}
+B.~B. Mandelbrot, ``How long is the coast of britain,'' {\em science},
+  vol.~156, no.~3775, pp.~636--638, 1967.
 
-\bibitem{kokkinos2005nonlinearlyapunov}
-I.~Kokkinos and P.~Maragos, ``Nonlinear speech analysis using models for
-  chaotic systems,'' {\em IEEE Transactions on Speech and Audio Processing},
-  vol.~13, no.~6, pp.~1098--1109, 2005.
+\bibitem{eegfractal}
+A.~Accardo, M.~Affinito, M.~Carrozzi, and F.~Bouquet, ``Use of the fractal
+  dimension for the analysis of electroencephalographic time series,'' {\em
+  Biological cybernetics}, vol.~77, no.~5, pp.~339--350, 1997.
 
-\bibitem{mfscale}
-S.~Imai, ``Cepstral analysis synthesis on the mel frequency scale,'' in {\em
-  Acoustics, Speech, and Signal Processing, IEEE International Conference on
-  ICASSP'83.}, vol.~8, pp.~93--96, IEEE, 1983.
+\bibitem{seizuredimensions}
+A.~Babloyantz and A.~Destexhe, ``Low-dimensional chaos in an instance of
+  epilepsy,'' {\em Proceedings of the National Academy of Sciences}, vol.~83,
+  no.~10, pp.~3513--3517, 1986.
+
+\bibitem{fractalgait}
+C.-K. Peng, J.~M. Hausdorff, A.~Goldberger, and J.~Walleczek, ``Fractal
+  mechanisms in neuronal control: human heartbeat and gait dynamics in health
+  and disease,'' {\em Nonlinear Dynamics, Self-organization and Biomedicine},
+  pp.~66--96, 2000.
+
+\bibitem{hfdcop}
+T.~L. Doyle, E.~L. Dugan, B.~Humphries, and R.~U. Newton, ``Discriminating
+  between elderly and young using a fractal dimension analysis of centre of
+  pressure,'' {\em International journal of medical sciences}, vol.~1, no.~1,
+  p.~11, 2004.
+
+\bibitem{fractalpd}
+Y.~Manabe, E.~Honda, Y.~Shiro, K.~Kenichi, I.~Kohira, K.~Kashihara,
+  T.~Shohmori, and K.~Abe, ``Fractal dimension analysis of static stabilometry
+  in parkinson’s disease and spinocerebellar ataxia,'' {\em Neurological
+  research}, vol.~23, no.~4, pp.~397--404, 2001.
+
+\bibitem{fractalbalance}
+J.~W. Baszczyk and W.~Klonowski, ``Postural stability and fractal dynamics,''
+  {\em Acta Neurobiol. Exp}, vol.~61, pp.~105--112, 2001.
+
+\bibitem{fractaldimensions}
+R.~Esteller, G.~Vachtsevanos, J.~Echauz, and B.~Litt, ``A comparison of
+  waveform fractal dimension algorithms,'' {\em IEEE Transactions on Circuits
+  and Systems I: Fundamental Theory and Applications}, vol.~48, no.~2,
+  pp.~177--183, 2001.
+
+\bibitem{hurst1965long}
+H.~E. Hurst, R.~Black, and Y.~Simaika, ``Long term storage, an experimental
+  study,'' 1965.
+
+\bibitem{hurstfractal}
+T.~Gneiting and M.~Schlather, ``Stochastic models that separate fractal
+  dimension and the hurst effect,'' {\em SIAM review}, vol.~46, no.~2,
+  pp.~269--282, 2004.
+
+\bibitem{duarte2000fractal}
+M.~Duarte and V.~M. Zatsiorsky, ``On the fractal properties of natural human
+  standing,'' {\em Neuroscience letters}, vol.~283, no.~3, pp.~173--176, 2000.
+
+\bibitem{fisherentropy}
+C.~Gourieroux and A.~Monfort, {\em Statistics and econometric models}, vol.~1.
+\newblock Cambridge University Press, 1995.
+
+\bibitem{fisherinfo}
+M.~Martin, J.~Perez, and A.~Plastino, ``Fisher information and nonlinear
+  dynamics,'' {\em Physica A: Statistical Mechanics and its Applications},
+  vol.~291, no.~1, pp.~523--532, 2001.
+
+\bibitem{martin1999fisherinfoeeg}
+M.~Martin, F.~Pennini, and A.~Plastino, ``Fisher's information and the analysis
+  of complex signals,'' {\em Physics Letters A}, vol.~256, no.~2, pp.~173--180,
+  1999.
+
+\bibitem{apsampentropy}
+J.~S. Richman and J.~R. Moorman, ``Physiological time-series analysis using
+  approximate entropy and sample entropy,'' {\em American Journal of
+  Physiology-Heart and Circulatory Physiology}, vol.~278, no.~6,
+  pp.~H2039--H2049, 2000.
+
+\bibitem{apentropy}
+S.~M. Pincus, I.~M. Gladstone, and R.~A. Ehrenkranz, ``A regularity statistic
+  for medical data analysis,'' {\em Journal of Clinical Monitoring and
+  Computing}, vol.~7, no.~4, pp.~335--345, 1991.
+
+\bibitem{multiscaleentropy}
+M.~Costa, A.~L. Goldberger, and C.-K. Peng, ``Multiscale entropy analysis of
+  biological signals,'' {\em Physical review E}, vol.~71, no.~2, p.~021906,
+  2005.
+
+\bibitem{samplegaitmulti}
+M.~Costa, C.-K. Peng, A.~L. Goldberger, and J.~M. Hausdorff, ``Multiscale
+  entropy analysis of human gait dynamics,'' {\em Physica A: Statistical
+  Mechanics and its applications}, vol.~330, no.~1, pp.~53--60, 2003.
+
+\bibitem{sampleheart}
+H.~M. Al-Angari and A.~V. Sahakian, ``Use of sample entropy approach to study
+  heart rate variability in obstructive sleep apnea syndrome,'' {\em IEEE
+  Transactions on Biomedical Engineering}, vol.~54, no.~10, pp.~1900--1904,
+  2007.
+
+\bibitem{entropymeasures}
+C.~J. Cellucci, A.~M. Albano, and P.~E. Rapp, ``Statistical validation of
+  mutual information calculations: Comparison of alternative numerical
+  algorithms,'' {\em Physical Review E}, vol.~71, no.~6, p.~066208, 2005.
+
+\bibitem{tkeo}
+J.~F. Kaiser, ``On a simple algorithm to calculate the `energy' of a signal,''
+  in {\em Acoustics, Speech, and Signal Processing, 1990. ICASSP-90., 1990
+  International Conference on}, pp.~381--384, IEEE, 1990.
+
+\bibitem{HNRperiodic}
+P.~Boersma, ``Accurate short-term analysis of the fundamental frequency and the
+  harmonics-to-noise ratio of a sampled sound,'' in {\em Proceedings of the
+  institute of phonetic sciences}, vol.~17, pp.~97--110, Amsterdam, 1993.
 
 \bibitem{lpcc}
 D.~O'Shaughnessy, ``Linear predictive coding,'' {\em IEEE potentials}, vol.~7,
@@ -620,14 +772,51 @@ N.~E. Huang, Z.~Shen, S.~R. Long, M.~C. Wu, H.~H. Shih, Q.~Zheng, N.-C. Yen,
   Proceedings of the Royal Society of London A: mathematical, physical and
   engineering sciences}, vol.~454, pp.~903--995, The Royal Society, 1998.
 
-\bibitem{hammarberg1980perceptual}
-B.~Hammarberg, B.~Fritzell, J.~Gaufin, J.~Sundberg, and L.~Wedin, ``Perceptual
-  and acoustic correlates of abnormal voice qualities,'' {\em Acta
-  oto-laryngologica}, vol.~90, no.~1-6, pp.~441--451, 1980.
+\bibitem{tsanas2011nonlinear}
+A.~Tsanas, M.~A. Little, P.~E. McSharry, and L.~O. Ramig, ``Nonlinear speech
+  analysis algorithms mapped to a standard metric achieve clinically useful
+  quantification of average {Parkinson's} disease symptom severity,'' {\em
+  Journal of the Royal Society Interface}, vol.~8, no.~59, pp.~842--855, 2011.
 
-\bibitem{prml}
-C.~M. Bishop, {\em Pattern recognition and machine learning}.
-\newblock springer, 2006.
+\bibitem{geneva}
+F.~Eyben, K.~R. Scherer, B.~W. Schuller, J.~Sundberg, E.~Andr{\'e}, C.~Busso,
+  L.~Y. Devillers, J.~Epps, P.~Laukka, S.~S. Narayanan, {\em et~al.}, ``The
+  geneva minimalistic acoustic parameter set (gemaps) for voice research and
+  affective computing,'' {\em IEEE Transactions on Affective Computing},
+  vol.~7, no.~2, pp.~190--202, 2016.
+
+\bibitem{compareis13featureset}
+F.~Weninger, F.~Eyben, B.~W. Schuller, M.~Mortillaro, and K.~R. Scherer, ``On
+  the acoustics of emotion in audio: what speech, music, and sound have in
+  common,'' {\em Frontiers in psychology}, vol.~4, 2013.
+
+\bibitem{hjorth}
+B.~Hjorth, ``{EEG} analysis based on time domain properties,'' {\em
+  Electroencephalography and clinical neurophysiology}, vol.~29, no.~3,
+  pp.~306--310, 1970.
+
+\bibitem{hjorthsmartphone}
+A.~J.~A. Majumder, F.~Rahman, I.~Zerin, W.~Ebel~Jr, and S.~I. Ahamed,
+  ``iprevention: Towards a novel real-time smartphone-based fall prevention
+  system,'' in {\em Proceedings of the 28th Annual ACM Symposium on Applied
+  Computing}, pp.~513--518, ACM, 2013.
+
+\bibitem{hfd}
+T.~Higuchi, ``Approach to an irregular time series on the basis of the fractal
+  theory,'' {\em Physica D: Nonlinear Phenomena}, vol.~31, no.~2, pp.~277--283,
+  1988.
+
+\bibitem{petrosian1995kolmogorov}
+A.~Petrosian, ``Kolmogorov complexity of finite sequences and recognition of
+  different preictal eeg patterns,'' in {\em Computer-Based Medical Systems,
+  1995., Proceedings of the Eighth IEEE Symposium on}, pp.~212--217, IEEE,
+  1995.
+
+\bibitem{svdentropy}
+S.~J. Roberts, W.~Penny, and I.~Rezek, ``Temporal and spatial complexity
+  measures for electroencephalogram based brain-computer interfacing,'' {\em
+  Medical and Biological Engineering and Computing}, vol.~37, no.~1,
+  pp.~93--98, 1999.
 
 \bibitem{biasvarnn}
 S.~Geman, E.~Bienenstock, and R.~Doursat, ``Neural networks and the
@@ -643,6 +832,10 @@ J.~Snoek, H.~Larochelle, and R.~P. Adams, ``Practical bayesian optimization of
 J.~S. Bergstra, R.~Bardenet, Y.~Bengio, and B.~K{\'e}gl, ``Algorithms for
   hyper-parameter optimization,'' in {\em Advances in Neural Information
   Processing Systems}, pp.~2546--2554, 2011.
+
+\bibitem{prml}
+C.~M. Bishop, {\em Pattern recognition and machine learning}.
+\newblock springer, 2006.
 
 \bibitem{svmprobabilistic}
 J.~Platt {\em et~al.}, ``Probabilistic outputs for support vector machines and
@@ -669,6 +862,11 @@ V.~Vapnik and A.~Chervonenkis, ``A note on one class of perceptrons,'' {\em
 C.~Cortes and V.~Vapnik, ``Support-vector networks,'' {\em Machine learning},
   vol.~20, no.~3, pp.~273--297, 1995.
 
+\bibitem{kramer2001propositionalization}
+S.~Kramer, N.~Lavra{\v{c}}, and P.~Flach, ``Propositionalization approaches to
+  relational data mining,'' in {\em Relational data mining}, pp.~262--291,
+  Springer, 2001.
+
 \bibitem{nn1943}
 W.~S. McCulloch and W.~Pitts, ``A logical calculus of the ideas immanent in
   nervous activity,'' {\em The bulletin of mathematical biophysics}, vol.~5,
@@ -679,15 +877,58 @@ F.~Rosenblatt, ``The perceptron: A probabilistic model for information storage
   and organization in the brain.,'' {\em Psychological review}, vol.~65, no.~6,
   p.~386, 1958.
 
-\bibitem{werbos1974beyond}
-P.~J. Werbos, ``Beyond regression: New tools for prediction and analysis in the
-  behavioral sciences,'' {\em Doctoral Dissertation, Applied Mathematics,
-  Harvard University, MA}, 1974.
+\bibitem{minsky1969perceptrons}
+M.~Minsky and S.~Papert, {\em Perceptrons.}
+\newblock MIT press, 1969.
 
 \bibitem{nnuniversalapprox}
 K.~Hornik, M.~Stinchcombe, and H.~White, ``Multilayer feedforward networks are
   universal approximators,'' {\em Neural networks}, vol.~2, no.~5,
   pp.~359--366, 1989.
+
+\bibitem{werbos1974beyond}
+P.~J. Werbos, ``Beyond regression: New tools for prediction and analysis in the
+  behavioral sciences,'' {\em Doctoral Dissertation, Applied Mathematics,
+  Harvard University, MA}, 1974.
+
+\bibitem{backproprediscover}
+D.~E. Rumelhart, G.~E. Hinton, and R.~J. Williams, ``Learning internal
+  representations by error propagation,'' tech. rep., California Univ San Diego
+  La Jolla Inst for Cognitive Science, 1985.
+
+\bibitem{convexopt}
+D.~P. Bertsekas, A.~Nedi, A.~E. Ozdaglar, {\em et~al.}, {\em Convex analysis
+  and optimization}.
+\newblock Athena Scientific, 2003.
+
+\bibitem{vanishinggradient}
+S.~Hochreiter, ``Untersuchungen zu dynamischen neuronalen netzen,'' {\em
+  Diploma, Technische Universit{\"a}t M{\"u}nchen}, vol.~91, 1991.
+
+\bibitem{batchnorm}
+S.~Ioffe and C.~Szegedy, ``Batch normalization: Accelerating deep network
+  training by reducing internal covariate shift,'' in {\em International
+  Conference on Machine Learning}, pp.~448--456, 2015.
+
+\bibitem{googlenet}
+C.~Szegedy, W.~Liu, Y.~Jia, P.~Sermanet, S.~Reed, D.~Anguelov, D.~Erhan,
+  V.~Vanhoucke, and A.~Rabinovich, ``Going deeper with convolutions,'' in {\em
+  Proceedings of the IEEE conference on computer vision and pattern
+  recognition}, pp.~1--9, 2015.
+
+\bibitem{cnnvis}
+J.~Yosinski, J.~Clune, A.~Nguyen, T.~Fuchs, and H.~Lipson, ``Understanding
+  neural networks through deep visualization,'' {\em arXiv preprint
+  arXiv:1506.06579}, 2015.
+
+\bibitem{lstm}
+S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' {\em Neural
+  computation}, vol.~9, no.~8, pp.~1735--1780, 1997.
+
+\bibitem{bashivan2015learning}
+P.~Bashivan, I.~Rish, M.~Yeasin, and N.~Codella, ``Learning representations
+  from eeg with deep recurrent-convolutional neural networks,'' {\em arXiv
+  preprint arXiv:1511.06448}, 2015.
 
 \bibitem{cheng2016wide}
 H.-T. Cheng, L.~Koc, J.~Harmsen, T.~Shaked, T.~Chandra, H.~Aradhye,
@@ -699,17 +940,45 @@ H.-T. Cheng, L.~Koc, J.~Harmsen, T.~Shaked, T.~Chandra, H.~Aradhye,
 R.~Eldan and O.~Shamir, ``The power of depth for feedforward neural networks,''
   in {\em Conference on Learning Theory}, pp.~907--940, 2016.
 
-\bibitem{vanishinggradient}
-S.~Hochreiter, ``Untersuchungen zu dynamischen neuronalen netzen,'' {\em
-  Diploma, Technische Universit{\"a}t M{\"u}nchen}, vol.~91, 1991.
+\bibitem{dropout}
+N.~Srivastava, G.~E. Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov,
+  ``Dropout: a simple way to prevent neural networks from overfitting.,'' {\em
+  Journal of machine learning research}, vol.~15, no.~1, pp.~1929--1958, 2014.
 
-\bibitem{adagrad}
-M.~D. Zeiler, ``Adadelta: an adaptive learning rate method,'' {\em arXiv
-  preprint arXiv:1212.5701}, 2012.
+\bibitem{dropconnect}
+L.~Wan, M.~Zeiler, S.~Zhang, Y.~L. Cun, and R.~Fergus, ``Regularization of
+  neural networks using dropconnect,'' in {\em Proceedings of the 30th
+  international conference on machine learning (ICML-13)}, pp.~1058--1066,
+  2013.
 
-\bibitem{adam}
-D.~Kingma and J.~Ba, ``Adam: A method for stochastic optimization,'' {\em arXiv
-  preprint arXiv:1412.6980}, 2014.
+\bibitem{relu}
+V.~Nair and G.~E. Hinton, ``Rectified linear units improve restricted boltzmann
+  machines,'' in {\em Proceedings of the 27th international conference on
+  machine learning (ICML-10)}, pp.~807--814, 2010.
+
+\bibitem{relubiology}
+Y.~Bengio, D.-H. Lee, J.~Bornschein, T.~Mesnard, and Z.~Lin, ``Towards
+  biologically plausible deep learning,'' {\em arXiv preprint
+  arXiv:1502.04156}, 2015.
+
+\bibitem{he2015delving}
+K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Delving deep into rectifiers: Surpassing
+  human-level performance on imagenet classification,'' in {\em Proceedings of
+  the IEEE international conference on computer vision}, pp.~1026--1034, 2015.
+
+\bibitem{goodfellow2013maxout}
+I.~J. Goodfellow, D.~Warde-Farley, M.~Mirza, A.~Courville, and Y.~Bengio,
+  ``Maxout networks,'' {\em arXiv preprint arXiv:1302.4389}, 2013.
+
+\bibitem{noisyrelu}
+V.~Nair and G.~E. Hinton, ``Rectified linear units improve restricted boltzmann
+  machines,'' in {\em Proceedings of the 27th international conference on
+  machine learning (ICML-10)}, pp.~807--814, 2010.
+
+\bibitem{clevert2015fast}
+D.-A. Clevert, T.~Unterthiner, and S.~Hochreiter, ``Fast and accurate deep
+  network learning by exponential linear units (elus),'' {\em arXiv preprint
+  arXiv:1511.07289}, 2015.
 
 \bibitem{glorot2010understanding}
 X.~Glorot and Y.~Bengio, ``Understanding the difficulty of training deep
@@ -717,36 +986,92 @@ X.~Glorot and Y.~Bengio, ``Understanding the difficulty of training deep
   International Conference on Artificial Intelligence and Statistics},
   pp.~249--256, 2010.
 
-\bibitem{heinitialization}
-K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Delving deep into rectifiers: Surpassing
-  human-level performance on imagenet classification,'' in {\em Proceedings of
-  the IEEE international conference on computer vision}, pp.~1026--1034, 2015.
+\bibitem{adam}
+D.~Kingma and J.~Ba, ``Adam: A method for stochastic optimization,'' {\em arXiv
+  preprint arXiv:1412.6980}, 2014.
 
-\bibitem{relu}
-V.~Nair and G.~E. Hinton, ``Rectified linear units improve restricted boltzmann
-  machines,'' in {\em Proceedings of the 27th international conference on
-  machine learning (ICML-10)}, pp.~807--814, 2010.
+\bibitem{nesterov1983method}
+Y.~Nesterov, ``A method of solving a convex programming problem with
+  convergence rate o (1/k2),'' in {\em Soviet Mathematics Doklady}, vol.~27,
+  pp.~372--376, 1983.
 
-\bibitem{imagenet}
-O.~Russakovsky, J.~Deng, H.~Su, J.~Krause, S.~Satheesh, S.~Ma, Z.~Huang,
-  A.~Karpathy, A.~Khosla, M.~Bernstein, {\em et~al.}, ``Imagenet large scale
-  visual recognition challenge,'' {\em International Journal of Computer
-  Vision}, vol.~115, no.~3, pp.~211--252, 2015.
+\bibitem{nadam}
+T.~Dozat, ``Incorporating nesterov momentum into adam,'' {\em ICLR 2016
+  workshop submission}, 2016.
 
-\bibitem{cnnvis}
-J.~Yosinski, J.~Clune, A.~Nguyen, T.~Fuchs, and H.~Lipson, ``Understanding
-  neural networks through deep visualization,'' {\em arXiv preprint
-  arXiv:1506.06579}, 2015.
+\bibitem{cs231n}
+F.-F. Li, J.~Johnson, and S.~Yeung, {\em Cs231n: Convolutional neural networks
+  for visual recognition}.
+\newblock Stanford University, 2017.
+
+\bibitem{sgdrestarts}
+I.~Loshchilov and F.~Hutter, ``Sgdr: stochastic gradient descent with
+  restarts,'' {\em arXiv preprint arXiv:1608.03983}, 2016.
+
+\bibitem{wrapperoverfit}
+J.~Loughrey and P.~Cunningham, ``Overfitting in wrapper-based feature subset
+  selection: The harder you try the worse it gets,'' {\em Research and
+  Development in Intelligent Systems XXI}, pp.~33--43, 2005.
+
+\bibitem{skfeature}
+J.~Li, K.~Cheng, S.~Wang, F.~Morstatter, R.~P. Trevino, J.~Tang, and H.~Liu,
+  ``Feature selection: A data perspective,'' {\em arXiv preprint
+  arXiv:1601.07996}, 2016.
+
+\bibitem{relieff}
+M.~Robnik-{\v{S}}ikonja and I.~Kononenko, ``Theoretical and empirical analysis
+  of relieff and rrelieff,'' {\em Machine learning}, vol.~53, no.~1-2,
+  pp.~23--69, 2003.
+
+\bibitem{fisherscore}
+X.~He, D.~Cai, and P.~Niyogi, ``Laplacian score for feature selection,'' in
+  {\em Advances in neural information processing systems}, pp.~507--514, 2006.
+
+\bibitem{cife}
+G.~Brown, A.~Pocock, M.-J. Zhao, and M.~Luj{\'a}n, ``Conditional likelihood
+  maximisation: a unifying framework for information theoretic feature
+  selection,'' {\em Journal of machine learning research}, vol.~13, no.~Jan,
+  pp.~27--66, 2012.
+
+\bibitem{icap}
+A.~Jakulin, {\em Machine learning based on attribute interactions}.
+\newblock PhD thesis, Univerza v Ljubljani, 2005.
+
+\bibitem{mifs}
+G.~Brown, A.~Pocock, M.-J. Zhao, and M.~Luj{\'a}n, ``Conditional likelihood
+  maximisation: a unifying framework for information theoretic feature
+  selection,'' {\em Journal of machine learning research}, vol.~13, no.~Jan,
+  pp.~27--66, 2012.
+
+\bibitem{mrmr}
+C.~Ding and H.~Peng, ``Minimum redundancy feature selection from microarray
+  gene expression data,'' {\em Journal of bioinformatics and computational
+  biology}, vol.~3, no.~02, pp.~185--205, 2005.
+
+\bibitem{CFS}
+Z.~Zhao, F.~Morstatter, S.~Sharma, S.~Alelyani, A.~Anand, and H.~Liu,
+  ``Advancing feature selection research,'' {\em ASU feature selection
+  repository}, pp.~1--28, 2010.
+
+\bibitem{rfs}
+F.~Nie, H.~Huang, X.~Cai, and C.~H. Ding, ``Efficient and robust feature
+  selection via joint ℓ2, 1-norms minimization,'' in {\em Advances in neural
+  information processing systems}, pp.~1813--1821, 2010.
+
+\bibitem{l21}
+J.~Liu, S.~Ji, and J.~Ye, ``Multi-task feature learning via efficient l 2,
+  1-norm minimization,'' in {\em Proceedings of the twenty-fifth conference on
+  uncertainty in artificial intelligence}, pp.~339--348, AUAI Press, 2009.
+
+\bibitem{nndimred}
+G.~E. Hinton and R.~R. Salakhutdinov, ``Reducing the dimensionality of data
+  with neural networks,'' {\em science}, vol.~313, no.~5786, pp.~504--507,
+  2006.
 
 \bibitem{bayesianttests}
 J.~N. Rouder, P.~L. Speckman, D.~Sun, R.~D. Morey, and G.~Iverson, ``Bayesian t
   tests for accepting and rejecting the null hypothesis,'' {\em Psychonomic
   bulletin \& review}, vol.~16, no.~2, pp.~225--237, 2009.
-
-\bibitem{kfoldvsloo}
-L.~Breiman and P.~Spector, ``Submodel selection and evaluation in regression.
-  the x-random case,'' {\em International statistical review/revue
-  internationale de Statistique}, pp.~291--319, 1992.
 
 \bibitem{crossvalsurvey}
 S.~Arlot, A.~Celisse, {\em et~al.}, ``A survey of cross-validation procedures
@@ -756,6 +1081,59 @@ S.~Arlot, A.~Celisse, {\em et~al.}, ``A survey of cross-validation procedures
 R.~Kohavi, ``A study of cross-validation and bootstrap for accuracy estimation
   and model selection,'' in {\em Ijcai}, vol.~14, pp.~1137--1145, Stanford, CA,
   1995.
+
+\bibitem{kfoldvsloo}
+L.~Breiman and P.~Spector, ``Submodel selection and evaluation in regression.
+  the x-random case,'' {\em International statistical review/revue
+  internationale de Statistique}, pp.~291--319, 1992.
+
+\bibitem{bestcvempirical}
+R.~R. Bouckaert, ``Choosing between two learning algorithms based on calibrated
+  tests,'' in {\em Proceedings of the 20th International Conference on Machine
+  Learning (ICML-03)}, pp.~51--58, 2003.
+
+\bibitem{rocauc}
+F.~J. Provost, T.~Fawcett, {\em et~al.}, ``Analysis and visualization of
+  classifier performance: comparison under imprecise class and cost
+  distributions.,'' in {\em KDD}, vol.~97, pp.~43--48, 1997.
+
+\bibitem{aucgood}
+C.~X. Ling, J.~Huang, and H.~Zhang, ``Auc: a statistically consistent and more
+  discriminating measure than accuracy,'' in {\em IJCAI}, vol.~3, pp.~519--524,
+  2003.
+
+\bibitem{aucmislead2}
+A.~T. Peterson, M.~Pape{\c{s}}, and J.~Sober{\'o}n, ``Rethinking receiver
+  operating characteristic analysis applications in ecological niche
+  modeling,'' {\em Ecological modelling}, vol.~213, no.~1, pp.~63--72, 2008.
+
+\bibitem{aucmislead}
+J.~M. Lobo, A.~Jim{\'e}nez-Valverde, and R.~Real, ``Auc: a misleading measure
+  of the performance of predictive distribution models,'' {\em Global ecology
+  and Biogeography}, vol.~17, no.~2, pp.~145--151, 2008.
+
+\bibitem{aucincoherent}
+D.~J. Hand, ``Measuring classifier performance: a coherent alternative to the
+  area under the roc curve,'' {\em Machine learning}, vol.~77, no.~1,
+  pp.~103--123, 2009.
+
+\bibitem{publicationbias}
+P.~J. Easterbrook, R.~Gopalan, J.~Berlin, and D.~R. Matthews, ``Publication
+  bias in clinical research,'' {\em The Lancet}, vol.~337, no.~8746,
+  pp.~867--872, 1991.
+
+\bibitem{replicability}
+O.~S. Collaboration {\em et~al.}, ``Estimating the reproducibility of
+  psychological science,'' {\em Science}, vol.~349, no.~6251, p.~aac4716, 2015.
+
+\bibitem{bayesfactorASA}
+R.~L. Wasserstein and N.~A. Lazar, ``The asa's statement on p-values: context,
+  process, and purpose,'' 2016.
+
+\bibitem{bayesfactorempirical}
+B.~Aczel, B.~Palfi, and B.~Szaszi, ``Estimating the evidential value of
+  significant results in psychological science,'' {\em PloS one}, vol.~12,
+  no.~8, p.~e0182651, 2017.
 
 \bibitem{aicbic}
 K.~P. Burnham and D.~R. Anderson, ``Multimodel inference: understanding aic and
@@ -771,40 +1149,10 @@ Y.~Zhang, R.~Li, and C.-L. Tsai, ``Regularization parameter selections via
 J.~Rissanen, ``A universal prior for integers and estimation by minimum
   description length,'' {\em The Annals of statistics}, pp.~416--431, 1983.
 
-\bibitem{bestcvempirical}
-R.~R. Bouckaert, ``Choosing between two learning algorithms based on calibrated
-  tests,'' in {\em Proceedings of the 20th International Conference on Machine
-  Learning (ICML-03)}, pp.~51--58, 2003.
-
-\bibitem{bestcvapproximate}
-T.~G. Dietterich, ``Approximate statistical tests for comparing supervised
-  classification learning algorithms,'' {\em Neural computation}, vol.~10,
-  no.~7, pp.~1895--1923, 1998.
-
-\bibitem{nounbiasedkfoldcv}
-Y.~Bengio and Y.~Grandvalet, ``No unbiased estimator of the variance of k-fold
-  cross-validation,'' {\em Journal of machine learning research}, vol.~5,
-  no.~Sep, pp.~1089--1105, 2004.
-
 \bibitem{mjfoxchallenge2013}
 ``{Michael J. Fox Foundation} launches \$10,000 {Parkinson's} data challenge.''
   \url{https://www.michaeljfox.org/foundation/publication-detail.html?id=325},
   2013.
-
-\bibitem{publicationbias}
-P.~J. Easterbrook, R.~Gopalan, J.~Berlin, and D.~R. Matthews, ``Publication
-  bias in clinical research,'' {\em The Lancet}, vol.~337, no.~8746,
-  pp.~867--872, 1991.
-
-\bibitem{replicability}
-O.~S. Collaboration {\em et~al.}, ``Estimating the reproducibility of
-  psychological science,'' {\em Science}, vol.~349, no.~6251, p.~aac4716, 2015.
-
-\bibitem{mpower}
-B.~M. Bot, C.~Suver, E.~C. Neto, M.~Kellen, A.~Klein, C.~Bare, M.~Doerr,
-  A.~Pratap, J.~Wilbanks, E.~R. Dorsey, {\em et~al.}, ``The mpower study,
-  {Parkinson} disease mobile data collected using researchkit,'' {\em
-  Scientific data}, vol.~3, 2016.
 
 \bibitem{youngpd1}
 N.~Quinn, P.~Critchley, and C.~D. Marsden, ``Young onset {Parkinson's}
@@ -829,12 +1177,6 @@ R.~Soames and J.~Atha, ``The spectral characteristics of postural sway
   behaviour,'' {\em European journal of applied physiology and occupational
   physiology}, vol.~49, no.~2, pp.~169--177, 1982.
 
-\bibitem{tsanas2011nonlinear}
-A.~Tsanas, M.~A. Little, P.~E. McSharry, and L.~O. Ramig, ``Nonlinear speech
-  analysis algorithms mapped to a standard metric achieve clinically useful
-  quantification of average {Parkinson's} disease symptom severity,'' {\em
-  Journal of the Royal Society Interface}, vol.~8, no.~59, pp.~842--855, 2011.
-
 \bibitem{tsanas2014robust}
 A.~Tsanas, M.~Za{\~n}artu, M.~A. Little, C.~Fox, L.~O. Ramig, and G.~D.
   Clifford, ``Robust fundamental frequency estimation in sustained vowels:
@@ -842,20 +1184,32 @@ A.~Tsanas, M.~Za{\~n}artu, M.~A. Little, C.~Fox, L.~O. Ramig, and G.~D.
   filtering,'' {\em The Journal of the Acoustical Society of America},
   vol.~135, no.~5, pp.~2885--2901, 2014.
 
-\bibitem{relieff}
-M.~Robnik-{\v{S}}ikonja and I.~Kononenko, ``Theoretical and empirical analysis
-  of relieff and rrelieff,'' {\em Machine learning}, vol.~53, no.~1-2,
-  pp.~23--69, 2003.
+\bibitem{mfcchistory}
+A.~V. Oppenheim and R.~W. Schafer, ``From frequency to quefrency: A history of
+  the cepstrum,'' {\em IEEE signal processing Magazine}, vol.~21, no.~5,
+  pp.~95--106, 2004.
 
 \bibitem{mfccrobust2}
 S.~Ravindran, D.~V. Anderson, and M.~Slaney, ``Improving the noise-robustness
   of mel-frequency cepstral coefficients for speech processing,'' {\em
   Reconstruction}, vol.~12, p.~14, 2006.
 
-\bibitem{mfcchistory}
-A.~V. Oppenheim and R.~W. Schafer, ``From frequency to quefrency: A history of
-  the cepstrum,'' {\em IEEE signal processing Magazine}, vol.~21, no.~5,
-  pp.~95--106, 2004.
+\bibitem{dreamchallengeinfo}
+``{Parkinson's} disease digital biomarker {DREAM} challenge,'' 2017.
+
+\bibitem{mpowertools}
+``Feature extraction toolkit for {mPower} modules,'' 2017.
+
+\bibitem{jerkfeature}
+W.~Ham{\"a}l{\"a}inen, M.~J{\"a}rvinen, P.~Martiskainen, and J.~Mononen,
+  ``Jerk-based feature extraction for robust activity recognition from
+  acceleration data,'' in {\em Intelligent Systems Design and Applications
+  (ISDA), 2011 11th International Conference on}, pp.~831--836, IEEE, 2011.
+
+\bibitem{lombscargle}
+T.~Ruf, ``The lomb-scargle periodogram in biological rhythm research: analysis
+  of incomplete and unequally spaced time-series,'' {\em Biological Rhythm
+  Research}, vol.~30, no.~2, pp.~178--201, 1999.
 
 \bibitem{opensmile}
 F.~Eyben, M.~W{\"o}llmer, and B.~Schuller, ``Opensmile: the munich versatile

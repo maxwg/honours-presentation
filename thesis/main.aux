@@ -40,6 +40,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Background}{5}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{bgchapter}{{1}{5}{Background}{chapter.1}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1.1}{\ignorespaces Symptoms of Parkinson's disease. Although commonly associated with tremor, only around 70\% of patients experience resting tremor.\relax }}{5}{table.caption.5}}
 \citation{parkinsonismdifferential1}
 \citation{brooksdiagnosis25}
@@ -52,7 +53,7 @@
 \citation{genome}
 \citation{biomarkerfluid}
 \citation{freedmanparadox}
-\citation{freedmanparadox}
+\citation{overfittingcv}
 \citation{esser2011assessment}
 \citation{PDessentialtremordifferentiation}
 \@writefile{loe}{\addvspace {10\p@ }}
@@ -73,9 +74,12 @@
 \citation{review2013}
 \citation{review2015}
 \citation{parkinsonismdifferential1}
+\citation{parkinsonismdifferential2}
 \citation{updrs}
 \citation{earlyvowel}
 \citation{ostextbook}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Feature Extraction and Signal Processing}{8}{section.1.2}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.5}Highlight}{8}{highlight.1.5}}
 \citation{duval2004detection}
 \citation{salarian2007tremor}
 \citation{palmerini2011tremor}
@@ -110,13 +114,13 @@
 \citation{mri1}
 \citation{mri2}
 \citation{mri3}
+\citation{eegnonlinearpd}
+\citation{eegslowingpd}
 \citation{nonmotordiagnosis}
 \citation{nonmotordiagnosis}
 \citation{ppmigood}
 \citation{ppmigood}
 \citation{gastrointestinal}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Feature Extraction and Signal Processing}{8}{section.1.2}}
-\@writefile{loe}{\contentsline {highlight}{\numberline {1.5}Highlight}{8}{highlight.1.5}}
 \citation{subtypes}
 \citation{thenganatt2014parkinsonsubtypes}
 \citation{ramig2008speech}
@@ -130,18 +134,19 @@
 \newlabel{pdsensors}{{1.2}{9}{Prior work in the field of PD diagnosis. The signal processing of sensor data is often more important that the machine learning model.\relax }{table.caption.6}{}}
 \@writefile{loe}{\contentsline {highlight}{\numberline {1.6}Highlight}{9}{highlight.1.6}}
 \citation{splittledysphonia2009}
-\citation{nonlineardisorder}
-\citation{little2007biomechanically}
-\citation{titze2008nonlinear}
-\citation{f0estimation}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}General Signal Processing}{10}{subsection.1.2.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Voice}{10}{subsection.1.2.2}}
 \@writefile{toc}{\contentsline {subsubsection}{Biological Background}{10}{subsection.1.2.2}}
 \newlabel{speechbio}{{1.2.2}{10}{Biological Background}{subsection.1.2.2}{}}
+\citation{nonlineardisorder}
+\citation{little2007biomechanically}
+\citation{titze2008nonlinear}
+\citation{f0estimation}
 \citation{spworkshoptitze}
 \citation{rosen2006parametric}
+\citation{mfscale}
+\citation{mfscale}
 \citation{hazan2012}
-\@writefile{toc}{\contentsline {subsubsection}{Speech Signal Processing}{11}{subsection.1.2.2}}
 \citation{compareis15pd}
 \citation{hahm2015parkinson}
 \citation{grosz2015assessingis15}
@@ -149,20 +154,21 @@
 \citation{vasquez2015automatic}
 \citation{wang2007speechenhancement}
 \citation{orozco2015voiced}
-\citation{ostextbook}
 \citation{splittledysphonia2009}
 \citation{splittlenonlinear2007}
 \citation{f0estimation}
+\@writefile{toc}{\contentsline {subsubsection}{Speech Signal Processing}{12}{subsection.1.2.2}}
 \citation{shimmerjitter}
 \citation{jittertime}
 \citation{HNRintro}
 \citation{gne}
 \citation{gneratio}
+\newlabel{spectrogram}{{\caption@xref {spectrogram}{ on input line 529}}{13}{Speech Signal Processing}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces A visualisation of prominent dypshonia in sustained vowel phonation on the time (above) and short-time frequency domain (below, Mel-scale~\cite  {mfscale}). Cases are generally not as extreme and the natural variation in voice makes differentiation a difficult task.\relax }}{13}{figure.caption.7}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.7}Highlight}{13}{highlight.1.7}}
 \citation{dfa}
 \citation{splittlenonlinear2007}
 \citation{splittledysphonia2009}
-\@writefile{loe}{\contentsline {highlight}{\numberline {1.7}Highlight}{12}{highlight.1.7}}
-\newlabel{dfadescription}{{1.2.2}{12}{Speech Signal Processing}{highlight.1.7}{}}
 \citation{tsanas2012novel}
 \citation{dypsa}
 \citation{spoverview}
@@ -173,10 +179,7 @@
 \citation{ageracial}
 \citation{racial}
 \citation{ostextbook}
-\citation{motionmoderecognition}
-\citation{li2010multimodal}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Movement}{13}{subsection.1.2.3}}
-\newlabel{movementfeatures}{{1.2.3}{13}{Movement}{subsection.1.2.3}{}}
+\newlabel{dfadescription}{{1.2.2}{14}{Speech Signal Processing}{highlight.1.7}{}}
 \citation{duval2004detection}
 \citation{palmerini2011tremor}
 \citation{posturalswaylongitudinal}
@@ -185,7 +188,12 @@
 \citation{renaudin2012step}
 \citation{diaz2014step}
 \citation{das2011quantitative}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.4}Smartphones}{14}{subsection.1.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Movement}{15}{subsection.1.2.3}}
+\newlabel{movementfeatures}{{1.2.3}{15}{Movement}{subsection.1.2.3}{}}
+\citation{mpower}
+\citation{tapping}
+\citation{motionmoderecognition}
+\citation{li2010multimodal}
 \citation{splittledysphonia2009}
 \citation{smartphonemjfoxlion}
 \citation{smartphonemjfoxB}
@@ -197,21 +205,56 @@
 \citation{arora2014high}
 \citation{ostextbook}
 \citation{spoverview}
-\citation{dfa}
-\citation{splittlenonlinear2007}
-\citation{tkeo}
-\citation{HNRintro}
-\citation{HNRperiodic}
+\@writefile{toc}{\contentsline {subsubsection}{Smartphones}{16}{subsection.1.2.3}}
+\citation{eegnonlinearpd}
+\citation{eegalzheimers}
+\citation{eegalzheimers}
+\citation{jelles1999decrease}
 \citation{rosenstein1993practicallyapunov}
+\citation{lyapunovall}
+\citation{eeglyapunov1}
+\citation{eeglyapunov2}
+\citation{banbrook1999speechlyapunov}
+\citation{kokkinos2005nonlinearlyapunov}
 \citation{dingwell2000nonlinearlyapunov}
 \citation{howcroft2014analysisgaitlyapunov}
 \citation{liu2015analysislyapunov}
-\citation{banbrook1999speechlyapunov}
-\citation{kokkinos2005nonlinearlyapunov}
+\citation{mandelbrot1967long}
+\citation{eegfractal}
+\citation{seizuredimensions}
+\citation{fractalgait}
+\citation{hfdcop}
+\citation{fractalpd}
+\citation{fractalbalance}
+\citation{fractaldimensions}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.4}EEG}{17}{subsection.1.2.4}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.8}Highlight}{17}{highlight.1.8}}
+\citation{hurst1965long}
+\citation{hurstfractal}
+\citation{duarte2000fractal}
+\citation{splittlenonlinear2007}
+\citation{fisherentropy}
+\citation{fisherinfo}
+\citation{martin1999fisherinfoeeg}
+\citation{apsampentropy}
+\citation{apentropy}
+\citation{multiscaleentropy}
+\citation{samplegaitmulti}
+\citation{sampleheart}
+\citation{entropymeasures}
+\citation{tkeo}
+\gdef \LT@i {\LT@entry 
+    {1}{88.644pt}\LT@entry 
+    {1}{336.3614pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.5}Summary of Features}{18}{subsection.1.2.5}}
+\newlabel{featuresummary}{{1.2.5}{18}{Summary of Features}{subsection.1.2.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1.3}{\ignorespaces Features and techniques which are applicable to any signal processing problem.\relax }}{18}{table.1.3}}
 \citation{mfscale}
 \citation{mfcc}
 \citation{mfccml}
 \citation{f0estimation}
+\citation{HNRintro}
+\citation{HNRperiodic}
 \citation{jittertime}
 \citation{shimmerjitter}
 \citation{lpcc}
@@ -221,90 +264,169 @@
 \citation{EMDER}
 \citation{tsanas2012novel}
 \citation{splittlenonlinear2007}
+\citation{dfa}
+\citation{splittlenonlinear2007}
 \citation{splittledysphonia2009}
 \citation{sptsanastelemonitor2010}
-\citation{hammarberg1980perceptual}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.5}Dynamical Systems and Chaos Theory}{15}{subsection.1.2.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.6}Summary of Features}{15}{subsection.1.2.6}}
-\@writefile{lot}{\contentsline {table}{\numberline {1.3}{\ignorespaces Summary of most state of the art features used in the various subfields of Parkinson's Disease classification. Features in the speech section can be used in movement and vice versa, however are not commonly applied. \relax }}{15}{table.1.3}}
-\newlabel{featuresummary}{{1.3}{15}{Summary of most state of the art features used in the various subfields of Parkinson's Disease classification. Features in the speech section can be used in movement and vice versa, however are not commonly applied. \relax }{table.1.3}{}}
-\gdef \LT@i {\LT@entry 
-    {1}{91.212pt}\LT@entry 
+\citation{tsanas2011nonlinear}
+\citation{geneva}
+\citation{ostextbook}
+\citation{compareis13featureset}
+\citation{ostextbook}
+\@writefile{lot}{\contentsline {table}{\numberline {1.4}{\ignorespaces Dysphonia signal processing generally quantifies the variation in each glottal cycle during speech production\relax }}{19}{table.1.4}}
+\gdef \LT@ii {\LT@entry 
+    {2}{87.168pt}\LT@entry 
     {1}{336.3614pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Machine Learning}{17}{section.1.3}}
-\@writefile{loe}{\contentsline {highlight}{\numberline {1.8}Highlight}{17}{highlight.1.8}}
-\citation{prml}
+\citation{diaz2014step}
+\gdef \LT@iii {\LT@entry 
+    {1}{77.772pt}\LT@entry 
+    {1}{336.3614pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {1.5}{\ignorespaces There are few movement specific features, with most based on simple measures of postural sway or irregular gait.\relax }}{20}{table.1.5}}
+\citation{hjorth}
+\citation{hjorthsmartphone}
+\citation{rosenstein1993practicallyapunov}
+\citation{dingwell2000nonlinearlyapunov}
+\citation{mandelbrot1967long}
+\citation{hfd}
+\citation{petrosian1995kolmogorov}
+\citation{hurst1965long}
+\citation{fisherentropy}
+\citation{apentropy}
+\citation{multiscaleentropy}
+\citation{svdentropy}
+\gdef \LT@iv {\LT@entry 
+    {1}{93.9pt}\LT@entry 
+    {1}{336.3614pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {1.6}{\ignorespaces EEG signal processing is often based on dynamical systems theory. These features may be effective in detecting the presence of symptoms invisible to neurologists.\relax }}{21}{table.1.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Machine Learning}{21}{section.1.3}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.9}Highlight}{21}{highlight.1.9}}
 \citation{biasvarnn}
-\newlabel{binaryclass}{{\caption@xref {binaryclass}{ on input line 608}}{18}{Machine Learning}{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces A visualisation of binary classification with two features. Data is rarely as `clean' as this artificial example.\relax }}{18}{figure.caption.7}}
-\@writefile{loe}{\contentsline {highlight}{\numberline {1.9}Highlight}{18}{highlight.1.9}}
+\newlabel{binaryclass}{{\caption@xref {binaryclass}{ on input line 688}}{22}{Machine Learning}{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces A visualisation of binary classification with two features. Data is rarely as `clean' as this artificial example.\relax }}{22}{figure.caption.8}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.10}Highlight}{22}{highlight.1.10}}
 \citation{gridsearch}
 \citation{tpe}
-\newlabel{overfitex}{{\caption@xref {overfitex}{ on input line 629}}{19}{Machine Learning}{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Machine learning models and their parameters must be carefully chosen to ensure the optimal fit.\relax }}{19}{figure.caption.8}}
+\citation{prml}
+\newlabel{overfitex}{{\caption@xref {overfitex}{ on input line 708}}{23}{Machine Learning}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Machine learning models and their parameters must be carefully chosen to ensure the optimal fit.\relax }}{23}{figure.caption.9}}
 \citation{review2013}
 \citation{svmprobabilistic}
 \citation{randomforests}
 \citation{bagging}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Traditional}{20}{subsection.1.3.1}}
-\newlabel{traditionalmodels}{{1.3.1}{20}{Traditional}{subsection.1.3.1}{}}
-\newlabel{decisiontree}{{\caption@xref {decisiontree}{ on input line 644}}{20}{Traditional}{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces A simple Decision Tree with cutoff depth 3. Data is split by rules until a leaf contains only one class exists or a cutoff criterion is satisfied.\relax }}{20}{figure.caption.9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Traditional}{24}{subsection.1.3.1}}
+\newlabel{traditionalmodels}{{1.3.1}{24}{Traditional}{subsection.1.3.1}{}}
+\newlabel{decisiontree}{{\caption@xref {decisiontree}{ on input line 726}}{24}{Traditional}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces A simple Decision Tree with cutoff depth 3. Data is split by rules until a leaf contains only one class exists or a cutoff criterion is satisfied.\relax }}{24}{figure.caption.10}}
 \citation{treesinaforest}
 \citation{randomforests}
 \citation{svm}
 \citation{svmsoftmargin}
-\@writefile{loe}{\contentsline {highlight}{\numberline {1.10}Highlight}{21}{highlight.1.10}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.11}Highlight}{25}{highlight.1.11}}
 \citation{gridsearch}
+\citation{kramer2001propositionalization}
 \citation{nn1943}
 \citation{rosenblatt1958perceptron}
+\newlabel{svm}{{\caption@xref {svm}{ on input line 745}}{26}{Traditional}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces A RBF kernel is used to transform the data into a more linearly separable space. ${"ζ}_i$ denote slack variables which lie beyond the margin (depicted by beige lines). \relax }}{26}{figure.caption.11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Artificial Neural Networks}{26}{subsection.1.3.2}}
+\newlabel{neuralnetworkintro}{{1.3.2}{26}{Artificial Neural Networks}{subsection.1.3.2}{}}
 \citation{rosenblatt1958perceptron}
 \citation{prml}
 \citation{rosenblatt1958perceptron}
 \citation{prml}
-\citation{werbos1974beyond}
+\citation{minsky1969perceptrons}
 \citation{nnuniversalapprox}
-\newlabel{svm}{{\caption@xref {svm}{ on input line 664}}{22}{Traditional}{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces A RBF kernel is used to transform the data into a more linearly separable space. ${"ζ}_i$ denote slack variables which lie beyond the margin (depicted by beige lines). \relax }}{22}{figure.caption.10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Artificial Neural Networks}{22}{subsection.1.3.2}}
-\newlabel{neuralnetworkintro}{{1.3.2}{22}{Artificial Neural Networks}{subsection.1.3.2}{}}
+\citation{nnuniversalapprox}
+\citation{werbos1974beyond}
+\citation{backproprediscover}
+\newlabel{perceptron}{{\caption@xref {perceptron}{ on input line 766}}{27}{Artificial Neural Networks}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces The simple perceptron learning algorithm. The original incarnation could not handle inseparable data~\cite  {rosenblatt1958perceptron}. Images borrowed and modified from Bishop~(2006)~\cite  {prml} \relax }}{27}{figure.caption.12}}
+\citation{convexopt}
+\citation{vanishinggradient}
+\citation{batchnorm}
+\citation{googlenet}
+\citation{cnnvis}
+\citation{cnnvis}
+\citation{lstm}
+\citation{bashivan2015learning}
+\newlabel{perceptronvis}{{\caption@xref {perceptronvis}{ on input line 779}}{28}{Artificial Neural Networks}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces A single perceptron node. Takes input $X$ and learns the weight vector $W$ to classify the output with the Heaviside activation function $a$.\relax }}{28}{figure.caption.13}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.12}Highlight}{28}{highlight.1.12}}
 \citation{cheng2016wide}
 \citation{eldan2016power}
-\newlabel{perceptron}{{\caption@xref {perceptron}{ on input line 676}}{23}{Artificial Neural Networks}{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces The simple perceptron learning algorithm. The original incarnation could not handle inseparable data~\cite  {rosenblatt1958perceptron}. Images borrowed and modified from Bishop~(2006)~\cite  {prml} \relax }}{23}{figure.caption.11}}
-\newlabel{perceptronvis}{{\caption@xref {perceptronvis}{ on input line 689}}{23}{Artificial Neural Networks}{figure.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces A single perceptron node. Takes input $X$ and learns the weight vector $W$ to classify the output.\relax }}{23}{figure.caption.12}}
-\@writefile{loe}{\contentsline {highlight}{\numberline {1.11}Highlight}{23}{highlight.1.11}}
-\citation{vanishinggradient}
-\citation{adagrad}
-\citation{adam}
-\citation{glorot2010understanding}
-\citation{heinitialization}
+\newlabel{nnetstacked}{{\caption@xref {nnetstacked}{ on input line 793}}{29}{Artificial Neural Networks}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces A simple 3 hidden layer fully connected neural network with sigmoidal activations. By stacking non-linear activation functions, neural networks are able to learn any non-linear function of the input. The '1' nodes represent the bias at each layer.\relax }}{29}{figure.caption.14}}
+\@writefile{toc}{\contentsline {subsubsection}{Neural Network Hyperparameters}{29}{figure.caption.15}}
+\citation{dropout}
+\citation{dropconnect}
+\newlabel{cnnvis}{{\caption@xref {cnnvis}{ on input line 805}}{30}{Artificial Neural Networks}{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.9}{\ignorespaces A visualisation of CNN nodes from Yosinski et al.~\cite  {cnnvis}. Layers capture increasingly complex relationships between pixels and act as features input into further layers. \relax }}{30}{figure.caption.15}}
 \citation{relu}
-\citation{imagenet}
-\newlabel{nnetstacked}{{\caption@xref {nnetstacked}{ on input line 701}}{24}{Artificial Neural Networks}{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces A simple 3 hidden layer feedforward neural network with sigmoidal activations. By stacking non-linear activation functions, neural networks are able to learn any non-linear function of the input.\relax }}{24}{figure.caption.13}}
-\citation{cnnvis}
-\citation{cnnvis}
-\newlabel{cnnvis}{{\caption@xref {cnnvis}{ on input line 714}}{25}{Artificial Neural Networks}{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces A visualisation of a CNN from Yosinski et al.~\cite  {cnnvis}. Layers capture increasingly complex relationships between pixels and act as features input into further layers. \relax }}{25}{figure.caption.14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Feature Selection and Dimensionality Reduction}{25}{subsection.1.3.3}}
+\citation{relubiology}
+\citation{he2015delving}
+\citation{goodfellow2013maxout}
+\citation{noisyrelu}
+\citation{clevert2015fast}
+\citation{glorot2010understanding}
+\citation{he2015delving}
+\citation{adam}
+\citation{nesterov1983method}
+\citation{nadam}
+\citation{cs231n}
+\citation{cs231n}
+\citation{sgdrestarts}
+\citation{freedmanparadox}
+\citation{overfittingcv}
+\newlabel{cnnvis}{{\caption@xref {cnnvis}{ on input line 830}}{32}{Neural Network Hyperparameters}{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.10}{\ignorespaces Traditional gradient descent (red curve) performs poorly in `long valleys'. Optimizers generally use momentum to simulate the behaviour of the optimal blue curve and avoid local minima. Diagram adapted from Stanford's CS231n~\cite  {cs231n}.\relax }}{32}{figure.caption.16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Feature Selection and Dimensionality Reduction}{32}{subsection.1.3.3}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.13}Highlight}{32}{highlight.1.13}}
+\citation{wrapperoverfit}
+\citation{skfeature}
+\citation{relieff}
+\citation{fisherscore}
+\citation{cife}
+\citation{cife}
+\citation{icap}
+\citation{mifs}
+\citation{mrmr}
+\citation{CFS}
+\citation{rfs}
+\citation{l21}
+\citation{prml}
+\citation{nndimred}
+\@writefile{lot}{\contentsline {table}{\numberline {1.7}{\ignorespaces Feature selection methods used in this thesis. Neural network forward/backwards search was not performed as resources were limited.\relax }}{33}{table.caption.17}}
+\newlabel{featureselection}{{1.7}{33}{Feature selection methods used in this thesis. Neural network forward/backwards search was not performed as resources were limited.\relax }{table.caption.17}{}}
 \citation{bayesianttests}
+\citation{crossvalsurvey}
+\citation{kohavi1995study}
+\citation{kohavi1995study}
 \citation{kfoldvsloo}
 \citation{crossvalsurvey}
-\citation{crossvalsurvey}
-\citation{kohavi1995study}
-\citation{kohavi1995study}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Model Evaluation and Handling Overfitting}{26}{subsection.1.3.4}}
-\newlabel{detectoverfit}{{1.3.4}{26}{Model Evaluation and Handling Overfitting}{subsection.1.3.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Model Selection and Hypothesis Testing}{26}{subsection.1.3.4}}
-\newlabel{msht}{{1.3.4}{26}{Model Selection and Hypothesis Testing}{subsection.1.3.4}{}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {1.14}Highlight}{34}{highlight.1.14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Model Evaluation and Handling Overfitting}{34}{subsection.1.3.4}}
+\newlabel{detectoverfit}{{1.3.4}{34}{Model Evaluation and Handling Overfitting}{subsection.1.3.4}{}}
+\citation{overfittingcv}
+\citation{overfittingcv}
+\citation{bestcvempirical}
+\@writefile{toc}{\contentsline {subsubsection}{Model Selection and Hypothesis Testing}{35}{subsection.1.3.4}}
+\newlabel{msht}{{1.3.4}{35}{Model Selection and Hypothesis Testing}{subsection.1.3.4}{}}
+\citation{rocauc}
+\citation{aucgood}
+\citation{aucmislead2}
+\citation{aucmislead}
+\citation{aucincoherent}
+\citation{aucmislead2}
+\citation{aucincoherent}
+\citation{publicationbias}
+\citation{replicability}
+\citation{bayesianttests}
+\citation{bayesfactorASA}
+\citation{bayesfactorempirical}
+\citation{bayesianttests}
 \citation{aicbic}
 \citation{generalinfocriteriongic}
 \citation{mindescriptionlength}
-\citation{bestcvempirical}
-\citation{bestcvapproximate}
-\citation{nounbiasedkfoldcv}
 \citation{review2013}
 \citation{review2015}
 \citation{compareis15pd}
@@ -315,67 +437,80 @@
 \citation{zhan2016high}
 \citation{motionmoderecognition}
 \citation{mpower}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Our Work}{29}{chapter.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Our Work}{39}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{ourwork}{{2}{39}{Our Work}{chapter.2}{}}
 \@writefile{loe}{\addvspace {10\p@ }}
-\@writefile{loe}{\contentsline {highlight}{\numberline {2.1}Highlight}{29}{highlight.2.1}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {2.1}Highlight}{39}{highlight.2.1}}
 \citation{mpower}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}The mPower Dataset}{30}{section.2.1}}
-\newlabel{mpower}{{2.1}{30}{The mPower Dataset}{section.2.1}{}}
-\newlabel{mpowerapp}{{\caption@xref {mpowerapp}{ on input line 785}}{30}{The mPower Dataset}{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The mPower app consists of several tasks to evaluate memory, bradykinesia, voice and gait. \relax }}{30}{figure.caption.15}}
 \citation{youngpd1}
 \citation{youngpd2}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}The mPower Dataset}{40}{section.2.1}}
+\newlabel{mpower}{{2.1}{40}{The mPower Dataset}{section.2.1}{}}
+\newlabel{mpowerapp}{{\caption@xref {mpowerapp}{ on input line 959}}{40}{The mPower Dataset}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The mPower app consists of several tasks to evaluate memory, bradykinesia, voice and gait. \relax }}{40}{figure.caption.18}}
 \citation{crowdsourcing}
 \citation{windnoise}
-\newlabel{overfitex}{{\caption@xref {overfitex}{ on input line 796}}{31}{The mPower Dataset}{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Age is a bias in the mPower dataset as most non-PD participants are young. There are also some cases of rare young-onset PD\footnotemark .\relax }}{31}{figure.caption.16}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Preprocessing and Feature Selection.}{31}{subsection.2.1.1}}
-\newlabel{mpowerprocess}{{2.1.1}{31}{Preprocessing and Feature Selection}{subsection.2.1.1}{}}
+\newlabel{overfitex}{{\caption@xref {overfitex}{ on input line 970}}{41}{The mPower Dataset}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Age is a bias in the mPower dataset as most non-PD participants are young. There are also some cases of rare young-onset PD\footnotemark .\relax }}{41}{figure.caption.19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Preprocessing and Feature Selection.}{41}{subsection.2.1.1}}
+\newlabel{mpowerprocess}{{2.1.1}{41}{Preprocessing and Feature Selection}{subsection.2.1.1}{}}
 \citation{diaz2014step}
 \citation{esser2011assessment}
 \citation{swayspectral}
+\newlabel{mpowerwalking}{{\caption@xref {mpowerwalking}{ on input line 989}}{42}{Preprocessing and Feature Selection}{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces A visualisation of device position after correcting for rotation with a bounding ellipsoid at 95\% CI. Gravity ($z$) is not subtracted.\relax }}{42}{figure.caption.20}}
 \citation{tsanas2012novel}
 \citation{arora2014high}
 \citation{tsanas2011nonlinear}
-\newlabel{mpowerwalking}{{\caption@xref {mpowerwalking}{ on input line 814}}{33}{Preprocessing and Feature Selection}{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces A visualisation of device position after correcting for rotation. The gravity vector was not subtracted for a better visualization.\relax }}{33}{figure.caption.17}}
-\newlabel{butterworth}{{\caption@xref {butterworth}{ on input line 824}}{33}{Preprocessing and Feature Selection}{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces The Butterworth filter results in a device path more similar to the centre of pressure, however low frequency sway information is lost. Note that the device motion recording is 30 seconds long while the force plate is 10 seconds.\relax }}{33}{figure.caption.18}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Replicating Past Work: Traditional Models}{33}{section.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Vowel Phonation}{33}{subsection.2.2.1}}
 \citation{gridsearch}
+\newlabel{butterworth}{{\caption@xref {butterworth}{ on input line 999}}{43}{Preprocessing and Feature Selection}{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces The Butterworth filter results in a device path more similar to the centre of pressure, however low frequency sway information is lost. Note that the device motion recording is 30 seconds long while the force plate is 10 seconds.\relax }}{43}{figure.caption.21}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Replicating Past Work: Traditional Models}{43}{section.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Vowel Phonation}{43}{subsection.2.2.1}}
 \citation{tsanas2014robust}
-\@writefile{loe}{\contentsline {highlight}{\numberline {2.2}Highlight}{34}{highlight.2.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Cross-validation accuracy of Tsanas et~al. with a SVM classifier after feature selection. Results reported as mean accuracy $\pm $ std accuracy.\relax }}{34}{figure.caption.19}}
-\newlabel{tsanasresults}{{2.5}{34}{Cross-validation accuracy of Tsanas et~al. with a SVM classifier after feature selection. Results reported as mean accuracy $\pm $ std accuracy.\relax }{figure.caption.19}{}}
+\@writefile{loe}{\contentsline {highlight}{\numberline {2.2}Highlight}{44}{highlight.2.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Cross-validation accuracy of Tsanas et~al. with a SVM classifier after feature selection. Results reported as mean accuracy $\pm $ std accuracy.\relax }}{44}{figure.caption.22}}
+\newlabel{tsanasresults}{{2.5}{44}{Cross-validation accuracy of Tsanas et~al. with a SVM classifier after feature selection. Results reported as mean accuracy $\pm $ std accuracy.\relax }{figure.caption.22}{}}
 \citation{relieff}
+\citation{mfcchistory}
+\citation{mfcc}
 \citation{mfccrobust}
 \citation{mfccrobust2}
-\citation{mfcchistory}
 \citation{mfccrobust2}
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Cross validation results of optimal SVM from grid search using Tsanas' 10 feature ReliefF subset. Presented as mean $\pm $ stdev.\relax }}{35}{table.caption.20}}
-\newlabel{tsanasfsresults}{{2.1}{35}{Cross validation results of optimal SVM from grid search using Tsanas' 10 feature ReliefF subset. Presented as mean $\pm $ stdev.\relax }{table.caption.20}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Mean Cross validation results of optimal SVM from grid search using Tsanas' 10 feature ReliefF subset.\relax }}{36}{table.caption.21}}
-\newlabel{tsanasfsresults}{{2.2}{36}{Mean Cross validation results of optimal SVM from grid search using Tsanas' 10 feature ReliefF subset.\relax }{table.caption.21}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Movement}{36}{subsection.2.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Limits of Traditional Machine Learning}{36}{subsection.2.2.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Improving Results: Deep Neural Networks}{36}{section.2.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Implementation}{36}{section.2.4}}
+\citation{tsanas2012novel}
+\citation{tsanas2012novel}
+\citation{arora2014high}
+\citation{zhan2016high}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Cross validation results of optimal SVM from random search using Tsanas' 10 feature ReliefF subset. Presented as mean $\pm $ stdev.\relax }}{45}{table.caption.23}}
+\newlabel{tsanasfsresultsrelieff}{{2.1}{45}{Cross validation results of optimal SVM from random search using Tsanas' 10 feature ReliefF subset. Presented as mean $\pm $ stdev.\relax }{table.caption.23}{}}
+\citation{dreamchallengeinfo}
+\citation{mpowertools}
+\citation{arora2014high}
+\citation{jerkfeature}
+\citation{lombscargle}
+\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Mean Cross validation results of optimal SVM from random search using all features presented in Tsanas~et~al. (2012)~\cite  {tsanas2012novel}. Outperforms \ref  {tsanasfsresultsrelieff} with a Bayes factor of $10^{17}$.\relax }}{46}{table.caption.24}}
+\newlabel{tsanasfsresults}{{2.2}{46}{Mean Cross validation results of optimal SVM from random search using all features presented in Tsanas~et~al. (2012)~\cite {tsanas2012novel}. Outperforms \ref {tsanasfsresultsrelieff} with a Bayes factor of $10^{17}$.\relax }{table.caption.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Movement}{46}{subsection.2.2.2}}
 \citation{opensmile}
 \citation{shs}
 \citation{spoverview}
 \citation{camacho2007swipe}
 \citation{f0estimation}
 \citation{spoverview}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Visualising Features}{47}{subsection.2.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Limits of Traditional Machine Learning}{47}{subsection.2.2.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Improving Results: Deep Neural Networks}{47}{section.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Implementation}{47}{section.2.4}}
+\@writefile{toc}{\contentsline {subsubsection}{Machine Learning}{47}{section.2.4}}
+\@writefile{toc}{\contentsline {subsubsection}{Feature Extraction}{47}{section.2.4}}
+\newlabel{implementationfeature}{{2.4}{47}{Feature Extraction}{section.2.4}{}}
 \citation{pyeeg}
-\@writefile{toc}{\contentsline {subsubsection}{Machine Learning}{37}{section.2.4}}
-\@writefile{toc}{\contentsline {subsubsection}{Feature Extraction}{37}{section.2.4}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Summary}{39}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Summary}{49}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.0.1}Machine Learning}{39}{subsection.3.0.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.0.1}Machine Learning}{49}{subsection.3.0.1}}
 \bibstyle{ieeetr}
 \bibdata{bib}
 \bibcite{savittdiagnosis1}{1}
@@ -396,150 +531,220 @@
 \bibcite{genome}{16}
 \bibcite{biomarkerfluid}{17}
 \bibcite{freedmanparadox}{18}
-\bibcite{esser2011assessment}{19}
-\bibcite{PDessentialtremordifferentiation}{20}
-\bibcite{splittledysphonia2009}{21}
-\bibcite{sptsanastelemonitor2010}{22}
-\bibcite{updrs}{23}
-\bibcite{cancela2016monitoring}{24}
-\bibcite{featureselection}{25}
-\bibcite{pca}{26}
-\bibcite{ica}{27}
-\bibcite{curseofdimensionality}{28}
-\bibcite{review2013}{29}
-\bibcite{review2015}{30}
-\bibcite{ostextbook}{31}
-\bibcite{duval2004detection}{32}
-\bibcite{salarian2007tremor}{33}
-\bibcite{palmerini2011tremor}{34}
-\bibcite{arora2014high}{35}
-\bibcite{smartphonemjfoxB}{36}
-\bibcite{smartphonemjfoxlion}{37}
-\bibcite{rocchi2006identification}{38}
-\bibcite{imupostural}{39}
-\bibcite{begg2006neural}{40}
-\bibcite{roiz2010gait}{41}
-\bibcite{khorasani2014hmm}{42}
-\bibcite{barth2011biometric}{43}
-\bibcite{renaudin2012step}{44}
-\bibcite{sijobert2015implementation}{45}
-\bibcite{drotar2015handwriting}{46}
-\bibcite{drawing}{47}
-\bibcite{das2011quantitative}{48}
-\bibcite{tapping}{49}
-\bibcite{zhan2016high}{50}
-\bibcite{compareis15pd}{51}
-\bibcite{orozco2015voiced}{52}
-\bibcite{cnockaert2008}{53}
-\bibcite{sakar2012}{54}
-\bibcite{nonmotordiagnosis}{55}
-\bibcite{ppmigood}{56}
-\bibcite{geneprediction}{57}
-\bibcite{mri1}{58}
-\bibcite{mri2}{59}
-\bibcite{mri3}{60}
-\bibcite{gastrointestinal}{61}
-\bibcite{subtypes}{62}
-\bibcite{thenganatt2014parkinsonsubtypes}{63}
-\bibcite{ramig2008speech}{64}
-\bibcite{sppercentage2}{65}
-\bibcite{sppercentage3}{66}
-\bibcite{sppercentage1}{67}
-\bibcite{pdtremorpercent1}{68}
-\bibcite{pdtremorpercent2}{69}
-\bibcite{nonlineardisorder}{70}
-\bibcite{little2007biomechanically}{71}
-\bibcite{titze2008nonlinear}{72}
-\bibcite{f0estimation}{73}
-\bibcite{spworkshoptitze}{74}
-\bibcite{rosen2006parametric}{75}
-\bibcite{hahm2015parkinson}{76}
-\bibcite{grosz2015assessingis15}{77}
-\bibcite{williamson2015segment}{78}
-\bibcite{vasquez2015automatic}{79}
-\bibcite{wang2007speechenhancement}{80}
-\bibcite{splittlenonlinear2007}{81}
-\bibcite{shimmerjitter}{82}
-\bibcite{jittertime}{83}
-\bibcite{HNRintro}{84}
-\bibcite{gne}{85}
-\bibcite{gneratio}{86}
-\bibcite{dfa}{87}
-\bibcite{tsanas2012novel}{88}
-\bibcite{dypsa}{89}
-\bibcite{spoverview}{90}
-\bibcite{mfcc}{91}
-\bibcite{mfccml}{92}
-\bibcite{mfccrobust}{93}
-\bibcite{is2013}{94}
-\bibcite{ageracial}{95}
-\bibcite{racial}{96}
-\bibcite{motionmoderecognition}{97}
-\bibcite{li2010multimodal}{98}
-\bibcite{posturalswaylongitudinal}{99}
-\bibcite{diaz2014step}{100}
-\bibcite{overfittingcv}{101}
-\bibcite{tkeo}{102}
-\bibcite{HNRperiodic}{103}
-\bibcite{rosenstein1993practicallyapunov}{104}
-\bibcite{dingwell2000nonlinearlyapunov}{105}
-\bibcite{howcroft2014analysisgaitlyapunov}{106}
-\bibcite{liu2015analysislyapunov}{107}
-\bibcite{banbrook1999speechlyapunov}{108}
-\bibcite{kokkinos2005nonlinearlyapunov}{109}
-\bibcite{mfscale}{110}
-\bibcite{lpcc}{111}
-\bibcite{EMDER}{112}
-\bibcite{hammarberg1980perceptual}{113}
-\bibcite{prml}{114}
-\bibcite{biasvarnn}{115}
-\bibcite{gridsearch}{116}
-\bibcite{tpe}{117}
-\bibcite{svmprobabilistic}{118}
-\bibcite{randomforests}{119}
-\bibcite{bagging}{120}
-\bibcite{treesinaforest}{121}
-\bibcite{svm}{122}
-\bibcite{svmsoftmargin}{123}
-\bibcite{nn1943}{124}
-\bibcite{rosenblatt1958perceptron}{125}
-\bibcite{werbos1974beyond}{126}
-\bibcite{nnuniversalapprox}{127}
-\bibcite{cheng2016wide}{128}
-\bibcite{eldan2016power}{129}
-\bibcite{vanishinggradient}{130}
-\bibcite{adagrad}{131}
-\bibcite{adam}{132}
-\bibcite{glorot2010understanding}{133}
-\bibcite{heinitialization}{134}
-\bibcite{relu}{135}
-\bibcite{imagenet}{136}
-\bibcite{cnnvis}{137}
-\bibcite{bayesianttests}{138}
-\bibcite{kfoldvsloo}{139}
-\bibcite{crossvalsurvey}{140}
-\bibcite{kohavi1995study}{141}
-\bibcite{aicbic}{142}
-\bibcite{generalinfocriteriongic}{143}
-\bibcite{mindescriptionlength}{144}
-\bibcite{bestcvempirical}{145}
-\bibcite{bestcvapproximate}{146}
-\bibcite{nounbiasedkfoldcv}{147}
-\bibcite{mjfoxchallenge2013}{148}
-\bibcite{publicationbias}{149}
-\bibcite{replicability}{150}
-\bibcite{mpower}{151}
-\bibcite{youngpd1}{152}
-\bibcite{youngpd2}{153}
-\bibcite{crowdsourcing}{154}
-\bibcite{windnoise}{155}
-\bibcite{swayspectral}{156}
-\bibcite{tsanas2011nonlinear}{157}
-\bibcite{tsanas2014robust}{158}
-\bibcite{relieff}{159}
-\bibcite{mfccrobust2}{160}
-\bibcite{mfcchistory}{161}
-\bibcite{opensmile}{162}
-\bibcite{shs}{163}
-\bibcite{camacho2007swipe}{164}
-\bibcite{pyeeg}{165}
+\bibcite{overfittingcv}{19}
+\bibcite{esser2011assessment}{20}
+\bibcite{PDessentialtremordifferentiation}{21}
+\bibcite{splittledysphonia2009}{22}
+\bibcite{sptsanastelemonitor2010}{23}
+\bibcite{updrs}{24}
+\bibcite{cancela2016monitoring}{25}
+\bibcite{featureselection}{26}
+\bibcite{pca}{27}
+\bibcite{ica}{28}
+\bibcite{curseofdimensionality}{29}
+\bibcite{review2013}{30}
+\bibcite{review2015}{31}
+\bibcite{parkinsonismdifferential2}{32}
+\bibcite{ostextbook}{33}
+\bibcite{duval2004detection}{34}
+\bibcite{salarian2007tremor}{35}
+\bibcite{palmerini2011tremor}{36}
+\bibcite{arora2014high}{37}
+\bibcite{smartphonemjfoxB}{38}
+\bibcite{smartphonemjfoxlion}{39}
+\bibcite{rocchi2006identification}{40}
+\bibcite{imupostural}{41}
+\bibcite{begg2006neural}{42}
+\bibcite{roiz2010gait}{43}
+\bibcite{khorasani2014hmm}{44}
+\bibcite{barth2011biometric}{45}
+\bibcite{renaudin2012step}{46}
+\bibcite{sijobert2015implementation}{47}
+\bibcite{drotar2015handwriting}{48}
+\bibcite{drawing}{49}
+\bibcite{das2011quantitative}{50}
+\bibcite{tapping}{51}
+\bibcite{zhan2016high}{52}
+\bibcite{compareis15pd}{53}
+\bibcite{orozco2015voiced}{54}
+\bibcite{cnockaert2008}{55}
+\bibcite{sakar2012}{56}
+\bibcite{nonmotordiagnosis}{57}
+\bibcite{ppmigood}{58}
+\bibcite{geneprediction}{59}
+\bibcite{mri1}{60}
+\bibcite{mri2}{61}
+\bibcite{mri3}{62}
+\bibcite{eegnonlinearpd}{63}
+\bibcite{eegslowingpd}{64}
+\bibcite{gastrointestinal}{65}
+\bibcite{subtypes}{66}
+\bibcite{thenganatt2014parkinsonsubtypes}{67}
+\bibcite{ramig2008speech}{68}
+\bibcite{sppercentage2}{69}
+\bibcite{sppercentage3}{70}
+\bibcite{sppercentage1}{71}
+\bibcite{pdtremorpercent1}{72}
+\bibcite{pdtremorpercent2}{73}
+\bibcite{nonlineardisorder}{74}
+\bibcite{little2007biomechanically}{75}
+\bibcite{titze2008nonlinear}{76}
+\bibcite{f0estimation}{77}
+\bibcite{spworkshoptitze}{78}
+\bibcite{rosen2006parametric}{79}
+\bibcite{mfscale}{80}
+\bibcite{hahm2015parkinson}{81}
+\bibcite{grosz2015assessingis15}{82}
+\bibcite{williamson2015segment}{83}
+\bibcite{vasquez2015automatic}{84}
+\bibcite{wang2007speechenhancement}{85}
+\bibcite{splittlenonlinear2007}{86}
+\bibcite{shimmerjitter}{87}
+\bibcite{jittertime}{88}
+\bibcite{HNRintro}{89}
+\bibcite{gne}{90}
+\bibcite{gneratio}{91}
+\bibcite{dfa}{92}
+\bibcite{tsanas2012novel}{93}
+\bibcite{dypsa}{94}
+\bibcite{spoverview}{95}
+\bibcite{mfcc}{96}
+\bibcite{mfccml}{97}
+\bibcite{mfccrobust}{98}
+\bibcite{is2013}{99}
+\bibcite{ageracial}{100}
+\bibcite{racial}{101}
+\bibcite{posturalswaylongitudinal}{102}
+\bibcite{diaz2014step}{103}
+\bibcite{mpower}{104}
+\bibcite{motionmoderecognition}{105}
+\bibcite{li2010multimodal}{106}
+\bibcite{eegalzheimers}{107}
+\bibcite{jelles1999decrease}{108}
+\bibcite{rosenstein1993practicallyapunov}{109}
+\bibcite{lyapunovall}{110}
+\bibcite{eeglyapunov1}{111}
+\bibcite{eeglyapunov2}{112}
+\bibcite{banbrook1999speechlyapunov}{113}
+\bibcite{kokkinos2005nonlinearlyapunov}{114}
+\bibcite{dingwell2000nonlinearlyapunov}{115}
+\bibcite{howcroft2014analysisgaitlyapunov}{116}
+\bibcite{liu2015analysislyapunov}{117}
+\bibcite{mandelbrot1967long}{118}
+\bibcite{eegfractal}{119}
+\bibcite{seizuredimensions}{120}
+\bibcite{fractalgait}{121}
+\bibcite{hfdcop}{122}
+\bibcite{fractalpd}{123}
+\bibcite{fractalbalance}{124}
+\bibcite{fractaldimensions}{125}
+\bibcite{hurst1965long}{126}
+\bibcite{hurstfractal}{127}
+\bibcite{duarte2000fractal}{128}
+\bibcite{fisherentropy}{129}
+\bibcite{fisherinfo}{130}
+\bibcite{martin1999fisherinfoeeg}{131}
+\bibcite{apsampentropy}{132}
+\bibcite{apentropy}{133}
+\bibcite{multiscaleentropy}{134}
+\bibcite{samplegaitmulti}{135}
+\bibcite{sampleheart}{136}
+\bibcite{entropymeasures}{137}
+\bibcite{tkeo}{138}
+\bibcite{HNRperiodic}{139}
+\bibcite{lpcc}{140}
+\bibcite{EMDER}{141}
+\bibcite{tsanas2011nonlinear}{142}
+\bibcite{geneva}{143}
+\bibcite{compareis13featureset}{144}
+\bibcite{hjorth}{145}
+\bibcite{hjorthsmartphone}{146}
+\bibcite{hfd}{147}
+\bibcite{petrosian1995kolmogorov}{148}
+\bibcite{svdentropy}{149}
+\bibcite{biasvarnn}{150}
+\bibcite{gridsearch}{151}
+\bibcite{tpe}{152}
+\bibcite{prml}{153}
+\bibcite{svmprobabilistic}{154}
+\bibcite{randomforests}{155}
+\bibcite{bagging}{156}
+\bibcite{treesinaforest}{157}
+\bibcite{svm}{158}
+\bibcite{svmsoftmargin}{159}
+\bibcite{kramer2001propositionalization}{160}
+\bibcite{nn1943}{161}
+\bibcite{rosenblatt1958perceptron}{162}
+\bibcite{minsky1969perceptrons}{163}
+\bibcite{nnuniversalapprox}{164}
+\bibcite{werbos1974beyond}{165}
+\bibcite{backproprediscover}{166}
+\bibcite{convexopt}{167}
+\bibcite{vanishinggradient}{168}
+\bibcite{batchnorm}{169}
+\bibcite{googlenet}{170}
+\bibcite{cnnvis}{171}
+\bibcite{lstm}{172}
+\bibcite{bashivan2015learning}{173}
+\bibcite{cheng2016wide}{174}
+\bibcite{eldan2016power}{175}
+\bibcite{dropout}{176}
+\bibcite{dropconnect}{177}
+\bibcite{relu}{178}
+\bibcite{relubiology}{179}
+\bibcite{he2015delving}{180}
+\bibcite{goodfellow2013maxout}{181}
+\bibcite{noisyrelu}{182}
+\bibcite{clevert2015fast}{183}
+\bibcite{glorot2010understanding}{184}
+\bibcite{adam}{185}
+\bibcite{nesterov1983method}{186}
+\bibcite{nadam}{187}
+\bibcite{cs231n}{188}
+\bibcite{sgdrestarts}{189}
+\bibcite{wrapperoverfit}{190}
+\bibcite{skfeature}{191}
+\bibcite{relieff}{192}
+\bibcite{fisherscore}{193}
+\bibcite{cife}{194}
+\bibcite{icap}{195}
+\bibcite{mifs}{196}
+\bibcite{mrmr}{197}
+\bibcite{CFS}{198}
+\bibcite{rfs}{199}
+\bibcite{l21}{200}
+\bibcite{nndimred}{201}
+\bibcite{bayesianttests}{202}
+\bibcite{crossvalsurvey}{203}
+\bibcite{kohavi1995study}{204}
+\bibcite{kfoldvsloo}{205}
+\bibcite{bestcvempirical}{206}
+\bibcite{rocauc}{207}
+\bibcite{aucgood}{208}
+\bibcite{aucmislead2}{209}
+\bibcite{aucmislead}{210}
+\bibcite{aucincoherent}{211}
+\bibcite{publicationbias}{212}
+\bibcite{replicability}{213}
+\bibcite{bayesfactorASA}{214}
+\bibcite{bayesfactorempirical}{215}
+\bibcite{aicbic}{216}
+\bibcite{generalinfocriteriongic}{217}
+\bibcite{mindescriptionlength}{218}
+\bibcite{mjfoxchallenge2013}{219}
+\bibcite{youngpd1}{220}
+\bibcite{youngpd2}{221}
+\bibcite{crowdsourcing}{222}
+\bibcite{windnoise}{223}
+\bibcite{swayspectral}{224}
+\bibcite{tsanas2014robust}{225}
+\bibcite{mfcchistory}{226}
+\bibcite{mfccrobust2}{227}
+\bibcite{dreamchallengeinfo}{228}
+\bibcite{mpowertools}{229}
+\bibcite{jerkfeature}{230}
+\bibcite{lombscargle}{231}
+\bibcite{opensmile}{232}
+\bibcite{shs}{233}
+\bibcite{camacho2007swipe}{234}
+\bibcite{pyeeg}{235}
