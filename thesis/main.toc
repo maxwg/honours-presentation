@@ -5,19 +5,19 @@
 \contentsline {section}{\numberline {1.1}Machine Learning in Parkinson's Disease}{6}{section.1.1}
 \contentsline {section}{\numberline {1.2}Feature Extraction and Signal Processing}{8}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}General Signal Processing}{10}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Voice}{10}{subsection.1.2.2}
-\contentsline {subsubsection}{Biological Background}{10}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.2}Voice}{11}{subsection.1.2.2}
+\contentsline {subsubsection}{Biological Background}{11}{subsection.1.2.2}
 \contentsline {subsubsection}{Speech Signal Processing}{12}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Movement}{15}{subsection.1.2.3}
 \contentsline {subsubsection}{Smartphones}{16}{subsection.1.2.3}
 \contentsline {subsection}{\numberline {1.2.4}EEG}{17}{subsection.1.2.4}
-\contentsline {subsection}{\numberline {1.2.5}Summary of Features}{18}{subsection.1.2.5}
-\contentsline {section}{\numberline {1.3}Machine Learning}{21}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Traditional}{24}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Artificial Neural Networks}{26}{subsection.1.3.2}
-\contentsline {subsubsection}{Neural Network Hyperparameters}{29}{figure.caption.15}
-\contentsline {subsection}{\numberline {1.3.3}Feature Selection and Dimensionality Reduction}{32}{subsection.1.3.3}
-\contentsline {subsection}{\numberline {1.3.4}Model Evaluation and Handling Overfitting}{34}{subsection.1.3.4}
+\contentsline {subsection}{\numberline {1.2.5}Summary of Features}{19}{subsection.1.2.5}
+\contentsline {section}{\numberline {1.3}Machine Learning}{22}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Traditional}{25}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Artificial Neural Networks}{27}{subsection.1.3.2}
+\contentsline {subsubsection}{Neural Network Hyperparameters}{31}{figure.caption.15}
+\contentsline {subsection}{\numberline {1.3.3}Feature Selection and Dimensionality Reduction}{33}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Model Evaluation and Handling Overfitting}{35}{subsection.1.3.4}
 \contentsline {subsubsection}{Model Selection and Hypothesis Testing}{35}{subsection.1.3.4}
 \contentsline {chapter}{\numberline {2}Our Work}{39}{chapter.2}
 \contentsline {section}{\numberline {2.1}The mPower Dataset}{40}{section.2.1}
@@ -25,12 +25,13 @@
 \contentsline {section}{\numberline {2.2}Replicating Past Work}{43}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Vowel Phonation}{43}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Movement}{46}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Visualising The Features}{47}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Speech}{47}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Movement}{48}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Conclusions}{48}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}Dynamical Systems Features}{48}{section.2.4}
-\contentsline {section}{\numberline {2.5}Automatic Feature Extraction: Neural Networks}{48}{section.2.5}
-\contentsline {section}{\numberline {2.6}The Power of Machine Learning}{48}{section.2.6}
-\contentsline {section}{\numberline {2.7}Implementation}{48}{section.2.7}
-\contentsline {chapter}{\numberline {3}Conclusion}{51}{chapter.3}
+\contentsline {section}{\numberline {2.3}Dynamical Systems Features and Data Boosting}{47}{section.2.3}
+\contentsline {section}{\numberline {2.4}Visualising The Features}{47}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Speech}{47}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Movement}{49}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Conclusions and Recommendations}{49}{subsection.2.4.3}
+\contentsline {section}{\numberline {2.5}Automatic Feature Extraction: Neural Networks}{50}{section.2.5}
+\contentsline {section}{\numberline {2.6}The Power of Machine Learning}{50}{section.2.6}
+\contentsline {section}{\numberline {2.7}Implementation}{51}{section.2.7}
+\contentsline {chapter}{\numberline {3}Conclusion}{53}{chapter.3}
+\contentsline {section}{\numberline {3.1}Recommendations for the Future}{53}{section.3.1}
