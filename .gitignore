@@ -11,3 +11,11 @@ node_modules/
 .sass-cache
 css/reveal.min.css
 js/reveal.min.js
+thesis/*.aux
+thesis/*.bbl
+thesis/*.blg
+thesis/*.log
+thesis/*.out
+thesis/*.pdf
+thesis/*.sync*
+thesis/*.toc
