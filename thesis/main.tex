@@ -1259,7 +1259,7 @@ We believe these non-linear features are more robust measures of Parkinsonism sy
 The non-linear features are evidently stronger differentiators of PD than the features existing in current literature, but not sufficiently to robustly classify PD and control. Surprisingly, using dynamical features alone performed better than the DREAM baseline feature set with a BF of X.XXX. Dynamical features alone did not perform as well as Tsanas' on the speech data, however combining both improves performance greatly.
 
 \section{Visualising The Features}
-The models replicated in the previous sections clearly perform below the reported level in prior works. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in speech and gait. No individual feature was able to achieve greater than 60\% classification accuracy on an equal split of the data. Note that only a fraction of the data is visualised to improve clarity.
+The models replicated in the previous sections clearly perform below the reported level in prior works. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in speech and gait. No individual feature was able to achieve greater than 60\% classification accuracy on an equal split of the data. Note that only a fraction of the data is visualised to improve clarity. 
 
 \subsection{Speech}
 A large number of dysphonia related measures rely on precise measurements of the length of each glottal cycle. The SWIPE~\cite{camacho2007swipe} fundamental frequency estimation algorithm was primarily used to obtain these measurements. Most $f_0$ algorithms are sensitive to changes and noise in the signal and are not yet suitable to handle the noisy mPower data gathered in real-world conditions. Issues with $f_0$ extraction would invalidate the measurements from $f_0$ based signal processing. A simple investigation shows that the standard deviation of $f_0$ exceeds 10Hz for 347 subjects, a value that is almost certainly indicates a failure of the algorithm or a poorly executed recording.
@@ -1305,6 +1305,8 @@ THERE ARE MAJOR FLAWS WITH THE IMPLEMENTATION....... RERUNNING
 
 \subsection{Movement}
 Understanding the features extracted for the movement data is a trickier task as the features exist in the $x, y,$ and $z$ dimensions. The .................. >>>
+
+As with speech differences would be expected between 
 
 
 \subsection{Conclusions and Recommendations}
