@@ -90,8 +90,9 @@ Adj/Prof Hanna Suominen }
 \usepackage{tikz}
 \definecolor{USred}{cmyk}{0,1.00,0.65,0.34}
 
-\usepackage{caption}
+%\usepackage{caption}
 \usepackage[font={},figurename=Fig.,labelfont={it, color=USred,bf}]{caption}
+\usepackage{subcaption}
 % =========
 % = Otros =
 % =========
@@ -222,7 +223,7 @@ SmallCapsFeatures = {Letters     = SmallCaps,%
 % = Composición de los títulos =
 % ==============================
 
-\usepackage[explicit]{titlesec}
+\usepackage[explicit, noindentafter]{titlesec}
 
 \newcommand{\hsp}{\hspace{20pt}}
 \titleformat{\chapter}[hang]
@@ -230,7 +231,7 @@ SmallCapsFeatures = {Letters     = SmallCaps,%
     {\textcolor{USred}{\thechapter}\hsp\textcolor{USred}{\vrule width 2pt}\hsp}{0pt}
     {#1}
 \titleformat{\section}
-  {\normalfont\Large\sffamily\bfseries}{\textcolor{USred}{\thesection}}%\space\space}
+  {\normalfont\Large\sffamily\bfseries}{\textcolor{USred}{\thesection}\space\space}
   {0ex}
   {#1}
 
@@ -243,7 +244,7 @@ SmallCapsFeatures = {Letters     = SmallCaps,%
   {}
   {}
   {0ex}
-  {\textcolor{USred}{\sffamily{\textbf{#1}}}}
+  {\textcolor{USred}{\sffamily{\large{#1}}}}
   
   
 \renewcommand\thefootnote{\textcolor{USred}{\arabic{footnote}}}
@@ -577,9 +578,11 @@ Mel-Frequency Cepstral Coefficients (\emph{MFCC}) have long been used for speech
 \subsection{Movement}\label{movementfeatures}
 Despite a similar amount of literature existing in both movement and voice feature engineering, signal processing in the voice domain is more developed. Feature engineering for movement data diverges into a number of subfields, each developing different measurements for different sensors to quantify the extent of a movement disorder. Features are crafted specifically for dyskinesia\footnote{\emph{Dyskinesia} describes the presence of involuntary, often `jerky' movements.} and akinesia\footnote{\emph{Akinesia} is the impairment of voluntary movement.} quantification. The signal processing techniques used in movement disorder quantification are basic compared to methods in voice and EEG.
 
-People with PD exhibit increased tremor, particularly in the 3.5-7hz range~\cite{duval2004detection} as well as distinct patterns of sway which can be quantified by recurrence analysis~\cite{palmerini2011tremor, posturalswaylongitudinal}. These are best measured when the subject attempts to stand as still as possible. Both IMUs and force plates are able to quantify this --- IMUs have the advantage of being cheaper and more accessible however have lower resolution and may not be spatially accurate. There has not yet been a study comparing the information content of the two. The amount of tremor can be easily quantified with a Fourier transform, and recurrence can be quantified with general signal processing techniques such as DFA (see \ref{dfadescription}).
+People with PD exhibit increased tremor, particularly in the 3.5-7hz range~\cite{duval2004detection} as well as distinct patterns of postural sway. Mediolateral (left-right) sway is generally a better indicator of PD than Anteroposterior (forwards-backwards) sway~\cite{swayapmp}. Recurrence analysis has also been successfully applied in the analysis of sway~\cite{palmerini2011tremor, posturalswaylongitudinal}. 
 
-It is also possible to quantify gait with IMUs. Barth~et~al.~(2011)~\cite{barth2011biometric} and Sijobert~et~al.~(2015) \cite{sijobert2015implementation} propose gait estimation algorithms for IMUs attached to the foot and shank respectively. It is also possible to estimate gait with handheld or in-pocket IMUs as done in Renaudin~et~al.~(2012)~\cite{renaudin2012step} and Diaz and Gonzalez~\cite{diaz2014step} respectively. However existing algorithms do not perform to the standards required to detect akinesia and are not very robust. Force Walkways and motion capture are more accurate alternatives for measuring gait however are more costly and only available in a clinical context. 
+Postural sway is best measured when the subject attempts to stand as still as possible. Both IMUs and force plates are able to quantify this --- IMUs have the advantage of being cheaper and more accessible however have lower resolution and may not be spatially accurate. The amount of tremor can be easily quantified with a Fourier transform, and recurrence can be quantified with general signal processing techniques such as DFA (see \ref{dfadescription}).
+
+It is also possible to quantify gait (walking) with IMUs. Barth~et~al.~(2011)~\cite{barth2011biometric} and Sijobert~et~al.~(2015) \cite{sijobert2015implementation} propose gait estimation algorithms for IMUs attached to the foot and shank respectively. It is also possible to estimate gait with handheld or in-pocket IMUs as done in Renaudin~et~al.~(2012)~\cite{renaudin2012step} and Diaz and Gonzalez~\cite{diaz2014step} respectively. However existing algorithms do not perform to the standards required to detect akinesia and are not very robust. Force Walkways and motion capture are more accurate alternatives for measuring gait however are more costly and only available in a clinical context. 
 
 Although expensive and difficult to setup, motion capture presents the possibility of completely quantifying all movement related components. However, feature engineering has not evolved to take advantage of the additional information and a significant amount of training data would likely be required to realise its full potential. Das~et~al.~(2011)~\cite{das2011quantitative} uses motion capture on 4 PD and 2 control subjects, however does not explore any spatial features beyond what is provided by multiple accelerometers. Pose recognition in video is also an rapidly developing field which proposes similar capabilities to motion capture at a fraction of the cost. Current models are promising, however are not precise enough to be used in combination with akinesia detection.
 
@@ -608,12 +611,14 @@ A variety of EEG signal processing techniques are inspired by non-linear dynamic
 The nature of features related to EEG make them very promising for the task of measuring the presence of symptoms undetectable by a neurologist.
 \end{highlight}
 
-The \emph{Lyapunov Exponents} quantify the divergence of two systems with infinitesimally similar initial conditions. The Largest Lyapunov Exponent (\emph{$L_1$}) characterises the chaos\footnote{Chaos refers to the sensitivity of a dynamic system to its initial conditions.} or rate of divergence of a system and is commonly estimated with Rosenstein's algorithm~\cite{rosenstein1993practicallyapunov} which reconstructs the system's dynamics using a time delay technique\footnote{Accurate estimations of additional Lyapunov exponents generally require known equations describing the system~\cite{lyapunovall}. Eckmann's algorithm~\cite{eckmann1986liapunov} can roughly estimate these exponents.}. The $L_1$ has long been used in the EEG analysis of sleep and as a feature for machine learning~\cite{eeglyapunov1, eeglyapunov2}. The $L_1$ have also been applied in the analysis of speech~\cite{banbrook1999speechlyapunov,kokkinos2005nonlinearlyapunov}, gait and balance ~\cite{dingwell2000nonlinearlyapunov, howcroft2014analysisgaitlyapunov, liu2015analysislyapunov}.
+The \emph{Lyapunov Exponents} quantify the divergence of two systems with infinitesimally similar initial conditions. The Largest Lyapunov Exponent (\emph{$\lambda^*$}) characterises the chaos\footnote{Chaos refers to the sensitivity of a dynamic system to its initial conditions.} or rate of divergence of a system and is commonly estimated with Rosenstein's algorithm~\cite{rosenstein1993practicallyapunov} which reconstructs the system's dynamics using a time delay technique. The $\lambda^*$ has long been used in the EEG analysis of sleep and as a feature for machine learning~\cite{eeglyapunov1, eeglyapunov2}. The $\lambda^*$ have also been applied in the analysis of speech~\cite{banbrook1999speechlyapunov,kokkinos2005nonlinearlyapunov}, gait and balance ~\cite{dingwell2000nonlinearlyapunov, howcroft2014analysisgaitlyapunov, liu2015analysislyapunov}.
+
+%\footnote{Accurate estimations of additional Lyapunov exponents generally require known equations describing the system~\cite{lyapunovall}. Eckmann's algorithm~\cite{eckmann1986liapunov} can roughly estimate these exponents.}
 
 \begin{figure}[h]
-	\label{spectrogram}
+	\label{LLE}
 	\centering\centerline{\includegraphics[width=1.2\linewidth]{attractor.png}}
-	\caption{The $L_1$ describes the trajectory of a system's \textit{attractor}. First three dimensions of the attractors from /aa/ and /s/ phonation. Image from Kokkinos~et~al.~\cite{kokkinos2005nonlinearlyapunov} }
+	\caption{$\lambda^*$ describes the trajectory of a system's \textit{attractor}. First three dimensions of the attractors from /aa/ and /s/ phonation. Image from Kokkinos~et~al.~\cite{kokkinos2005nonlinearlyapunov} }
 \end{figure}
 
 
@@ -696,7 +701,7 @@ Jerk~\cite{jerkfeature} & The change in acceleration. The jerk signal may be mor
 \multicolumn{2}{c}{\specialcellbold{EEG}} \\
 \midrule
 \specialcellright{\hspace{3.6em}Hjorth\\Parameters~\cite{hjorth}} & Three simple statistical measurements of a signal which have been used as features in EEG and IMU models~\cite{hjorthsmartphone}.\\
-\specialcellright{\hspace{2em}Lyapunov\\Exponents~\cite{eckmann1986liapunov}} & Characterises the divergence of systems with close initial conditions. The largest exponent (LLE)~\cite{dingwell2000nonlinearlyapunov} is generally the most informative. \\
+\specialcellright{\hspace{2em}Lyapunov\\Exponents~\cite{eckmann1986liapunov}} & Characterises the divergence of systems with close initial conditions. The largest exponent ($\lambda^*$)~\cite{dingwell2000nonlinearlyapunov} is generally the most informative. \\
 \specialcellright{\hspace{3.3em}Fractal\\Dimension~\cite{mandelbrot1967long}} & A measure of how the detail in a signal changes with the scale at which it is measured. The Higuchi~\cite{hfd} and Petrosian~\cite{petrosian1995kolmogorov} fractal dimensions are used in this thesis.\\
 \specialcellright{\hspace{3.2em}Hurst\\Exponent~\cite{hurst1965long}} & Characterises self-similarity. DFA is a generalisation of the Hurst Exponent and is robust to non-stationary signals. The difference in measurements may be informative.\\
 \specialcellright{Fisher Info~\cite{fisherentropy}} & Quantifies the non-linear dynamics in the system generating a signal.\\
@@ -984,7 +989,7 @@ Accuracy is the most basic and intuitive measure of performance, however it has 
 \end{table}
 
 
-Secondly, accuracy does not take into consideration the confidence of a model's predictions. The area under the ROC (Receiver Operating Characteristics~\cite{rocauc}) curve (\emph{AUC}) was proposed as a better alternative to accuracy. The ROC curve is created by plotting sensitivity and specificity at all confidence thresholds and the area under ROC was believed to be a more robust and statistically consistent measure of model performance~\cite{aucgood}. However recent empirical experiments have shown that AUC favours particular models~\cite{aucmislead2} and it has been criticised for being incoherent~\cite{aucmislead, aucincoherent}. Modifications to AUC have been proposed~\cite{aucmislead2, aucincoherent} however they are uncommon in practice. As a result, accuracy and $F_1$ score will be the primary performance measures utilised in this thesis as they are interpretable and model characteristic independent. AUC is more robust when there is a large disparity between classes will also be recorded for comparison with prior works such as Neto et~al.~(2017)~\cite{mpowerneto2017analysis}.
+Secondly, accuracy does not take into consideration the confidence of a model's predictions. The area under the ROC (Receiver Operating Characteristics~\cite{rocauc}) curve (\emph{AUROC}) was proposed as a better alternative to accuracy. The ROC curve is created by plotting sensitivity and specificity at all confidence thresholds and the area under ROC was believed to be a more robust and statistically consistent measure of model performance~\cite{aucgood}. However recent empirical experiments have shown that AUROC favours particular models~\cite{aucmislead2} and it has been criticised for being incoherent~\cite{aucmislead, aucincoherent}. Modifications to AUROC have been proposed~\cite{aucmislead2, aucincoherent} however they are uncommon in practice. As a result, accuracy and $F_1$ score will be the primary performance measures utilised in this thesis as they are interpretable and model characteristic independent. AUROC is more robust when there is a large disparity between classes will also be recorded for comparison with prior works such as Neto et~al.~(2017)~\cite{mpowerneto2017analysis}.
 
 
 Hypothesis tests are used to determine if the results obtained in experiments are \textit{statistically significant}. After obtaining the accuracies or $F_1$ scores for each fold of cross validation, a hypothesis test should be used to determine that the difference in results is not from chance. A paired t-test is the traditional approach to testing if one population mean is greater than another. There have been criticisms of frequentist hypothesis testing promoting the publication bias~\cite{publicationbias}, citing the non-replicability crisis in psychology~\cite{replicability}. Recently, the American Statistical Association has officially endorsed Bayes factor~\cite{bayesianttests} as their preferred method of hypothesis testing~\cite{bayesfactorASA}, and mass-replication studies have shown that almost half of previous psychological research do not meet the criteria for strong evidence when Bayes factor is applied~\cite{bayesfactorempirical}. The standard two tailed Cauchy distribution is used as a prior in this thesis~\cite{bayesianttests}.
@@ -993,7 +998,7 @@ Hypothesis tests are used to determine if the results obtained in experiments ar
 In statistics, there is no agreed upon method for model selection and evaluation. Penalization based evaluation\footnote{\emph{Penalization} based model criteria are inspired by Occam's razor, preferring simple models over complex ones which as they are less likely to overfit.}  criteria such as Akaline/Bayesian/General Information Criterion~\cite{aicbic,generalinfocriteriongic} and Minimum Description Length~\cite{mindescriptionlength} are common model selection techniques. However these are less suitable for machine learning as it is difficult to quantify the complexity of model such as neural networks. Cross validation is therefore the only feasible technique to compare completely different models. 
  
 
-Overall, it should be evident that results reported in machine learning are highly susceptible to overfitting and should be considered with a grain of salt. Unless standard datasets of an acceptable size exist such as ImageNet~\cite{imagenet} in computer vision, methodology rather than results should be the primary concern. Seemingly insignificant details such as stratifying on a per-person or a per-sample level can be the difference between an AUC of 98 and 45 per cent~\cite{mpowerneto2017analysis}. 
+Overall, it should be evident that results reported in machine learning are highly susceptible to overfitting and should be considered with a grain of salt. Unless standard datasets of an acceptable size exist such as ImageNet~\cite{imagenet} in computer vision, methodology rather than results should be the primary concern. Seemingly insignificant details such as stratifying on a per-person or a per-sample level can be the difference between an AUROC of 98 and 45 per cent~\cite{mpowerneto2017analysis}. 
 
 Cross validation results should not be interpreted as real world generalisability --- especially in small datasets. It is highly likely that more accurate models can be constructed in the future when more training data is available. Furthermore, there is no statistical technique which can reliably account for inherent bias in the dataset or flawed methodology which leads to overfitting.
 
@@ -1015,7 +1020,7 @@ Although prior works have reported good results, it is difficult to determine if
 
 The variation of results on experiments with very similar setups shines doubt on the replicability of results for some of the best performing papers. Arora~et~al.~(2014)~\cite{arora2014high} achieves 98.0\% accuracy using smartphone IMU data from 20 participants. Zhan~et~al.~(2016)~\cite{zhan2016high} performs an experiment using all features in Arora~et~al.~(2014) as well as additional speech and tapping measures however only manages 71\% accuracy. Furthermore, the state of the in motion mode recognition rarely achieves such results despite the motion mode recognition likely being the `easier' task~\cite{motionmoderecognition}. 
 
-Neto et~al. (2017)~\cite{mpowerneto2017analysis} shows that it is possible to ``digitally fingerprint'' people using accelerometer and voice data and that failure to split data on a per-participant scale is subject to overfitting. The walk signal was very informative at identifying PD when split at the sample level (AUC $\approx 0.98$) and uninformative when samples were split at a participant level (AUC $\approx 0.45$). 
+Neto et~al. (2017)~\cite{mpowerneto2017analysis} shows that it is possible to ``digitally fingerprint'' people using accelerometer and voice data and that failure to split data on a per-participant scale is subject to overfitting. The walk signal was very informative at identifying PD when split at the sample level (AUROC $\approx 0.98$) and uninformative when samples were split at a participant level (AUROC $\approx 0.45$). 
  
 The following sections detail the experiments performed as part of the project. We will apply a combination techniques used in state of the art on a larger dataset to assess true performance. The mPower dataset~\cite{mpower} has been chosen for this  task and will be described in the following section.
 
@@ -1066,7 +1071,7 @@ The resting task is therefore more interesting in the context of machine learnin
 \caption{A visualisation of position from the raw device accelerometer during walking and resting. The participant appears to be walking on a slope.}
 \end{figure}
 
-Unlike similar experiments carried out in force plates, the subject was not instructed to stand as still as possible. A majority of participants show a significant amount of sway which could be consciously preventable. To map the accelerometer data more closely to force plate data, a 10\textsuperscript{th} order zero-phase 1hz Butterworth highpass filter was applied. The highpass filter removes preventable sway at the cost of removing valuable sway information below 1hz~\cite{swayspectral}. 
+Unlike similar experiments carried out in force plates, the subject was not instructed to stand as still as possible. A majority of participants show a significant amount of sway which could be consciously preventable. To map the accelerometer data more closely to force plate data, a 10\textsuperscript{th} order zero-phase 1hz Butterworth highpass filter was applied. The highpass filter removes preventable sway at the cost of removing valuable sway information below 1hz~\cite{swayspectral}. Additionally, the Anteroposterior and Mediolateral directions of sway are lost with this preprocessing technique.
 
 \begin{figure}[h]
 	\label{butterworth}
@@ -1101,7 +1106,7 @@ It is unclear whether Tsanas has split the phonations on a per-subject scale and
 We replicated Tsanas (2012) on the 4,100 phonation samples selected after preprocessing mPower (see section \ref{mpowerprocess}). Features were extracted from a 2 second window was of each audio sample which mirrors the phonation length used in fundamental frequency estimation datasets~\cite{tsanas2014robust}. Gridsearch was performed to find (near) optimal SVM hyperparameters. The best performing 10 feature subset in Tsanas et~al. (ReliefF) is initially evaluated.
 
 \begin{highlight}[Grid search]
-	Unless otherwise specified, grid search over common parameter values were performed for all SVMs trained in this thesis. The RBF kernel performed best in all training instances and probabilistic outputs~\cite{svmprobabilistic} used for a more accurate AUC score.
+	Unless otherwise specified, grid search over common parameter values were performed for all SVMs trained in this thesis. The RBF kernel performed best in all training instances and probabilistic outputs~\cite{svmprobabilistic} used for a more accurate AUROC score.
 \end{highlight}
 
 Note that the NCVS data used in Tsanas et~al. is at a ratio of 33PD:10C whereas the mPower data is at a ratio of approximately 9PD:32C. We stratify the data by random sampling to simulate NCVS split. On both the NCVS and mPower ratio, the SVM classifier exhibits the false positive paradox, where the most common class is predicted for all inputs. The results are summarised in table \ref{tsanasfsresultsrelieff}. 
@@ -1120,7 +1125,7 @@ Note that the NCVS data used in Tsanas et~al. is at a ratio of 33PD:10C whereas 
 	\multicolumn{2}{l}{Accuracy}                                                                                 & $64.7\pm3.0$\%                                              \\
 	\multicolumn{2}{l}{Sensitivity}                                                                         & $56.4\pm4.7$\%                                              \\
 	\multicolumn{2}{l}{Specificity}                                                                         & $73.0\pm4.4$\%                                               \\
-	\multicolumn{2}{l}{AUC}                                                                         & 69.4$\pm$4.8\%                                             
+	\multicolumn{2}{l}{AUROC}                                                                         & 69.4$\pm$4.8\%                                             
 \end{tabular}
 & &
 \begin{tabular}{lcl}\hhline{~|*{2}{-}}
@@ -1131,7 +1136,7 @@ Note that the NCVS data used in Tsanas et~al. is at a ratio of 33PD:10C whereas 
 \multicolumn{2}{l}{Accuracy}                                                                                 & $79.2\pm0$\%                                              \\
 \multicolumn{2}{l}{Sensitivity}                                                                         & $0\pm0$\%                                              \\
 \multicolumn{2}{l}{Specificity}                                                                         & $100\pm0$\%                                              \\
-\multicolumn{2}{l}{AUC}                                                                         & 72.1$\pm$4.8\%                                              
+\multicolumn{2}{l}{AUROC}                                                                         & 72.1$\pm$4.8\%                                              
 \end{tabular}
 \end{tabular}
 \end{table}
@@ -1155,7 +1160,7 @@ In our testing, using all measures presented in Tsanas~et~al. results in improve
 			\multicolumn{2}{l}{Accuracy}                                                                                 & 69.3$\pm$3.3\%                                              \\
 			\multicolumn{2}{l}{Sensitivity}                                                                         & 62.9$\pm$4.8\%                                              \\
 			\multicolumn{2}{l}{Specificity}                                                                         & 75.6$\pm$4.2\%                                              \\
-			\multicolumn{2}{l}{AUC}                                                                         & 75.7$\pm$3.4\%                                                     
+			\multicolumn{2}{l}{AUROC}                                                                         & 75.7$\pm$3.4\%                                                     
 		\end{tabular}
 		& &
 		\begin{tabular}{lcl}\hhline{~|*{2}{-}}
@@ -1165,7 +1170,7 @@ In our testing, using all measures presented in Tsanas~et~al. results in improve
 			\multicolumn{2}{l}{Accuracy}                                                                                 & $81.2\pm1.1$\%                                              \\
 			\multicolumn{2}{l}{Sensitivity}                                                                         & $18.7\pm4.2$\%                                              \\
 			\multicolumn{2}{l}{Specificity}                                                                         & $97.6\pm0.9$\%                                              \\
-			\multicolumn{2}{l}{AUC}                                                                         & 76.7$\pm$2.9\%                                                     
+			\multicolumn{2}{l}{AUROC}                                                                         & 76.7$\pm$2.9\%                                                     
 		\end{tabular}
 	\end{tabular}
 \end{table}
@@ -1197,7 +1202,7 @@ We evaluate both the features in Arora and the DREAM challenge baseline on the m
 			\multicolumn{2}{l}{Accuracy}                                                                                 & 62.5$\pm$4.2\%                                              \\
 			\multicolumn{2}{l}{Sensitivity }                                                                         & 60.0$\pm$6.4\%                                              \\
 			\multicolumn{2}{l}{Specificity }                                                                         & 65.0$\pm$5.9\%                                              \\
-			\multicolumn{2}{l}{AUC }                                                                         & 72.1$\pm$4.8\%                                                     
+			\multicolumn{2}{l}{AUROC }                                                                         & 72.1$\pm$4.8\%                                                     
 		\end{tabular}
 		& &
 		\begin{tabular}{lcl}\hhline{~|*{2}{-}}
@@ -1209,7 +1214,7 @@ We evaluate both the features in Arora and the DREAM challenge baseline on the m
 			\multicolumn{2}{l}{Accuracy}                                                                                 & $63.8\pm3.9$\%                                              \\
 			\multicolumn{2}{l}{Sensitivity (TP)}                                                                         & $62.6\pm5.4$\%                                              \\
 			\multicolumn{2}{l}{Specificity }                                                                         & $65.0\pm5.7$\%                                              \\
-			\multicolumn{2}{l}{AUC (TN)}                                                                         & 72.1$\pm$4.8\%                                                     
+			\multicolumn{2}{l}{AUROC (TN)}                                                                         & 72.1$\pm$4.8\%                                                     
 		\end{tabular}
 	\end{tabular}
 \end{table}
@@ -1232,7 +1237,7 @@ We believe these non-linear features are more robust measures of Parkinsonism sy
 
 
 \begin{table}[h]
-	\caption{Cross validation results for a SVM when including the non-linear features. Adding the dynamical features improves model performance on the accelerometer and phonation data with a Bayes factor of X and Y respectively.}
+	\caption{Cross validation results for a SVM when including the non-linear features. Adding the dynamical features improves model performance on the accelerometer and phonation data with a Bayes factor of $10^7$ and $10^{12}$ respectively.}
 	\label{resultsdynamical}
 	\centering\centerline{
 	\begin{tabular}[t]{c c c}
@@ -1243,7 +1248,7 @@ We believe these non-linear features are more robust measures of Parkinsonism sy
 			Accuracy [\%]    &      $63.8\pm3.9$ &                       $66.0\pm4.0$                                  &        $68.8\pm3.7$\\ \midrule
 			Sensitivity [\%] &      $62.6\pm5.4$ &                       $61.8\pm5.7$                                  &     $67.2\pm5.3$\\ \midrule
 			Specificity [\%] &      $65.0\pm5.7$ &                       $70.2\pm1.9$                                  &     $70.5\pm5.4$\\ \midrule
-			AUC [\%]         &      $72.1\pm4.8$ &                       $71.3\pm4.5$                                  &     $74.8\pm4.1$\\ \midrule
+			AUROC [\%]         &      $72.1\pm4.8$ &                       $71.3\pm4.5$                                  &     $74.8\pm4.1$\\ \midrule
 		\end{tabular}
 		&
 		\begin{tabular}{@{}cccc@{}}
@@ -1256,7 +1261,7 @@ We believe these non-linear features are more robust measures of Parkinsonism sy
 	\end{tabular}}
 \end{table}
 
-The non-linear features are evidently stronger differentiators of PD than the features existing in current literature, but not sufficiently to robustly classify PD and control. Surprisingly, using dynamical features alone performed better than the DREAM baseline feature set with a BF of X.XXX. Dynamical features alone did not perform as well as Tsanas' on the speech data, however combining both improves performance greatly.
+The non-linear features are evidently stronger differentiators of PD than the features existing in current literature, but not sufficiently to robustly classify PD and control. Bayes Factor analysis shows dynamical features alone for accelerometer performs better than the DREAM baseline with a $BF=5$. This value is substantial in statistics, but in cross validation implies that the classifiers are succeeding on very different examples. Combining both dynamical features and Tsanas' feature set improves performance greatly on the speech data.
 
 \section{Visualising The Features}
 The models replicated in the previous sections clearly perform below the reported level in prior works. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in speech and gait. No individual feature was able to achieve greater than 60\% classification accuracy on an equal split of the data. Note that only a fraction of the data is visualised to improve clarity. 
@@ -1284,7 +1289,7 @@ Benba et~al.~\cite{benba2014mfcc} distinguishes PD with a 82\% success rate prim
 
 
 \begin{figure}[h]
-	\caption{The 8\textsuperscript{th} MFCC coefficient is not a particularly notable feature for distinguishing dysphonia. The visualisation of other coefficients appear roughly the same. }
+	\caption{Unlike Benba~\cite{benba2014mfcc}, the 8\textsuperscript{th} MFCC coefficient is not a particularly notable for distinguishing dysphonia. A combination of multiple MFCC adds marginally more information. }
 	\label{mfcc_feat}
 	\centering\includegraphics[width=1\linewidth]{mfcc_feat.png}
 \end{figure}
@@ -1304,9 +1309,77 @@ The Largest Lyapunov Exponent showed a large variance with a majority of the val
 THERE ARE MAJOR FLAWS WITH THE IMPLEMENTATION....... RERUNNING
 
 \subsection{Movement}
-Understanding the features extracted for the movement data is a trickier task as the features exist in the $x, y,$ and $z$ dimensions. The .................. >>>
+Understanding the features extracted for the movement data is a trickier task. Like speech, a significant amount of variance will exist based on physical factors (such as leg length) and environmental factors (such as depth/tightness of pocket). The mPower application asks the user to place their phone in either their pocket or bag, and there likely exists a tendency for females to complete the activity with their phone in a bag~\cite{femalephone}. This choice of experimental design may limit potential diagnosability as information (such as tremor) may be lost from the pendulum motion of shoulder bags and padding. A better setup may be to ask all participants to place the device in their hand --- although additional variability is introduced, this could be filtered whereas lost information cannot be recovered.
 
-As with speech differences would be expected between 
+Accelerometer signals contain three dimensions of data: $x, y,$ and $z$. Rotations have been performed such that the $z$ axis is aligned with gravity, and the average direction of the walk is aligned with the $x$ axis. Despite this, there is generally minimal difference between the individual axis, therefore features are visualised as the mean value over all dimensions.
+
+Basic walking features were calculated from the provided pedometer data, which was likely extracted from the implementation in Apple ResearchKit~\cite{mpower}. The estimation of steps and especially distance may not be accurate, accounting for additional variance in results. This is visualised in Figure~\ref{basicwalkvis} and it is clear that these simple features are barely informative in diagnosis.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=0.96\linewidth]{stepspermin.png}
+	\end{subfigure}%
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=0.96\linewidth]{stridelength.png}
+	\end{subfigure}
+	\caption{The average cadence and stride length of participants with PD is only marginally lower than age matched control.}
+	\label{basicwalkvis}
+\end{figure}
+
+The most common features used diagnosis of force plate and IMU data are tremor and postural sway. These are depicted in Figure~\ref{basicrest}. Visualising the ratio of tremor in the 3.5-7Hz bands (most commonly associated with PD) and 10-14Hz bands, there is a definite increase in Parkinsonism tremor. Post-butterworth sway area (by bounding ellipse) is less informative and suffers from high variance.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=0.96\linewidth]{resttremor.png}
+	\end{subfigure}%
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=0.96\linewidth]{bwswayarea.png}
+	\end{subfigure}
+	\caption{PD participants exhibit a definite increase in Parkinsonism tremor. The variance of sway area is high, and PD participants only exhibit a minor increase in sway area compared to age matched control. }
+	\label{basicrest}
+\end{figure}
+
+Investigating dynamical features, we find that no statistically significant correlation between the largest Lyapunov Exponent and PD on both rest and walk data. This result contrasts with Howcraft et~al.~\cite{howcroft2014analysisgaitlyapunov} which showed a lower $\lambda^*$ in people with diabetic neuropathy (NP). This may suggest a possibility distinguish characteristics of PD and NP gait, but could also be attributed to the low sample rate of phone accelerometers which is unsuitable for estimating the Lyapunov Exponents~\cite{rosenstein1993practicallyapunov}. Participants with PD --- especially females exhibited a higher fractal dimension. This was a surprising result as we believed that the use of handbags would greatly hinder the differentiability of PD.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=0.96\linewidth]{walk_l1.png}
+	\end{subfigure}%
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=0.96\linewidth]{fractal_dim_walk.png}
+	\end{subfigure}
+	\caption{$\lambda^*$ is uninformative, wheras the Higuchi fractal dimension is a strong differentiator of PD. }
+	\label{dynamicwalk}
+\end{figure}
+
+Nonlinear information theoretic measures are strong differentiators of Parkinsonism gait. 
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=0.96\linewidth]{walk_samp_ent.png}
+	\end{subfigure}%
+	\begin{subfigure}{.42\textwidth}
+		\centering
+		\includegraphics[width=0.96\linewidth]{walk_fisher.png}
+	\end{subfigure}
+	\caption{Information theoretical . }
+	\label{infodynamicwalk}
+\end{figure}
+
+
+
 
 
 \subsection{Conclusions and Recommendations}
@@ -1350,12 +1423,12 @@ These
 		&					    $69.9\pm4.9$\\ \midrule
 		Specificity [\%] &      $74.8\pm4.7$ &                       $80.3\pm1.4$                                  &    		$71.1\pm4.5$
 		&					    $76.9\pm4.3$\\ \midrule
-		AUC [\%]         &      $78.3\pm2.9$ &                       $84.0\pm1.1$                                  &     		$75.9\pm0.3$
+		AUROC [\%]         &      $78.3\pm2.9$ &                       $84.0\pm1.1$                                  &     		$75.9\pm0.3$
 		&				 		$80.4\pm2.7$\\ \midrule
 	\end{tabular}
 \end{table}
 
-Augmentation and mean exceed the performance of the original feature set at a Bayes factor of X.X and Y.Y respectively. As expected, merging does not perform well with a SVM and shows the applicability of feature selection --- even in models as robust as SVMs. With additional segments, it would be interesting to investigate the applicability of a recurrent or convolutional neural network in modelling and utilising the additional temporal and variance information.
+Augmentation and mean exceed the performance of the original feature set at a Bayes factor of $10^{23}$ and 720 respectively. As expected, merging does not perform well with a SVM and shows the applicability of feature selection --- even in models as robust as SVMs. With additional segments, it would be interesting to investigate the applicability of a recurrent or convolutional neural network in modelling and utilising the additional temporal and variance information.
 
 Data augmentation strategies evidently provide a viable solution to overcoming the low data quality in the mPower dataset. The significant improvement in results suggest that 
 
@@ -1364,10 +1437,10 @@ These results suggest that performance could be significantly improved with high
 
 
 \subsection{Feature Selection for Accelerometer}
-There are 431 numerical features used to classify accelerometer data and many are likely to be redundant. Most signal processing measures are only well defined for one dimensional signals and the accelerometer provides three ($x$, $y$, $z$) dimensions of data. Although measures over all dimensions will provide additional information, it is very difficult for most machine learning models to utilise this information. It is likely that the additional variability in the axis and the correlated nature of the data will reduce the performance of most classifiers. The performance of using the norm of singular dimensional features over the axis is investigated in table \ref{accelerometernorm}.
+There are 431 numerical features used to classify accelerometer data and many are likely to be redundant. Most signal processing measures are only well defined for one dimensional signals and the accelerometer provides three ($x$, $y$, $z$) dimensions of data. Although measures over all dimensions will provide additional information, it is very difficult for most machine learning models to utilise this information. It is likely that the additional variability in the axis and the correlated nature of the data will reduce the performance of most classifiers. The effect of taking the Euclidian norm on classification accuracy is depicted in Table \ref{accelerometernorm}.
 
 \begin{table}[h]
-	\caption{Results of taking the norm for features extracted over $(x,y,z)$ dimensions with a SVM. The normed features are indecisively worse than the full feature set (BF=).}
+	\caption{Results of taking the norm for features extracted over $(x,y,z)$ dimensions with a SVM. The normed features are indecisively worse than the full feature set ($BF=41$).}
 	\label{accelerometernorm}
 	\centering
 	\begin{tabular}{@{}rcccc@{}}
@@ -1378,7 +1451,7 @@ There are 431 numerical features used to classify accelerometer data and many ar
 		&					    $65.4\pm6.1$\\ \midrule
 		Specificity [\%] &      $65.0\pm5.7$ &                       $70.2\pm1.9$                                  &     $70.5\pm5.4$
 		&					    $70.0\pm5.2$\\ \midrule
-		AUC [\%]         &      $72.1\pm4.8$ &                       $71.3\pm4.5$                                  &     $74.8\pm4.1$
+		AUROC [\%]         &      $72.1\pm4.8$ &                       $71.3\pm4.5$                                  &     $74.8\pm4.1$
 		&				 		$74.0\pm4.0$\\ \midrule
 	\end{tabular}
 \end{table}
@@ -1443,7 +1516,7 @@ It is a fusion model consisting of two convolutional layers which feed into a nu
 
 \subsection{Automatic Feature Engineering for PD Diagnosis}
 
-Our problem space is quite different from prior works in the field . Although mPower is the largest current database of PD speech and motion data, its size is not comparable to computer vision and speech recognition datasets. For instance, the ImageNet~\cite{imagenet} dataset for computer vision consists of 14.2 million images and CLDNN~\cite{convlstm} was trained on 2,000 hours of speech. There are many ($\approx30,000$) walk recordings, however a majority of these are from a small subset of users. To avoid the `digital fingerprinting' effect discovered by Neto~et~al.~\cite{mpowerneto2017analysis}\footnote{Neto discovered that walk would result in an AUC of 0.98 when different recording from the same participant appeared in both training and test sets as opposed}
+Our problem space is quite different from prior works in the field . Although mPower is the largest current database of PD speech and motion data, its size is not comparable to computer vision and speech recognition datasets. For instance, the ImageNet~\cite{imagenet} dataset for computer vision consists of 14.2 million images and CLDNN~\cite{convlstm} was trained on 2,000 hours of speech. There are many ($\approx30,000$) walk recordings, however a majority of these are from a small subset of users. To avoid the `digital fingerprinting' effect discovered by Neto~et~al.~\cite{mpowerneto2017analysis}\footnote{Neto discovered that walk would result in an AUROC of 0.98 when different recording from the same participant appeared in both training and test sets as opposed}
 
 Overfitting becomes a major issue, and the problem changes from designing the most complex `deep' architecture capable of modelling the data to designing an architecture which can extract usable features before severely overfitting. We found that smaller models generally performed best in this task, although they evidently were not able to model the data well. 
 
@@ -1473,28 +1546,12 @@ The LSTMConv architecture was vastly superior to Bi-Wavenet when handling spectr
 	\caption{The final neural network architecture.}
 \end{figure}
 
-Our submission of all hand-crafted features for the DREAM challenge achieved a AUC of 0.cxxx .
-
-*visualizing the features
-*dynamical systems features
-
+Our submission of all hand-crafted features for the DREAM challenge achieved a AUROC of 0.cxxx .
 
 
 %ACCURACY WAS NOT A HUGE FOCUS AS TRAINING NEURAL NETWORKS IS STOCHASTIC AND THERE IS A LARGE VARIATION IN TRAINING PERFORMANCE DUE TO THE SMALL DATASET. THE ARCHITECTURES WE HAVE PROPOSED GENERALLY PERFORM WELL HOWEVER ARE NOT NECESSARILY BETTER THAN OTHERS.
 
-$20,000$
-
-
-\begin{enumerate}[noitemsep, topsep=-10pt]
-	\item A wavenet~\cite{wavenet} inspired 
-\end{enumerate}
-
-Although it is possible to 
-
-WALK:: USE SUPPL trained model
-TALK:: USE CROSS VAL.
-
-features unclear.
+The purpose of this experiment was to investigate the feasibility of machine learning to 
 
 add noise and understand what happens -- what do the numbers represent, if anything?
 
@@ -1533,7 +1590,7 @@ Following Tsanas~(2012), 120hz and 190hz were used as the mean healthy $f_0$ for
 
 EEG and non-linear signal analysis was performed using the PyREM library~\cite{pyrem}, which builds upon PyEEG~\cite{pyeeg}, correcting some implementation flaws. The false nearest neighbour implementation in the pypsr~\cite{pypsr} library was used to calculate the embedding dimension for the relevant non-linear signal processing algorithms. The embedding dimension used in both speech and accelerometer was 6 and the embedding delay was chosen per sample as the first minimum of the approximate mutual information~\cite{rosenstein1993practicallyapunov}.
  
-PyREM does not provide an implementation for Lyapunov Exponents and some experimentation with artificially constructed signals showed that PyEEG's implementation is severely wrong. The nolds~\cite{nolds} module was used to compute the Lyapunov exponents, using Rosenstein's~\cite{rosenstein1993practicallyapunov} algorithm for $L_1$ and Eckmann's algorithm~\cite{eckmann1986liapunov} for the subsequent $L_2 - L_6$.
+PyREM does not provide an implementation for Lyapunov Exponents and some experimentation with artificially constructed signals showed that PyEEG's implementation is severely wrong. The nolds~\cite{nolds} library was used to compute the Lyapunov exponents, using Rosenstein's~\cite{rosenstein1993practicallyapunov} algorithm for $\lambda^*$ and Eckmann's algorithm~\cite{eckmann1986liapunov} for $\lambda_1 - \lambda_6$.
   
 Jerk based accelerometer features were considered~\cite{jerkfeature} however performance was generally worse than using the raw acceleration features over all computed measures. The DREAM challenge baseline features~\cite{mpowertools} were used in conjunction with our own implementation of the methods used in Arora~et~al~\cite{arora2014high}. The primary differences likely result from our preprocessing of the data, which rotated all accelerometers relative to the $x$ axis.
 
@@ -1568,6 +1625,7 @@ Many ideas were inspired throughout the development of this thesis, however only
 	\item Active learning to figure out who to monitor.
 	\item Differentiation of PD symptoms from other Parkinsonism syndromes.
 	\item Improve the current set of signal processing features and develop more robust models based on short-time features, as discussed in section \ref{visfeatrecommendations}.
+	\item Investigating the applicability of neural network based feature engineering on recurrence 
 \end{enumerate}
 
 
