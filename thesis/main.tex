@@ -74,7 +74,7 @@
   \vspace*{5cm}
   \begin{flushright}\sffamily{Supervised by: \\[-4pt]
 Dr Deborah Apthorp\\[-4pt]
-Dr Hanna Suominen }
+Adj/Prof Hanna Suominen }
   \end{flushright}
    \end{titlepage}
    \pagestyle{tfg}
@@ -230,13 +230,13 @@ SmallCapsFeatures = {Letters     = SmallCaps,%
     {\textcolor{USred}{\thechapter}\hsp\textcolor{USred}{\vrule width 2pt}\hsp}{0pt}
     {#1}
 \titleformat{\section}
-  {\normalfont\Large\sffamily\bfseries}{\textcolor{USred}{\thesection}\space\space}
-  {1ex}
+  {\normalfont\Large\sffamily\bfseries}{\textcolor{USred}{\thesection}}%\space\space}
+  {0ex}
   {#1}
 
 \titleformat{\subsection}
   {\normalfont\large\sffamily}{\textcolor{USred}{\thesubsection}\space\space}
-  {1ex}
+  {0ex}
   {#1}
   
 \titleformat{\subsubsection}
@@ -293,7 +293,7 @@ SmallCapsFeatures = {Letters     = SmallCaps,%
 \markright{Abstract}
 Parkinson's disease (PD) is a degenerative neurological disorder, affecting around 1\% of the population by the age of 70. There is currently no objective test for PD and studies suggest expert misdiagnosis rates of up to 34\%. Hence, there is interest in investigating if machine learning can provide a more reliable and objective diagnosis.
 
-Current machine learning literature test a model's ability to differentiate between already diagnosed PD and control subjects. This setup does not mirror real-life diagnosis as the primary difficulty neurologists face is excluding disorders with similar symptoms and individuals exhibiting minimal symptoms. Most studies are also based on small (<50) datasets which suffer from a tendency to bias and overfitting due to  Freedman's paradox. A large dataset of individuals pre-diagnosis to confirmed diagnosis would be optimally be used to assess machine learning in PD.  
+Current machine learning literature test a model's ability to differentiate between already diagnosed PD and control subjects. This setup does not mirror real-life diagnosis as the primary difficulty neurologists face is excluding disorders with similar symptoms and individuals exhibiting minimal symptoms. Most studies are also based on small ($<50$) datasets which suffer from a tendency to bias and overfitting due to  Freedman's paradox. A large dataset of individuals pre-diagnosis to confirmed diagnosis would be optimally be used to assess machine learning in PD.  
 
 This thesis investigates the applicability of machine learning in PD diagnosis by testing a model's ability to diagnose PD using symptoms unobservable by a neurologist. Current literature is replicated on the much larger 6,000 participant mPower dataset, consisting of crowdsourced recordings from smartphone sensors. Results showed that the simple models used in current literature are insufficient for a reliable diagnosis using the large and noisy mPower data. More powerful and robust models were developed by consolidating recent ideas EEG and non-linear signal processing and deep learning, resulting in improvement from XX\% to YY\% accuracy. 
 
@@ -309,7 +309,7 @@ We find... Results suggest that machine learning can offer a valuable source of 
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 \markright{Introduction}
-This thesis has been written for all audiences, however a background in machine learning may be useful to understand and follow some assumptions in the methodology. The work spans multiple disciplines and I have opted to summarise these fields concisely and provide references to seminal or well-written papers in the area for the reader interested in a more in-depth understanding. These papers will also provide the mathematical formulation of the signal processing and machine learning models which have been abstracted in favour for the intuition behind them.
+This honours thesis in computer science has been written for all audiences, however a background in machine learning may be useful to understand and follow some assumptions in the methodology. The work spans multiple disciplines and I have opted to summarise these fields concisely and provide references to seminal or well-written papers in the area for the reader interested in a more in-depth understanding. These papers will also provide the mathematical formulation of the signal processing and machine learning models which have been abstracted in favour for the intuition behind them.
 
 Throughout the thesis I have used highlights and footnotes to improve flow and reading. Highlights convey or re-iterate important information for those skim-reading and footnotes\footnote{\emph{Footnotes} provide contextual background information} provides contextual background information.
 
@@ -397,7 +397,7 @@ PD is diagnosed subjectively by a neurologist. As many disorders have similar sy
 As there is no consensus for PD diagnosis, the search for a more objective measure for PD is a hot topic in the research community. This ranges from more standardised diagnosis criteria such as the UK Parkinson's Disease Society Brain Bank criteria \cite{tolosadiagnosis26,brainbank,hughesdiagnosis100} to discovering more quantifiable biomarkers such as gene expression \cite{genemarkers, genome} and proteins in bodily fluids \cite{biomarkerfluid}. Although the discovery of objective biomarkers shows promise, it is likely that cost would be prohibitive for most early stage patients.
 
 \section{Machine Learning in Parkinson's Disease}
-Machine Learning can be broadly defined as a suite of computational techniques that address the challenge of making sense of the ever increasing volume and complexity of data generated in, for example, modern information dense healthcare system. It will be examined in greater depth in section~\ref{machinelearning}.
+Machine Learning can be broadly defined as a suite of computational techniques that address the challenge of making sense of the ever increasing volume and complexity of data generated in, for example, modern information dense healthcare system. It will be examined in greater depth in Section~\ref{machinelearning}.
 
 Machine learning presents an objective and low cost solution to diagnosing PD. There has been a large body of work in the field however the applicability all current work is limited due to the cost and difficulties associated with gathering a sizeable dataset. A majority of datasets used in literature consist of fewer than 40 subjects. Reported results are therefore prone to biases in the dataset, Freedman's paradox\footnote{\emph{Freedman's paradox} describes a common issue in model fitting where variables with no predictive power appear important. It is especially prevalent when the number of features exceeds the number of data points.}~\cite{freedmanparadox} and overfitting on cross validation~\cite{overfittingcv}. Thus, it is difficult to empirically compare results of different papers.
 
@@ -413,7 +413,7 @@ There has been preliminary investigation in the applicability of machine learnin
 Current research tasks machine learning to differentiate between PD and control subjects. This is a much simpler problem than what is faced by neurologists who have to rule out a number of other possibilities for symptoms.
 \end{highlight}
 
-To precisely compare the effectiveness of machine learning to neurologist diagnosis, a large \emph{longitudinal dataset} following subjects pre-diagnosis to a confirmed diagnosis would be required. Such a dataset would be very costly and logistically difficult to collect. To advocate the collection of such a dataset, some evidence of machine learning's applicability to PD diagnosis will be required. This thesis will investigate methods of assessing machine learning's applicability to Parkinson's disease without such a dataset.  
+To precisely compare the effectiveness of machine learning to neurologist diagnosis, a large \emph{longitudinal dataset} would be required. Collecting this would involve monitoring subjects prior to any Parkinsonism symptoms until their passing, where the existence of PD can be confirmed. Such a dataset would be very costly and logistically difficult to collect. To advocate the collection of this dataset, some evidence of machine learning's applicability to PD diagnosis will be required. This thesis will investigate methods of assessing machine learning's applicability to Parkinson's disease without such a dataset.  
 
 Another proposed application for machine learning for PD is telemonitoring~\cite{splittledysphonia2009, sptsanastelemonitor2010}. A patient's progression of PD is monitored with a scale, the most common being the MDS-UPDRS~\cite{updrs} which quantifies the extent of 27 motor and non-motor symptoms on an integer scale between 0-4, with 0 representing no evidence of symptoms and 4 indicative of severe symptoms. It is recommended that PD patients visit a specialist every 4-6 months to track progression --- this is costly and inconvenient. Machine learning offers the opportunity for patients to track their progress at home with their smartphone or other wearables~\cite{cancela2016monitoring}. Monitoring is a viable avenue for machine learning given current datasets, however will not be explored in this thesis as the primary focus is diagnosis.
 
@@ -437,7 +437,7 @@ Movement related problems are the primary manifestation of symptoms considered b
 Our senses are good at detecting deviations from normal gait/speech, but are less proficient at detecting differences between types of abnormal gait/speech. 
 \end{highlight}
 
-Although speech is only a single component of the 44 component UPDRS~\cite{updrs} scale, it has received a great deal of attention in machine learning. There is evidence that speech is one of the earliest indicators of PD \cite{earlyvowel} and there already exists a large body of work in the field of speech feature engineering~\cite{ostextbook}. Furthermore, microphones are able to capture a similar level of information as human ears --- there is much less information loss compared to sensors used to measure movement\footnote{Excepting motion capture, which we will cover in section \ref{movementfeatures}.}. 
+Although speech is only a single component of the 44 component UPDRS~\cite{updrs} scale, it has received a great deal of attention in machine learning. There is evidence that speech is one of the earliest indicators of PD \cite{earlyvowel} and there already exists a large body of work in the field of speech feature engineering~\cite{ostextbook}. Furthermore, microphones are able to capture a similar level of information as human ears --- there is much less information loss compared to sensors used to measure movement\footnote{Excepting motion capture, which we will cover in Section \ref{movementfeatures}.}. 
 
 
 Table \ref{pdsensors} summarises prior work in feature engineering related to PD. As most datasets consist of data from a single sensor, machine learning focuses on quantifying a single symptom of Parkinson's disease based on that sensor. Literature can be classified as diagnosing PD with movement or voice features and currently more research focuses on movement~\cite{review2013,review2015}.
@@ -499,10 +499,10 @@ There is evidence that PD is heterogeneous and symptoms are present in distinct 
 It is possible that some subtypes of PD exhibit symptoms imperceptible to a neurologist but detectable by a high resolution sensor. 
 \end{highlight}
 
-Unless there is evidence that `\textit{micro-symptoms}' are present in all people with PD, feature engineering in each of these areas are equally as important. Section \ref{speechbio} explores some of the biological causes of these symptoms and we will investigate the existence of  micro-symptoms in section \ref{powerml}
+Unless there is evidence that `\textit{micro-symptoms}' are present in all people with PD, feature engineering in each of these areas are equally as important. Section \ref{speechbio} explores some of the biological causes of these symptoms and we will investigate the existence of  micro-symptoms in Section \ref{powerml}
 
 
-Section \ref{featuresummary} summarises all features that will be used in this paper. Feature engineering is not a simple task and information about the signal is almost always lost in the process. More recently, biologically inspired neural networks have been proposed to bypass the feature engineering step and extract information from raw representations of data. These will be covered in section \ref{neuralnetworkintro} and their applicability investigated in section X.X.
+Section \ref{featuresummary} summarises all features that will be used in this paper. Feature engineering is not a simple task and information about the signal is almost always lost in the process. More recently, biologically inspired neural networks have been proposed to bypass the feature engineering step and extract information from raw representations of data. These will be covered in Section \ref{neuralnetworkintro} and their applicability investigated in Section X.X.
 
 \subsection{General Signal Processing}
 \label{generalsignalproc}
@@ -628,7 +628,7 @@ The \emph{Hurst} exponent characterises the autocorrelation or long-range depend
 
 
 \subsection{Summary of Features}
-This section summarises all the features covered in previous sections which are used in the construction of models presented in this thesis, which are based on audio and accelerometer signals. The libraries and parameters used to implement are covered in detail in section \ref{implementation}. Features are organised by field of introduction or by the field they are most commonly applied in. All relevant general and EEG features are calculated for both the audio and accelerometer models used in this thesis. Additionally, RPDE and DFA are used as a feature for the accelerometer data.
+This section summarises all the features which are used in the construction of the models presented in this thesis. The libraries and parameters used to implement are covered in detail in section \ref{implementation}. Features are organised by field of introduction or by the field they are most commonly applied in. All relevant general and EEG features are calculated for both the audio and accelerometer models used in this thesis. Additionally, RPDE and DFA are used as a feature for the accelerometer data.
 
 \label{featuresummary}
 % \centering
@@ -729,12 +729,12 @@ Supervised binary classification can be viewed as `learning' a model which given
 
 Traditional machine learning models were built on statistical foundations. The mathematical backing these models are solid and the models well understood. However, the mathematics of these models were developed on assumptions that are rarely satisfied with real world data. Models such as deep neural networks have started to rise to popularity recently due to their modelling power. However the behaviour of deep neural networks are poorly understood and difficult to analyse.    
 
-Most models have strengths in different areas, and very rarely does a model strictly dominate another. The choice of model is often informed by the data. For example, models like deep neural networks may perform well when data is plentiful, however in small datasets the very simple decision tree may greatly outperform neural networks\footnote{These will be explained in section \ref{traditionalmodels} and \ref{neuralnetworkintro}}.
+Most models have strengths in different areas, and very rarely does a model strictly dominate another. The choice of model is often informed by the data. For example, models like deep neural networks may perform well when data is plentiful, however in small datasets the very simple decision tree may greatly outperform neural networks\footnote{These will be explained in Section \ref{traditionalmodels} and \ref{neuralnetworkintro}}.
 
 
 
 \begin{highlight}
-There is no `best' model --- the choice of model is informed by the data.
+There is no `best' model --- the choice of model is informed by the data. 
 \end{highlight}
 
 The predictive error in any model can be decomposed as \emph{irreducible error}, \emph{bias} and \emph{variance}. Irreducible error occurs when the features used are too noisy\footnote{\emph{Noisy} in the context of machine learning of signal processing relates to the inherent variance of a measure. An inaccurate, low quality sensor can be considered `noisy'.} or unrelated to accurately predict the data. An optimal model cannot achieve beyond this irreducible error. Bias describes a model `fitting' the data poorly and is evident in a model with low accuracy. Variance describes how `unstable' a model is --- a model with high variance may score 100\% accuracy but generalize poorly to new data. A model with high variance is essentially predicting results by `memorisation.' Fitting a model with high variance is often known as \emph{overfitting}. The bias-variance tradeoff~\cite{biasvarnn} is a fundamental problem in machine learning, describing the difficulty in reducing bias without increasing variance and vice versa. 
@@ -784,10 +784,16 @@ A kernel is a measure of similarity between two data points, and the kernel tric
 	\caption{A RBF kernel is used to transform the data into a more linearly separable space. $\zeta_i$ denote slack variables which lie beyond the margin (depicted by beige lines). }
 \end{figure}
 
-The original SVM algorithm was not able to handle cases where data was not separable. Cortes and Vapnik~(1995)~\cite{svmsoftmargin} introduced slack variables $\zeta_i$, which define a penalty for data beyond the SVMs margins thus extending the use of SVMs to non-separable data. The sum of these slack variables is added to the SVM's Lagrangian equation along with a constant scaling factor $C$. The parameter $C$ balances the penalty for data beyond the margins with the size of the margin. A small $C$ is incentive to create a large margin whereas a large $C$ is incentive to minimize errors.
+The original SVM algorithm was not able to handle cases where data was not separable. This led to the introduction of slack variables which define a penalty for data beyond the SVMs margins, extending their use to non-separable data~\cite{svmsoftmargin}. The sum of these slack variables is added to the SVM's Lagrangian equation along with a constant scaling factor $C$. The parameter $C$ balances the penalty for data beyond the margins with the size of the margin. A small $C$ is incentive to create a large margin whereas a large $C$ is incentive to minimize errors.
 
-The combination of kernels and slack variables greatly improved the applicability of SVMs. SVMs became very popular in the machine learning community as they were simultaneously analysable and powerful. However, kernels and slack variables also introduce a number of hyperparameters, such as the scaling factor $C$ and the type of kernel and its parameters. Although intuition and knowledge of the data can guide kernel and hyperparameter choice, techniques such as grid or random search~\cite{gridsearch} are generally used to fine-tune them. However, hyperparameter tuning increases the risk of overfitting, which will be discussed in detail in section~\ref{detectoverfit}. 
+The combination of kernels and slack variables greatly improved the applicability of SVMs. SVMs became very popular in the machine learning community as they were simultaneously analysable and powerful. However, kernels and slack variables also introduce a number of hyperparameters, such as the scaling factor $C$ and the type of kernel and its parameters. Although intuition and knowledge of the data can guide kernel and hyperparameter choice, techniques such as grid or random search~\cite{gridsearch} are generally used to fine-tune them. However, hyperparameter tuning increases the risk of overfitting, which will be discussed in detail in Section~\ref{detectoverfit}. 
 
+
+\begin{figure}[h]
+	\label{cnnvis}
+	\centerline{\centering\includegraphics[width=1.2\linewidth]{model_vis.png}}
+	\caption{A visualisation of various models fitting two dimensional functions. Choosing a model is difficult when the characteristics of the data is not well understood.}
+\end{figure}
 
 \subsection{Artificial Neural Networks}
 %Most traditional machine learning models are derived under the assumption of independent and identically distributed data. The
@@ -832,7 +838,7 @@ A neural network's ability to learn complex non-linear relationships provides a 
 \begin{figure}[h]
 \label{nnetstacked}
 \centering\includegraphics[width=1\linewidth]{neuralnet.pdf}
-\caption{A simple 3 hidden layer fully connected neural network with sigmoidal activations. By stacking non-linear activation functions, neural networks are able to learn any non-linear function of the input. The '1' nodes represent the bias at each layer.}
+\caption{A simple neural network with three fully connected hidden layers using sigmoidal activations. By stacking non-linear activation functions, neural networks are able to learn any non-linear function of the input. The '1' nodes represent the bias at each layer.}
 \end{figure}
 
 
@@ -848,7 +854,7 @@ Two major variations of the traditional fully connected structure are convolutio
 \end{figure}
 
 
-Recurrent neural networks (\emph{RNNs}) are neural networks with cyclic connections. This essentially creates an internal state which allows neural networks to better handle temporal data and provides flexibility for the type of input and output data. There are a number of RNN variants, however long short-term memory (LSTM) nodes are applied in practice as they are more robust to the vanishing gradient problem~\cite{lstm}. Recently, models combining LSTM and convolution layers has been effective at classifying visualised EEG data~\cite{bashivan2015learning} and multimodal activity recognition~\cite{ordonez2016deep}.
+Recurrent neural networks (\emph{RNNs}) are neural networks with cyclic connections. This essentially creates an internal state which allows neural networks to better handle temporal data and provides flexibility for the type of input and output data. There are a number of RNN variants, however long short-term memory (LSTM) nodes are applied in practice as they are more robust to the vanishing gradient problem~\cite{lstm}. Recently, models combining LSTM and convolution layers has been effective at classifying visualised EEG data~\cite{bashivan2015learning} and multimodal activity recognition~\cite{deepconvlstm}.
 
 
 \subsubsection{Neural Network Hyperparameters}
@@ -864,19 +870,19 @@ A major problem with the sigmoidal activation function is that as the activation
 
 The initialisation of the weights in the network will affect the solution found by gradient descent and the rate of convergence to it. Poor initialisation can result in the death of ReLUs or saturation of sigmoidal and tanh units. Glorot and Bengio~\cite{glorot2010understanding} proposed initializing the weights according to a Gaussian distribution with variance $2/(n_{\text{in}}+n_{\text{out}})$ where $n_{in}$ is the number of inputs to the node and $n_{out}$ the number of outputs. This is commonly termed Xavier initialisation and is effective for networks with sigmoidal or tanh activations however ReLUs rapidly tend to zero. He et~al.~\cite{he2015delving} proposed a small modification to fix the dead ReLU issue by setting variance to $2/n_{\text{in}}$.
 
-The method of gradient descent, referred to as the \textit{optimizer} is also a major area of neural network research. Traditional gradient descent often gets stuck at saddle points and local minima as the gradient is zero. Non-linear techniques developed in convex optimisation such as conjugate gradient descent and (Quasi-)Newton are powerful yet rarely applied in practice due to their computational complexity. The most popular optimizers for neural networks incorporate the concept of momentum, where previous gradients are considered in the descent. Adam~\cite{adam} is one of the most recent optimizers and combines elements from two powerful optimizers before it, AdaGrad and RMSProp. Nesterov momentum~\cite{nesterov1983method} --- which has favourable properties in convex optimisation --- can also be incorporated into Adam, creating Nadam.~\cite{nadam}. 
+The method of gradient descent, referred to as the \textit{optimiser} is also a major area of neural network research. Traditional gradient descent often gets stuck at saddle points and local minima as the gradient is zero. Non-linear techniques developed in convex optimisation such as conjugate gradient descent and (Quasi-)Newton are powerful yet rarely applied in practice due to their computational complexity. The most popular optimisers for neural networks incorporate the concept of momentum, where previous gradients are considered in the descent. Adam~\cite{adam} is one of the most recent optimisers and combines elements from two powerful optimizers before it, AdaGrad and RMSProp. Nesterov momentum~\cite{nesterov1983method} --- which has favourable properties in convex optimisation --- can also be incorporated into Adam, creating Nadam.~\cite{nadam}. 
 
 \begin{figure}[h]
 	\label{cnnvis}
 	\centering\includegraphics[width=0.82\linewidth]{gradescent.png}
-	\caption{Traditional gradient descent (red curve) performs poorly in `long valleys'. Optimizers generally use momentum to simulate the behaviour of the optimal blue curve and avoid local minima. Diagram adapted from Stanford's CS231n~\cite{cs231n}.}
+	\caption{Traditional gradient descent (red curve) performs poorly in `long valleys'. Optimisers generally use momentum to simulate the behaviour of the optimal blue curve and avoid local minima. Diagram adapted from Stanford's CS231n~\cite{cs231n}.}
 \end{figure}
 
-Each optimizer also has its own hyperparameters, the most major one being the learning rate. As training is stochastic, training multiple models and using them in an ensemble often results in better performance. Loshchilov and Hutter (2016) have proposed a novel approach where the learning rate is fluctuated during training to create an ensemble in one training process~\cite{sgdrestarts}. 
+Each optimiser also has its own hyperparameters, the most major one being the learning rate. As training is stochastic, training multiple models and using them in an ensemble often results in better performance. Loshchilov and Hutter (2016) have proposed a novel approach where the learning rate is fluctuated during training to create an ensemble in one training process~\cite{sgdrestarts}. 
 
 
 \subsection{Feature Selection and Dimensionality Reduction}
-The general approach to a machine learning problem is to extract as many features as possible then determine which are most relevant\footnote{There are issues with this approach such as Freedman's paradox~\cite{freedmanparadox} however resolving this is the task of model evaluation (section \ref{detectoverfit}).}. Redundant or highly correlated features reduces the performance of most machine learning algorithms. Simple models like Naive Bayes rely on the assumption that features are independent and correlated features can disproportionately weigh certain factors. Neural networks are better equipped to handle correlated and redundant features, however may require more data or training time to do so. 
+The general approach to a machine learning problem is to extract as many features as possible then determine which are most relevant\footnote{There are issues with this approach such as Freedman's paradox~\cite{freedmanparadox} however resolving this is the task of model evaluation (Section \ref{detectoverfit}).}. Redundant or highly correlated features reduces the performance of most machine learning algorithms. Simple models like Naive Bayes rely on the assumption that features are independent and correlated features can disproportionately weigh certain factors. Neural networks are better equipped to handle correlated and redundant features, however may require more data or training time to do so. 
 
 
 \begin{highlight}
@@ -890,7 +896,7 @@ The general approach to a machine learning problem is to extract as many feature
 The performance of these approaches are highly problem-dependent. This thesis will employ a number of state of the art supervised feature selection algorithms as depicted in table \ref{featureselection}.  We refer to Li~et~al.~\cite{skfeature} for a thorough description and comparison of these techniques. 
 
 \begin{table}[h]
-	\caption{Feature selection methods used in this thesis. Neural network forward/backwards search was not performed as resources were limited.}
+	\caption{Feature selection methods used in this thesis. Primarily implemented using scikit-feature~\cite{skfeature}}
 	
 	\label{featureselection}
 	\centering
@@ -952,7 +958,31 @@ There are a number of catches when performing CV:
 
 Overfitting cross-validation is difficult to detect without additional data and is a major issue in small datasets. A common approach is to take a subset of data as the `test' data which remains unseen in hyperparameter optimisation, however this is infeasible when there is not enough data to create a test set large enough for results to be meaningful. Ng~(1997)~\cite{overfittingcv} proposes an algorithm to select from a number of competing hypothesis. Repeating k-fold CV with different division of folds can also reduce the likelihood of models overfitting CV by chance. Bouckaert~(2003)~\cite{bestcvempirical} recommends 10 fold CV repeated 10 times after extensive empirical testing.
 
-Accuracy is the most basic and intuitive measure of performance, however it has been the subject of a number of criticisms. Firstly, it is susceptible to the false positive paradox\footnote{The false positive paradox occurs when there is a very low incidence of a positive results in the target population. For example, when only 1\% of the population suffer from PD, a model which only predicts `no PD' will be completely uninformative yet perform better than any model which predicts PD sometimes.} and may not be a good representation of a model's effectiveness in difficult tasks. Sensitivity, or true positive rate is a measure of the percentage of positive classes correctly identified and specificity or true negative rate measures the percentage of correctly identified negative examples. The \emph{$F_1$ score} is the harmonic mean of sensitivity and specificity and is an effective measure of model performance when classes are unbalanced. 
+Accuracy is the most basic and intuitive measure of performance, however it has been the subject of a number of criticisms. Firstly, it is susceptible to the false positive paradox\footnote{The false positive paradox occurs when there is a very low incidence of a positive results in the target population. For example, when only 1\% of the population suffer from PD, a model which only predicts `no PD' will be completely uninformative yet perform better than any model which predicts PD sometimes.} and may not be a good representation of a model's effectiveness in difficult tasks. \emph{Sensitivity} or \emph{recall} is a measure of the proportion of positive classes correctly identified and \emph{specificity} measures the proportion of correctly identified negative examples. \emph{Precision} is occasionally used instead of specificity in the machine learning community, measuring the proportion of correctly identified positive examples over all positive predictions. The \emph{$F_1$ score} is the harmonic mean of sensitivity and precision and is an more effective measure of model performance when classes are unbalanced. 
+
+\begin{table}[h]
+	\caption{A summary of common performance measures used in machine learning and statistics literature.}
+	\label{measuremeaning}
+	\centering
+	\begin{tabular}[t]{c c c}
+		{\specialcellbold{Confusion Matrix}} & &
+		{\specialcellbold{Measure Definitions }} \\[10pt]
+		\begin{tabular}{lcl}\hhline{~|*{2}{-}}
+			\multicolumn{1}{l|}{}                                 & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Pred True} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Pred False} \\ \hline
+			\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}\specialcell{Real\\True}} & \multicolumn{1}{c|}{\specialcell{True Positive\\ (TP)}}                          & \multicolumn{1}{c|}{\specialcell{False Negative\\ (FN)}}                         \\ \hline
+			\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}\specialcell{Real\\False}}  & \multicolumn{1}{c|}{\specialcell{False Positive\\ (FP)}}                          & \multicolumn{1}{c|}{\specialcell{True Negative\\ (TN)}}                         \\ \hline
+		                                    
+		\end{tabular}
+		& &
+		\begin{tabular}{@{}rc@{}}
+			\specialcellright{Sensitivity\\ \hspace{1.6em}/Recall}    & $\dfrac{TP}{TP+ FN}$      \\ \midrule
+			Specificity  &   $\dfrac{TN}{FN+FP}$   \\ \midrule
+			Precision &    $\dfrac{TP}{TP+FP}$  \\ \midrule
+			$F_1$ Score    &   $\dfrac{2TP}{2TP + FP - FN}$   \\ \midrule
+		\end{tabular}
+	\end{tabular}
+\end{table}
+
 
 Secondly, accuracy does not take into consideration the confidence of a model's predictions. The area under the ROC (Receiver Operating Characteristics~\cite{rocauc}) curve (\emph{AUC}) was proposed as a better alternative to accuracy. The ROC curve is created by plotting sensitivity and specificity at all confidence thresholds and the area under ROC was believed to be a more robust and statistically consistent measure of model performance~\cite{aucgood}. However recent empirical experiments have shown that AUC favours particular models~\cite{aucmislead2} and it has been criticised for being incoherent~\cite{aucmislead, aucincoherent}. Modifications to AUC have been proposed~\cite{aucmislead2, aucincoherent} however they are uncommon in practice. As a result, accuracy and $F_1$ score will be the primary performance measures utilised in this thesis as they are interpretable and model characteristic independent. AUC is more robust when there is a large disparity between classes will also be recorded for comparison with prior works such as Neto et~al.~(2017)~\cite{mpowerneto2017analysis}.
 
@@ -960,10 +990,12 @@ Secondly, accuracy does not take into consideration the confidence of a model's 
 Hypothesis tests are used to determine if the results obtained in experiments are \textit{statistically significant}. After obtaining the accuracies or $F_1$ scores for each fold of cross validation, a hypothesis test should be used to determine that the difference in results is not from chance. A paired t-test is the traditional approach to testing if one population mean is greater than another. There have been criticisms of frequentist hypothesis testing promoting the publication bias~\cite{publicationbias}, citing the non-replicability crisis in psychology~\cite{replicability}. Recently, the American Statistical Association has officially endorsed Bayes factor~\cite{bayesianttests} as their preferred method of hypothesis testing~\cite{bayesfactorASA}, and mass-replication studies have shown that almost half of previous psychological research do not meet the criteria for strong evidence when Bayes factor is applied~\cite{bayesfactorempirical}. The standard two tailed Cauchy distribution is used as a prior in this thesis~\cite{bayesianttests}.
 
 
-In statistics, there is no agreed upon method for model selection and evaluation. Penalization based evaluation\footnote{\emph{Penalization} based model criteria are inspired by Occam's razor, preferring simple model over a more complex one which obtains similar results as it is less likely to overfit}  criteria such as Akaline/Bayesian/General Information Criterion~\cite{aicbic,generalinfocriteriongic} and Minimum Description Length~\cite{mindescriptionlength} are common model selection techniques. However these are less suitable for machine learning as it is difficult to quantify the complexity of model such as neural networks. Cross validation is therefore the only feasible technique to compare completely different models. 
+In statistics, there is no agreed upon method for model selection and evaluation. Penalization based evaluation\footnote{\emph{Penalization} based model criteria are inspired by Occam's razor, preferring simple models over complex ones which as they are less likely to overfit.}  criteria such as Akaline/Bayesian/General Information Criterion~\cite{aicbic,generalinfocriteriongic} and Minimum Description Length~\cite{mindescriptionlength} are common model selection techniques. However these are less suitable for machine learning as it is difficult to quantify the complexity of model such as neural networks. Cross validation is therefore the only feasible technique to compare completely different models. 
  
 
+Overall, it should be evident that results reported in machine learning are highly susceptible to overfitting and should be considered with a grain of salt. Unless standard datasets of an acceptable size exist such as ImageNet~\cite{imagenet} in computer vision, methodology rather than results should be the primary concern. Seemingly insignificant details such as stratifying on a per-person or a per-sample level can be the difference between an AUC of 98 and 45 per cent~\cite{mpowerneto2017analysis}. 
 
+Cross validation results should not be interpreted as real world generalisability --- especially in small datasets. It is highly likely that more accurate models can be constructed in the future when more training data is available. Furthermore, there is no statistical technique which can reliably account for inherent bias in the dataset or flawed methodology which leads to overfitting.
 
 %Dieterrich recommends two fold, understimate variance ~\cite{bestcvapproximate}
 %\cite{nounbiasedkfoldcv}
@@ -1024,9 +1056,9 @@ The dataset was released late 2015 and has been used in a few studies. The most 
 
 At the time of writing, there were 65,000 speech samples from 6,000 participants in the mPower dataset (a majority of these from a small number of users). We evaluated approximately 2,000 randomly selected samples for performing the task correctly and having acceptable levels of background noise, rejecting around 25\%. Simple metrics such as variance in short time energy and noise prior to recording were used in hand-crafted rules to rank and filter the speech samples. After filtering, approximately 4,100 users remained, 900 with PD. The highest ranked speech sample was selected for each of the users\footnote{Optimally, all samples should be used to improve robustness, however available processing power was limited. One issue is the varying number of recordings between participants which can be resolved with a participant stratified k-fold CV implementation.}. Upon reflection, a valid speech recording should have been sampled from each participant to avoid the bias of PD participants generally having more recordings. Machine learning could optimize this process, however it was avoided due to the possibility of introducing bias to the data. 
 
-The \emph{walking} task involves the participant putting their phone in the pocket or bag, walking 20 steps then standing still for 30 seconds. During this task, accelerometer and gyroscope data is continually collected at 95$\pm$7 Hz. Although in-pocket IMU gait estimation exists~\cite{diaz2014step}, mPower does not record the parameters necessary (such as leg length) to estimate parameters other than cadence. The results of Esser~et~al.~(2011)~\cite{esser2011assessment} suggests that although PD patients on average have a longer cadence, the separation is not clean.
+The \emph{walking} task involves the participant putting their phone in the pocket or bag, walking 20 steps then standing still (resting) for 30 seconds. During this task, accelerometer and gyroscope data is continually collected at $95\pm7$ Hz. Although in-pocket IMU gait estimation exists~\cite{diaz2014step}, mPower does not record the parameters necessary (such as leg length) to estimate parameters other than cadence. The results of Esser~et~al.~(2011)~\cite{esser2011assessment} suggests that although PD patients on average have a longer cadence, the separation is not clean.
 
-The standing task is therefore more interesting in the context of machine learning. As the device is in the user's pocket or bag, data from the gyroscope would be minimally informative. Using gyroscope data, a rotation matrix was calculated to align the accelerometer's $z$ axis to the direction of gravity. Another rotation was applied to align the average direction of motion with the $x$ axis.
+The resting task is therefore more interesting in the context of machine learning. As the device is in the user's pocket or bag, data from the gyroscope would be minimally informative. Using gyroscope data, a rotation matrix was calculated to align the accelerometer's $z$ axis to the direction of gravity. Another rotation was applied to align the average direction of motion with the $x$ axis.
 
 \begin{figure}[h]
 \label{mpowerwalking}
@@ -1044,7 +1076,7 @@ Unlike similar experiments carried out in force plates, the subject was not inst
 
 A 16 second extract of rest data between 4s and 20s and the first 10 seconds of the walking task were used for each subject for feature engineering. The choice of these values were solely informed by the nature of the dataset, with the first four seconds of rest data containing significant movement and most recordings of variable length.
 
-Samples which are too short, have too much variability in recording rate or are `corrupted' were removed from the set. Approximately 2300 participants remained with both a valid speech and movement recording, 600 with PD (25.7\%). The most recent valid walk was selected for each participant and features specified in section~\ref{featuresummary} calculated using the tools and techniques described in section~\ref{implementationfeature}.  Feature engineering was done on both the original and filtered data for the resting task and only unfiltered for the walking task. 
+Samples which are too short, have too much variability in recording rate or are `corrupted' were removed from the set. Approximately 2300 participants remained with both a valid speech and movement recording, 600 with PD (25.7\%). The most recent valid walk was selected for each participant and features specified in section~\ref{featuresummary} calculated using the tools and techniques described in section~\ref{implementationfeature}.  Feature engineering was done on both the original and filtered data for the resting task and only unfiltered for the walking task. Features were computed over the $(x,y)$ and $(x,y,z)$ dimensions for rest and walking recording respectively.
 
 
 \section{Replicating Past Work}
@@ -1054,7 +1086,7 @@ The two key results we will be replicating on the mPower dataset are the 98.6\% 
 \label{phonationpast}
 Tsanas et~al.~(2012)~\cite{tsanas2012novel} uses the National Center for Voice and Speech (NCVS) dataset which consists of 33 people with PD and 10 healthy controls. 263 phonations in total were recorded in controlled circumstances using a professional grade microphone. HNR, GQ, RPDE, DFA, PPE, GNE, VFER, EMD-ER, MFCC and variants of shimmer and jitter were calculated, resulting in a set of 132 features (See \ref{featuresummary}).
 
-Features were calculated on the 263 phonations and 10 fold, 100 repetition cross validation used for evaluation of models. It is unclear whether Tsanas~et~al. has split the phonations on a per-subject scale. Failure to do so presents a high risk of overfitting as two phonations from the same subject may appear in both the training and validation set. Random Forests and SVMs were evaluated with hyperparameters selected by gridsearch~\cite{gridsearch}. As data is limited, feature selection with four common algorithms was performed to improve results. This results in the 10 feature subsets depicted in figure \ref{tsanasresults}.
+Features were calculated on the 263 phonations and 100 times repeated 10 fold cross validation used for evaluation of models. It is unclear whether Tsanas~et~al. has split the phonations on a per-subject scale. Failure to do so presents a high risk of overfitting as two phonations from the same subject may appear in both the training and validation set. Random Forests and SVMs were evaluated with hyperparameters selected by gridsearch~\cite{gridsearch}. As data is limited, feature selection with four common algorithms was performed to improve results. This results in the 10 feature subsets depicted in figure \ref{tsanasresults}.
 
 \begin{highlight}
 It is unclear whether Tsanas has split the phonations on a per-subject scale and failure to do so presents high risk of overfitting.
@@ -1066,7 +1098,7 @@ It is unclear whether Tsanas has split the phonations on a per-subject scale and
 \centering\includegraphics[width=0.75\linewidth]{tsanas.png}
 \end{figure}
  
-We replicated Tsanas (2012) on the 4,100 phonation samples selected after preprocessing mPower (see \ref{mpowerprocess}). Features were extracted from a 2 second window was of each audio sample which mirrors the phonation length used in fundamental frequency estimation datasets~\cite{tsanas2014robust}. Gridsearch was performed to find (near) optimal SVM hyperparameters. The best performing 10 feature subset in Tsanas et~al. (ReliefF) is initially evaluated.
+We replicated Tsanas (2012) on the 4,100 phonation samples selected after preprocessing mPower (see section \ref{mpowerprocess}). Features were extracted from a 2 second window was of each audio sample which mirrors the phonation length used in fundamental frequency estimation datasets~\cite{tsanas2014robust}. Gridsearch was performed to find (near) optimal SVM hyperparameters. The best performing 10 feature subset in Tsanas et~al. (ReliefF) is initially evaluated.
 
 \begin{highlight}[Grid search]
 	Unless otherwise specified, grid search over common parameter values were performed for all SVMs trained in this thesis. The RBF kernel performed best in all training instances and probabilistic outputs~\cite{svmprobabilistic} used for a more accurate AUC score.
@@ -1075,7 +1107,7 @@ We replicated Tsanas (2012) on the 4,100 phonation samples selected after prepro
 Note that the NCVS data used in Tsanas et~al. is at a ratio of 33PD:10C whereas the mPower data is at a ratio of approximately 9PD:32C. We stratify the data by random sampling to simulate NCVS split. On both the NCVS and mPower ratio, the SVM classifier exhibits the false positive paradox, where the most common class is predicted for all inputs. The results are summarised in table \ref{tsanasfsresultsrelieff}. 
 
 \begin{table}[h]
-\caption{Cross validation results of a SVM using Tsanas' 10 feature ReliefF subset (fig \ref{tsanasresults}). Presented as mean $\pm$ stdev.}
+\caption{Cross validation results of a SVM using Tsanas' 10 feature ReliefF subset (fig \ref{tsanasresults}). Presented as mean $\pm$ standard deviation.}
 \label{tsanasfsresultsrelieff}
 \centering
 \begin{tabular}[t]{c c c}
@@ -1086,8 +1118,8 @@ Note that the NCVS data used in Tsanas et~al. is at a ratio of 33PD:10C whereas 
 	\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}True PD} & \multicolumn{1}{c|}{$28.2\pm2.6$\%}                          & \multicolumn{1}{c|}{$21.8\pm2.6$\%}                         \\ \hline
 	\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}True C}  & \multicolumn{1}{c|}{$13.5\pm2.4$\%}                          & \multicolumn{1}{c|}{$36.5\pm2.4$\%}                         \\ \hline
 	\multicolumn{2}{l}{Accuracy}                                                                                 & $64.7\pm3.0$\%                                              \\
-	\multicolumn{2}{l}{Sensitivity (TP)}                                                                         & $56.4\pm4.7$\%                                              \\
-	\multicolumn{2}{l}{Specificity (TN)}                                                                         & $73.0\pm4.4$\%                                               \\
+	\multicolumn{2}{l}{Sensitivity}                                                                         & $56.4\pm4.7$\%                                              \\
+	\multicolumn{2}{l}{Specificity}                                                                         & $73.0\pm4.4$\%                                               \\
 	\multicolumn{2}{l}{AUC}                                                                         & 69.4$\pm$4.8\%                                             
 \end{tabular}
 & &
@@ -1097,15 +1129,15 @@ Note that the NCVS data used in Tsanas et~al. is at a ratio of 33PD:10C whereas 
 \multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}True C} &
 \multicolumn{1}{c|}{$0\pm0$\%}                          & \multicolumn{1}{c|}{$21.8\pm0$\%}                         \\ \hline
 \multicolumn{2}{l}{Accuracy}                                                                                 & $79.2\pm0$\%                                              \\
-\multicolumn{2}{l}{Sensitivity (TP)}                                                                         & $0\pm0$\%                                              \\
-\multicolumn{2}{l}{Specificity (TN)}                                                                         & $100\pm0$\%                                              \\
+\multicolumn{2}{l}{Sensitivity}                                                                         & $0\pm0$\%                                              \\
+\multicolumn{2}{l}{Specificity}                                                                         & $100\pm0$\%                                              \\
 \multicolumn{2}{l}{AUC}                                                                         & 72.1$\pm$4.8\%                                              
 \end{tabular}
 \end{tabular}
 \end{table}
 The results using the mPower dataset are evidently poorer than the reported 98.6\% accuracy. The ReliefF~\cite{relieff} feature subset consists primarily of MFCC coefficients. MFCC is a very powerful feature and is often the primary feature in speech recognition systems. The high and low MFCC coefficients are known to be rarely informative in speech recognition~\cite{mfcchistory} and the ReliefF feature set contains both the 1\textsuperscript{st} and 11\textsuperscript{th} coefficients. The result suggest that these coefficients may be informative when used to detect abnormal speech and perhaps more MFCC coefficients should be used~\cite{mfcc}. MFCC are known for being very sensitive to noise and frequency~\cite{mfccrobust,mfccrobust2} and the disparity may be explained by Tsanas~et~al. using high quality controlled recordings whereas mPower audio is often exhibits significant environmental noise.
 
-Another possibility is overfitting. It is ambiguous if Tsanas~et~al. divided phonations of a per-subject level in cross validation. Naive CV may result in  phonations from same individuals appearing in both the training and validation sets. As MFCCs are sensitive to minor changes in frequency~\cite{mfccrobust2}, phonations from different individuals are likely easily separable in the MFCC space. This is also supported by the disparity of results between the Random Forest and SVM classifiers on all features (90.2\% vs 97.7\%) as the hyperparameters of the RF classifier were not tuned by cross validation and RF is generally more robust against overfitting. 
+Another possibility is overfitting. It is ambiguous if Tsanas~et~al. divided phonations of a per-subject level in cross validation. Na\"{i}ve CV may result in  phonations from same individuals appearing in both the training and validation sets. As MFCCs are sensitive to minor changes in frequency~\cite{mfccrobust2}, phonations from different individuals are likely easily separable in the MFCC space. This is also supported by the disparity of results between the Random Forest and SVM classifiers on all features (90.2\% vs 97.7\%) as the hyperparameters of the RF classifier were not tuned by cross validation and RF is generally more robust against overfitting. 
 
 In our testing, using all measures presented in Tsanas~et~al. results in improvements over any of the 10 feature subsets presented in figure \ref{tsanasresults}.
 
@@ -1121,9 +1153,9 @@ In our testing, using all measures presented in Tsanas~et~al. results in improve
 			\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}True PD} & \multicolumn{1}{c|}{$31.5\pm2.4$\%}                          & \multicolumn{1}{c|}{$18.5\pm2.4$\%}                         \\ \hline
 			\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}True C}  & \multicolumn{1}{c|}{$12.2\pm2.1$\%}                          & \multicolumn{1}{c|}{$37.8\pm2.1$\%}                         \\ \hline
 			\multicolumn{2}{l}{Accuracy}                                                                                 & 69.3$\pm$3.3\%                                              \\
-			\multicolumn{2}{l}{Sensitivity (TP)}                                                                         & 62.9$\pm$4.8\%                                              \\
-			\multicolumn{2}{l}{Specificity (TN)}                                                                         & 75.6$\pm$4.2\%                                              \\
-			\multicolumn{2}{l}{AUC (TN)}                                                                         & 75.7$\pm$3.4\%                                                     
+			\multicolumn{2}{l}{Sensitivity}                                                                         & 62.9$\pm$4.8\%                                              \\
+			\multicolumn{2}{l}{Specificity}                                                                         & 75.6$\pm$4.2\%                                              \\
+			\multicolumn{2}{l}{AUC}                                                                         & 75.7$\pm$3.4\%                                                     
 		\end{tabular}
 		& &
 		\begin{tabular}{lcl}\hhline{~|*{2}{-}}
@@ -1131,9 +1163,9 @@ In our testing, using all measures presented in Tsanas~et~al. results in improve
 			\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}True PD} & \multicolumn{1}{c|}{$3.9\pm0.8$\%}                          & \multicolumn{1}{c|}{$16.9\pm0.8$\%}                         \\ \hline
 			\multicolumn{1}{|l|}{\cellcolor[HTML]{EFEFEF}True C}  & \multicolumn{1}{c|}{$1.9\pm0.6$\%}                          & \multicolumn{1}{c|}{$77.3\pm0.6$\%}                         \\ \hline
 			\multicolumn{2}{l}{Accuracy}                                                                                 & $81.2\pm1.1$\%                                              \\
-			\multicolumn{2}{l}{Sensitivity (TP)}                                                                         & $18.7\pm4.2$\%                                              \\
-			\multicolumn{2}{l}{Specificity (TN)}                                                                         & $97.6\pm0.9$\%                                              \\
-			\multicolumn{2}{l}{AUC (TN)}                                                                         & 76.7$\pm$2.9\%                                                     
+			\multicolumn{2}{l}{Sensitivity}                                                                         & $18.7\pm4.2$\%                                              \\
+			\multicolumn{2}{l}{Specificity}                                                                         & $97.6\pm0.9$\%                                              \\
+			\multicolumn{2}{l}{AUC}                                                                         & 76.7$\pm$2.9\%                                                     
 		\end{tabular}
 	\end{tabular}
 \end{table}
@@ -1163,9 +1195,9 @@ We evaluate both the features in Arora and the DREAM challenge baseline on the m
 			\\
 			
 			\multicolumn{2}{l}{Accuracy}                                                                                 & 62.5$\pm$4.2\%                                              \\
-			\multicolumn{2}{l}{Sensitivity (TP)}                                                                         & 60.0$\pm$6.4\%                                              \\
-			\multicolumn{2}{l}{Specificity (TN)}                                                                         & 65.0$\pm$5.9\%                                              \\
-			\multicolumn{2}{l}{AUC (TN)}                                                                         & 72.1$\pm$4.8\%                                                     
+			\multicolumn{2}{l}{Sensitivity }                                                                         & 60.0$\pm$6.4\%                                              \\
+			\multicolumn{2}{l}{Specificity }                                                                         & 65.0$\pm$5.9\%                                              \\
+			\multicolumn{2}{l}{AUC }                                                                         & 72.1$\pm$4.8\%                                                     
 		\end{tabular}
 		& &
 		\begin{tabular}{lcl}\hhline{~|*{2}{-}}
@@ -1176,7 +1208,7 @@ We evaluate both the features in Arora and the DREAM challenge baseline on the m
 			\\
 			\multicolumn{2}{l}{Accuracy}                                                                                 & $63.8\pm3.9$\%                                              \\
 			\multicolumn{2}{l}{Sensitivity (TP)}                                                                         & $62.6\pm5.4$\%                                              \\
-			\multicolumn{2}{l}{Specificity (TN)}                                                                         & $65.0\pm5.7$\%                                              \\
+			\multicolumn{2}{l}{Specificity }                                                                         & $65.0\pm5.7$\%                                              \\
 			\multicolumn{2}{l}{AUC (TN)}                                                                         & 72.1$\pm$4.8\%                                                     
 		\end{tabular}
 	\end{tabular}
@@ -1198,6 +1230,7 @@ A wider range of non-linear signal processing has been applied on EEG signals. T
 
 We believe these non-linear features are more robust measures of Parkinsonism symptoms. These features do not directly relate to the information captured by human senses and may be applicable in detecting symptoms unnoticeable by an expert. We repeated the previous accelerometer and speech experiments on the mPower dataset using the novel feature introduced in section \ref{eegsigproc}, with the results recorded in table \ref{resultsdynamical}.
 
+
 \begin{table}[h]
 	\caption{Cross validation results for a SVM when including the non-linear features. Adding the dynamical features improves model performance on the accelerometer and phonation data with a Bayes factor of X and Y respectively.}
 	\label{resultsdynamical}
@@ -1207,10 +1240,10 @@ We believe these non-linear features are more robust measures of Parkinsonism sy
 		{\specialcellbold{Phonation (50:50 split)}} \\[10pt]
 		\begin{tabular}{@{}rcccc@{}}
 			&  DREAM & \begin{tabular}[c]{@{}c@{}}Dynamical \\ Only\end{tabular} & Both \\ \midrule
-			Accuracy (\%)    &      $63.8\pm3.9$ &                       $66.0\pm4.0$                                  &        $68.8\pm3.7$\\ \midrule
-			Sensitivity (\%) &      $62.6\pm5.4$ &                       $61.8\pm5.7$                                  &     $67.2\pm5.3$\\ \midrule
-			Specificity (\%) &      $65.0\pm5.7$ &                       $70.2\pm1.9$                                  &     $70.5\pm5.4$\\ \midrule
-			AUC (\%)         &      $72.1\pm4.8$ &                       $71.3\pm4.5$                                  &     $74.8\pm4.1$\\ \midrule
+			Accuracy [\%]    &      $63.8\pm3.9$ &                       $66.0\pm4.0$                                  &        $68.8\pm3.7$\\ \midrule
+			Sensitivity [\%] &      $62.6\pm5.4$ &                       $61.8\pm5.7$                                  &     $67.2\pm5.3$\\ \midrule
+			Specificity [\%] &      $65.0\pm5.7$ &                       $70.2\pm1.9$                                  &     $70.5\pm5.4$\\ \midrule
+			AUC [\%]         &      $72.1\pm4.8$ &                       $71.3\pm4.5$                                  &     $74.8\pm4.1$\\ \midrule
 		\end{tabular}
 		&
 		\begin{tabular}{@{}cccc@{}}
@@ -1226,13 +1259,13 @@ We believe these non-linear features are more robust measures of Parkinsonism sy
 The non-linear features are evidently stronger differentiators of PD than the features existing in current literature, but not sufficiently to robustly classify PD and control. Surprisingly, using dynamical features alone performed better than the DREAM baseline feature set with a BF of X.XXX. Dynamical features alone did not perform as well as Tsanas' on the speech data, however combining both improves performance greatly.
 
 \section{Visualising The Features}
-The models replicated in the previous sections clearly perform below the reported level in prior works. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in speech and gait. No individual feature was able to achieve greater than 60\% classification accuracy on an equal split of the data. 
+The models replicated in the previous sections clearly perform below the reported level in prior works. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in speech and gait. No individual feature was able to achieve greater than 60\% classification accuracy on an equal split of the data. Note that only a fraction of the data is visualised to improve clarity.
 
 \subsection{Speech}
 A large number of dysphonia related measures rely on precise measurements of the length of each glottal cycle. The SWIPE~\cite{camacho2007swipe} fundamental frequency estimation algorithm was primarily used to obtain these measurements. Most $f_0$ algorithms are sensitive to changes and noise in the signal and are not yet suitable to handle the noisy mPower data gathered in real-world conditions. Issues with $f_0$ extraction would invalidate the measurements from $f_0$ based signal processing. A simple investigation shows that the standard deviation of $f_0$ exceeds 10Hz for 347 subjects, a value that is almost certainly indicates a failure of the algorithm or a poorly executed recording.
 
 \begin{figure}[h]
-	\caption{Standard Deviation of the fundamental frequency during vowel phonation. Females and older individuals exhibit notably higher variations in $f_0$. People with PD seem to exhibit an increased variation in $f_0$ compared to age matched control subjects, however the distinction is less clear.}
+	\caption{Standard Deviation of the fundamental frequency during phonation. Females and older individuals exhibit notably higher variations in $f_0$, whereas the distinction between age matched PD and control participants is less clear.}
 	\label{stdevf0}
 	\centering\includegraphics[width=0.75\linewidth]{f0stdev.png}
 \end{figure}
@@ -1241,9 +1274,9 @@ Little~et~al.~\cite{splittlenonlinear2007,splittledysphonia2009} introduces thre
 
 
 \begin{figure}[h]
-	\caption{PD subjects exhibit a lower DFA and RPDE, and a higher PPE. However these features are hardly separable. See figure \ref{stdevf0} for legend.}
+	\caption{PD subjects exhibit a lower DFA and RPDE, and a higher PPE. However these features are hardly separable. A combination of DFA and RPDE greatly enhances the separability of female participants with PD. See Figure \ref{stdevf0} for legend.}
 	\label{dfapperpde}
-	\centering\centerline{\includegraphics[width=1.1\linewidth]{dfapperpde.png}}
+	\centering\centerline{\includegraphics[width=0.8\linewidth]{dfapperpde.png}}
 \end{figure}
 
 
@@ -1282,19 +1315,19 @@ Many features are very sensitive to minor fluctuations in the signal and their v
 
 As no individual feature can achieve good classification accuracy, the machine learning model must combine multiple features to reach a reasonable level of performance. Traditional machine learning models are best suited to modelling features which are independent and often perform worse when two features are correlated despite there being additional information. Feature selection~\cite{skfeature} can be used in traditional machine learning models to reduce the impact of this however information is definitely lost. It is possible that non-linear models such as neural network may be able to utilise more of this information, however a lot of training data will be required.
 
-\section{Data Boosting and Feature Selection}
+\section{Data Augmentation and Feature Selection}
 
-Two methods of improving results will be investigated: data boosting for the speech data and feature selection for the accelerometer data. Optimally, feature selection and data boosting would be applied for both datasets, however time and computational resources were limited.
+Two methods of improving results will be investigated: data augmentation for the speech data and feature selection for the accelerometer data. Optimally, feature selection and data augmentation would be applied for both datasets, however time and computational resources were limited.
 
-\subsection{Data Boosting for Phonation}
+\subsection{Data Augmentation for Phonation}
 An quick examination of the features used for the accelerometer data showed that many were unstable, with around 10\% of them varying by at least $0.5\sigma$ (stdev) when computed over the same audio signal offset by 1 second. It was also evident that a number of the features were not length independent, however resolving the time-invariance of features will not explored in this thesis.
 
 We extracted a 1.5 second sample of the phonation recording starting at the 2,3,4 and 5 second mark. As recommended in section~\ref{visfeatrecommendations}, a more robust method would be to extract more overlapped segments and use a LSTM/CNN neural network to take advantage of the additional time series information. Simple transforms such as pitch, equalisation and noise could also be applied, however computational resources were too limited to investigate these options. 
 
 
-We investigate three simple techniques of utilising the extra information:
+We investigate three techniques of utilising the extra information:
 \begin{enumerate}
-	\item Boosting: Using the additional samples as extra cross validation data
+	\item Augment: Using the additional samples as extra cross validation data
 	\item Merging: Combining the 4 $\mathbb{R}^d$ length vector of features into a $\mathbb{R}^{4d}$ vector of features. This representation is likely unsuitable for traditional machine learning models.
 	\item Meanify: Taking the mean of the features computed over the 4 samples. Note that this differs from `collapsing' by median in Neto et~al.~\cite{mpowerneto2017analysis} as the number of samples is fixed so bias from PD participants performing more recordings is avoided. 
 \end{enumerate}
@@ -1304,30 +1337,32 @@ These
 
 
 \begin{table}[h]
-	\caption{Cross validation results on full vocal feature set using a SVM with various data boosting techniques.}
+	\caption{Cross validation results on full vocal feature set using a SVM on a 50PD/50C split of the data with various data augmentation techniques.}
 	\label{speechboost}
 	\centering
 	\begin{tabular}{@{}rcccc@{}}
-		&  Original & Boosting & Merging & Meanify \\ \midrule
-		Accuracy (\%)    &      $72.2\pm3.1$ &                       $76.9\pm1.0$                                  &     		$70.3\pm2.8$
+		&  Original & Augmented & Merged & Mean \\ \midrule
+		Accuracy [\%]    &      $72.2\pm3.1$ &                       $76.9\pm1.0$                                  &     		$70.3\pm2.8$
 		&						$73.3\pm3.0$\\ \midrule
-		Sensitivity (\%) &       $69.7\pm4.3$ &                       $73.5\pm1.5$                                  &    		$69.6\pm4.7$
+		Sensitivity [\%] &       $69.7\pm4.3$ &                       $73.5\pm1.5$                                  &    		$69.6\pm4.7$
 		&					    $69.9\pm4.9$\\ \midrule
-		Specificity (\%) &      $74.8\pm4.7$ &                       $80.3\pm1.4$                                  &    		$71.1\pm4.5$
+		Specificity [\%] &      $74.8\pm4.7$ &                       $80.3\pm1.4$                                  &    		$71.1\pm4.5$
 		&					    $76.9\pm4.3$\\ \midrule
-		AUC (\%)         &      $78.3\pm2.9$ &                       $84.0\pm1.1$                                  &     		$75.9\pm0.3$
+		AUC [\%]         &      $78.3\pm2.9$ &                       $84.0\pm1.1$                                  &     		$75.9\pm0.3$
 		&				 		$80.4\pm2.7$\\ \midrule
 	\end{tabular}
 \end{table}
 
-Boosting and Mean exceed the performance of the original feature set at a Bayes factor of X.X and Y.Y respectively. As expected, merging does not perform well with a SVM and shows the applicability of feature selection --- even in models as robust as SVMs. With additional segments, it would be interesting to investigate the applicability of a recurrent or convolutional neural network in modelling and utilising the additional temporal and variance information.
+Augmentation and mean exceed the performance of the original feature set at a Bayes factor of X.X and Y.Y respectively. As expected, merging does not perform well with a SVM and shows the applicability of feature selection --- even in models as robust as SVMs. With additional segments, it would be interesting to investigate the applicability of a recurrent or convolutional neural network in modelling and utilising the additional temporal and variance information.
 
-These results suggest that performance could be significantly improved with higher quality or additional data. Data boosting strategies provide a viable way to 
+Data augmentation strategies evidently provide a viable solution to overcoming the low data quality in the mPower dataset. The significant improvement in results suggest that 
+
+These results suggest that performance could be significantly improved with higher quality or additional data. 
 
 
 
 \subsection{Feature Selection for Accelerometer}
-There are 396 numerical features used to classify accelerometer data and many are likely to be redundant. Most signal processing measures are only well defined for one dimensional signals and the accelerometer provides three ($x$, $y$, $z$) dimensions of data. Although measures over all dimensions will provide additional information, it is very difficult for most machine learning models to fully utilise this information. It is likely that the additional variability in the axis and the correlated nature of the data will reduce the performance of most classifiers. Additionally, redundant measures such as the short time power bands over the highpassed signals were removed, resulting in 204 measures. The performance of using the norm of singular dimensional features over the axis is investigated in table \ref{accelerometernorm}.
+There are 431 numerical features used to classify accelerometer data and many are likely to be redundant. Most signal processing measures are only well defined for one dimensional signals and the accelerometer provides three ($x$, $y$, $z$) dimensions of data. Although measures over all dimensions will provide additional information, it is very difficult for most machine learning models to utilise this information. It is likely that the additional variability in the axis and the correlated nature of the data will reduce the performance of most classifiers. The performance of using the norm of singular dimensional features over the axis is investigated in table \ref{accelerometernorm}.
 
 \begin{table}[h]
 	\caption{Results of taking the norm for features extracted over $(x,y,z)$ dimensions with a SVM. The normed features are indecisively worse than the full feature set (BF=).}
@@ -1335,21 +1370,21 @@ There are 396 numerical features used to classify accelerometer data and many ar
 	\centering
 	\begin{tabular}{@{}rcccc@{}}
 		&  DREAM & Dynamical Only & Both (full) & Both (normed) \\ \midrule
-		Accuracy (\%)    &      $63.8\pm3.9$ &                       $66.0\pm4.0$                                  &     $68.8\pm3.7$
+		Accuracy [\%]    &      $63.8\pm3.9$ &                       $66.0\pm4.0$                                  &     $68.8\pm3.7$
 		&						$67.7\pm4.0$\\ \midrule
-		Sensitivity (\%) &      $62.6\pm5.4$ &                       $61.8\pm5.7$                                  &     $67.2\pm5.3$
+		Sensitivity [\%] &      $62.6\pm5.4$ &                       $61.8\pm5.7$                                  &     $67.2\pm5.3$
 		&					    $65.4\pm6.1$\\ \midrule
-		Specificity (\%) &      $65.0\pm5.7$ &                       $70.2\pm1.9$                                  &     $70.5\pm5.4$
+		Specificity [\%] &      $65.0\pm5.7$ &                       $70.2\pm1.9$                                  &     $70.5\pm5.4$
 		&					    $70.0\pm5.2$\\ \midrule
-		AUC (\%)         &      $72.1\pm4.8$ &                       $71.3\pm4.5$                                  &     $74.8\pm4.1$
+		AUC [\%]         &      $72.1\pm4.8$ &                       $71.3\pm4.5$                                  &     $74.8\pm4.1$
 		&				 		$74.0\pm4.0$\\ \midrule
 	\end{tabular}
 \end{table}
 
-Unexpectedly, the normed feature set performs on par or worse than the full feature set. This implies that there is additional information captured and usable by the 
+Unexpectedly, the normed feature set performs on par or worse than the full feature set. This implies that a SVM classifier is able to take advantage of the additional data provided by the individual dimensions. 
 
 
-Features were extracted over the raw and highpassed resting accelerometer signals and likely only one of them will provide useful information. Many measures such as the Higuchi and Petrosian fractal dimension are also likely correlated, and performance can be improved in some models by removing these redundant features. We evaluated a number of state of the art feature selection methods (ref \ref{featureselection}) and with a RBF SVM and sparse Gaussian process (GP)\footnote{Kernel based models are computationally infeasible for large datasets. \emph{Sparse} methods involve learning over a representative set of the full data~\cite{sparsematrix}. SVMs are inherently sparse, and sparse GPs~\cite{sparsegp} are an approximation of a full GP.} optimized over the 204 normed feature set (hyperparameter search for each feature subset was computationally prohibitive and the parameters of the normed model would be a good midway for small and large feature sets).
+Features were extracted over the raw and high-passed resting signal and likely only one of them will provide useful information. Many measures such as the Higuchi and Petrosian fractal dimension are also likely correlated, and performance can be improved in some models by removing these redundant features. We evaluated a number of state of the art feature selection methods (ref \ref{featureselection}) and with a RBF SVM and sparse Gaussian process (GP)\footnote{Kernel based models are computationally infeasible for large datasets. \emph{Sparse} methods involve learning over a representative set of the full data~\cite{sparsematrix}. SVMs are inherently sparse, and sparse GPs~\cite{sparsegp} are an approximation of a full GP.} optimized over the 204 normed feature set (hyperparameter search for each feature subset was computationally prohibitive and the parameters of the normed model would be a good midway for small and large feature sets).
 
 
 \begin{figure}[h]
@@ -1358,27 +1393,41 @@ Features were extracted over the raw and highpassed resting accelerometer signal
 	\caption{Most notable 3 feature selection techniques evaluated with pre-optimized SVM and sparse GP on the full accelerometer feature set. Information theoretic filters generally performed best along with $l_{2,1}$ norm minimisation based RFS.}
 \end{figure}
 
+The best feature subsets all exhibited a correlation between performance and the number of features used. This is likely due to sparse GPs and SVMs being reasonably robust to redundant and correlated features (unlike na\"{i}ve Bayes) and the natural uncertainty of the features as predictors. With most information theoretic based filter feature selection techniques, there are `spikes' in classification accuracy suggesting that there exists features which appear uninformative but are informative when combined with other features. 
+
+
+The performance of the best 150-350 feature subsets appear to exceed the performance over all features, despite hyperparameter search not being performed over the SVM parameters. This could also be an artefact of using 3-fold cross validation rather than 10-fold to quickly evaluate feature subsets. We evaluated the final MIFS 350 feature subset with our standard methodology, finding no significant performance improvement over the full feature set. This reinforces the need for robust model evaluation before accepting a result.
+
+
 An interesting observation is that the GP and SVM differ in performance on the same feature subsets. Although ICAP performed well with a SVM, CIFE was more suitable for the GP. Similarly, the small ~50 feature subsets selected by RFS performed exceptionally with the GP whereas they were average when used by the SVM. This suggests that each model uses a different set of information to make classifications and performance could potentially improve with a more complex model. 
 
-The best feature subsets all exhibited a correlation between performance and the number of features used. This is likely due to sparse GPs and SVMs being reasonably robust to redundant and correlated features (unlike naive Bayes) and the features being naturally uncertain. There are evidently some  `spikes' in classification accuracy suggesting that features which appear uninformative when used on their own are informative when combined with other features. 
+We 
 
-The performance of the best 150-350 feature subsets appear to exceed the performance over all features, despite hyperparameter search not being performed over the SVM parameters. This could also be an artefact of using 3-fold cross validation rather than 10-fold. Inspired by the best feature subsets, we removed 
+Random Forsts 
 
-It is likely that there are non-linear interactions between the features which could be better modelled by neural networks. However, neural networks require a large amount of training data to accurately model these non-linearities. The applicability of neural networks to classification will be explored in section \ref{automaticfeatureengineering}.
+PCA will 
+
+%It is likely that there are non-linear interactions between the features which could be better modelled by neural networks. However, neural networks require a large amount of training data to accurately model these non-linearities. The applicability of neural networks to classification will be explored in Section \ref{automaticfeatureengineering}.
 
 
 \section{Automatic Feature Engineering: Neural Networks}
 \label{automaticfeatureengineering}
 A notable weakness of feature engineering is that information is lost in the process as it is difficult for features to perfectly describe a signal. As evident in computer vision and EEG signal processing~\cite{bashivan2015learning}, CNN and LSTM based neural network architectures present a viable solution, automatically `learning' the best features from a more raw representation of the data. 
 
-The biggest tradeoff in using automatic feature engineering is that understanding the features engineered is a bigger investment than developing the model. A great deal of trust must be placed on the model and that it has not conveniently overfit on the dataset. However, diagnosing PD is a difficult enough task such that many features are already difficult to understand. As explored in section \ref{visfeatrecommendations}, no individual feature is a good quantifier of PD and an similarly difficult to interpret model must be used to fit these uncertain features.
+The biggest tradeoff in using automatic feature engineering is that understanding the features engineered is a bigger investment than developing the model. A great deal of trust must be placed on the model and that it has not conveniently overfit on the dataset. However, diagnosing PD is a difficult enough task such that many features are already difficult to understand. As explored in Section \ref{visfeatrecommendations}, no individual feature is a good quantifier of PD and a similarly difficult to interpret model must be used to fit these uncertain features.
 
-\subsection{Speech}
-Two network architectures are proposed to extract features from speech data inspired by the current state of the art in speech recognition. From section \ref{generalsignalproc} recall that audio signals are one dimensional vectors representing the sound wave. 
+We have decided to focus on the problem of automatic feature engineering for accelerometer signals. This was motivated by two factors: primarily, architectures based on accelerometer data are far more compared to the abundance of speech recognition models~\cite{convlstm, wavenet}. Neural networks have only been recently applied to accelerometer signals in the field of human activity recognition~\cite{deepconvlstm}.  
 
-Although optimally, machine learning would be able to extract information from this raw representation, some transforms can guide machine learning models to the goal. Traditional speech recognition systems were based on Hidden Markov Models which performed best when paired with the information dense MFCC~\cite{hinton2012speech}. MFCC and other transforms are lossy and recent research has shown that deep neural networks are better equipped to directly handle short time spectral information~\cite{microsoftspeech}. 
+Secondly, training deep neural networks is fraught with the possibility of overfitting --- especially as multiple epochs of gradient descent is used in training, effectively resulting in different models for the data at each epoch. The ten fold, ten repetition cross validation performed on previous models would not be as feasible given the available computational resources (no GPU). Conveniently, the PD Digital Biomarker DREAM Challenge~\cite{dreamchallengeinfo} coincided with the timeline for this thesis. The challenge involves predicting PD based on the mPower motion data and is evaluated on a previously unreleased set of the data --- perfect for unbiased evaluation!
 
-Recently, novel architectures have been proposed to work with the original audio signal. \emph{Wavenet}~\cite{wavenet} is one of the most significant developments, proposed as a method of generating speech. Wavenet stacks \textit{dilated} convolutional layers to create a large `receptive field' of data with few input layers. Residual and skip connections were used to enable training deeper networks. Wavenet inspired our first model.
+We propose two neural network architectures to extract features from the accelerometer data, inspired by the current state of the art in speech recognition and computer vision. 
+
+\subsection{Background/Inspiration}
+Although optimally, machine learning would be able to extract information from this raw representation, transformations of the data can guide machine learning models to the goal. From section \ref{generalsignalproc} recall that audio signals are one dimensional vectors representing the amplitude of the sound wave over time, generally sampled at around 44,100Hz. 
+
+Traditional speech recognition systems were based on Hidden Markov Models which performed best when paired with the information dense MFCC~\cite{hinton2012speech}. MFCC and other transforms can result in the loss of valuable information, thus it is preferable to work with either the raw frequency or spectral information. Recent research has shown that deep neural networks are better equipped to handle information coming directly from a short time Fourier transform~\cite{microsoftspeech}. 
+
+Recently, novel architectures have been proposed to work with the unprocessed (raw) signal. \emph{Wavenet}~\cite{wavenet} is one of the most significant developments, proposed as a method of generating speech. Wavenet stacks \textit{dilated} convolutional layers to create a large `receptive field' of data with few input layers. Residual and skip connections were used to enable training deeper networks. Wavenet inspired our first model.
 
 
 \begin{figure}[h]
@@ -1387,12 +1436,21 @@ Recently, novel architectures have been proposed to work with the original audio
 	\caption{Stacked dilated convolutional layers have a larger receptive field than normal convolutional layers. Image from Oord~et~al.~(2016)~\cite{wavenet}.}
 \end{figure}
 
+It is a fusion model consisting of two convolutional layers which feed into a number of LSTM layers. Short time spectral features from the 40 dimensional mel-scale filterbank are input to both the convolutional and LSTM layers. The CLDNN architecture shows a fair improvement over prior models however it is evident that the behaviour of these fusion models are not yet well understood. We experimented with a number of models similar to this.
 
-The CLDNN~\cite{convlstm} architecture inspired the development of our second model. It is a fusion model consisting of two convolutional layers which feed into a number of LSTM layers. Short time spectral features from the 40 dimensional mel-scale filterbank are input to both the convolutional and LSTM layers. The CLDNN architecture shows a fair improvement over prior filterbank based models however it is evident that the behaviour of these fusion models are not yet well understood. We experimented with a number of models similar to this.
 
-Our problem space is quite different from prior works on speech data. A fundamental difference is that it is a binary classification problem and does not require intermediary predictions unlike Wavenet which was designed for speech generation and CLDNN for speech recognition.
+\subsection{Automatic Feature Engineering for PD Diagnosis}
 
-As Wavenet is designed for speech generation, it only considers data from the `past'. We modified the Wavenet architecture, adding a dependency to `future' data. This was inspired by bidirectional RNNs which perform better in classification problems by utilising both past and future information in the signal. This generally improved both convergence speed and the peak validation accuracy for the models we explored.
+Our problem space is quite different from prior works in the field . Although mPower is the largest current database of PD speech and motion data, its size is not comparable to computer vision and speech recognition datasets. For instance, the ImageNet~\cite{imagenet} dataset for computer vision consists of 14.2 million images and CLDNN~\cite{convlstm} was trained on 2,000 hours of speech. There are many ($\approx30,000$) walk recordings, however a majority of these are from a small subset of users. To avoid the `digital fingerprinting' effect discovered by Neto~et~al.~\cite{mpowerneto2017analysis}\footnote{Neto discovered that walk would result in an AUC of 0.98 when different recording from the same participant appeared in both training and test sets as opposed}
+
+Overfitting becomes a major issue, and the problem changes from designing the most complex `deep' architecture capable of modelling the data to designing an architecture which can extract usable features before severely overfitting. We found that smaller models generally performed best in this task, although they evidently were not able to model the data well. 
+
+Secondly, accelerometer signals contain contain three dimensions of information $(x,y,z)$ and are sampled at a much lower rate: $\approx100$Hz in the case of the mPower data (versus the $44,100$Hz of audio). Experiments with various neural network architectures showed that using the normed values of the acceleration signal over $x,y,z$ performed better than using all three individual dimensions. Although using all dimensions provides more information, the lack of training data results in the neural architectures quickly overfitting before extracting useful features. 
+
+A final difference is that diagnosing PD is a binary classification problem and does not require intermediary predictions unlike Wavenet which was designed for speech generation and CLDNN for speech recognition. There are also two distinct tasks (walking and resting) involved in the mPower dataset. Models would have to be trained over both the walking and resting signals and an ensemble used to combine them.  
+
+Out first architecture is inspired by Wavenet. As Wavenet is designed for speech generation, it only considers data from the `past'. We modified the Wavenet architecture, adding a dependency to `future' data. This was inspired by bidirectional RNNs which perform better in classification problems by utilising both past and future information in the signal. We term this \emph{Bi-Wavenet}, which exhibited improved convergence speed and the peak validation accuracy compared to Wavenet. Following CLDNN, we explored a number of designs for the LSTM+CNN fusions. One to two layers of LSTMs followed by three to four convolution layers seem to be the most effective at extracting features. We denote this architecture \emph{LSTMConv}. 
+
 
 \begin{figure}[h]
 	\label{biwavenet}
@@ -1400,17 +1458,27 @@ As Wavenet is designed for speech generation, it only considers data from the `p
 	\caption{Bi-directional connections in Wavenet performed better in our binary classification task. }
 \end{figure}
 
-We explored a number of designs for the LSTM+CNN hybrid, and the best architecture appeared to be 
 
-The two architectures we propose are summarised and termed below:
-\begin{enumerate}
-	\item \emph{Bi-Wavenet}: A modification of Wavenet, using bi-directional connections. For speech, 
-	\item \emph{LSTMConv}: This architecture involves a single LSTM followed by multiple conv layers. The input was a 40 dimensional mel scale filterbank with a window of 25ms and step length of 10ms.
-\end{enumerate}
+Transforming the input data showed significant improvements to model performance. This is especially true with a limited amount of data as transformations present the data in a more easily interpretable format. A short-time Fourier transform was used to map the input into the frequency domain. For the resting signal, a 3.2 second window with 1 second step length was the most effective input for both architectures. The walking data was more complicated as the Fourier transform would remove valuable temporal information and models trained on the raw signal would quickly overfit before extracting useful features. A compromise was made, training a model on both the raw and spectral signal with a 0.5 second window and 0.2 second step length. The outputs of each model were concatenated and a final neural network used to reduce the dimensionality of the data. Features were extracted by taking the activations of the penultimate layer of the network.
 
 
+The LSTMConv architecture was vastly superior to Bi-Wavenet when handling spectral input. On the raw walking signal, Bi-Wavenet was noticeably more effective. LSTMConv based models would overfit on the walking signal before extracting useful features in validation. The final neural network architecture trained and used in the feature submission to the DREAM biomarker challenge is depicted in Figure \ref{finalarchitecture}.
 
-ACCURACY WAS NOT A HUGE FOCUS AS TRAINING NEURAL NETWORKS IS STOCHASTIC AND THERE IS A LARGE VARIATION IN TRAINING PERFORMANCE DUE TO THE SMALL DATASET.
+
+\begin{figure}[h]
+	\label{finalarchitecture}
+	\centering\centerline{\includegraphics[width=1.2\linewidth]{final_architecture.pdf}}
+	\caption{The final neural network architecture.}
+\end{figure}
+
+Our submission of all hand-crafted features for the DREAM challenge achieved a AUC of 0.cxxx .
+
+*visualizing the features
+*dynamical systems features
+
+
+
+%ACCURACY WAS NOT A HUGE FOCUS AS TRAINING NEURAL NETWORKS IS STOCHASTIC AND THERE IS A LARGE VARIATION IN TRAINING PERFORMANCE DUE TO THE SMALL DATASET.
  THE ARCHITECTURES WE HAVE PROPOSED GENERALLY PERFORM WELL HOWEVER ARE NOT NECESSARILY BETTER THAN OTHERS.
 
 $20,000$
@@ -1455,7 +1523,7 @@ Computational power may have been too limited
 Due to the sensitivity of some features, it would be very interesting to extract all features on a short time scale and use a LSTM to observe
 however computational resources were too limited. 
 
-\section{Can Machines Exceed Humans?}
+\section{Machine Learning vs Human Diagnosis}
 \label{powerml}
 We have now achieved a reasonably large 
 
@@ -1486,10 +1554,12 @@ EEG and non-linear signal analysis was performed using the PyREM library~\cite{p
  
 PyREM does not provide an implementation for Lyapunov Exponents and some experimentation with artificially constructed signals showed that PyEEG's implementation is severely wrong. The nolds~\cite{nolds} module was used to compute the Lyapunov exponents, using Rosenstein's~\cite{rosenstein1993practicallyapunov} algorithm for $L_1$ and Eckmann's algorithm~\cite{eckmann1986liapunov} for the subsequent $L_2 - L_6$.
   
-Jerk based accelerometer features were considered~\cite{jerkfeature} however performance was generally worse than using the raw acceleration features over all computed measures. The DREAM challenge baseline features~\cite{mpowertools} were used in conjunction with our own implementation of the methods used in Arora~et~al~\cite{arora2014high}. The primary differences likely result from the 
+Jerk based accelerometer features were considered~\cite{jerkfeature} however performance was generally worse than using the raw acceleration features over all computed measures. The DREAM challenge baseline features~\cite{mpowertools} were used in conjunction with our own implementation of the methods used in Arora~et~al~\cite{arora2014high}. The primary differences likely result from our preprocessing of the data, which rotated all accelerometers relative to the $x$ axis.
 
 
-Most traditional machine learning algorithms were based on the standard scikit-learn~\cite{scikitlearn} implementation and Gaussian processes implemented with GPy~\cite{gpy2014}. Neural networks were implemented in Lasagne~\cite{lasagne} and Keras~\cite{keras}. Hyperopt~\cite{hyperopt} was used to aid in finding the optimal hyperparameters for some models. Scikit-feature~\cite{skfeature} was used to implement the filter and embedded feature selection methods. 
+Most traditional machine learning algorithms were based on the standard scikit-learn~\cite{scikitlearn} implementation and Gaussian processes implemented with GPy~\cite{gpy2014}. Hyperopt~\cite{hyperopt} was used to aid in finding the optimal hyperparameters for some models. Scikit-feature~\cite{skfeature} was used to implement the filter and embedded feature selection methods. 
+
+Neural networks were implemented in Lasagne~\cite{lasagne} and Keras~\cite{keras}. In general, ReLu~\cite{relu} was chosen as the activation and Nadam~\cite{nadam} used as the optimiser. Batch Normalisation~\cite{batchnorm} was used whenever relevant and dropout~\cite{dropout} used to regularise the models. 
 
 
 %A summary of the list of features extracted can be found in section \ref{featuresummary}.
