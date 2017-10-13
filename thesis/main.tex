@@ -900,7 +900,7 @@ A large neural network has a tendency to overfit by memorising the data. Regular
 
 A major problem with the sigmoidal activation function is that as the activation approaches either 0 or 1 the gradient approaches zero. This is known as \textit{saturation} and significantly slows the convergence of gradient descent in the training process. Rectified linear units (\emph{ReLUs}) use the activation function $f(x) = \max(0,x)$ which resolve the gradient issue and are believed to be more biologically plausible~\cite{relu,relubiology}. One notable characteristic of ReLUs is that once the unit outputs zero, it is essentially `dead' as the gradient of the rectifier is zero. A number of modifications to ReLU have been proposed such as the leaky/parametric ReLU~\cite{heinitialization} ($f(x) = \max(\alpha x, x)$ for $\alpha\leq 1$), Maxout~\cite{goodfellow2013maxout}, noisy ReLU~\cite{relu} and exponential linear unit~\cite{clevert2015fast}.
 
-The initialisation of the weights in the network will affect the solution found by gradient descent and the rate of convergence to it. Poor initialisation can result in the death of ReLUs or saturation of sigmoidal and tanh units. Glorot and Bengio~\cite{glorot2010understanding} proposed initializing the weights according to a Gaussian distribution with variance $2/(n_{\text{in}}+n_{\text{out}})$ where $n_{in}$ is the number of inputs to the node and $n_{out}$ the number of outputs. This is commonly termed Xavier initialisation and is effective for networks with sigmoidal or tanh activations however ReLUs rapidly tend to zero. He et~al.~\cite{he2015delving} proposed a small modification to fix the dead ReLU issue by setting variance to $2/n_{\text{in}}$.
+The initialisation of the weights in the network will affect the solution found by gradient descent and the rate of convergence to it. Poor initialisation can result in the death of ReLUs or saturation of sigmoidal and tanh units. Glorot and Bengio~\cite{glorot2010understanding} proposed initializing the weights according to a Gaussian distribution with variance $2/(n_{\text{in}}+n_{\text{out}})$ where $n_{in}$ is the number of inputs to the node and $n_{out}$ the number of outputs. This is commonly termed Xavier initialisation and is effective for networks with sigmoidal or tanh activations however ReLUs rapidly tend to zero. He et~al.~\cite{heinitialization} proposed a small modification to fix the dead ReLU issue by setting variance to $2/n_{\text{in}}$.
 
 The method of gradient descent, referred to as the \textit{optimiser} is also a major area of neural network research. Traditional gradient descent often gets stuck at saddle points and local minima as the gradient is zero. Non-linear techniques developed in convex optimisation such as conjugate gradient descent and (Quasi-)Newton are powerful yet rarely applied in practice due to their computational complexity. The most popular optimisers for neural networks incorporate the concept of momentum, where previous gradients are considered in the descent. Adam~\cite{adam} is one of the most recent optimisers and combines elements from two powerful optimizers before it, AdaGrad and RMSProp. Nesterov momentum~\cite{nesterov1983method} --- which has favourable properties in convex optimisation --- can also be incorporated into Adam, creating Nadam.~\cite{nadam}. 
 
@@ -1292,7 +1292,7 @@ The non-linear features are evidently stronger differentiators of PD than the fe
 
 \section{Visualising The Features}
 \label{visfeature}
-The models replicated in the previous sections clearly perform below the reported level in prior works. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in speech and gait. No individual feature was able to achieve greater than 60\% classification accuracy on an equal split of the data. Note that only a fraction of the data is visualised to improve clarity. 
+The models replicated in the previous sections clearly perform below the reported level in prior works. This disparity is possibly caused by differences in dataset quality, particularly in ensuring that the task is performed correctly or consistently. It is also likely that introducing a greater diversity of subjects increases the problem difficulty as there are natural variances in speech and gait. No individual feature was able to achieve greater than 60\% classification accuracy on an equal split of the data. Note that only a fraction of the data is visualised to improve clarity --- more formal analysis of the features is performed in \textit{\hyperref[formalfeatures]{Section}} \ref{formalfeatures}
 
 \subsection{Speech}
 A large number of dysphonia related measures rely on precise measurements of the length of each glottal cycle. The SWIPE~\cite{camacho2007swipe} fundamental frequency estimation algorithm was primarily used to obtain these measurements. Most $f_0$ algorithms are sensitive to changes and noise in the signal and are not yet suitable to handle the noisy mPower data gathered in real-world conditions. Issues with $f_0$ extraction would invalidate the measurements from $f_0$ based signal processing. A simple investigation shows that the standard deviation of $f_0$ exceeds 10Hz for 347 subjects, a value that is almost certainly indicates a failure of the algorithm or a poorly executed recording.
@@ -1613,14 +1613,14 @@ The challenge released a previously unseen supplementary training set.
 \label{powerml}
 Now that we have shown the applicability of a range of techniques for tacking the problem of diagnosing Parkinson's disease from raw sensor data, let's answer the question of what machine learning can provide to real world diagnosis. Evidently, the raw classifier performance on the mPower dataset is insufficient to replace neurologists. However, the results are impressive, considering the diagnosis is solely based on a 4 second phonation of /aa/ with environmental noise or a low quality accelerometer recording of a short walk and stand still.
 
-Let's first investigate whether there exists a difference between human senses and the features considered by a machine learning model. Prior to training any models, we removed a set of participants with PD who declared themselves as having zero speech difficulties on the mPower UPDRS survey. We are aware that this relied on the honesty of participants and may not necessarily correlate to a neurologist's UPDRS assessment. There were 220/900 participants who had responded as having zero speech difficulties and had filled in an answer other than the default (zero) for one other UPDRS criteria after the speech question. Of these participants, we listened to each audio sample and evaluated them for both quality and whether dysphonia was evident\footnote{Optimally, a neurologist would be involved in this process, however the resources were not available. Note that the evaluator had listened to 1,600 speech samples from PD and control participants to develop the filtering criteria and is reasonably familiar with the characteristics of dypshonia.}. This resulted in a final set of 88 participants. These 88 participants were removed from the dataset in all previous models trained to limit the impact of overfitting from model tweaking.
+Let's first investigate whether there exists a difference between human senses and the features considered by a machine learning model. Prior to training any models, we removed a set of participants with PD who declared themselves as having zero speech difficulties on the mPower UPDRS survey. We are aware that this relied on the honesty of participants and may not necessarily correlate to a neurologist's UPDRS assessment. There were 220/900 participants who had responded as having zero speech difficulties and had filled in an answer other than the default (zero) for one other UPDRS criteria after the speech question. Of these participants, we listened to each audio sample and evaluated them for both quality and whether dysphonia was evident\footnote{Optimally, a neurologist would be involved in this process, however the resources were not available. Note that the evaluator had listened to 1,600 speech samples from PD and control participants to develop the filtering criteria and is reasonably familiar with the characteristics of dypshonia.}. This resulted in a final set of 86 participants, which were removed from the dataset in all previous models limit the impact of overfitting from model tweaking.
 
-We applied the most powerful model we had available, the FWLS ensemble (\textit{\hyperref[spensemble]{Section}} \ref{spensemble}) to this task with our standard ten times repeated 10-fold cross validation. The set of 88 participants was divided into ten groups of 8-9 individuals, and the ensemble trained on all except one of these groups. To validate results further and ensure that the models able to generalise outside of the mPower dataset, we test our model's performance on the speech samples of 28 subjects with PD released by Sakar~et~al.~\cite{sakar2012} on the UCI Machine Learning repository. The results are presented in \textit{\hyperref[machvshumanresult]{Table}} \ref{machvshumanresult}. 
+We applied the most powerful model we had available, the FWLS ensemble (\textit{\hyperref[spensemble]{Section}} \ref{spensemble}) to this task with our standard ten times repeated 10-fold cross validation. The set of 86 participants was divided into ten groups of 8-9 individuals, and the ensemble trained on all except one of these groups. To validate results further and ensure that the models able to generalise outside of the mPower dataset, we test our model's performance on the speech samples of 28 subjects with PD released by Sakar~et~al.~\cite{sakar2012} on the UCI Machine Learning repository. The results are presented in \textit{\hyperref[machvshumanresult]{Table}} \ref{machvshumanresult}. 
 
 
 
 \begin{table}[h]
-	\caption{Results of the FWLS ensemble on the 88 unseen PD participants with no speech difficulties and the 28 PD participants in Sakar~et~al.~\cite{sakar2012}. Data augmentation was not performed due to the limited /aa/ phonation time in recordings from Sakar~et~al.}
+	\caption{Results of the FWLS ensemble on the 86 unseen PD participants with no speech difficulties and the 28 PD participants in Sakar~et~al.~\cite{sakar2012}. Data augmentation was not performed due to the limited /aa/ phonation time in recordings from Sakar~et~al.}
 	\label{machvshumanresult}
 	\centering
 	\begin{tabular}{@{}rcccc@{}}
@@ -1629,6 +1629,7 @@ We applied the most powerful model we had available, the FWLS ensemble (\textit{
 		Sensitivity [\%] &  $67.2\pm5.3$ & $66.9\pm7.5$ &$66.3\pm7.8$\\ \midrule
 		Specificity [\%] &  $70.5\pm5.4$ & $73.3\pm7.1$ &$75.6\pm6.0$\\ \midrule
 		AUROC [\%]       &  $74.8\pm4.1$ & $76.2\pm5.1$ &$78.1\pm5.1$ \\ \midrule
+		Total Subjects & 1716 & 86 & 28 \\ \midrule 
 	\end{tabular}
 \end{table}
 
@@ -1638,9 +1639,19 @@ Surprisingly, there is no significant difference between the specificity when di
 
 
 \subsection{Human Hearing vs Signal Processing}
+\label{formalfeatures}
 As the ensemble model obtains similar classification accuracies on both the participants with and without perceptible speech difficulties, combinations of features must exist which distinguish Parkinsonian and normal speech. 
 
 Some features quantify a characteristic which should be discernible with human hearing. The human ear is sensitive at discerning changes in pitch and we know that Parkinsonian speech has greater fluctuations in frequency. Therefore it is expected that PD participants with speech difficulties have a greater standard deviation of $f_0$ than PD participants without speech difficulties. Another feature that should be perceivable in human hearing is the amount of noise (related to breathiness), captured by the harmonics to noise ratio (HNR). However, the HNR was not a strong differentiator of Parkinsonian speech, thus the Vocal Fold Excitation Ratio, an extension of the HNR was used to quantify this instead. The differences between PD participants with and without speech difficulties are presented in \textit{\hyperref[f0vferboxplot]{Figure}} \ref{f0vferboxplot}. Note that sample sizes are small.
+SELECTION BIAS
+F0
+500608114325 4.778964 0.2064219
+0.09593154 0.7069853 0.5478061
+
+VFER
+8.285428e+21 0.2937744 0.753058
+568957670 0.5045708 0.3774322
+
 
 \begin{figure}[h]
 	\label{f0vferboxplot}
@@ -1655,15 +1666,21 @@ Some features quantify a characteristic which should be discernible with human h
 		\label{vferboxplot}
 		\caption{Vocal Fold Excitation Ratio ($>0.005$ removed)}
 		\centering
-		\includegraphics[width=0.96\linewidth]{vfer_boxplot.png}
+		\includegraphics[width=0.96\linewidth]{VFER_boxplot.png}
 	\end{subfigure}
- 	}
+   	}
 	\caption{The standard devi}
 \end{figure}
 
 Investigating other 
 
-DFA, 
+DFA
+23409.44, 0.1696782, 1.057427
+8.850418e+14 0.2106709 34.61859
+
+RPDE
+1378130 0.1785919 3.137605
+25.4818 0.1961733 0.4657289
 
 \begin{figure}[h]
 	\label{dfarpdeboxplot}
@@ -1683,8 +1700,14 @@ DFA,
 	}
 	\caption{The standard devi}
 \end{figure}
+Sample Entropy 
+CTR VS PD Male BF = 8794654926, Female BF = 6768167
+PD VS SPEECH  MALE BF = 0.1639064, Female = 0.2194423
+CTR VS SPEECH MALE BF = 3.540951, Female = 37.51635
 
-HFD, Samp Ent
+HFD
+497.272, 0.1835168, 0.9444457
+6768167, 0.2194423, 37.51635
 
 \begin{figure}[h]
 	\label{hfdsampenboxplot}
