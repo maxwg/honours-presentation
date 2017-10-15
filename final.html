@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Applications of Machine Learning in Parkinson's Diagnosis</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Max Wang">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/maxwg_final.css" id="theme">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        $('sup').click(function(){
+            var indices = Reveal.getIndices( document.getElementById( 'ref' ) );
+            Reveal.slide( indices.h, indices.v );
+        })
+    });
+    </script>
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+        $(document).ready(function(){
+            $('section').each(function(sidx){
+                var allrefs = new Set();
+                $(this).find('sup').each(function(idx) {
+                    var refs = this.innerText.split(",");
+                    refs = refs.map(function (i) {
+                        return parseInt(i)
+                    })
+                    for (var r in refs) {
+                        allrefs.add(refs[r])
+                    }
+                });
+                var lis = $("#references li")
+                var text = "";
+                allrefs.forEach(function(ref){
+                    if (ref <= lis.length) {
+                        var refli = lis[ref-1];
+                        text += ref + ": " + refli.innerText + "<br/>"
+                    } else{
+                        console.log("REF ERROR: " + ref)
+                    }
+                });
+                if(text != "") {
+                    text = text.slice(0,-5);
+                    $(this).append(
+                        "<div class='citations'> <hr/>"
+                        + text +
+                        "</div>"
+                    )
+                }
+                })
+
+        });
+            </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section class="full" data-background-image="img/heartrate.gif" >
+            <h1 style="margin-top:100px; ">Machine Learning in<br/> Parkinson's Disease Diagnosis</h1>
+            <!--<h2 style="text-align:right">HONOURS 2017</h2>-->
+            <img data-src="img/anu_logo_brown.png" class="top-right" style="width:240px; ">
+            <p class="bottom-left" style="line-height:0.95">
+                Max Wang <br style="display:block; margin-top:100px"/><span style="position:relative;"><small
+                    style=""><a
+                    href="mailto:u5584091@anu.edu.au">&lt;u5584091@anu.edu.au&gt;</a></small></span>
+            </p>
+            <br/>
+            <!--<blockquote>-->
+            <!--<p style="float:right;margin-top:4px; margin-right:24px;">View Online:      <a href="https://maxwg.github.io/presentation">maxwg.github.io/presentation</a></p>-->
+            <!--<p style="float:right; margin-top:-24px; margin-right:24px;">Check For Parkinson's: &nbsp;<a href="https://maxwg.github.io/diagnosePD" target="_blank">maxwg.github.io/diagnosePD</a></p>-->
+            <!--</blockquote>-->
+                <p style="text-align:right; position:absolute; bottom:0.4em; right:0; font-size:0.8em; line-height:1">
+                    <b>Supervised by:</b><br/>
+                Dr Deborah Apthorp<br/>
+                Adj/Prof Hanna Suominen
+            </p>
+        </section>
+        <section data-background-iframe="jochen.html" data-transition="slide-in" data-background-transition="slide-in">
+            <ol style="font-size:1.2em">
+                <li>
+                    <span class="fragment" style="position:absolute" data-fragment-index="1">It is useful to diagnose Parkinson's disease.</span>
+                    <span class="fragment fade-out" data-fragment-index="1">Parkinson's disease is bad.</span>
+                </li>
+                <li class="fragment">Machine learning can help diagnose Parkinson's disease</li>
+                <li class="fragment">We need to re-think the way machine learning is used.</li>
+            </ol>
+        </section>
+        <section class="full" data-background-iframe="mjfox.html">
+            <h1 class="h1"><span class="bred">1 | </span>Parkinson's Disease</h1>
+            <br/>
+            <br/>
+            <br/>
+                <blockquote style="font-size:1.2em">&ldquo;FOR PATIENTS, PARKINSON'S DISEASE &nbsp;IS NOT A TIME-NEUTRAL SITUATION, &nbsp;IT'S A TICKING CLOCK.&rdquo;
+                    <br/>
+                    <span style="font-weight:700;float:right; position:relative; top:0.3em; color:#C32">- MICHAEL J. FOX</span>
+    </blockquote>
+        </section>
+        <section class="full">
+            <h1 class="h1"><span class="bred">1 | </span>Parkinson's Disease</h1>
+            <img src="img/pd_illu.png" style="position:absolute; right:0; top:130px; height:400px;"/>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <blockquote style="font-size:1.2em; position:absolute; left:0; display:block; width:600px;">Affects 1% of the population<br/>
+                    by the age of 70.
+            </blockquote>
+        </section>
+        <section class="full">
+            <h1 class="h1"><span class="bred">1 | </span>Parkinson's Disease</h1>
+            <img src="img/symptoms.PNG" class='current-fragment current-visible' style="position:absolute; left:0; top:180px; height:280px;"/>
+            <img src="img/symptoms2.PNG" class="fragment " style="position:absolute; left:0; top:180px; height:280px;"/>
+            <img src="img/symptoms4.PNG" class="fragment " style="position:absolute; left:0; top:180px; height:280px;"/>
+            <img src="img/symptoms5.PNG" class="fragment" style="position:absolute; left:0; top:180px; height:280px;"/>
+            <img src="img/pd_illu.png" style="position:absolute; right:0; top:130px; height:400px;"/>
+
+        </section>
+        <section class="full">
+            <h1 class="h1"><span class="bred">1 | </span>Parkinson's Disease</h1>
+            <ul style="position:absolute; left:0; top:120px;">
+                <li>Essential Tremor</li>
+                <li>Multiple Systems Atropy</li>
+                <li>Supranucelar Palsy</li>
+                <li>Multiple Schlerosis</li>
+                <li>Huntington's Disease</li>
+                <li>Wilson's Disease</li>
+                <li>Cortical Basal Ganglionic Degeneration</li>
+                <li>Normal ressure Hydrocephalus </li>
+                <li>....</li>
+            </ul>
+            <img src="img/pd_illu.png" style="position:absolute; right:0; top:130px; height:400px;"/>
+
+        </section>
+        <section class="full">
+            <h1 class="h1"><span class="bred">1 | </span>Parkinson's Disease</h1>
+            <img src="img/pd_illu.png" style="position:absolute; right:0; top:130px; height:400px;"/>
+
+            <br/>
+            <br/>
+
+            <blockquote style="font-size:1.2em; position:absolute; left:0; display:block; width:500px; margin-top:48px;"><span>Up to</span><br/>
+                <span style="font-size:4em; font-weight:800; margin-top:-30px; display:block;" class="bred">34%</span>
+                Misdiagnosis Rate
+                <span style="font-size:0.3em; line-height:1.4em; display:block">
+                    J. Jankovic, A. H. Rajput, M. P. McDermott, and D. P. Perl, “The evolution of diagnosis in early Parkinson's disease,” Archives of Neurology, vol. 57, no. 3, pp. 369–372, 2000.
+                </span>
+            </blockquote>
+        </section>
+
+        <section class="full">
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <br/>
+            <br/>
+            <br/>
+            <large><p style="font-weight:100 !important;">What can I help you with?</p></large>
+            <p class="fragment" style="font-weight:100">
+                <audio data-autoplay src="img/siri.mp3"></audio>Say "aaaaah" into the microphone</p>
+            <img class="fragment" data-src="img/loading.gif" style="width:50px;"/>
+        </section>
+        <section class="full">
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <br/>
+            <br/>
+            <br/>
+            <large><p style="font-weight:100">What can I help you with?</p></large>
+            <p style="font-weight:100">Say "aaaaah" into the microphone</p>
+            <p style="margin-bottom:54px; font-size:0.9em"><audio data-autoplay src="img/siri2.wav"></audio> It is highly unlikely you have Parkinson's Disease.</p>
+        </section>
+        <section class="full">
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <br/>
+            <br/>
+            <br/>
+            <h2><i>
+                Why isn't machine learning being used?</i>
+            </h2>
+            <br/>
+            <h2 class="bred fragment" style="font-size:2em"><b>Lack of data.</b></h2>
+        </section>
+        <section class="full" data-background-image="img/bgpd.png" data-transition="none-out">
+            <img src="img/patient.png" style="height:100px; position:absolute; left:0; top:100px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:-30px; top:400px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:0; top:500px;"/>
+            <img src="img/person.png" style="height:130px; position:absolute; left:120px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:20px; top:200px;"/>
+            <img src="img/person_pd.png" style="height:130px; position:absolute; left:100px; top:240px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:300px; top:250px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:240px; top:120px;"/>
+            <img src="img/person.png" style="height:130px; position:absolute; left:210px; top:260px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:190px; top:395px;"/>
+            <img src="img/person_pd.png" style="height:130px; position:absolute; left:300px; top:345px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:270px; top:475px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:150px; top:515px;"/>
+            <p style="position:absolute; right:0;">Has PD</p>
+            <p style="position:absolute; bottom:0;right:0;">No PD</p>
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <img src="img/doctor.png" style="height:200px; position:absolute; margin-left:-50px;top:200px;"/>
+        </section>
+        <section class="full" data-state="play_anim" data-background-image="img/bgpd.png" data-transition-speed="slow" data-transition="none-in fade-out ">
+            <img id="anim_img_1" class="anim_img" src="img/patient.png" style="height:100px; position:absolute; left:0; top:100px;"/>
+            <img id="anim_img_2" class="anim_img" src="img/patient.png" style="height:100px; position:absolute; left:-30px; top:400px;"/>
+            <img id="anim_img_3" class="anim_img" src="img/patient_pd.png" style="height:100px; position:absolute; left:0; top:500px;"/>
+            <img id="anim_img_4" class="anim_img" src="img/person.png" style="height:130px; position:absolute; left:120px; top:100px;"/>
+            <img id="anim_img_5" class="anim_img" src="img/patient_pd.png" style="height:100px; position:absolute; left:20px; top:200px;"/>
+            <img id="anim_img_6" class="anim_img" src="img/person_pd.png" style="height:130px; position:absolute; left:100px; top:240px;"/>
+            <img id="anim_img_7" class="anim_img" src="img/patient.png" style="height:100px; position:absolute; left:300px; top:250px;"/>
+            <img id="anim_img_8" class="anim_img" src="img/patient.png" style="height:100px; position:absolute; left:240px; top:120px;"/>
+            <img id="anim_img_9" class="anim_img" src="img/person.png" style="height:130px; position:absolute; left:210px; top:260px;"/>
+            <img id="anim_img_10" class="anim_img" src="img/patient.png" style="height:100px; position:absolute; left:190px; top:395px;"/>
+            <img id="anim_img_11" class="anim_img" src="img/person_pd.png" style="height:130px; position:absolute; left:300px; top:345px;"/>
+            <img id="anim_img_12" class="anim_img" src="img/patient.png" style="height:100px; position:absolute; left:270px; top:475px;"/>
+            <img id="anim_img_13" class="anim_img" src="img/patient_pd.png" style="height:100px; position:absolute; left:150px; top:515px;"/>
+            <p style="position:absolute; right:0;">Has PD</p>
+            <p style="position:absolute; bottom:0;right:0;">No PD</p>
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <img src="img/doctor.png" style="height:200px; position:absolute; margin-left:-50px;top:200px;"/>
+        </section>
+        <section class="full">
+            <img src="img/patient.png" style="height:100px; position:absolute; left:560px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:660px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:760px; top:100px;"/>
+            <img  src="img/person_pd.png" style="height:100px; position:absolute; left:860px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:930px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:0px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:130px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:240px; top:100px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:350px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:455px; top:100px;"/>
+            <p style="position:absolute; right:0;">Has PD</p>
+            <p style="position:absolute; bottom:0;right:0;">No PD</p>
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <h2 style="margin-top:240px; font-weight: 800 ">Current Datasets</h2>
+            <span class="fragment">
+            <img src="img/patient.png" style="height:100px; position:absolute; left:540px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:660px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:740px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:860px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:930px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:0px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:100px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:220px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:320px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:455px; top:400px;"/>
+            </span>
+        </section>
+        <section class="full">
+            <img src="img/patient.png" style="height:100px; position:absolute; left:560px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:660px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:760px; top:100px;"/>
+            <img  src="img/person_pd.png" style="height:100px; position:absolute; left:860px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:930px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:0px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:130px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:240px; top:100px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:350px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:455px; top:100px;"/>
+            <p style="position:absolute; right:0;">Has PD</p>
+            <p style="position:absolute; bottom:0;right:0;">No PD</p>
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <h2 style="top:240px; position: absolute; left:0">Tsanas et al. (2012)</h2>
+            <h2 style="top:260px; position: absolute; right:0; font-size:1.5em;">Speech: <b class="bred" style="font-size:1.4em">98.6%</b></h2>
+            <p style="position: absolute; left:0; top:280px">33 PD, 10 Control.</p>
+            <p style="position: absolute; left:0; top:330px; text-align:left;width:400px;font-size:0.3em">A. Tsanas, M. A. Little, P. E. McSharry, J. Spielman, and L. O. Ramig, “Novel speech signal processing algorithms for high-accuracy classification of Parkinson’s disease,” IEEE Transactions on Biomedical Engineering, vol. 59, no. 5, pp. 1264–1271, 2012</p>
+            <span>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:540px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:660px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:740px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:860px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:930px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:0px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:100px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:220px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:320px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:455px; top:400px;"/>
+            </span>
+        </section>
+        <section class="full">
+            <img src="img/patient.png" style="height:100px; position:absolute; left:560px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:660px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:760px; top:100px;"/>
+            <img  src="img/person_pd.png" style="height:100px; position:absolute; left:860px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:930px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:0px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:130px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:240px; top:100px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:350px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:455px; top:100px;"/>
+            <p style="position:absolute; right:0;">Has PD</p>
+            <p style="position:absolute; bottom:0;right:0;">No PD</p>
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <h2 style="top:240px; position: absolute; left:0">Arora et al. (2014)</h2>
+            <h2 style="top:260px; position: absolute; right:0; font-size:1.5em;">Accelerometer: <b class="bred" style="font-size:1.4em">98.0%</b></h2>
+            <p style="position: absolute; left:0; top:280px">10 PD, 10 Control.</p>
+            <p style="position: absolute; left:0; top:330px; text-align:left;width:400px;font-size:0.3em">S. Arora, V. Venkataraman, S. Donohue, K. M. Biglan, E. R. Dorsey, and M. A. Little, “High accuracy discrimination of Parkinson’s disease participants from healthy controls using smartphones,” in Acoustics, Speech and Signal Processing (ICASSP), 2014 IEEE International Conference on, pp. 3641–3644, IEEE, 2014</p>
+            <span>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:540px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:660px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:740px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:860px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:930px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:0px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:100px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:220px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:320px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:455px; top:400px;"/>
+            </span>
+        </section>
+        <section class="full">
+            <img src="img/patient.png" style="height:100px; position:absolute; left:560px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:660px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:760px; top:100px;"/>
+            <img  src="img/person_pd.png" style="height:100px; position:absolute; left:860px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:930px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:0px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:130px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:240px; top:100px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:350px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:455px; top:100px;"/>
+            <p style="position:absolute; right:0;">Has PD</p>
+            <p style="position:absolute; bottom:0;right:0;">No PD</p>
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <h2 style="top:240px; position: absolute; left:0">Zhan et al. (2016)</h2>
+            <h2 style="top:260px; position: absolute; right:0; font-size:1.5em;"><span style="font-size:0.7em; display:inline-block">Accelerometer, Speech,<br/> Memory and Tapping</span> <b class="bred" style="font-size:1.4em; display:inline-block; top: -8px; position: relative;">71.0%?</b></h2>
+            <p style="position: absolute; left:0; top:280px">121 PD, 105 Control.</p>
+            <p style="position: absolute; left:0; top:330px; text-align:left;width:400px;font-size:0.3em">A. Zhan, M. A. Little, D. A. Harris, S. O. Abiola, E. Dorsey, S. Saria, and A. Terzis, “High frequency remote monitoring of Parkinson’s disease via smartphone: platform overview and medication response detection,” arXiv preprint arXiv:1601.00960, 2016.</p>
+            <span>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:540px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:660px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:740px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:860px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:930px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:0px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:100px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:220px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:320px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:455px; top:400px;"/>
+            </span>
+        </section>
+        <section class="full">
+            <img src="img/patient.png" style="height:100px; position:absolute; left:560px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:660px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:760px; top:100px;"/>
+            <img  src="img/person_pd.png" style="height:100px; position:absolute; left:860px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:930px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:0px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:130px; top:100px;"/>
+            <img src="img/patient_pd.png" style="height:100px; position:absolute; left:240px; top:100px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:350px; top:100px;"/>
+            <img  src="img/patient_pd.png" style="height:100px; position:absolute; left:455px; top:100px;"/>
+            <p style="position:absolute; right:0;">Has PD</p>
+            <p style="position:absolute; bottom:0;right:0;">No PD</p>
+            <h1 class="h1"><span class="bred">2 | </span>Machine Learning</h1>
+            <blockquote style="top:220px;  left:0"> Publication bias favors positive results. We need to focus on processes. </blockquote>
+            <span>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:540px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:660px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:740px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:860px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:930px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:0px; top:400px;"/>
+            <img src="img/patient.png" style="height:100px; position:absolute; left:100px; top:400px;"/>
+            <img src="img/person.png" style="height:100px; position:absolute; left:220px; top:400px;"/>
+            <img  src="img/patient.png" style="height:100px; position:absolute; left:320px; top:400px;"/>
+            <img  src="img/person.png" style="height:100px; position:absolute; left:455px; top:400px;"/>
+            </span>
+        </section>
+        <section class="full">
+            <h1 class="h1"><span class="bred">3 | </span>Using Machine Learning</h1>
+            <h3 style="position: absolute; top:200px; font-weight:800;left:0; text-align: left">The mPower <br/>dataset</h3>
+            <p style="position: absolute; top:300px; left:0; text-align: left;">900 PD <br/>3,200 Control</p>
+            <img src="img/mpower.png" style="position: absolute; top:120px; right:0; height:350px;">
+        </section>
+        <section class="full">
+            <h1 class="h1"><span class="bred">3 | </span>Using Machine Learning</h1>
+            <img src="img/mpowervw.png" style="position: absolute; top:120px; right:0; height:350px;">
+        </section>
+        <section>
+            <h1>Attributions</h1>
+            <ul>
+                <li>Illustration of Parkinson's disease by William Richard Gowers: https://en.wikipedia.org/wiki/File:Paralysis_agitans_(1907,_after_St._Leger).png</li>
+                <li>Doctor by Piotrek Chuchla: https://thenounproject.com/term/doctor/21540/</li>
+                <li>Lower back pain by Vectors Market: https://thenounproject.com/term/lower-back-pain/1199001/</li>
+                <li>Walking by Gerard Higgins: https://thenounproject.com/GerardH/collection/standard-persons/?oq=person&cidx=2&i=217034</li>
+            </ul>
+        </section>
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: false,
+        progress: false,
+        width: 1024,
+        height: 576,
+        history: true,
+        center: true,
+        keyboard: true,
+        touch: true,
+        fragments: true,
+        hideAddressBar: true,
+        previewLinks: false,
+        transitionSpeed: 'fast', // default/fast/slow
+        backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+        viewDistance: 3,
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        autoPlayMedia: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true},
+        ]
+
+    });
+    Reveal.addEventListener( 'play_anim', function() {
+        console.log("anim");
+        $("#anim_img_1").css({left:"100px", top:'100px'});
+        $("#anim_img_2").css({left:"-30px", top:'400px'});
+        $("#anim_img_3").css({left:"0px", top:'500px'});
+        $("#anim_img_4").css({left:"120px", top:'100px', height:"100px"});
+        $("#anim_img_5").css({left:"20px", top:'200px'});
+        $("#anim_img_6").css({left:"100px", top:'240px', height:"100px"});
+        $("#anim_img_7").css({left:"300px", top:'250px'});
+        $("#anim_img_8").css({left:"240px", top:'120px'});
+        $("#anim_img_9").css({left:"210px", top:'260px', height:"100px"});
+        $("#anim_img_10").css({left:"190px", top:'395px'});
+        $("#anim_img_11").css({left:"300px", top:'345px', height:"100px"});
+        $("#anim_img_12").css({left:"270px", top:'475px'});
+        $("#anim_img_13").css({left:"150px", top:'515px'});
+        $("#anim_img_1").animate({left:"560px", top:'100px'});
+        $("#anim_img_2").animate({left:"560px", top:'320px'});
+        $("#anim_img_3").animate({left:"660px", top:'100px'});
+        $("#anim_img_4").animate({left:"685px", top:'320px'});
+        $("#anim_img_5").animate({left:"760px", top:'100px'});
+        $("#anim_img_6").animate({left:"785px", top:'320px'});
+        $("#anim_img_7").animate({left:"860px", top:'320px'});
+        $("#anim_img_8").animate({left:"860px", top:'320px'});
+        $("#anim_img_9").animate({left:"985px", top:'320px'});
+        $("#anim_img_10").animate({left:"560px", top:'450px'});
+        $("#anim_img_11").animate({left:"860px", top:'100px'});
+        $("#anim_img_12").animate({left:"660px", top:'450px'});
+        $("#anim_img_13").animate({left:"930px", top:'100px'});
+    }, false );
+
+</script>
+
+</body>
+</html>

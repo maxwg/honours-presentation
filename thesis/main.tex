@@ -307,7 +307,8 @@ This thesis investigates the applicability of machine learning in PD diagnosis  
 
 %More  were developed by consolidating recent ideas EEG and non-linear signal processing and deep learning, showing significant performance improvements.
 
-We find... Results suggest that machine learning can offer a valuable source of information for experts as these models quantify symptoms differently from experts. --more discussion here--
+We show significant improvements over prior models and 
+%We find... Results suggest that machine learning can offer a valuable source of information for experts as these models quantify symptoms differently from experts. --more discussion here--
  
 
 %This thesis focuses on answering the question: ``what can machine learning offer the field of PD diagnosis?''. We approached this by investigating the ability for machine learning to differentiate PD and non-PD participants based on symptoms neurologists could not identify. 
@@ -323,7 +324,7 @@ HUMAN ACTIVITY RECOGNITION
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 \markright{Introduction}
-This honours thesis in computer science comprehensively explores the machine learning process from raw sensor data to results. It has been written for all audiences, however a background in machine learning may be useful to understand and follow some assumptions in the methodology. The work spans multiple disciplines and I have opted to summarise these fields concisely and provide references to seminal or well-written papers in the area for the reader interested in a more in-depth understanding. These papers will also provide the mathematical formulation of the signal processing and machine learning models which have been abstracted in favour for the intuition behind them.
+This honours thesis in computer science comprehensively explores the machine learning process from raw sensor data to results. It has been written for all audiences, however a background in machine learning may be useful to understand and follow some assumptions in the methodology. The work spans multiple disciplines and I have opted to summarise these areas concisely and provide references to seminal or well-written papers in the area for readers interested in an in-depth understanding. The mathematical or algorithmic formulation for most techniques have been abstracted in favour for the intuition behind them.
 
 Throughout the thesis highlights and footnotes have been used to improve flow and reading. Highlights convey or re-iterate important information for those skim-reading and footnotes\footnote{\emph{Footnotes} provide contextual background information} provides contextual background information.
 
@@ -336,11 +337,11 @@ Throughout the thesis highlights and footnotes have been used to improve flow an
 
 %The thesis is organised as follows:
 
-\emph{\hyperref[bgchapter]{Chapter}} \red{\ref{bgchapter}} summarises the characteristics of Parkinson's Disease and why it is difficult to diagnose. \emph{\hyperref[mlpd]{Section}} \red{\ref{mlpd}} examines the applicability of machine learning in the task and the limitations of current datasets and techniques. \emph{\hyperref[featureengineeringsigprocs]{Section}} \red{\ref{featureengineeringsigprocs}} covers relevant techniques for feature engineering, ranging from prior work in PD diagnosis to more advanced non-linear techniques used in EEG signal processing. Finally, \emph{\hyperref[machinelearning]{Section}} \red{\ref{machinelearning}} provides an overview of the machine learning process including the modern advances in neural networks. The remainder of the thesis is written with the assumption that the reader understands this background, enabling it to be very concise. 
+\emph{\hyperref[bgchapter]{Chapter}} \red{\ref{bgchapter}} consolidates all literature relevant to this thesis, starting with an outline of Parkinson's Disease and why it is difficult to diagnose. \emph{\hyperref[mlpd]{Section}} \red{\ref{mlpd}} examines the applicability of machine learning in the task and the limitations of current datasets and techniques. \emph{\hyperref[featureengineeringsigprocs]{Section}} \red{\ref{featureengineeringsigprocs}} revisits the underlying biology of Parkinson's disease and relates the biological changes to the signal processing techniques aimed at quantifying them. Finally, \emph{\hyperref[machinelearning]{Section}} \red{\ref{machinelearning}} provides an overview of the machine learning process including the modern advances in neural networks. The remainder of the thesis is written with the assumption that the reader understands this background, enabling it to be very concise. 
 
 \emph{\hyperref[ourwork]{Chapter}} \red{\ref{ourwork}} begins with a literature review of relevant works in PD machine learning, covering their results and shortcomings. In \emph{\hyperref[mpower]{Section}} \red{\ref{mpower}}, the dataset we use (mPower) is examined, and the data pre-processing described. \emph{\hyperref[pastwork]{Section} \ref{pastwork}} replicates current literature on Parkinson's disease machine learning on the much larger mPower dataset and reveals that current techniques fall short of their reported performance. This is likely due to the significantly larger variety of participants in the mPower dataset compared to the small datasets used in prior work.
 
-\emph{\hyperref[dynamicalsystems]{Section}} \red{\ref{dynamicalsystems}} investigates the applicability of the novel features we have introduced in \textit{\hyperref[eegsigproc]{Section}} \red{\ref{eegsigproc}}. An improvement is observed, however the task is clearly more difficult than what was suggested by prior literature. \emph{\hyperref[visfeature]{Section}} \red{\ref{visfeature}} explores why the task is difficult by visualising the current and novel features employed in the task. \emph{\hyperref[dataaugment]{Section}} \red{\ref{dataaugment}} explores techniques to improve machine learning performance, including data augmentation, feature selection and ensemble models. \emph{\hyperref[automaticfeatureengineering]{Section}} \red{\ref{automaticfeatureengineering}} applies neural networks to the task of extracting features related to diagnosing PD, inspired by the latest developments in speech recognition and computer vision. Finally, in \emph{\hyperref[powerml]{Section}} \red{\ref{powerml}} we consolidate our work and discuss what machine learning can offer to PD diagnosis. \emph{\hyperref[implementation]{Section}} \red{\ref{implementation}} describes the platfoms on which the project was implemented. It is available open source at.....
+\emph{\hyperref[dynamicalsystems]{Section}} \red{\ref{dynamicalsystems}} investigates the applicability of the novel features we have introduced in \textit{\hyperref[eegsigproc]{Section}} \red{\ref{eegsigproc}}. An improvement is observed, however the task is clearly more difficult than what was suggested by prior literature. \emph{\hyperref[visfeature]{Section}} \red{\ref{visfeature}} explores why the task is difficult by visualising the current and novel features employed in the task. \emph{\hyperref[dataaugment]{Section}} \red{\ref{dataaugment}} explores techniques to improve machine learning performance, including data augmentation, feature selection and ensemble models. \emph{\hyperref[automaticfeatureengineering]{Section}} \red{\ref{automaticfeatureengineering}} applies neural networks to the task of extracting features related to diagnosing PD, inspired by the latest developments in speech recognition and computer vision. Finally, in \emph{\hyperref[powerml]{Section}} \red{\ref{powerml}} we consolidate our work and discuss what machine learning can offer to PD diagnosis. \emph{\hyperref[implementation]{Section}} \red{\ref{implementation}} describes the platfoms on which the project was implemented. The code has been made available online at \url{https://github.com/maxwg/Parkinsons-mPower}.
 
 
 
@@ -565,7 +566,7 @@ PD vocal symptoms can be broadly classified as dysphonia~\cite{spworkshoptitze} 
 
 
 \subsubsection{Speech Signal Processing}
-Parkinson's disease diagnosis with speech exists as two distinct subfields: quantifying dysarthria in spoken sentences and quantifying dysphonia with sustained vowels (e.g, /aa/). To obtain a clinical level $WHAT IS CLINICAL LEVEL$ diagnosis, both dysphonia and dysarthria related features will likely have to be considered.
+Parkinson's disease diagnosis with speech exists as two distinct subfields: quantifying dysarthria in spoken sentences and quantifying dysphonia with sustained vowels (e.g, /aa/). To obtain a reliable diagnosis, both dysphonia and dysarthria related features will likely have to be considered.
 
 
 \begin{figure}[h]
@@ -590,9 +591,9 @@ As dysarthria is difficult to quantify, dysphonia based signal processing method
 Early dysphonia analysis is based on variations of jitter, shimmer and the harmonics-to-noise ratio. \emph{Jitter}~ measures the variation in the length of each glottal cycle, and \emph{shimmer}~\cite{shimmerjitter,jittertime} the variation in amplitude (volume). The harmonics-to-noise ratio (\emph{HNR})~\cite{HNRintro} measures the amount of noise in a signal, which correlates with the `hoarseness' or `breathiness' from an incomplete closure of the glottis.  The Glottal to Noise Excitation (\emph{GNE}) ratio was introduced by Michaelis~et.al~\cite{gne} and is a more reliable measure of dysphonia than HNR~\cite{gneratio}. 
 
 \label{dfadescription}
-More recently, methods used in non-linear dynamical systems\footnote{Dynamical systems theory is used to describe the behaviour of deterministic systems which appear to exhibit unpredictable behaviour based on a number of initial conditions. Dynamical systems are often viewed as a stochastic process for the purpose of analysis.} have been shown to be effective to dysphonia quantification. Detrended Fluctuation Analysis (\emph{DFA}) was originally introduced by Peng~et~al.~\cite{dfa} as a measure of the autocorrelation of a signal. Little~et~al.~(2007)~\cite{splittlenonlinear2007} shows this correlates with the amount of turbulent airflow in speakers with dysphonia. Little~et~al.~(2007) also proposes Recurrence Period Density Entropy (\emph{RPDE}) which characterises the repetitiveness of a signal, which is generally lower for speakers with dysphonia due to jitter and shimmer. As the method does not rely on the detection of the fundamental frequency, it may be more robust for dysphonic speakers. Little~et~al.~(2009)~\cite{splittledysphonia2009} builds upon RPDE to develop Pitch Period Entropy (\emph{PPE}) which is a better measure of the impaired control of pitch experienced by PD patients.
+More recently, methods used in non-linear dynamical systems\footnote{Dynamical systems theory is used to describe the behaviour of deterministic systems which appear to exhibit unpredictable behaviour based on a number of initial conditions. Dynamical systems are often viewed as a stochastic process for the purpose of analysis.} have been shown to be effective to dysphonia quantification. Detrended Fluctuation Analysis (\emph{DFA}) was originally introduced as a measure of the autocorrelation\footnote{\emph{Autocorrelation} describes the similarity of a signal to itself when offset by a given interval} of a signal~\cite{dfa}. Little~et~al.~(2007)~\cite{splittlenonlinear2007} shows this correlates with the amount of turbulent airflow in speakers with dysphonia. Little~et~al.~(2007) also proposes Recurrence Period Density Entropy (\emph{RPDE}) which characterises the periodicity of a signal, which is generally lower for speakers with dysphonia due to jitter and shimmer. As the method does not rely on fundamental frequency detection, it may be more robust for dysphonic speakers. Little~et~al.~(2009)~\cite{splittledysphonia2009} builds upon RPDE to develop Pitch Period Entropy (\emph{PPE}) which is a better measure of the impaired control of pitch experienced by PD patients.
 
-Tsanas~et~al~\cite{tsanas2012novel} extends GNE to develop Vocal Fold Excitation Ratios (\emph{VFER}) and also introduces the Glottal Quotient (\emph{GQ}). GQ measures the standard deviation of the duration when the glottis is opened and closed and is founded on the principles of the DYPSA~\cite{dypsa} fundamental frequency estimation algorithm. We refer to Tsanas~(2012)~\cite{spoverview} for a more detailed summary of the signal processing involved.
+Tsanas~\cite{spoverview} extends GNE to develop \textit{Vocal Fold Excitation Ratios} (\emph{VFER}) and also introduces the Glottal Quotient (\emph{GQ}). VFER is another quantification of the `breathiness' effect in dysphonic speech from turbulent airflow. GQ measures the standard deviation of the duration when the glottis is opened and closed. Both VFER and GQ involve are built upon the DYPSA~\cite{dypsa} fundamental frequency estimation algorithm. 
 
 Mel-Frequency Cepstral Coefficients (\emph{MFCC}) have long been used for speech recognition~\cite{mfcc}, and have also shown promise in detecting dysphonia~\cite{mfccml}. They are the most common and often the only feature used in speech recognition systems; however, lack interpretability and are very sensitive to noise~\cite{mfccrobust}. There are also a variety of feature sets used in general speech classification, such as the $6,368$ in the 2013 Intespeech ComParE set~\cite{is2013}. Although not all of these features may measure dysphonia, they are effective in fields such as speaker trait classification and may be useful in complex machine learning models. The incidence of PD varies based on age, gender and race~\cite{ageracial,racial}, and it is likely that dysphonia presents itself differently depending on speaker traits. We refer to Eyben~(2015)~\cite{ostextbook} for a comprehensive description of these features as well as a summary of feature sets used in speech classification.
 
@@ -616,7 +617,7 @@ Smartphone studies generally use features presented in speech and accelerometer 
 Little~et~al.~\cite{splittledysphonia2009} provided evidence that a high quality microphone is not required to classify dysphonia, obtaining good results on a dataset of 33. Brunato~et~al.~\cite{smartphonemjfoxlion}, Boussios~et~al.~\cite{smartphonemjfoxB} and Arora~et~al.~\cite{arora2014high} also manage to obtain good results with simple accelerometer-based features. However all of these models have been tested on small datasets, which are prone to overfitting on cross validation~\cite{overfittingcv} from bias and uninformative predictors~\cite{freedmanparadox}. 
 
 
-Zhan~et~al.~~\cite{zhan2016high} conducted a smartphone feasibility study on the largest dataset to date --- 121 PD and 105 control. Participants were recruited into the study and asked to asked to conduct tasks such as walking, saying /aa/ and alternated tapping~\cite{tapping}. However, Zhan~et~al. obtained results barely above the conditional baseline when predicting on features from all tasks (71\% accuracy). This result is also especially poor considering that the mean (standard deviation) age of PD subjects was 57.6 (9.4) and control 45.5 (15.5). A similar result may be obtained by a model classifying with age alone. This result is in direct contradiction with the previous works such as Arora~et~al.~(2014)~\cite{arora2014high} which reported 98.0\% accuracy on very similar accelerometer features. It is evident that reported results must be taken with a grain of salt. Zhan~et~al. also uses very basic features to quantify speech, neglecting the state of the art speech signal processing features used in other works~\cite{ostextbook, spoverview}. 
+Zhan~et~al.~~\cite{zhan2016high} conducted a smartphone feasibility study on the largest dataset to date --- 121 PD and 105 control. Participants were recruited into the study and asked to asked to conduct tasks such as walking, saying /aa/ and alternated tapping~\cite{tapping}. However, Zhan~et~al. obtained results barely above the conditional baseline when predicting on features from all tasks --- 71\% accuracy. This result is also especially poor considering that the mean (standard deviation) age of PD subjects was 57.6 (9.4) and control 45.5 (15.5). A similar result may be obtained by a model classifying with age alone. This result is in direct contradiction with the previous works such as Arora~et~al.~(2014)~\cite{arora2014high} which reported 98.0\% accuracy on very similar accelerometer features. It is evident that reported results must be taken with a grain of salt. Zhan~et~al. also uses very basic features to quantify speech, neglecting the state of the art speech signal processing features used in other works~\cite{ostextbook, spoverview}. 
 
 %A possible cause is that Zhan~et~al. does not control the android smartphone used, hence the sensor data collected varies significantly between devices. 
 
@@ -626,7 +627,7 @@ Neto proposed a method of ``collapsing'' multiple recordings for a patient into 
 
 \subsection{EEG}
 \label{eegsigproc}
-Electroencephalogram (EEG) signal processing presents an interesting challenge as the characteristics of an EEG signal are less well understood compared to speech and motion. Although many features have been crafted specifically for diagnosis of PD and Alzheimer's disease\footnote{DEFINE THIS} with EEG~\cite{eegnonlinearpd, eegalzheimers}, this section will only cover those which may be applicable to speech and movement.
+Electroencephalogram (EEG) signal processing presents an interesting challenge as the characteristics of an EEG signal are less well understood compared to speech and motion. Although many features have been crafted specifically for diagnosis of PD and Alzheimer's disease\footnote{Alzheimer's disease is a similar neurodegenerative disease. It is characterised by a loss of neurons in the cerebral cortex whereas PD targets dopaminergic neurons. } with EEG~\cite{eegnonlinearpd, eegalzheimers}, this section will only cover those which may be applicable to speech and movement.
 
 A variety of EEG signal processing techniques are inspired by non-linear dynamical systems theory. It is believed that EEG signals are generated by non-linear coupling interactions between neuronal populations~\cite{eegalzheimers}. Patients suffering from neurodegenerative disorders often exhibit decreased complexity in EEG patterns, believed to be caused by the a decrease in  non-linear cell dynamics~\cite{jelles1999decrease}. Features developed with EEG signal processing aim to characterise the dynamic structure of this system. As these features are not inspired by human senses, these features are the very promising for the task of measuring the presence of symptoms undetectable by a neurologist. 
 
@@ -634,8 +635,51 @@ A variety of EEG signal processing techniques are inspired by non-linear dynamic
 The nature of features related to EEG make them very promising for the task of measuring the presence of symptoms undetectable by a neurologist.
 \end{highlight}
 
+
 The \emph{Lyapunov Exponents} quantify the divergence of two systems with infinitesimally similar initial conditions. The Largest Lyapunov Exponent (\emph{$\lambda^*$}) characterises the chaos\footnote{Chaos refers to the sensitivity of a dynamic system to its initial conditions.} or rate of divergence of a system and is commonly estimated with Rosenstein's algorithm~\cite{rosenstein1993practicallyapunov} which reconstructs the system's dynamics using a time delay technique. The $\lambda^*$ has long been used in the EEG analysis of sleep and as a feature for machine learning~\cite{eeglyapunov1, eeglyapunov2}. The $\lambda^*$ have also been applied in the analysis of speech~\cite{banbrook1999speechlyapunov,kokkinos2005nonlinearlyapunov}, gait and balance ~\cite{dingwell2000nonlinearlyapunov, howcroft2014analysisgaitlyapunov, liu2015analysislyapunov}.
 
+
+
+\begin{figure}[h]
+	\centerline{
+		\begin{subfigure}[]{0.4\textwidth}
+			\caption{Healthy Speech}
+			\centering
+			\includegraphics[width=0.96\linewidth]{healthy_time.png}
+		\end{subfigure}%
+	\hspace{3em}
+		\begin{subfigure}[]{0.4\textwidth}
+			\caption{Dysphonic Speech}
+			\centering
+			\includegraphics[width=0.96\linewidth]{pd_time.png}
+		\end{subfigure}
+	}
+
+	\centerline{
+		\begin{subfigure}[]{0.4\textwidth}
+			\centering
+			\includegraphics[width=0.96\linewidth]{healthy_rplot.png}
+		\end{subfigure}%
+	\hspace{3em}
+		\begin{subfigure}[]{0.4\textwidth}
+			\centering
+			\includegraphics[width=0.96\linewidth]{pd_rplot.png}
+		\end{subfigure}
+	}
+	
+	\centerline{
+		\begin{subfigure}[]{0.4\textwidth}
+			\centering
+			\includegraphics[width=0.96\linewidth]{healthy_embdim.png}
+		\end{subfigure}%
+		\hspace{3em}
+		\begin{subfigure}[]{0.4\textwidth}
+			\centering
+			\includegraphics[width=0.96\linewidth]{pd_embed.png}
+		\end{subfigure}
+	}
+	\caption{A visualisation of speech on various domains. The recurrence plot~\cite{recurrenceplots} was developed to visualise the periodicity of a signal, highlighting where the system reaches approximately the same state. The time-lagged embedding domain is used by Rosenstein~et~al~\cite{rosenstein1993practicallyapunov} to calculate non-linear measures such as the largest Lyapunov exponent and in measures such as Fisher Information or SVD Entropy.}
+\end{figure}
 %\footnote{Accurate estimations of additional Lyapunov exponents generally require known equations describing the system~\cite{lyapunovall}. Eckmann's algorithm~\cite{eckmann1986liapunov} can roughly estimate these exponents.}
 
 %\begin{figure}[h]
@@ -691,12 +735,12 @@ HNR~\cite{HNRintro,HNRperiodic} & Measures the ratio of noise in a voiced signal
 Jitter~\cite{jittertime} & Measures of the variation between the length of each glottal cycle. \\
 Shimmer~\cite{shimmerjitter} & Measures of the variation of amplitude between each glottal cycle. \\
 LPCC~\cite{lpcc} & Coefficients of an \textit{autoregressive} model which measures how well a signal can be modelled linearly by its previous values.\\
-GNE~\cite{gne} & An extension of HNR by Michaelis et~al.~\cite{gne} to improve reliability in dysphonia quantification\\
+GNE~\cite{gne} & An extension of HNR by Michaelis et~al.~\cite{gne} to improve reliability in dysphonia quantification. \\
 VFER~\cite{tsanas2012novel} & An further extension of HNR, building upon the theory of GNE.\\
 EMD-ER~\cite{EMDER} & Another technique developed based on non-linear speech theory to quantify signal to noise\\
 GQ~\cite{tsanas2012novel} & Measures standard deviation of duration the glottis is opened vs closed.\\
-DFA~\cite{splittlenonlinear2007, dfa} & Detrended Fluctuation Analysis. A generalisation of the Hurst exponent which measures the self-similarity of a time series.\\
-RPDE~\cite{splittlenonlinear2007} & Measures the repetitiveness of a signal, specifically designed with non-linear speech as the target.\\
+DFA~\cite{splittlenonlinear2007, dfa} & Detrended Fluctuation Analysis. A generalisation of the Hurst exponent which measures the autocorrelation of a time series.\\
+RPDE~\cite{splittlenonlinear2007} & Measures the periodicity of a signal, specifically designed with non-linear speech as the target.\\
 PPE~\cite{splittledysphonia2009} & Measures the stability of pitch in sustained phonation.	\\
 \specialcellright{\hspace{1.9em}Wavelet\\Measures~\cite{sptsanastelemonitor2010}} & A set of 180 measures for dysphonia based on wavelet transforms to the $f_0$ of speech introduced by Tsanas~et~al.~(2011)~\cite{tsanas2011nonlinear}.\\
 \specialcellright{GeMAPS~\cite{geneva}} & A minimal acoustic feature set of 58 or 87 (eGeMAPS) parameters that performs well in general speech classification~\cite{ostextbook}.\\
@@ -713,7 +757,7 @@ PPE~\cite{splittledysphonia2009} & Measures the stability of pitch in sustained 
 \midrule
 \specialcellright{\hspace{2.5em}Fourier\\\hspace{2.7em}Bands} & The power in bands such as 3.5hz-7hz compared to 7hz-12hz are the primary features used to detect Parkinsonian tremor.\\
 Jerk~\cite{jerkfeature} & The change in acceleration. The jerk signal may be more effective when combined with certain signal processing methods.\\
-\specialcellright{Sway\\Area} & Simple measures such as bounding ellipse can quantify the amount of sway. A 95\% CI is often taken to remove outliers.\\
+\specialcellright{Sway\\Area} & This can be calculated naively by multiplying the range of sway in the A/P and M/L directions or by fitting a bounding ellipse in the principal component axis~\cite{pcasway}. As A/P and M/L directions are lost in accelerometer data, the bounding ellipse method is used.\\
 \specialcellright{Cadence\\Measures} & The steps per minute, variation in time taken for each step, difference between left and right stride times.\\
 \specialcellright{\hspace{1em}Stride\\Measures} & The length of each step and variation in step lengths. This was not measured as leg length is not available in the dataset used~\cite{diaz2014step}.
 \\ 
@@ -723,7 +767,7 @@ Jerk~\cite{jerkfeature} & The change in acceleration. The jerk signal may be mor
 
 
 \begin{longtable}{r p{114mm}}
-	\caption{EEG signal processing is often based on dynamical systems theory. These features may be effective in detecting the presence of symptoms invisible to neurologists.}\\
+	\caption{EEG signal processing is often based on non-linear systems theory. These features may be effective in detecting the presence of symptoms invisible to neurologists.}\\
 \multicolumn{2}{c}{\specialcellbold{EEG}} \\
 \midrule
 \specialcellright{\hspace{3.6em}Hjorth\\Parameters~\cite{hjorth}} & Three simple statistical measurements of a signal which have been used as features in EEG and IMU models~\cite{hjorthsmartphone}.\\
@@ -850,7 +894,7 @@ A perceptron by itself is a simple machine learning model, taking input features
       0 & x < 0 \\
       1 & x \geq 0 
    \end{cases}
-$} \emph{activation function}. At the time, computational power was limited and large networks impossible to train. Early works by Minsky and Papert~(1969)~\cite{minsky1969perceptrons} were misinterpreted as stating that perceptrons were incapable of modelling the `exclusive or' (XOR) function. However Minsky and Pampert only proved this for a single perceptron and believed that multiple layers of perceptrons could model the XOR function. In 1989, it was shown that a single layer with enough perceptons is able to approximate any non-linear continuous function~\cite{nnuniversalapprox}.
+$} \emph{activation function}. At the time, computational power was limited and large networks impossible to train. Early works by Minsky and Papert~(1969)~\cite{minsky1969perceptrons} were misinterpreted as stating that perceptrons were incapable of modelling the `exclusive or' (XOR) function. However, Minsky and Pampert only proved this for a single perceptron and believed that multiple layers of perceptrons could model the XOR function. In 1989, it was shown that a single layer with enough perceptons is able to approximate any non-linear continuous function~\cite{nnuniversalapprox}.
 
 
 \begin{figure}[h]
@@ -882,7 +926,7 @@ Two major variations of the traditional fully connected structure are convolutio
 \begin{figure}[h]
 	\label{cnnvis}
 	\centering\includegraphics[width=1\linewidth]{cnnvis.png}
-	\caption{A visualisation of CNN nodes from Yosinski et al.~\cite{cnnvis}. Layers capture increasingly complex relationships between pixels and act as features input into further layers. }
+	\caption{A visualisation of CNN activations from Yosinski et al.~\cite{cnnvis}. Layers capture increasingly complex relationships between pixels and are input features to further layers. }
 \end{figure}
 
 
@@ -1018,7 +1062,22 @@ Accuracy is the most basic and intuitive measure of performance, however it has 
 Secondly, accuracy does not take into consideration the confidence of a model's predictions. The area under the ROC (Receiver Operating Characteristics~\cite{rocauc}) curve (\emph{AUROC}) was proposed as a better alternative to accuracy. The ROC curve is created by plotting sensitivity and specificity at all confidence thresholds and the area under ROC was believed to be a more robust and statistically consistent measure of model performance~\cite{aucgood}. However recent empirical experiments have shown that AUROC favours particular models~\cite{aucmislead2} and it has been criticised for being incoherent~\cite{aucmislead, aucincoherent}. Modifications to AUROC have been proposed~\cite{aucmislead2, aucincoherent} however they are uncommon in practice. As a result, accuracy and $F_1$ score will be the primary performance measures utilised in this thesis as they are interpretable and model characteristic independent. AUROC is more robust when there is a large disparity between classes will also be recorded for comparison with prior works such as Neto et~al.~(2017)~\cite{mpowerneto2017analysis}.
 
 
-Hypothesis tests are used to determine if the results obtained in experiments are \textit{statistically significant}. After obtaining the accuracies or $F_1$ scores for each fold of cross validation, a hypothesis test should be used to determine that the difference in results is not from chance. A paired t-test is the traditional approach to testing if one population mean is greater than another. There have been criticisms of frequentist hypothesis testing promoting the publication bias~\cite{publicationbias}, citing the non-replicability crisis in psychology~\cite{replicability}. Recently, the American Statistical Association has officially endorsed Bayes factor~\cite{bayesianttests} as their preferred method of hypothesis testing~\cite{bayesfactorASA}, and mass-replication studies have shown that almost half of previous psychological research do not meet the criteria for strong evidence when Bayes factor is applied~\cite{bayesfactorempirical}. The standard two tailed Cauchy distribution is used as a prior in this thesis~\cite{bayesianttests}.
+Hypothesis tests are used to determine if the results obtained in experiments are \textit{statistically significant}. After obtaining the accuracies or $F_1$ scores for each fold of cross validation, a hypothesis test should be used to determine that the difference in results is not from chance. A paired t-test is the traditional approach to testing if one population mean is greater than another. There have been criticisms of frequentist hypothesis testing promoting the publication bias~\cite{publicationbias}, citing the non-replicability crisis in psychology~\cite{replicability}. Recently, the American Statistical Association has officially endorsed \textit{Bayes factor}~\cite{bayesianttests} (\emph{BF}) as their preferred method of hypothesis testing~\cite{bayesfactorASA}. Recent mass-replication studies have shown that almost half of previous psychological research do not meet the criteria for strong evidence when Bayes factor is applied~\cite{bayesfactorempirical}. The standard two tailed Cauchy distribution is used as a prior in this thesis~\cite{bayesianttests}.
+
+
+\begin{table}[h]
+	\caption{Interpretation of Bayes factors~\cite{bayesfactorinterpretation}. Bayes factors do not account for model validity and selection bias.}
+	\label{bayesfactorinterpretation}
+	\centering
+\begin{tabular}{@{}rc@{}}
+	$<1$ &  Evidence for the null hypothesis of $1/BF$\\ \midrule
+	1 to 3 &  Insignificant evidence\\ \midrule
+	3 to 10 & Substantial evidence \\ \midrule
+	10 to 30    & Strong evidence    \\\midrule
+	30 to 100 & Very strong evidence\\\midrule
+	$\geq 100$ & Decisive evidence \\\midrule
+\end{tabular}
+\end{table}
 
 
 In statistics, there is no agreed upon method for model selection and evaluation. Penalization based evaluation\footnote{\emph{Penalization} based model criteria are inspired by Occam's razor, preferring simple models over complex ones which as they are less likely to overfit.}  criteria such as Akaline/Bayesian/General Information Criterion~\cite{aicbic,generalinfocriteriongic} and Minimum Description Length~\cite{mindescriptionlength} are common model selection techniques. However these are less suitable for machine learning as it is difficult to quantify the complexity of model such as neural networks. Cross validation is therefore the only feasible technique to compare completely different models. 
@@ -1107,7 +1166,7 @@ Unlike similar experiments carried out in force plates, the subject was not inst
 
 A 16 second extract of rest data between 4s and 20s and the first 10 seconds of the walking task were used for each subject for feature engineering. The choice of these values were solely informed by the nature of the dataset, with the first four seconds of rest data containing significant movement and most recordings of variable length.
 
-Samples which are too short, have too much variability in recording rate or are `corrupted' were removed from the set. Approximately 2300 participants remained with both a valid speech and movement recording, 600 with PD (25.7\%). The most recent valid walk was selected for each participant and features specified in \textit{\hyperref[featuresummary]{Section}}~\ref{featuresummary} calculated using the tools and techniques described in \textit{\hyperref[implementationfeature]{Section}}~\ref{implementationfeature}.  Feature engineering was done on both the original and filtered data for the resting task and only unfiltered for the walking task. Features were computed over the $(x,y)$ and $(x,y,z)$ dimensions for rest and walking recording respectively.
+Samples which are too short, have too much variability in recording rate or are `corrupted' were removed from the set. Approximately 2300 participants remained with both a valid speech and movement recording, 600 with PD (25.7\%). The most recent valid walk was selected for each participant and features specified in \textit{\hyperref[featuresummary]{Section}}~\ref{featuresummary} calculated using the tools and techniques described in \textit{\hyperref[implementation]{Section}}~\ref{implementation}.  Feature engineering was done on both the original and filtered data for the resting task and only unfiltered for the walking task. Features were computed over the $(x,y)$ and $(x,y,z)$ dimensions for rest and walking recording respectively.
 
 
 \section{Replicating Past Work}
@@ -1260,18 +1319,18 @@ Non-linear signal processing involves the estimation more abstract characteristi
 
 A wider range of non-linear signal processing has been applied on EEG signals. The LLE is a measure of the chaos in a system, which is likely higher in dysphonic speech and dyskinetic movement. The fractal dimension relates to the complexity of a signal, and Fisher information and sample entropy measure the unpredictability of a signal. These are likely to be higher in dysphonic speech and dyskinetic movement due to additional information from turbulent airflow or tremor and jerking movements. 
 
-We believe these non-linear features are more robust measures of symptoms. These features do not directly relate to the information captured by human senses and may be applicable in detecting symptoms unnoticeable by an expert. We repeated the previous accelerometer and speech experiments on the mPower dataset using the novel features introduced in section \ref{eegsigproc}, with the results recorded in table \ref{resultsdynamical}.
+We believe these non-linear features are more robust measures of symptoms. These features do not directly relate to the information captured by human senses and may be applicable in detecting symptoms unnoticeable by an expert. We repeated the previous accelerometer and speech experiments on the mPower dataset using the novel features introduced in section \ref{eegsigproc}, with the results recorded in table \ref{resultsdynamical}. The non-linear features we have introduced are denoted ``\textit{novel}'' features (these exclude the previously applied DFA, PPE and others).
 
 
 \begin{table}[h]
-	\caption{Cross validation results for a SVM when including the non-linear features. Adding the dynamical features improves model performance on the accelerometer and phonation data with a Bayes factor of $10^7$ and $10^{12}$ respectively.}
+	\caption{Cross validation results for a SVM when including the non-linear features. Adding the novel features improves model performance on the accelerometer and phonation data with a Bayes factor of $10^7$ and $10^{12}$ respectively.}
 	\label{resultsdynamical}
 	\centering\centerline{
 	\begin{tabular}[t]{c c c}
 		{\specialcellbold{Accelerometer (50:50 split)}} & 
 		{\specialcellbold{Phonation (50:50 split)}} \\[10pt]
 		\begin{tabular}{@{}rcccc@{}}
-			&  \specialcell{\\DREAM} & \begin{tabular}[c]{@{}c@{}}Dynamical \\ Only\end{tabular} & \specialcell{\\Both} \\ \midrule
+			&  \specialcell{\\DREAM} & \specialcell{Novel \\ Only} & \specialcell{\\Both} \\ \midrule
 			Accuracy [\%]    &      $63.8\pm3.9$ &                       $66.0\pm4.0$                                  &        $68.8\pm3.7$\\ \midrule
 			Sensitivity [\%] &      $62.6\pm5.4$ &                       $61.8\pm5.7$                                  &     $67.2\pm5.3$\\ \midrule
 			Specificity [\%] &      $65.0\pm5.7$ &                       $70.2\pm1.9$                                  &     $70.5\pm5.4$\\ \midrule
@@ -1279,7 +1338,7 @@ We believe these non-linear features are more robust measures of symptoms. These
 		\end{tabular}
 		&
 		\begin{tabular}{@{}cccc@{}}
-			\specialcell{\\Tsanas} & \begin{tabular}[c]{@{}c@{}}Dynamical \\ Only\end{tabular} & \specialcell{\\Both} \\ \midrule
+			\specialcell{\\Tsanas} & \specialcell{Novel \\ Only} & \specialcell{\\Both} \\ \midrule
 			$69.3\pm3.3$ &                       $62.9\pm3.5$                                  &       $72.2\pm3.1$ \\ \midrule
 			$62.9\pm4.8$ &                       $48.5\pm5.0$                                  &       $69.7\pm4.3$\\ \midrule
 			$75.6\pm4.2$ &                       $77.2\pm4.9$                                  &       $74.8\pm4.7$ \\ \midrule
@@ -1288,7 +1347,7 @@ We believe these non-linear features are more robust measures of symptoms. These
 	\end{tabular}}
 \end{table}
 
-The non-linear features are evidently stronger differentiators of PD than the features existing in current literature, but not sufficiently to robustly classify PD and control. Bayes Factor analysis shows dynamical features alone for accelerometer performs better than the DREAM baseline with a $BF=5$. This value is substantial in statistics, but in cross validation implies that the classifiers are succeeding on very different examples. Combining both dynamical features and Tsanas' feature set improves performance greatly on the speech data.
+The non-linear features are evidently stronger differentiators of PD than the features existing in current literature, but not sufficiently to robustly classify PD and control. Bayes Factor analysis shows novel features alone for accelerometer performs better than the DREAM baseline with a $BF=5$. This value is substantial in statistics, but in cross validation implies that the classifiers are succeeding on very different examples. Combining both novel features and Tsanas' feature set improves performance greatly on the speech data.
 
 \section{Visualising The Features}
 \label{visfeature}
@@ -1332,7 +1391,7 @@ Investigating the non-linear dynamical features introduced in section \ref{eegsi
 	\centerline{
 		\includegraphics[width=1.15\linewidth]{speech_dynamic.png}
 	}
-	\caption{A visualisation of some dynamical speech features. Sample entropy and $\lambda^*$ (measures of unpredictability) are higher in subjects with PD, however spectral entropy is lower. See figure \ref{mfcc_feat} for legend.}
+	\caption{A visualisation of some nonlinear speech features. Sample entropy and $\lambda^*$ (measures of unpredictability) are higher in subjects with PD, however spectral entropy is lower. See figure \ref{mfcc_feat} for legend.}
 	\label{speechdynamic}
 \end{figure}
 
@@ -1375,7 +1434,7 @@ The most common features used diagnosis of force plate and IMU data are tremor a
 	\label{basicrest}
 \end{figure}
 
-Investigating dynamical features, we find that no statistically significant correlation between the largest Lyapunov Exponent and PD on both rest and walk data. This result contrasts with Howcraft et~al.~\cite{howcroft2014analysisgaitlyapunov} which showed a lower $\lambda^*$ in people with diabetic neuropathy (NP). This may suggest a possibility distinguish characteristics of PD and NP gait, but could also be attributed to the low sample rate of phone accelerometers which is unsuitable for estimating the Lyapunov Exponents~\cite{rosenstein1993practicallyapunov}. Participants with PD --- especially females exhibited a higher fractal dimension. This was a surprising result as we believed that the use of handbags would greatly hinder the differentiability of PD.
+We find no statistically significant correlation between the largest Lyapunov Exponent and PD on both rest and walk data. This result contrasts with Howcraft et~al.~\cite{howcroft2014analysisgaitlyapunov} which showed a lower $\lambda^*$ in people with diabetic neuropathy (NP). This may suggest a possibility distinguish characteristics of PD and NP gait, but could also be attributed to the low sample rate of phone accelerometers which is unsuitable for estimating the Lyapunov Exponents~\cite{rosenstein1993practicallyapunov}. Participants with PD --- especially females exhibited a higher fractal dimension. This was a surprising result as we believed that the use of handbags would greatly hinder the differentiability of PD.
 
 \begin{figure}[h]
 	\centering
@@ -1613,48 +1672,55 @@ The challenge released a previously unseen supplementary training set.
 \label{powerml}
 Now that we have shown the applicability of a range of techniques for tacking the problem of diagnosing Parkinson's disease from raw sensor data, let's answer the question of what machine learning can provide to real world diagnosis. Evidently, the raw classifier performance on the mPower dataset is insufficient to replace neurologists. However, the results are impressive, considering the diagnosis is solely based on a 4 second phonation of /aa/ with environmental noise or a low quality accelerometer recording of a short walk and stand still.
 
-Let's first investigate whether there exists a difference between human senses and the features considered by a machine learning model. Prior to training any models, we removed a set of participants with PD who declared themselves as having zero speech difficulties on the mPower UPDRS survey. We are aware that this relied on the honesty of participants and may not necessarily correlate to a neurologist's UPDRS assessment. There were 220/900 participants who had responded as having zero speech difficulties and had filled in an answer other than the default (zero) for one other UPDRS criteria after the speech question. Of these participants, we listened to each audio sample and evaluated them for both quality and whether dysphonia was evident\footnote{Optimally, a neurologist would be involved in this process, however the resources were not available. Note that the evaluator had listened to 1,600 speech samples from PD and control participants to develop the filtering criteria and is reasonably familiar with the characteristics of dypshonia.}. This resulted in a final set of 86 participants, which were removed from the dataset in all previous models limit the impact of overfitting from model tweaking.
+Let's first investigate whether there exists a difference between human senses and the features considered by a machine learning model. Prior to training any models, we removed a set of participants with PD who declared themselves as having no speaking difficulties on the mPower UPDRS survey. We are aware that this relied on the honesty of participants and may not necessarily correlate to a neurologist's UPDRS assessment. There were 220/900 participants who had responded as having zero speaking difficulties and had filled in an answer other than the default (zero) for one other UPDRS criteria after the speech question. Of these participants, we listened to each audio sample and evaluated them for both quality and whether dysphonia was evident\footnote{Optimally, a neurologist would be involved in this process, however the resources were not available. Note that the evaluator had listened to 1,600 speech samples from PD and control participants to develop the filtering criteria and is reasonably familiar with the characteristics of dypshonia.}. This resulted in a final set of 86 participants, which were removed from the dataset in all previous models limit the impact of overfitting from model tweaking. 
 
-We applied the most powerful model we had available, the FWLS ensemble (\textit{\hyperref[spensemble]{Section}} \ref{spensemble}) to this task with our standard ten times repeated 10-fold cross validation. The set of 86 participants was divided into ten groups of 8-9 individuals, and the ensemble trained on all except one of these groups. To validate results further and ensure that the models able to generalise outside of the mPower dataset, we test our model's performance on the speech samples of 28 subjects with PD released by Sakar~et~al.~\cite{sakar2012} on the UCI Machine Learning repository. The results are presented in \textit{\hyperref[machvshumanresult]{Table}} \ref{machvshumanresult}. 
+We applied the most powerful model we had available, the FWLS ensemble (\textit{\hyperref[spensemble]{Section}} \ref{spensemble}) to this task with our standard ten times repeated 10-fold cross validation. The set of 86 participants was divided into ten groups of 8-9 individuals, and the ensemble trained on all except one of these groups. To validate results further and ensure that the models able to generalise outside of the mPower dataset, we test our model's performance on the speech samples of 28 subjects with PD released by Sakar~et~al.~\cite{sakar2012} on the UCI Machine Learning repository. The best /aa/ phonation for each participant of 1.5 seconds of length was extracted as testing data. The results are presented in \textit{\hyperref[machvshumanresult]{Table}} \ref{machvshumanresult}. 
 
 
 
 \begin{table}[h]
-	\caption{Results of the FWLS ensemble on the 86 unseen PD participants with no speech difficulties and the 28 PD participants in Sakar~et~al.~\cite{sakar2012}. Data augmentation was not performed due to the limited /aa/ phonation time in recordings from Sakar~et~al.}
+	\caption{Results of the FWLS ensemble on the 86 unseen PD participants with no speaking difficulties and the 28 PD participants in Sakar~et~al.~\cite{sakar2012}. Data augmentation was not performed due to the limited /aa/ phonation time in recordings from Sakar~et~al.}
 	\label{machvshumanresult}
 	\centering
 	\begin{tabular}{@{}rcccc@{}}
-		&  \specialcell{Cross\\Validation} & \specialcell{No Speech\\Difficulty} & \specialcell{\\Sakar} \\ \midrule
-		Accuracy [\%]    &  $68.8\pm3.7$ & $70.0\pm4.5$ &$70.9\pm5.0$\\ \midrule
-		Sensitivity [\%] &  $67.2\pm5.3$ & $66.9\pm7.5$ &$66.3\pm7.8$\\ \midrule
-		Specificity [\%] &  $70.5\pm5.4$ & $73.3\pm7.1$ &$75.6\pm6.0$\\ \midrule
-		AUROC [\%]       &  $74.8\pm4.1$ & $76.2\pm5.1$ &$78.1\pm5.1$ \\ \midrule
+		&  \specialcell{Cross\\Validation} & \specialcell{No Speech\\Difficulties} & \specialcell{\\Sakar} \\ \midrule
+		Accuracy [\%]    &  $75.4\pm2.7$ & $-$ &$85.7$\\ \midrule
+		Sensitivity [\%] &  $71.1\pm4.1$ & $-$ &$85.7$\\ \midrule
+		Specificity [\%] &  $79.7\pm4.6$ & $-$ &$-$   \\ \midrule
+		AUROC [\%]       &  $82.5\pm2.6$ & $-$ &$90.6$ \\ \midrule
 		Total Subjects & 1716 & 86 & 28 \\ \midrule 
 	\end{tabular}
 \end{table}
 
 
 
-Surprisingly, there is no significant difference between the specificity when diagnosing participants with perceptible and imperceptible speech difficulties. This implies that the features considered by machine learning models in performing diagnosis. The result on Sakar~et~al.~\cite{sakar2012} provides strong evidence that the mPower trained models are not overfitting, and generalise well to completely unseen data. The basis of these results will be explored in the following section.
+Surprisingly, there is no significant difference between the specificity when diagnosing participants with perceptible and imperceptible dysphonia. This implies that the features considered by machine learning models in performing diagnosis. The result on Sakar~et~al.~\cite{sakar2012} provides strong evidence that the mPower trained models are not overfitting, and generalise well to completely unseen data. The basis of these results will be explored in the following section.
 
 
 \subsection{Human Hearing vs Signal Processing}
 \label{formalfeatures}
-As the ensemble model obtains similar classification accuracies on both the participants with and without perceptible speech difficulties, combinations of features must exist which distinguish Parkinsonian and normal speech. 
+As the ensemble model obtains similar classification accuracies on both the participants with and without perceptible speech difficulties, combinations of features must exist which distinguish Parkinsonian and normal speech. Some features quantify a characteristic which should be discernible with human hearing, whereas may measure more abstract qualities. We investigate two hypothesis for each thesis: 
+\begin{enumerate}
+	\item The feature is audible to the human ear. A difference in the distributions of individuals with PD and \textit{no speech difficulties} (NSD)\footnote{In this section, \emph{NSD} denotes the set of participants with Parkinson's disease and no speech difficulties and \emph{PD} denotes the set of participants with Parkinson's disease and speech difficulties.} and those with speech difficulties would support this hypothesis.
+	\item The feature is inaudible to the human ear. Having no difference between the distributions of individuals with PD and NSD would confirm this.
+\end{enumerate}
 
-Some features quantify a characteristic which should be discernible with human hearing. The human ear is sensitive at discerning changes in pitch and we know that Parkinsonian speech has greater fluctuations in frequency. Therefore it is expected that PD participants with speech difficulties have a greater standard deviation of $f_0$ than PD participants without speech difficulties. Another feature that should be perceivable in human hearing is the amount of noise (related to breathiness), captured by the harmonics to noise ratio (HNR). However, the HNR was not a strong differentiator of Parkinsonian speech, thus the Vocal Fold Excitation Ratio, an extension of the HNR was used to quantify this instead. The differences between PD participants with and without speech difficulties are presented in \textit{\hyperref[f0vferboxplot]{Figure}} \ref{f0vferboxplot}. Note that sample sizes are small.
-SELECTION BIAS
-F0
-500608114325 4.778964 0.2064219
-0.09593154 0.7069853 0.5478061
+Note that the results presented in this section are influenced by selection bias, as the NSD group have been verified as performing the task properly. The other groups may have more outliers from performing the task incorrectly or excessive background noise. This should be considered when interpreting conclusions, as the lack of low quality speech samples may skew the distribution by removing outliers.
 
-VFER
-8.285428e+21 0.2937744 0.753058
-568957670 0.5045708 0.3774322
+%As the experimental setup is biased, conclusions should be taken with a grain of salt.
+
+The human ear is sensitive to changes in pitch, and Parkinsonian speech has greater fluctuations in frequency. Therefore it is expected that the NSD group has a lesser standard deviation of $f_0$ than the PD --- it is potentially closer to the control group. The amount of noise (related to breathiness) should also be perceivable with human hearing. This feature is quantified by the harmonics to noise ratio (HNR); however, the HNR was not a strong differentiator of Parkinsonian speech; thus the Vocal Fold Excitation Ratio, an extension of the HNR was used instead~\cite{tsanas2012novel}. The differences between PD participants with and without speech difficulties are presented in \textit{\hyperref[f0vferboxplot]{Figure}} \ref{f0vferboxplot}. 
+
+%F0
+%500608114325 4.778964 0.2064219
+%0.09593154 0.7069853 0.5478061
+
+%VFER
+%8.285428e+21 0.2937744 0.753058
+%568957670 0.5045708 0.3774322
 
 
-\begin{figure}[h]
-	\label{f0vferboxplot}
+\begin{figure}[!htbp]
 	\centerline{
 	\begin{subfigure}[]{0.58\textwidth}
 		\label{f0boxplot}
@@ -1669,21 +1735,22 @@ VFER
 		\includegraphics[width=0.96\linewidth]{VFER_boxplot.png}
 	\end{subfigure}
    	}
-	\caption{The standard devi}
+	\caption{Box plots of features over all samples used in the machine learning models with extreme outliers removed. (a) Males with PD have a higher fluctuation of $f_0$ ($BF=10^{13}$) compared to control, whereas the Male NSD group has a similar distribution to control ($BF=5$). There is no significant variance between $f_0$ for females. (b) Individuals with PD have a higher VFER than control and NSD (Control Male $BF=10^{22}$, Female $BF=10^{10}$. NSD Male $BF=3.5$, Female=$2.0$) .}
+	\label{f0vferboxplot}
 \end{figure}
 
-Investigating other 
+Based on the evidence in \textit{\hyperref[f0vferboxplot]{Figure}} \ref{f0vferboxplot}, we can conclude that there is substantial evidence the variations in $f_0$ in males are audible to humans. The $f_0$ is estimated with the SWIPE algorithm~\cite{camacho2007swipe} and it is possible that the generally shorter pitch periods of female phonation cause a larger error margin in the $f_0$ estimates~\cite{f0estimation}, blurring the difference between dysphonic and normal female phonation. The evidence that VFER is audible to humans is less substantial, but it is not a strong measure for differentiating control and NSD groups.
 
-DFA
-23409.44, 0.1696782, 1.057427
-8.850418e+14 0.2106709 34.61859
+DFA and RPDE are two of the stronger non-linear measures quantifying the autocorrelation used in prior work on detecting Parkinsonian dysphonia ~\cite{splittledysphonia2009}. DFA is a measure of the autocorrelation of a signal, and RPDE is a measure of periodicity. Similar to VFER, these features attempt to quantify the amount of disturbance in the speech signal from turbulent noise. However, VFER relies on DYPSA~\cite{dypsa} to measure the fundamental frequency whereas DFA and RPDE are non-linear methods and may be more robust. The results are presented in \textit{\hyperref[dfarpdeboxplot]{Figure}} \ref{dfarpdeboxplot}. 
 
-RPDE
-1378130 0.1785919 3.137605
-25.4818 0.1961733 0.4657289
+%DFA
+%23409.44, 0.1696782, 1.057427
+%8.850418e+14 0.2106709 34.61859
 
-\begin{figure}[h]
-	\label{dfarpdeboxplot}
+%RPDE
+%1378130 0.1785919 3.137605
+%25.4818 0.1961733 0.4657289
+\begin{figure}[!htbp]
 	\centerline{
 	\begin{subfigure}[]{0.58\textwidth}
 		\label{dfaboxplot}
@@ -1698,16 +1765,24 @@ RPDE
 		\includegraphics[width=0.96\linewidth]{RPDE_boxplot.png}
 	\end{subfigure}
 	}
-	\caption{The standard devi}
+	\caption{(a) DFA is lower in PD vs control (Males $BF=10^5$, Females $BF=10^{15}$) and equal in PD vs NSD (Males $BF=5.9$, Females $BF=4.8$). (b) RPDE is lower in PD vs control (Males $BF=10^6$, Females $BF=25$) and equal in PD vs control (Male $BF=5.6$, Female $BF=5.2$)}
+	\label{dfarpdeboxplot}
 \end{figure}
-Sample Entropy 
-CTR VS PD Male BF = 8794654926, Female BF = 6768167
-PD VS SPEECH  MALE BF = 0.1639064, Female = 0.2194423
-CTR VS SPEECH MALE BF = 3.540951, Female = 37.51635
 
-HFD
-497.272, 0.1835168, 0.9444457
-6768167, 0.2194423, 37.51635
+Although DFA and RPDE both quantify a similar characteristic (breathiness) as VFER, there is more more evidence that DFA and RPDE quantify inaudible qualities in dysphonic speech whereas VFER is audible. A possible explanation is that DFA and RPDE measure the more abstract notion of recurrence whereas VFER are a more direct measure of the turbulent noise. 
+
+%Sample Entropy 
+%CTR VS PD Male BF = 8794654926, Female BF = 6768167
+%PD VS SPEECH  MALE BF = 0.1639064, Female = 0.2194423
+%CTR VS SPEECH MALE BF = 3.540951, Female = 37.51635
+
+%HFD
+%497.272, 0.1835168, 0.9444457
+%6768167, 0.2194423, 37.51635
+
+The fractal dimension and sample entropy are two features introduced from EEG signal processing. These features measure the signal's complexity and uncertainty, and are less biologically motivated than DFA and RPDE. In particular, these features often relate to detailed high frequency information, to which the human auditory system is less sensitive to~\cite{auditoryrange}. We  expect that the non-linear features introduced in \textit{\hyperref[eegsigproc]{Section}} \ref{eegsigproc} are some of the better differentiators of NSD and control as they quantify similarly abstract qualities of a signal.
+
+
 
 \begin{figure}[h]
 	\label{hfdsampenboxplot}
@@ -1725,28 +1800,32 @@ HFD
 		\includegraphics[width=0.96\linewidth]{sample_entropy_boxplot.png}
 	\end{subfigure}
 	}
-	\caption{The standard devi}
+	\caption{(a) The fractal dimension is higher in PD vs control (Males $BF=500$, Females $BF=10^7$) and equal in PD vs NSD (Males $BF=5.5$, Females $BF=4.6$). (b) The sample entropy is highre in PD vs control (Males $BF=10^{10}$, Females $BF=10^7$) PLSFIXXXXXXX}
 \end{figure}
 
+As shown in \textit{\hyperref[hfdsampenboxplot]{Figure}} \ref{hfdsampenboxplot}, fractal dimension and sample entropy of a signal are unlikely to be audible qualities of a signal. It is a combination of these features which enable the separation of healthy individuals and those with PD but no audible speech difficulties.
 
 \subsection{Significance of Findings}
 
-As evident in \textit{\hyperref[visfeature]{Section}} \ref{visfeature}, making sense of each individual feature is a challenging task. Machine learning models are required to interpret the uncertainty of the features and obtain a result. Prior models have been constructed by 
+As evident in \textit{\hyperref[visfeature]{Section}} \ref{visfeature}, making sense of each individual feature is a challenging task. Machine learning models are required to interpret the uncertainty of the features and obtain a result. Prior models in this thesis have been constructed solely based on the characteristics of either a speech or walking signal. Including demographics information will significantly improve results. This is not solely due to the differences in PD amongst different genders and races ~\cite{gender,gendersymptoms,ageracial} --- demographics information also provides valuable information about the expected speech and gait characteristics.
+
+Younger subjects were filtered out to create an approximate 50/50 split of the data and simulate more realistic diagnosis scenarios. Using the rule $\text{age}\geq35$ on phonation task, a set of 1591 individuals, 803 with PD and 75 with PD and no speaking difficulties remain. The rule $\text{age}\geq34$ on the movement task results in a set of of 775 individuals, 389 with PD. Our FWLS model with all novel features and demographics features achieves $82.1\pm2.7\%$ classification accuracy on the phonation task and $81.7\pm3.3\%$  on the walking task. These models did not use data augmentation or neural network based feature engineering, which are likely to further improve accuracy.
+
+Although the performance and understanding of these machine learning models are not sufficient to substitute for neurologist diagnosis, they provide an effectively zero cost tool for neurologists to verify their diagnosis. Previously, we have shown that these machine learning models can detect dysphonia better than most humans (\hyperref[powerml]{Section} \ref{powerml}) and it is likely that this is true for irregular gait. A positive result may be an indication to perform further checks on the patient. The results are especially good, considering many samples present in the mPower data may not be of suitable quality for diagnosis by a trained neurologist.
+
+Additional data and cleaner data will always improve a classifier's performance, and we are far from reaching the limits of machine learning. In all models tested, over half of the mPower data had been removed to allow for the 50 PD:50 Control split to better evaluate models. This resulted in a remaining 1,700 subjects in the phonation task and 1,200 subjects in the walking task --- a sufficiently large sample for a good representation of the population; however, insufficient to reach a model's performance limit~\cite{cho2015much}. This is also evident in the significant improvements in results from simple data augmentation techniques in \textit{\hyperref[dataaugment]{Section}} \ref{dataaugment}. 
 
 
- When we take into account demographic information along with all movement phonation
-features, we find that our FWLS model is quite powerful at differentating between 
+These diagnosis can be performed without the installation of any application on the user's phone. As demonstration, we developed a web application which used the Javascript web audio and device motion APIs to record microphone and accelerometer data from supported devices and browsers (most smartphones, some laptops). The recordings were submitted to a basic (2GB RAM/single core) server which could perform diagnosis within 30 seconds. The predictions are high variance --- taking the mean of multiple diagnosis on segments of each task (similar to data augmentation, \textit{\hyperref[dataaugment]{Section}} \ref{dataaugment}) greatly improved robustness at the cost of extra computation.
 
- The cost of running these models are near zer, 
-
-
-Additional data and cleaner data will always improve a classifier's performance, and we are far from reaching the limits of machine learning. We ha
-
-
-
+Evidently, machine learning can be a valuable tool for providing insights to neurologists. There is huge potential --- as more data becomes available to machine learning models, their power and robustness will further improve. 
 
 \subsection{Where to now? Recommendations for Future Research}
 
+
+Machine learning in PD is still a young field and there remains a significant amount of work that must be completed before machine learning can be used in a real medical context. This thesis presents only a very 
+
+ Our recommendations for the field in general are:
 
 WE DIDNT GET TO EXPLORE EGENEVA OR COMPARE EMOTION RECOGNITION.
 
@@ -1755,7 +1834,6 @@ WE DIDNT GET TO EXPLORE EGENEVA OR COMPARE EMOTION RECOGNITION.
 Performance could also be improved with techniques suggested but not applied automatic feature engineering (\textit{\hyperref[automaticfeatureengineering]{Section}} \ref{automaticfeatureengineering}) and extracting all features on a short-time scale (\textit{\hyperref[visfeatrecommendations]{Section}} \ref{visfeatrecommendations}) 
 
 
-Machine learning in PD is clearly a young field and there remains a significant amount of work that must be completed before it can feasibly be applied in a medical context. Our recommendations for the field in general are:
 
 \begin{enumerate}[noitemsep, topsep=-10pt]
 	\item Tools such as spectrograms and signal processing should definitely be introduced in the diagnosis process as they can identify markers missed by human senses.
@@ -1809,7 +1887,7 @@ we need to focus on real world results for it to have any chance to be aplied in
 
 
 
-
+\section{Summary of Contributions}
 
 
 \section{A Finishing Note}
