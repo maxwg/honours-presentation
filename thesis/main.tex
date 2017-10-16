@@ -679,6 +679,7 @@ The \emph{Lyapunov Exponents} quantify the divergence of two systems with infini
 		\end{subfigure}
 	}
 	\caption{A visualisation of speech on various domains. The recurrence plot~\cite{recurrenceplots} was developed to visualise the periodicity of a signal, highlighting where the system reaches approximately the same state. The time-lagged embedding domain is used by Rosenstein~et~al~\cite{rosenstein1993practicallyapunov} to calculate non-linear measures such as the largest Lyapunov exponent and in measures such as Fisher Information or SVD Entropy.}
+	\label{recurplot}
 \end{figure}
 %\footnote{Accurate estimations of additional Lyapunov exponents generally require known equations describing the system~\cite{lyapunovall}. Eckmann's algorithm~\cite{eckmann1986liapunov} can roughly estimate these exponents.}
 
@@ -694,7 +695,7 @@ The \emph{Lyapunov Exponents} quantify the divergence of two systems with infini
 
 The \emph{fractal dimension} is another measure commonly used in the analysis of EEG and other dynamical systems along with the LLE. It represents the ratio of the log change in detail to log change in scale of a signal\footnote{The coastline paradox is the observation that as you measure a coastline with increasingly smaller measuring sticks, the measured coastline length will increase. The \emph{fractal dimension} would measure the ratio of change in length as of the `stick' used to measure the coastline is made shorter.}~\cite{mandelbrot1967long}. A higher value implies a more complex signal, and the fractal dimension of an EEG signal with open vs closed eyes and normal vs epileptic states are observably smaller~\cite{eegfractal, seizuredimensions}. The fractal properties exhibited in neuronal control are reflected in heartbeat and gait~\cite{fractalgait} with force plate data from elderly and Parkinsonian subjects showing a significant increase in fractal dimension compared to healthy young subjects~\cite{hfdcop, fractalpd, fractalbalance}. Esteller et~al.~\cite{fractaldimensions} compares algorithms estimating the fractal dimension of signals.
 
-The \emph{Hurst} exponent characterises the autocorrelation or long-range dependence of a signal~\cite{hurst1965long}. For self-similar signals, the Hurst exponent relates directly to the fractal dimension. In general the measures are independent, with the Hurst exponent characterising the global rather than local properties of a signal~\cite{hurstfractal}. A Hurst exponent less than 0.5 characterises the signal `switching' between high and low values, 0.5 characterises random walk like behaviour, and values greater than 0.5 imply positive autocorrelation. Like fractal dimension, the Hurst exponent is a valuable tool in the analysis of gait and balance~\cite{duarte2000fractal}. Detrended Fluctuation Analysis (DFA) is essentially a generalisation of the Hurst exponent for non-stationary\footnote{Non-stationary systems are those with properties which evolve over time.} stochastic processes and has been applied in dysphonia diagnosis (\textit{\hyperref[dfadescription]{Section}} \ref{dfadescription}). Although DFA is the more robust measure, the disparity between the measures may reveal information on the dynamics of the system.
+The \emph{Hurst} exponent characterises the autocorrelation or long-range dependence of a signal~\cite{hurst1965long}. For self-similar signals, the Hurst exponent relates directly to the fractal dimension. In general the measures are independent, with the Hurst exponent characterising the global rather than local properties of a signal~\cite{hurstfractal}. A Hurst exponent less than 0.5 characterises the signal `switching' between high and low values, 0.5 characterises random walk like behaviour, and values greater than 0.5 imply positive autocorrelation. Like fractal dimension, the Hurst exponent is a valuable tool in the analysis of gait and balance~\cite{duarte2000fractal}. Detrended Fluctuation Analysis (DFA) is essentially a generalisation of the Hurst exponent for non-stationary\footnote{Non-stationary systems are those with properties which evolve over time. A grid-like, repetitive recurrence plot (\textit{\hyperref[recurplot]{Figure} \ref{recurplot}} is indicative of a stationary system, whereas curved patterns are signs of a non-stationary, chaotic system~\cite{facchini2005recurrence}} stochastic processes and has been applied in dysphonia diagnosis (\textit{\hyperref[dfadescription]{Section}} \ref{dfadescription}). Although DFA is the more robust measure, the disparity between the measures may reveal information on the dynamics of the system.
 
 \emph{Fisher Information} is a measure relating to the uncertainty of measuring a variable (signal) about the unknown parameters modelling its distribution~\cite{fisherentropy}. It is applicable in quantifying non-linear dynamics~\cite{fisherinfo} and is often applied in the analysis of EEG~\cite{martin1999fisherinfoeeg}. General entropy will not differentiate two sequences where the frequency of each variable is the same; however, the sequences 0,0,0,0,1,1,1,1 and 0,1,0,0,1,1,0,1 are clearly generated by different stochastic processes. \emph{Approximate} and \emph{sample entropy} are similar measures which aim to quantify this unpredictability in a signal~\cite{apsampentropy, apentropy}. The multi-scale sample entropy~\cite{multiscaleentropy} is especially powerful tool in the analysis of biological signals~\cite{samplegaitmulti, sampleheart}. Although these are a prominent feature in EEG analysis, they are rarely used in voice and movement analysis. 
 
@@ -1684,17 +1685,17 @@ We applied the most powerful model we had available, the FWLS ensemble (\textit{
 	\centering
 	\begin{tabular}{@{}rcccc@{}}
 		&  \specialcell{Cross\\Validation} & \specialcell{No Speech\\Difficulties} & \specialcell{\\Sakar} \\ \midrule
-		Accuracy [\%]    &  $75.4\pm2.7$ & $-$ &$85.7$\\ \midrule
-		Sensitivity [\%] &  $71.1\pm4.1$ & $-$ &$85.7$\\ \midrule
+		Accuracy [\%]    &  $75.4\pm2.7$ & $73.3\pm1.9$ &$85.7$\\ \midrule
+		Sensitivity [\%] &  $71.1\pm4.1$ & $73.3\pm1.9$ &$85.7$\\ \midrule
 		Specificity [\%] &  $79.7\pm4.6$ & $-$ &$-$   \\ \midrule
-		AUROC [\%]       &  $82.5\pm2.6$ & $-$ &$90.6$ \\ \midrule
+		AUROC [\%]       &  $82.5\pm2.6$ & $79.7\pm1.7$ &$90.6$ \\ \midrule
 		Total Subjects & 1716 & 86 & 28 \\ \midrule 
 	\end{tabular}
 \end{table}
 
 
 
-Surprisingly, there is no significant difference between the specificity when diagnosing participants with perceptible and imperceptible dysphonia. This implies that the features considered by machine learning models in performing diagnosis. The result on Sakar~et~al.~\cite{sakar2012} provides strong evidence that the mPower trained models are not overfitting, and generalise well to completely unseen data. The basis of these results will be explored in the following section.
+Surprisingly, there is no significant difference between the specificity when diagnosing participants with perceptible and imperceptible dysphonia. This implies that there must exist some features, or a combination of features which enable the models to distinguish participants with PD and no speech difficulties and control. Some of these features will be explored in the next section. The result on Sakar~et~al.~\cite{sakar2012} provides strong evidence that the mPower trained models are not overfitting, and generalise well to completely unseen data. 
 
 
 \subsection{Human Hearing vs Signal Processing}
