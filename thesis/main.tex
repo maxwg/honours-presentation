@@ -224,7 +224,7 @@ SmallCapsFeatures = {Letters     = SmallCaps,%
 
 
 \linespread{1.3}
-\parskip=12pt plus 2pt minus 1pt
+\parskip=12pt plus 1pt minus 2pt
 \frenchspacing
 % \raggedright
 
@@ -602,11 +602,12 @@ Although changes in speaking patterns (dysarthia) are very noticeable to human e
 The Interspeech 2015~\cite{compareis15pd} competition featured a sub-challenge where the extent of PD dysarthria (as rated by the UPDRS) was to be estimated based on sentence and word pronunciations. The challenge dataset consists of pronunciations of isolated words and sentences from 50 patients in a controlled environment with a professional grade microphone. The best performing papers in this sub-challenge only managed Pearson correlations of 0.4 to 0.64 against neurologist diagnosis~\cite{hahm2015parkinson,grosz2015assessingis15,williamson2015segment}.
 However recent works point to evidence that speech can be a powerful predictor with better signal processing approaches. Vasqeuz et~al.~\cite{vasquez2015automatic} enhanced noisy PD speech data using a technique proposed in Wang~et~al.~\cite{wang2007speechenhancement}, which decomposes speech into signal and noise subspaces. Orozco~et~al.~\cite{orozco2015voiced} showed that the transitions between voiced and unvoiced speech is a strong indicator of PD.
 
+\begin{highlight}
+	As dysarthria (speech) is difficult to quantify, dysphonia (vowel phonation) based signal processing methods currently show more promise.
+\end{highlight}
+
 \emph{Sustained vowel phonations} are the preferred method of quantifying dysphonia, generally through /aa/ phonation. Features developed specifically for dysphonia are based on the non-linear model of speech production~\cite{splittledysphonia2009, splittlenonlinear2007}. These features generally quantify the variation in each glottal cycle, relying on detection of the fundamental frequency ($f_0$). It should be noted that determining the $f_0$ from sustained vowel phonation is an inexact science~\cite{f0estimation}.
 
-\begin{highlight}
-As dysarthria (speech) is difficult to quantify, dysphonia (vowel phonation) based signal processing methods currently show more promise.
-\end{highlight}
 
 Early dysphonia analysis is based on variations of jitter, shimmer and the harmonics-to-noise ratio. \emph{Jitter}~ measures the variation in the length of each glottal cycle, and \emph{shimmer}~\cite{shimmerjitter,jittertime} the variation in amplitude (volume). The harmonics-to-noise ratio (\emph{HNR})~\cite{HNRintro} measures the amount of noise in a signal, which correlates with the `hoarseness' or `breathiness' from an incomplete closure of the glottis.  The Glottal to Noise Excitation (\emph{GNE}) ratio was introduced by Michaelis~et.al~\cite{gne} and is a more robust measure of dysphonia than HNR~\cite{gneratio}. 
 
@@ -742,7 +743,9 @@ This section summarises all the features which are used in the construction of t
 \begin{longtable}{r p{114mm}}
 \caption{Features and techniques which are applicable to any signal processing problem.}\\
 \multicolumn{2}{c}{\specialcellbold{General Signal Processing}} \\
-\toprule
+\midrule
+Name & Description \\
+\midrule
 Moments & Statistical features --- mean, variation, skewness, kurtosis, etc.\\
 Crossing Rate & Rate the signal oscillates around a value --- usually zero or the mean.\\
 \specialcellright{Information\\ \hspace{1em}Theoretic} & Entropy, mutual information, cross-correlation and related measures based on the information content of signal. \\
@@ -750,7 +753,7 @@ Spectral Flux & Rate at which the power spectrum changes\\
 Fourier & Transforms the signal from time domain to frequency/spectral domain. Quantifies the \textit{power} of a signal at a given frequency.\\
 Wavelet & A variation of the Fourier transform with a different bases, allowing it to quantify both time and frequency\\
 \specialcellright{\hspace{3em}Energy\\Operators~\cite{tkeo}}& Quantifies the instantaneous amplitude and frequency of a signal. Common operators are Teager-Kaiser (TKEO) and Squared (SEO) \\
-\bottomrule 
+\midrule 
 \end{longtable}
 
 \begin{longtable}{r p{114mm}}
@@ -777,7 +780,7 @@ PPE~\cite{splittledysphonia2009} & Measures the stability of pitch in sustained 
 \specialcellright{\hspace{1.3em}Interspeech\\ComParE~\cite{compareis13featureset}} & An exhaustive 6,368 feature set for general speech classification~\cite{ostextbook}. Feature/dimensionality reduction generally improves performance unless data is plentiful.
 %\\\specialcellright{Hammarberg\\ \hspace{0.2em} Index~\cite{hammarberg1980perceptual}} & The ratio of the strongest energy peak from 0-2kHz versus 2-5kHz. The \textit{Alpha Ratio} is similar, measuring the largest peak 50Hz-1kHz versus 1kHz-5kHz.\\
 \\
-\bottomrule
+\midrule
 \end{longtable}
 
 
@@ -791,7 +794,7 @@ Jerk~\cite{jerkfeature} & The change in acceleration. The jerk signal may be mor
 \specialcellright{Cadence\\Measures} & The steps per minute, variation in time taken for each step, difference between left and right stride times.\\
 \specialcellright{\hspace{1em}Stride\\Measures} & The length of each step and variation in step lengths. This was not measured as leg length is not available in the dataset used~\cite{diaz2014step}.
 \\ 
-\bottomrule
+\midrule
 \end{longtable}
 
 
@@ -809,7 +812,7 @@ Jerk~\cite{jerkfeature} & The change in acceleration. The jerk signal may be mor
 \specialcellright{Spectral\\Entropy} & Measures the regularity of the spectral (frequency) distribution. A high spectral entropy implies sharp differences in frequencies present in the signal.\\
 \specialcellright{\hspace{2.9em}SVD\\Entropy~\cite{svdentropy}} & A measure of complexity. The entropy of the singular values of the signal after applying the time delay embedding method~\cite{rosenstein1993practicallyapunov}.
 \\
-\bottomrule
+\midrule
 \end{longtable}
 
 
@@ -823,8 +826,7 @@ Fundamentally, the goal of machine learning is to use past data to make accurate
 
 Machine Learning tasks can be classified as classification or regression, and supervised or unsupervised. Classification involves predicting the \textit{class} of a datapoint --- for instance, distinguishing PD from control --- whereas regression involves predicting a numerical value, such as the UPDRS motor scores. In supervised learning, the data is \textit{labelled} with the ground truth --- i.e, whether the patient has PD --- whereas an unsupervised model must find patterns in the data without any prior knowledge. This section will focus specifically on \emph{supervised binary classification} (two classes). 
 
-
-Supervised binary classification can be viewed as `learning' a model which given a set of numerical input features, predicts a class 0 or 1. This can be visualised as a function $f : \mathbb{R}^d \mapsto \{0,1\}$ where $d$ is the number of features used in the model. The edge where the $f$ transitions from zero to one is denoted the decision boundary (or `hyperplane') which partitions the data into the two classes. 
+Supervised binary classification can be viewed as `learning' a model which given a set of numerical input features, predicts a class 0 (control) or 1 (PD). This can be visualised as a function $f : \mathbb{R}^d \mapsto \{0,1\}$ where $d$ is the number of features used in the model. The edge where the $f$ transitions from zero to one is denoted the decision boundary (or `hyperplane') which partitions the data into the two classes. 
 
 
 \begin{figure}[h]
@@ -1060,7 +1062,12 @@ Cross validation (\emph{CV}) has become the de-facto standard in machine learnin
 
 
 
-In summary, we will be performing 10 fold cross-validation with random stratification\footnote{\emph{Stratification} involves ensuring there are an equal number of classes in each set. In this case, people with and without PD. } repeated 10 times. This results in a set of 100 accuracy values after taking the mean accuracy of each fold of cv for each model. The same stratification sets are used, and Bayes factor~\cite{bayesianttests} is used to test if the mean performance of one model is greater than the other. This decision will be justified in the next section with more background into model selection and hypothesis testing provided.
+In summary, we will be performing 10 fold cross-validation with random stratification\footnote{\emph{Stratification} involves ensuring there are an equal number of classes in each set. In this case, people with and without PD. } repeated 10 times. This results in a set of 100 accuracy values after taking the mean accuracy of each fold of cv for each model. The same stratification sets are used, and Bayes factor~\cite{bayesianttests} is used to test if the mean performance of one model is greater than the other. This decision will be justified in the following section with more background into model selection and hypothesis testing provided.
+
+
+Consider three models: $A$ which achieves 80\% accuracy, $B$ with 81\% and $C$ both 81\%. $B$ is strictly dominant to $A$, correctly classifying all of $A$'s successes and additionally some of its failures. $C$ has a very different set of successes and failures to $A$. Our Bayesian approach to model selection distinguishes the two cases, with $B$ obtaining the more significant result as it is more likely due to an improvement in the model rather than chance.
+
+
 
 \subsubsection{Model Selection and Hypothesis Testing}
 \label{msht}
@@ -1070,7 +1077,7 @@ There are a number of catches when performing cross validation. Importantly, CV 
 
 Overfitting cross-validation is difficult to detect without additional data and is a major issue in small datasets. A common approach is to take a subset of data as the `test' data which remains unseen in hyperparameter optimisation, however this is infeasible when there is not enough data to create a test set large enough for results to be meaningful. Ng~(1997)~\cite{overfittingcv} proposes an algorithm to select from a number of competing hypothesis. Repeating k-fold CV with different division of folds can also reduce the likelihood of models overfitting CV by chance. Bouckaert~(2003)~\cite{bestcvempirical} recommends 10 fold CV repeated 10 times after extensive empirical testing.
 
-Accuracy is the most basic and intuitive measure of performance, however it has been the subject of a number of criticisms. Firstly, it is susceptible to the false positive paradox\footnote{The false positive paradox occurs when there is a very low incidence of a positive results in the target population. For example, when only 1\% of the population suffer from PD, a model which only predicts `no PD' will be completely uninformative yet perform better than any model which predicts PD sometimes.} and may not be a good representation of a model's effectiveness in difficult tasks. \emph{Sensitivity} or \emph{recall} is a measure of the proportion of positive classes correctly identified and \emph{specificity} measures the proportion of correctly identified negative examples. \emph{Precision} is occasionally used instead of specificity in the machine learning community, measuring the proportion of correctly identified positive examples over all positive predictions. The \emph{$F_1$ score} is the harmonic mean of sensitivity and precision and is an more effective measure of model performance when classes are unbalanced. 
+Accuracy is the most basic and intuitive measure of performance, however it has been the subject of a number of criticisms. Firstly, it is susceptible to the false positive paradox\footnote{The false positive paradox occurs when there is a very low incidence of a positive results in the target population. For example, when only 1\% of the population suffer from PD, a model which only predicts `no PD' will be completely uninformative yet perform better than any model which predicts PD sometimes.} and may not be a good representation of a model's effectiveness in difficult tasks. Sensitivity or recall is a measure of the proportion of positive classes correctly identified and specificity measures the proportion of correctly identified negative examples. Precision is occasionally used instead of specificity in the machine learning community, measuring the proportion of correctly identified positive examples over all positive predictions. The $F_1$ score is the harmonic mean of sensitivity and precision and is an more effective measure of model performance when classes are unbalanced. 
 
 \begin{table}[h]
 	\caption{A summary of common performance measures used in machine learning and statistics literature.}
@@ -1116,7 +1123,6 @@ Hypothesis tests are used to determine if the results obtained in experiments ar
 \end{tabular}
 \end{table}
 
-
 In statistics, there is no agreed upon method for model selection and evaluation. Penalization based evaluation\footnote{\emph{Penalization} based model criteria are inspired by Occam's razor, preferring simple models over complex ones which as they are less likely to overfit.}  criteria such as Akaline/Bayesian/General Information Criterion~\cite{aicbic,generalinfocriteriongic} and Minimum Description Length~\cite{mindescriptionlength} are common model selection techniques. However these are less suitable for machine learning as it is difficult to quantify the complexity of model such as neural networks. Cross validation is therefore the only feasible technique to compare completely different models. 
  
 
@@ -1132,13 +1138,13 @@ Cross validation results should not be interpreted as real world generalisabilit
 
 \chapter{Our Work}
 \label{ourwork}
-Although there is a rich selection of prior work in PD diagnosis with machine learning, the lack of a standard dataset and methods limits the comparability of different studies. There have been two large scale literature reviews, Alhrics et~al.~(2013)~\cite{review2013} and Bind et~al.~(2015)~\cite{review2015}. In these reviews it is apparent that multiple sub-fields exist and research is often confined in its own sub-field. For example, the top papers in the Interspeech 2015 PD speech challenge~\cite{compareis15pd} used methods independent of the dysphonia feature engineering previously done for PD. Research also rarely considers the results of works completed in challenges such Interspeech or Michael J. Fox Foundation Parkinson's data challenges~\cite{mjfoxchallenge2013}. It is common to find a paper failing to cite prior work which performs the same experiments. A goal of this thesis is to consolidate and distil prior work into a easily digestible format. 
+Although there is a rich selection of prior work in PD diagnosis with machine learning, the lack of a standard dataset and methods limits the comparability of different studies. There have been two large scale literature reviews, Alhrics et~al.~(2013)~\cite{review2013} and Bind et~al.~(2015)~\cite{review2015}. In these reviews it is apparent that multiple sub-fields exist and research is often confined within its own sub-field. For example, the top papers in the Interspeech 2015 PD speech challenge~\cite{compareis15pd} used methods independent of the dysphonia feature engineering previously done for PD. Research also rarely considers the results of works completed in challenges such Interspeech or Michael J. Fox Foundation Parkinson's data challenges~\cite{mjfoxchallenge2013}. It is common to find a paper failing to cite prior work which performs the same experiments. A goal of this thesis is to consolidate and distil prior work into a easily digestible format. 
 
 \begin{highlight}
 Multiple sub-fields exist in PD literature and research is often isolated within a sub-field.
 \end{highlight}
 
-Although prior works have reported good results, it is difficult to determine if these results are caused by biases in the dataset or overfitting. With any field based on empirical statistics, a publication bias exists~\cite{publicationbias} and there will exist results which are not replicable~\cite{replicability}. Section \ref{detectoverfit} details measures to avoid overfitting and evaluate models however their implementation is uncommon in applied machine learning literature. 
+Although prior works have reported good results, it is difficult to determine if these results are caused by biases in the dataset or overfitting. With any field based on empirical statistics, a publication bias exists~\cite{publicationbias} and there will exist results which are not replicable~\cite{replicability}. \textit{\hyperref[detectoverfit]{Section}} \ref{detectoverfit} details measures such as significance testing to reliably evaluate models however their implementation is uncommon in machine learning literature. 
 
 The variation of results on experiments with very similar setups shines doubt on the replicability of results for some of the best performing papers. Arora~et~al.~(2014)~\cite{arora2014high} achieves 98.0\% accuracy using smartphone IMU data from 20 participants. Zhan~et~al.~(2016)~\cite{zhan2016high} performs an experiment using all features in Arora~et~al.~(2014) as well as additional speech and tapping measures however only manages 71\% accuracy. Furthermore, the state of the in motion mode recognition rarely achieves such results despite the motion mode recognition likely being the `easier' task~\cite{motionmoderecognition}. 
 
@@ -1875,6 +1881,8 @@ There were many ideas developed in the process of completing this project, and o
 
 Parkinson's disease motor symptoms are often presented asymmetrically, with studies showing 86\% of patients exhibit different symptoms on different sides of their body~\cite{pdasymmetry}. The biological mechanisms are not well understood~\cite{djaldetti2006mystery}, however asymmetry in symptoms may be able to help differentiate Parkinson's disease from other similar disorders. With smartphone based data, measuring asymmetry would require repeated tests while holding the smartphone with either hand. The second DREAM PD biomarker subchallenge involves patients wearing a smart watch on both hands while performing everyday tasks.
 
+We also explored some feature engineering work in the Interspeech challenges which focus on tasks such as emotion recognition and speaker trait recognition~\cite{is2009}. The features and approaches to these challenges are undoubtedly relevant to PD diagnosis via speech. In our limited exploration of the Geneva~\cite{geneva} and ComParE~\cite{is2013} feature sets, we obtained signficiantly better results for 
+
 %active learning...? differntiation of PD and parkinsonian.
 
 There is much more work to be done, and it is important that it is done in an open manner. Progress should be measured on standardised datasets, allowing for empirical comparisons between techniques. The actual numbers should not matter --- only that a performance increase has been observed. One of the biggest advantages of machine learning is that many basic methods can be ensembled into a high performing model with minimal effort~\cite{netflixprizebellkor}. Releasing code publicly so results can be easily replicated or extended will also be important in accelerating the field. Methods are becoming more complex and it can be very difficult to concisely summarise them in research paper format.
@@ -1924,18 +1932,10 @@ After developing the infrastructure for a reliable model to diagnose Parkinson's
 \section{A Finishing Note}
 We advocate that measures such as accuracy and AUROC should be used for the purposes of model selection and not interpreted as the ability of a model to generalise to the real world or to different datasets. Machine learning for Parkinson's disease is still in its early stages, and controlling for dataset quality and ensuring a representative sample of the population at this stage would slow progress.
 
-The importance of significance testing and careful cross validation to prevent overfitting should also be evident. As machine learning models continually improve, the benefits from improvements will become less significant. As improvements become more marginal, testing that an increase in performance is due to the improvement rather than natural variance in the machine learning model's predictive power will become necessary. Consider three models: $A$ which achieves 80\% accuracy, $B$ with 81\% and $C$ both 81\%. $B$ is strictly dominant to $A$, correctly classifying all of $A$'s successes and additionally some of its failures. $C$ has a very different set of successes and failures to $A$. Our Bayesian approach to model selection distinguishes the two cases, with $B$ obtaining the more significant result as it is more likely due to an improvement in the model rather than chance.
+The importance of significance testing and careful cross validation to prevent overfitting should also be evident (\textit{\hyperref[detectoverfit]{Section}} \ref{detectoverfit}). As machine learning models continually improve, the benefits from improvements will become less significant. As improvements become more marginal, testing that an increase in performance is due to the improvement rather than natural variance in the machine learning model's predictive power will become necessary. 
 
+You may have noticed that we discarded more than half of the mPower dataset to obtain a 50/50 stratification of PD and control in the models we have trained. We have also demonstrated the power of automatic feature engineering, however have not applied it to our results. The goal of this thesis is not to present the best possible results, but rather to demonstrate the applicability of each individual approach. Machine learning enables us to  
 
-
-You may have noticed that we discarded more than half of the mPower dataset to obtain a 50/50 stratification of PD and control in the models we have trained. We have also demonstrated the power of automatic feature engineering, however have not applied it to our results. These were conscious decisions made out of 
-
-This thesis isn't a presentation of the best-possible result, whose interpretation is meaningless and sub
-
-
-
-
-WE DIDNT GET TO EXPLORE EGENEVA OR COMPARE EMOTION RECOGNITION.
 
 
 
